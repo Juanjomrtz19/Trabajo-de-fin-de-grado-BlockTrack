@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --color-azulOscuro: #231651;
+    --color-grisOscuro: #2D2D2D;
+    --color-turquesaClaro: #D6FFF6;
+    --color-rojoSalmon: #FF8484;
+    --color-azul: #2374AB;
+    --color-turquesa: #4DCCBD;
+    --color-negro: #1A1A1A;
+    --color-blanco: #FFFFFF;
+  }
