@@ -2,7 +2,7 @@ import GlobeNetwork from "../components/home/GlobeNetwork";
 
 const Home = () => {
     return(
-        <div className="min-h-screen flex flex-col">
+        <div className="pt-10 lg:pt-0 lg:min-h-screen flex flex-col">
         <section className="relative flex-grow flex justify-center items-center lg:bg-gray-200">
             <GlobeNetwork/>
             <div className="prose p-4">

@@ -6,10 +6,11 @@ interface MyCardRegisterProps {
     description: string;
     color: string;
     icon: ReactNode;
+    to: string;
 }
 
 
-const CardRegister = ({title, description, color, icon}: MyCardRegisterProps) => {
+const CardRegister = ({title, description, color, icon, to}: MyCardRegisterProps) => {
     
     const bgColor = `color-mix(in oklab, ${color} 50%, transparent)`;
 
@@ -22,7 +23,7 @@ const CardRegister = ({title, description, color, icon}: MyCardRegisterProps) =>
             <p >{description}</p>
             <div className="w-full flex items-center justify-center">{icon}</div>
             <div className="flex justify-center w-full pt-4"><ButtonRegister text="Registrate aquí" 
-            to={`register${title}`}/></div>
+            to={to}/></div>
 
         </div>
     );
