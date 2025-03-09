@@ -8,9 +8,9 @@ const Camion = () => {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         stroke="black"
-        stroke-width="5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         >
             <rect x="10" y="40" width="120" height="50" fill="none" stroke="black"/>
             
