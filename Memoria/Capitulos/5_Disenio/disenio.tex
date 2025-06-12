@@ -1,0 +1,115 @@
+\raggedbottom
+\chapter{Diseño}
+\section{Arquitectura software}
+Elegir bien la arquitectura que se va a utilizar en un proyecto de ingeniería de software como este es de vital importancia, ya que la elección de una arquitectura inadecuada puede llegar a crear insatisfacción en el cliente final.
+
+En este sistema el cliente se comunicará con la base de datos mediante la implementación de una API Rest, un esquema para representar esta idea sería:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/Disenio/esquemaArquitecturaSoft.png}
+    \caption{Arquitectura software}
+    \label{fig:arquitectura-software}
+\end{figure}
+
+Sin embargo este proyecto tiene un objetivo prioritario, el uso de la tecnología blockchain para registrar la información sensible como quien es el encargado de entregar un pedido de un enviador a un receptor. \\
+
+Según el estudio \textbf{A Survey on the Integration of Blockchains and Databases} hay tres arquitecturas que podriamos utilizar para dar una solución al problema de este proyecto:
+\begin{itemize}
+    \item \textbf{Blockchain orientada a base de datos:} Añade características de las bases de datos como  modelo relacional o índices y consultas eficientes entre otras a la red blockchain.
+    \item \textbf{Base de datos orientada a blockchain:} Añade características de blockchain a una base de datos tales como inmutabilidad o consenso distribuido entre otras a la base de datos.
+    \item \textbf{Sistemas híbridos:} Integracion equilibrada entre ambos modelos donde la idea es utilizar una base de datos para operaciones comunes y blockchain para información crítica de la lógica de negocio.
+\end{itemize}
+
+Para este caso se ha escogido el enfoque de \textbf{Sistema híbrido} debido a que es más fácil de implementar ya que no es necesario conocimientos avanzados en desplegar y configurar blockchain desde cero además se ha demostrado que esto se puede conseguir con casos de éxito como \href{https://github.com/ChainSQL/chainsqld}{chainsql}.\\
+
+Por lo el esquema de la arquitectura final sería este:
+
+
+\section{Tecnologías usadas}
+\subsection{Para el frontend}
+Las tecnologías más famosas en el mercado para desarrollar intefaces de usuario atractivas y dinámicas son:
+\begin{itemize}
+    \item \textbf{JavaScript, HTML Y CSS vanilla:} Te permite tener un control total y libertad sobre el código y un rendimiento óptimo sin embargo requiere de un mayor esfuerzo y conocimiento en tareas complejas, código repetitivo y una difícil mantenibilidad del código en el futuro.
+    \item \textbf{Vue.js:} Vue es un framework de JavaScript utilizado para construir interfaces de usuario siguiendo los estándares de HTML, CSS y JavaScript. Destaca por su buen rendimiento, ya que su código es compilado, y por su escalabilidad. Además, es compatible con multitud de bibliotecas que permiten extender sus funcionalidades. \href{https://vuejs.org}{Vue.js} Otra
+gran ventaja de vue es su facilidad de aprender y utilizar.
+    \item \textbf{Angular:} Angular es un framework que ayuda al desarrollo de aplicaciones escalables y con una gran comunidad lo que facilita la consulta de información sobre funcionalidades de esta tecnología. Es un framework completo que ofrece una estructura rovusta para aplicaciones más complejas. \hyperlink{Angular}{https://angular.dev}, este posee una curva de aprendizaje más difícil para personas que se esten iniciando en este ecosistema.
+    \item \textbf{React:} React a diferencia de las tecnologías mencionadas anteriormente no es un framework si no una biblioteca para construir interfaces de usuario dinámicas. Te permite la creación de componentes reutilizables a lo largo de todo el frontend, posee de una gran comunidad y componentes ya creados por otros programadores que pueden ser utilizados en otros proyectos y un rendimiento optimizado. \hyperlink{React}{https://react.dev}
+    \item \textbf{Astro:} Astro es un framework de javaScript optimizado para construir webs rápidas. Astro mejora el rendimiento de los sitios webs renderizando el contenido en el servidor y enviando html liviano sin cargar javaScript innecesario, es orientado al contenido del que lo utiliza ya sea cargando los datos desde una API externa, CMS o sistema de archivos y es personalizable a la hora de extenderse con herramientas como componentes, temas,... \hyperlink{Astro}{https://astro.build}.
+\end{itemize}
+
+La tecnología seleccionada para el desarrollo del frontend es React, ya que se adapta perfectamente a las necesidades del proyecto. Esta librería permite construir interfaces de usuario altamente dinámicas e interactivas, lo cual es fundamental en esta aplicación, dado que la mayoría de las páginas gestionarán contenido en tiempo real y requerirán una actualización constante del estado de la información. También ha ayudado a esta elección el conocimiento ya sabido de esta biblioteca y como utilizarla.
+
+\subsubsection{Frameworks CSS}
+El empleo de un framework CSS puede mejorar la rapidez con la que se estilan las distintas páginas de la aplicación. Ejemplos de estos frameworks son \hyperlink{TailwindCSS}{https://tailwindcss.com} y \hyperlink{Bootstrap}{https://getbootstrap.com}. Este tipo de frameworks facilitan el desarrollo de estilos predefinidos y la posibilidad de poder reutilizar fácilmente estilos en distintas partes de la aplicación. 
+
+En este proyecto se ha optado por utilizar TailwindCSS, ya que permite aplicar estilos de forma granular y con mayor control sobre el diseño. A diferencia de Bootstrap, que proporciona componentes ya estilizados y tiende a generar interfaces visualmente similares entre distintas aplicaciones, TailwindCSS permite una mayor personalización, lo que se ajusta mejor a los objetivos de este proyecto.
+
+\subsubsection{Testing}
+Existen varias herramientas que permiten asegurarnos que el código se comporta correctamente en distintas situaciones en react. Las más famosas son:
+\begin{itemize}
+    \item \textbf{PlayWrith:} Es una herramienta creada por microsoft y es utilizado para pruebas de extremo a extremo mas conocidas como \textbf{E2E} permitiendo simular un comportamiento real de un usuario en navegadores modernos actuales. Tiene una curva de aprendizaje pronunciada y no es ideal para lógica interna de la aplicación si no para un comportamiento completo de la aplicación en un navegador. \hyperlink{PlayWrith}{https://playwright.dev}
+    \item \textbf{Jest:} Es un framework de testing creado por meta. Es el más popular para testear aplicaciones React (mencionandose en la propia documentación oficial) y se usa principalmente para test unitarios. Su filosofía se centra en la velocidad y simplificidad funcionando muy bien con bibliotecas como react testing library. \hyperlink{Jest}{https://jestjs.io}
+    \item \textbf{Cypress:} Es un framework de testing para pruebas de extremo a extremo que permite testear aplicaciones web directamente en el navegador. Es popular por su interfaz visual interactiva y amigable para escribir, ejecutar y depurar pruebas de manera eficiente.
+\end{itemize}
+
+Después de evaluar las distintas herramientas de testing disponibles, se ha optado por utilizar Jest para las pruebas unitarias debido a su excelente integración con React, y Cypress para las pruebas de extremo a extremo, gracias a su interfaz gráfica intuitiva. Esta combinación permitirá cubrir tanto la lógica interna de los componentes como el comportamiento completo de la aplicación desde la perspectiva del usuario final, facilitando además el aprendizaje al no requerir experiencia previa en testing.
+
+\newpage
+\subsection{Para el backend}
+En el ámbito de servidor existen varios lenguajes como Java, JavaScript, PHP, Python, entre otros, que permitirán programar la lógica de negocio de la aplicación. Para el backend del proyecto se ha decidido utilizar el lenguaje typeScirpt \hyperlink{TypeScript}{https://www.typescriptlang.org}, que es una alternativa a javaScript la cual le añade tipado estático que ayuda a prevenir errores antes de ejecutar el código.Se ha elegido este lenguaje para así unificar el lenguaje de programación tanto en el frontend como en el backend, lo que facilita un desarrollo más fluido, coherente y mantenible.
+
+Antes de continuar explicando las distintas opciones de frameworks que hay disponibles con typeScript para el backend, cabe recalcar que estos se ejecutaran sobre nodeJS \hyperlink{NodeJs}{https://nodejs.org/en} que es un entorno para ejecutar código javaScript o typeScript fuera del navegador lo que nos permite crear APIs para el backend.
+
+Los frameworks más populares son:
+\begin{itemize}
+    \item \textbf{NestJS}: Es un framework backend para NodeJs que permite crear aplicacion escalables y bien estructuradas con typeScript. Es ideal para proyectos grandes ya que sigue principios como modularidad, inyección de dependencias y decoradores. \hyperlink{NestJS}{https://nestjs.com}
+    \item \textbf{ExpressJS}: Es un framework para NodeJs que permite crear aplicaciones web y APIs de forma sencilla y rápida. Debido a su facilidad de uso, rendimiento y la cantidad de middleware disponible lo hacen uno de los frameworks más populares. \hyperlink{ExpressJs}{https://expressjs.com}
+\end{itemize}
+
+Se ha decido utilizar expressjs por experiencia previa en proyectos utilizando esta tecnología agilizando la implementación ya que no sería necesario aprender una tecnología.
+
+\subsubsection{Testing}
+Para hacer las pruebas de testing se hará uso del framework jest que se explicó en el apartado anterior.
+
+\newpage
+\subsection{Base de datos}
+Para saber que opción coger hay que diferenciar los dos principales tipos de base de datos que hay:
+\begin{itemize}
+    \item \textbf{Bases de datos relacionales}: Son un tipo de base de datos que almacenan los datos en formato de tabla, es decir organizan los datos en filas y columnas. Donde cada fila hace referencia a un registro con un ID único y cada columna hace referencia a un atributo de cada registro. Las bases de datos relaciones facilitan la creación de relación entre las distintas entidades de datos. \url{https://www.oracle.com/es/database/what-is-a-relational-database/}
+    \item \textbf{Bases de datos no relacionales}: Este tipo de base de datos almacenan datos de forma diferente al formato de tablas mencionado. Utilizan su propio esquema para almacenar los datos y escalan fácilmente con grandes cantidades de datos y cargas de usuario. En este tipo de base de datos es mas complicado gestionar las relaciones entre entidades aumentando la complejidad en consultas complejas en las que esten implicadas relaciones. 
+    \url{https://www.mongodb.com/es/resources/basics/databases/nosql-explained}
+\end{itemize}
+
+\subsubsection{Tipo y GDBD elegido}
+Se ha decidido utilizar una base de datos relacional por la experiencia en el diseño relacional y utilización del lenguaje SQL. Además encaja a la perfección en este proyecto ya que están definidos claramente una serie de entidades las cuales tienen relaciones entre sí. Gestionar esto en una base de datos noSQL puede acaparar más complejidad.
+
+Los principales gestores de bases de datos relacionales son:
+\begin{itemize}
+    \item \textbf{MySQL}: Es el sistema gestor de bases de datos de código abierto más popular en el mundo debido a su rendimiento, fiabilidad y facilidad de uso. \href{Mysql}{https://www.mysql.com} \href{https://www.oracle.com/es/mysql/what-is-mysql/}{Mysql en oracle}
+    \item \textbf{PostgreSQL}: Es también de código abierto y es conocido por su potencia, estabilidad y cumplimiento del estándar SQL. En consultas complejas puede tener menos rendimiento que en MySQL pero ofrece características como tipos de datos complejos.\href{https://www.postgresql.org/about/}{PostgreSQL}
+\end{itemize}
+Debido a las características del proyecto, una curva de aprendizaje más sencilla y a la buena integración que tiene con nodeJS y express se ha decidido utilizar mySQL.
+
+\subsubsection{Diagrama Entidad - Relación}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/Disenio/diagrama E-R.png}
+    \caption{Diagrama de entidad-relación}
+    \label{fig:entidad-relación}
+\end{figure}
+
+\subsubsection{Paso a tablas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/Disenio/pasoATablasDiagrama.png}
+    \caption{Diagrama de paso a tablas}
+    \label{fig:paso-a-tablas}
+\end{figure}
+
+\subsection{Control de versiones}
+El control de versiones permitirá preservar la integridad del código fuente y evitar su pérdida ante posibles errores o modificaciones accidentales. Además, facilitará un desarrollo más organizado, seguro y eficiente, permitiendo llevar un historial detallado de los cambios realizados. Para ello, se utilizarán herramientas como Git para la gestión de versiones local y GitHub como plataforma de alojamiento remota.
+\subsubsection{Git}
+Git es un sistema de control de versiones distribuido  para gestionar cualquier tipo de proyecto ya sea grande o pequeño con eficiencia y velocidad. \href{https://git-scm.com}{GIT}
+\subsubsection{GitHub}
+Github es una plataforma basada en la nube donde se puede almacenar, compartir y trabajar con otros usuarios para desarrollar código. Este software esta basado y sirve como apoyo a GIT. \href{https://docs.github.com/es/get-started/start-your-journey/about-github-and-git}{GitHub}.
+
