@@ -1,0 +1,47 @@
+# Ignorar toda la carpeta Disenio
+Disenio/
+
+# Ignorar dependencias de frontend
+Proyecto/frontend/node_modules/
+Proyecto/frontend/dist/
+Proyecto/frontend/build/
+
+# Ignorar dependencias de backend
+Proyecto/backend/node_modules/
+Proyecto/backend/dist/
+Proyecto/backend/build/
+
+# Ignorar ficheros de entorno
+Proyecto/frontend/.env
+Proyecto/backend/.env
+
+# Ignorar logs generales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ignorar ficheros del sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Ignorar ficheros del editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignorar temporales de LaTeX de la memoria
+Memoria/*.aux
+Memoria/*.log
+Memoria/*.out
+Memoria/*.toc
+Memoria/*.pdf
+Memoria/*.synctex.gz
+
+# Otros temporales generales
+*.tmp
+*.swp
