@@ -2,18 +2,19 @@
 Disenio/
 
 # Ignorar dependencias de frontend
-Proyecto/frontend/node_modules/
-Proyecto/frontend/dist/
-Proyecto/frontend/build/
+BlockTrack/frontend/node_modules/
+BlockTrack/frontend/dist/
+BlockTrack/frontend/build/
 
 # Ignorar dependencias de backend
-Proyecto/backend/node_modules/
-Proyecto/backend/dist/
-Proyecto/backend/build/
+BlockTrack/backend/node_modules/
+BlockTrack/backend/dist/
+BlockTrack/backend/build/
+BlockTrack/backend/prisma
 
 # Ignorar ficheros de entorno
-Proyecto/frontend/.env
-Proyecto/backend/.env
+BlockTrack/frontend/.env
+BlockTrack/backend/.env
 
 # Ignorar logs generales
 *.log
