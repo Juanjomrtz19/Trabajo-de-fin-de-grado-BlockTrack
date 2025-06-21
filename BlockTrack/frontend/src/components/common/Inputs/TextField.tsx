@@ -1,0 +1,45 @@
+import React from "react";
+
+interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  className?: string;
+  errorMessage?: string;
+}
+
+const TextField: React.FC<TextFieldProps> = ({
+  label,
+  className = "",
+  errorMessage,
+  ...props
+}) => {
+  const hasError = Boolean(errorMessage);
+
+  return (
+    <div className="mb-4">
+      {label && (
+        <label className="block mb-2 text-sm font-medium text-text">
+          {label}
+        </label>
+      )}
+
+      <div className="relative">
+        <input
+          className={`
+            w-full p-2 border rounded 
+            ${hasError ? "border-error-light" : ""} 
+            ${className}
+          `}
+          {...props}
+        />
+
+        {hasError && (
+          <p className="absolute top-full mt-1 text-error-light text-xs left-0">
+            {errorMessage}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default TextField;
