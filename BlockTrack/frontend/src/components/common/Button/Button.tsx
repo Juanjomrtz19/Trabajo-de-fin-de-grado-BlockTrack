@@ -11,9 +11,11 @@ const Button: React.FC<ButtonProps> = ({
   children,
   variant = "primary",
   mode = "light",
+  disabled = false,
   ...props
 }) => {
-  const baseClasses = "px-4 py-2 rounded font-medium transition-colors";
+  const baseClasses =
+    "px-4 py-2 rounded font-medium transition-colors duration-200";
 
   const variantMap: Record<string, Record<string, string>> = {
     light: {
@@ -32,9 +34,14 @@ const Button: React.FC<ButtonProps> = ({
 
   const variantClasses = variantMap[mode][variant];
 
+  const disabledClasses = "opacity-50 cursor-not-allowed";
+
   return (
     <button
-      className={`cursor-pointer ${baseClasses} ${variantClasses} ${className}`}
+      className={`cursor-pointer ${baseClasses} ${variantClasses} ${
+        disabled ? disabledClasses : ""
+      } ${className}`}
+      disabled={disabled}
       {...props}
     >
       {typeof children === "string" ? children.toUpperCase() : children}

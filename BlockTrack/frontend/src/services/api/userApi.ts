@@ -1,7 +1,11 @@
 // src/services/api/userApi.ts
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "./base";
-import type { RegisterUserPayload } from "../../types/User";
+import {
+  type User,
+  type LoginUserPayload,
+  type RegisterUserPayload,
+} from "../../types/User";
 
 export const userApi = createApi({
   reducerPath: "userApi",
@@ -14,7 +18,27 @@ export const userApi = createApi({
         body: userData,
       }),
     }),
+
+    loginUser: builder.mutation<any, LoginUserPayload>({
+      query: (userData) => ({
+        url: "/users/login",
+        method: "POST",
+        body: userData,
+      }),
+    }),
+
+    getMe: builder.query<User, void>({
+      query: () => ({
+        url: "/users/me",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useRegisterUserMutation } = userApi;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useGetMeQuery,
+  useLazyGetMeQuery,
+} = userApi;

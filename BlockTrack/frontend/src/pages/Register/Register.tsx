@@ -93,7 +93,6 @@ const Register = () => {
       await registerUser(body).unwrap();
       toast.success("Account created!");
     } catch (err) {
-      console.log("entro en el error");
       toast.error("Something went wrong");
     } finally {
       navigate("/login");

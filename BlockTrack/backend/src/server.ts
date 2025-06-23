@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRoutes from "./routes/user";
+import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
@@ -13,6 +14,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(cookieParser());
 
 app.use(express.json());
 

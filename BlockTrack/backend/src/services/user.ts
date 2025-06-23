@@ -63,12 +63,33 @@ export const loginUser = async (email: string, password: string) => {
     throw new Error("Credenciales inválidas");
   }
 
-  // Generamos el token
   const token = jwt.sign(
-    { dni: user.dni, email: user.email, role: user.role },
+    {
+      dni: user.dni,
+      email: user.email,
+      role: user.role,
+      firstName: user.name,
+      lastName: user.lastName,
+      phone: user.phone,
+    },
     JWT_SECRET,
     { expiresIn: "1h" }
   );
 
-  return { token };
+  return token;
+};
+
+export const verifyToken = (token: string) => {
+  try {
+    return jwt.verify(token, JWT_SECRET) as {
+      dni: string;
+      email: string;
+      role: Role;
+      firstName: string;
+      lastName: string;
+      phone: string;
+    };
+  } catch (err) {
+    throw new Error("Invalid token");
+  }
 };
