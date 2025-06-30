@@ -32,6 +32,15 @@ export const userApi = createApi({
         url: "/users/me",
         method: "GET",
       }),
+      transformResponse: (response: { user: User }) => response.user,
+    }),
+
+    updateUser: builder.mutation<any, User>({
+      query: (userData) => ({
+        url: `/users/updateUser`,
+        method: "PUT",
+        body: userData,
+      }),
     }),
   }),
 });
@@ -41,4 +50,5 @@ export const {
   useLoginUserMutation,
   useGetMeQuery,
   useLazyGetMeQuery,
+  useUpdateUserMutation,
 } = userApi;

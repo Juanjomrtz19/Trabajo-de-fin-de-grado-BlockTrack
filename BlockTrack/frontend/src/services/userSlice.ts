@@ -10,6 +10,8 @@ interface User {
   email: string;
   phone: string;
   role: UserRole;
+  iat?: number;
+  exp?: number;
 }
 
 interface UserState {

@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
 import * as userService from "../services/user";
 import { registerUserSchema } from "../validators/user";
+import { UserUpdate } from "../models/user";
 
 export const registerUser = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { firstName, lastName, email, phone, password, role, dni } = req.body;
+  const { name, lastName, email, phone, password, role, dni } = req.body;
 
   try {
     console.log("[USER][REGISTER] Request");
@@ -19,7 +20,7 @@ export const registerUser = async (
     }
 
     const userData = {
-      name: firstName,
+      name: name,
       lastName,
       email,
       phone: String(phone),
@@ -55,7 +56,50 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     res.status(200).json({ message: "Login successful" });
   } catch (error) {
     console.error(error);
-    res.status(401).json({ message: (error as Error).message });
+    res.status(401).json({ message: "There was something wrong" });
+  }
+};
+
+export const logoutUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+    path: "/",
+  });
+  res.status(200).json({ message: "Logout successful" });
+};
+
+export const updateUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { dni, name, lastName, email, phone, role } = req.body;
+
+  const { id } = req.user!;
+
+  const data: UserUpdate = {
+    dni: dni,
+    name: name,
+    lastName: lastName,
+    email: email,
+    phone: phone,
+    role: role,
+    id,
+  };
+
+  try {
+    console.log("[USER][UPDATEUSER] Request");
+    const result = await userService.updateUser(data);
+
+    res.status(200).json({ user: result });
+    console.log("[USER][UPDATEUSER] Succest");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error updating user" });
   }
 };
 
@@ -66,8 +110,9 @@ export const getCurrentUser = async (
   const token = req.cookies.token;
   try {
     console.log("[USER][GETCURRENTUSER] Request");
-    const user = userService.verifyToken(token);
+    const user = await userService.verifyToken(token);
     if (!user) res.status(401).json({ message: "Unauthorized" });
+    console.log("user", user);
     res.status(200).json({ user });
     console.log("[USER][GETCURRENTUSER] Succest");
   } catch (error) {

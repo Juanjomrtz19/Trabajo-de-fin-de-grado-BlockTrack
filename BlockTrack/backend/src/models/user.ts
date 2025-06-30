@@ -9,3 +9,13 @@ export interface User {
   role: Role;
   password: string;
 }
+
+export interface UserUpdate {
+  dni: string;
+  name: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  role: Role;
+  id: number;
+}

@@ -1,10 +1,22 @@
+import { Role } from "@prisma/client";
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
+import type { JwtPayload } from "jsonwebtoken";
+
+interface JwtUserPayload extends JwtPayload {
+  dni: string;
+  email: string;
+  role: Role;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  id: number;
+}
 
 declare global {
   namespace Express {
     interface Request {
-      user?: string | jwt.JwtPayload;
+      user?: JwtUserPayload;
     }
   }
 }
@@ -22,7 +34,10 @@ export const authenticate = (
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!);
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET!
+    ) as JwtUserPayload;
     req.user = decoded;
     next();
   } catch (error) {

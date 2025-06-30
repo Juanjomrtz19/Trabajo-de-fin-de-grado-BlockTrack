@@ -17,7 +17,7 @@ const Register = () => {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [phone, setPhone] = useState<number | null>(null);
+  const [phone, setPhone] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [repeatPassword, setRepeatPassword] = useState<string>("");
   const [role, setRole] = useState<UserRole | "">("");
@@ -83,7 +83,7 @@ const Register = () => {
       firstName,
       lastName,
       email,
-      phone: phone ?? 0,
+      phone,
       password,
       role: role as UserRole,
       dni,
@@ -137,7 +137,7 @@ const Register = () => {
             label="Phone"
             onChange={(e) => {
               const value = e.target.value;
-              setPhone(value === "" ? null : Number(value));
+              setPhone(value);
             }}
             value={phone !== null ? phone : ""}
             type="number"

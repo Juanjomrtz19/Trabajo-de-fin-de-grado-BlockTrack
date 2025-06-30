@@ -1,16 +1,31 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout"; // <- nuevo layout base
 import LandingLayout from "./layouts/LandingLayout";
-import Home from "./pages/Home";
+import Admin from "./pages/PrivatesRoutes/Admin/Admin";
 import LogIn from "./pages/LogIn/LogIn";
 import Register from "./pages/Register/Register";
+import Home from "./pages/Home";
+import PrivateLayout from "./layouts/PrivateLayout";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingLayout />,
+    element: <RootLayout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: "login", element: <LogIn /> },
-      { path: "register", element: <Register /> },
+      {
+        path: "/",
+        element: <LandingLayout />,
+        children: [
+          { index: true, element: <Home /> },
+          { path: "login", element: <LogIn /> },
+          { path: "register", element: <Register /> },
+        ],
+      },
+      {
+        path: "/admin",
+        element: <PrivateLayout />,
+        children: [{ index: true, element: <Admin /> }],
+      },
     ],
   },
 ]);

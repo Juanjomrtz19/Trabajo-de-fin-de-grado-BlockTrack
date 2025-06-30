@@ -25,10 +25,11 @@ const TextField: React.FC<TextFieldProps> = ({
       <div className="relative">
         <input
           className={`
-            w-full p-2 border rounded 
-            ${hasError ? "border-error-light" : ""} 
-            ${className}
-          `}
+    w-full p-2 border rounded 
+    ${hasError ? "border-error-light" : ""}
+    ${props.disabled ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""}
+    ${className}
+  `}
           {...props}
         />
 

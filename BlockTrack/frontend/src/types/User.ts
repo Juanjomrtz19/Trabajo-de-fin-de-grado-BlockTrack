@@ -1,13 +1,14 @@
 export type UserRole = "RECEIVER" | "SENDER";
 
 export interface RegisterUserPayload {
-  firstName: string;
+  name: string;
   lastName: string;
   email: string;
-  phone: number;
+  phone: string;
   password: string;
   role: UserRole;
   dni: string;
+  id: number;
 }
 
 export interface LoginUserPayload {
@@ -19,7 +20,8 @@ export interface User {
   dni: string;
   email: string;
   role: UserRole;
-  firstName: string;
+  name: string;
   lastName: string;
   phone: string;
+  id: number;
 }
