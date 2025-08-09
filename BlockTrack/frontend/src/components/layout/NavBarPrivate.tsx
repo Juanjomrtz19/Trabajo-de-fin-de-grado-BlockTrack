@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import Button from "../common/Button/Button";
+import { useLogOutMutation } from "../../services/api/userApi";
+import { useNavigate } from "react-router-dom";
 
 interface Route {
   path: string;
@@ -15,6 +17,8 @@ interface NavBarPrivateProps {
 
 const NavBarPrivate = ({ routes }: NavBarPrivateProps) => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [logOut, { isLoading }] = useLogOutMutation();
 
   return (
     <div className="h-full w-64 p-4 relative">
@@ -34,7 +38,14 @@ const NavBarPrivate = ({ routes }: NavBarPrivateProps) => {
           </Link>
         ))}
       </nav>
-      <Button variant="accent" className="absolute bottom-4">
+      <Button
+        variant="accent"
+        className="absolute bottom-4"
+        onClick={() => {
+          logOut("");
+          navigate("/");
+        }}
+      >
         Logout
       </Button>
     </div>

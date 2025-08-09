@@ -1,14 +1,15 @@
-export type UserRole = "RECEIVER" | "SENDER";
+export type UserRole = "TRANSPORTISTA" | "CLIENTE";
 
 export interface RegisterUserPayload {
-  name: string;
-  lastName: string;
+  nombre: string;
+  apellidos: string;
   email: string;
-  phone: string;
-  password: string;
-  role: UserRole;
+  telefono: string;
+  contrasenia: string;
   dni: string;
-  id: number;
+  rol: "TRANSPORTISTA" | "CLIENTE" | "";
+  direccionPrincipal?: string | null;
+  zonaOperativa?: string | null;
 }
 
 export interface LoginUserPayload {
@@ -19,9 +20,9 @@ export interface LoginUserPayload {
 export interface User {
   dni: string;
   email: string;
-  role: UserRole;
-  name: string;
-  lastName: string;
-  phone: string;
+  rol: "TRANSPORTISTA" | "CLIENTE" | "";
+  nombre: string;
+  apellidos: string;
+  telefono: string;
   id: number;
 }

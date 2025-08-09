@@ -20,7 +20,8 @@ const Button: React.FC<ButtonProps> = ({
   const variantMap: Record<string, Record<string, string>> = {
     light: {
       primary: "bg-primary-light text-white hover:bg-secondary-light",
-      accent: "bg-accent-light text-white hover:bg-border-light",
+      accent:
+        "bg-accent-light text-white hover:bg-border-light hover:text-accent-light",
       success: "bg-success-light text-white hover:bg-green-700",
       error: "bg-error-light text-white hover:bg-red-600",
     },

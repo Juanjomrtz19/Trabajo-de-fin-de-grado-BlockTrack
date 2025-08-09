@@ -9,13 +9,18 @@ const sidebarWidth = 256;
 const PrivateLayout = () => {
   const [isOpen, setIsOpen] = useState(true);
 
-  const privateRoutes = [{ path: "/admin", name: "Settings" }];
+  const privateRoutes = [
+    { path: "/admin", name: "Settings" },
+    { path: "admin/dashboard", name: "Dashboard" },
+    { path: "/admin/remesas", name: "Remesas" },
+    { path: "/admin/transportesEnCurso", name: "Transportes en curso" },
+  ];
 
   return (
     <div className="flex min-h-screen relative">
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-100 w-12 h-12 p-2 rounded-full bg-blue-600 text-white flex items-center justify-center"
+        className="fixed top-4 right-4 z-50 w-12 h-12 p-2 rounded-full bg-blue-600 text-white flex items-center justify-center"
       >
         {isOpen ? "✕" : "☰"}
       </Button>

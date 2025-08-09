@@ -6,6 +6,7 @@ import {
   type LoginUserPayload,
   type RegisterUserPayload,
 } from "../../types/User";
+import { LogOut } from "lucide-react";
 
 export const userApi = createApi({
   reducerPath: "userApi",
@@ -42,6 +43,13 @@ export const userApi = createApi({
         body: userData,
       }),
     }),
+
+    logOut: builder.mutation<any, any>({
+      query: () => ({
+        url: "/users/logout",
+        method: "POST",
+      }),
+    }),
   }),
 });
 
@@ -51,4 +59,5 @@ export const {
   useGetMeQuery,
   useLazyGetMeQuery,
   useUpdateUserMutation,
+  useLogOutMutation,
 } = userApi;

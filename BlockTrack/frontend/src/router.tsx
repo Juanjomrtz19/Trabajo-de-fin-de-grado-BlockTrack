@@ -6,6 +6,7 @@ import LogIn from "./pages/LogIn/LogIn";
 import Register from "./pages/Register/Register";
 import Home from "./pages/Home";
 import PrivateLayout from "./layouts/PrivateLayout";
+import Transporter from "./pages/PrivatesRoutes/Transporter/Transporter";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <PrivateLayout />,
-        children: [{ index: true, element: <Admin /> }],
+        children: [
+          { index: true, element: <Admin /> },
+          { path: "/admin/transporters", element: <Transporter /> },
+        ],
       },
     ],
   },

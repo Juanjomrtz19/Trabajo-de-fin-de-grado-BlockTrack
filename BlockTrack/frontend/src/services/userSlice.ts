@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-import type { UserRole } from "../types/User";
-
 interface User {
-  firstName: string;
-  lastName: string;
+  nombre: string;
+  apellidos: string;
   dni: string;
   email: string;
-  phone: string;
-  role: UserRole;
+  telefono: string;
+  rol: "TRANSPORTISTA" | "CLIENTE" | "";
+  id?: number;
   iat?: number;
   exp?: number;
 }

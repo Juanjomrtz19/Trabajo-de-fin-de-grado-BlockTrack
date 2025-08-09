@@ -9,12 +9,16 @@ import Button from "../../components/common/Button/Button";
 import { setUser } from "../../services/userSlice";
 import { useDispatch } from "react-redux";
 
+import type { User } from "../../types/User";
+import { useNavigate } from "react-router-dom";
+
 const LogIn = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loginUser, { isLoading }] = useLoginUserMutation();
   const [getMe] = useLazyGetMeQuery();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,18 +29,14 @@ const LogIn = () => {
 
     try {
       const result = await loginUser(userData).unwrap();
-      const me = await getMe().unwrap();
+      const me: User = await getMe().unwrap();
       dispatch(setUser(me));
+      navigate("/admin");
       toast.success(result?.message);
-    } catch (err) {
-      const errorMessage =
-        typeof err === "object" &&
-        err !== null &&
-        "data" in err &&
-        typeof (err as any).data?.message === "string"
-          ? (err as any).data.message
-          : "An error occurred";
-      toast.error(errorMessage);
+    } catch (err: any) {
+      console.log("err", err);
+
+      toast.error(err.data.message);
     }
   };
 

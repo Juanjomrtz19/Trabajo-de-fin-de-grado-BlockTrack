@@ -17,10 +17,10 @@ const Admin = () => {
   const user = useSelector((state: RootState) => state.user.user);
   const dispatch = useDispatch();
 
-  const [firstName, setFirstName] = useState<string>(user?.firstName ?? "");
-  const [lastName, setLastName] = useState<string>(user?.lastName ?? "");
+  const [nombre, setNombre] = useState<string>(user?.nombre ?? "");
+  const [apellidos, setApellidos] = useState<string>(user?.apellidos ?? "");
   const [email, setEmail] = useState<string>(user?.email ?? "");
-  const [phone, setPhone] = useState<string>(user?.phone ?? "");
+  const [telefono, setTelefono] = useState<string>(user?.telefono ?? "");
   const [dni, setDni] = useState<string>(user?.dni ?? "");
   const [cantEdit, setCanEdit] = useState<boolean>(false);
 
@@ -28,10 +28,10 @@ const Admin = () => {
 
   useEffect(() => {
     if (user) {
-      setFirstName(user.name);
-      setLastName(user.lastName);
+      setNombre(user.nombre);
+      setApellidos(user.apellidos);
       setEmail(user.email);
-      setPhone(user.phone);
+      setTelefono(user.telefono);
       setDni(user.dni);
     }
   }, [user]);
@@ -40,17 +40,17 @@ const Admin = () => {
     e.preventDefault();
     try {
       const result = await updateUser({
-        name: firstName,
-        lastName,
+        nombre,
+        apellidos,
         email,
-        phone,
+        telefono,
         dni,
-        role: user?.role!,
+        rol: user?.rol!,
         id: user?.id!,
       }).unwrap();
 
       dispatch(setUser(result));
-      toast.success("Account created!");
+      toast.success("Account updated successfully!");
     } catch (err) {
       toast.error("Something went wrong");
     } finally {
@@ -60,8 +60,7 @@ const Admin = () => {
 
   return (
     <>
-      <Title text="Configure your profile" />
-
+      <Title text="Configure your account" />
       <div className="w-full flex justify-center">
         <div className="w-full max-w-4xl px-4">
           <form
@@ -70,16 +69,16 @@ const Admin = () => {
           >
             <TextField
               label="First Name"
-              onChange={(e) => setFirstName(e.target.value)}
-              value={firstName}
+              onChange={(e) => setNombre(e.target.value)}
+              value={nombre}
               type="text"
               disabled={!cantEdit}
             />
 
             <TextField
               label="Last Name"
-              onChange={(e) => setLastName(e.target.value)}
-              value={lastName}
+              onChange={(e) => setApellidos(e.target.value)}
+              value={apellidos}
               type="text"
               disabled={!cantEdit}
             />
@@ -96,9 +95,9 @@ const Admin = () => {
               label="Phone"
               onChange={(e) => {
                 const value = e.target.value;
-                setPhone(value);
+                setTelefono(value);
               }}
-              value={phone !== null ? phone : ""}
+              value={telefono !== null ? telefono : ""}
               type="number"
               disabled={!cantEdit}
             />
