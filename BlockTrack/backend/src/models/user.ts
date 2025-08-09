@@ -1,21 +1,36 @@
-import { Role } from "../generated/prisma"; // o donde tengas el cliente generado
+import { Rol } from "@prisma/client"; // o donde tengas el cliente generado
 
-export interface User {
+export interface Usuario {
   dni: string;
-  name: string;
-  lastName: string;
+  nombre: string;
+  apellidos: string;
   email: string;
-  phone: string;
-  role: Role;
-  password: string;
+  telefono: string;
+  rol: Rol;
+  contrasenia: string;
+  direccionPrincipal?: string | null;
+  zonaOperativa?: string | null;
+  disponibilidadActual?: boolean | null;
+  documentacionValidad?: boolean | null;
 }
 
-export interface UserUpdate {
+export interface UsuarioUpdate {
   dni: string;
-  name: string;
-  lastName: string;
+  nombre: string;
+  apellidos: string;
   email: string;
-  phone: string;
-  role: Role;
+  telefono: string;
+  rol: Rol;
   id: number;
+}
+
+export interface Transportista {
+  dni: string;
+  nombre: string;
+  apellidos: string;
+  email: string;
+  telefono: string;
+  rol: Rol;
+  contrasenia: string;
+  IdUsuario: number;
 }

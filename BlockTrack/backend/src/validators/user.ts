@@ -7,27 +7,35 @@ import {
 } from "../utils/regex";
 
 export const registerUserSchema = z.object({
-  firstName: z.string().trim().min(1, "First Name cannot be empty"),
-  lastName: z.string().trim().min(1, "Last Name cannot be empty"),
+  nombre: z.string().trim().min(1, "El nombre no puede estar vacío"),
+  apellidos: z.string().trim().min(1, "Los apellidos no pueden estar vacíos"),
 
   email: z
     .string()
     .trim()
     .toLowerCase()
-    .regex(EMAIL_REGEX, "Please enter a valid email address"),
+    .regex(EMAIL_REGEX, "Introduce un correo electrónico válido"),
 
-  phone: z
+  telefono: z
     .string()
     .trim()
-    .regex(PHONE_REGEX, "Please enter a valid phone number"),
+    .regex(PHONE_REGEX, "Introduce un número de teléfono válido"),
 
-  dni: z.string().trim().regex(DNI_REGEX, "Please enter a valid DNI"),
+  dni: z.string().trim().regex(DNI_REGEX, "Introduce un DNI válido"),
 
-  password: z
+  contrasenia: z
     .string()
-    .regex(PASSWORD_REGEX, "Password must be 8+ chars, 1 letter & 1 number"),
+    .regex(
+      PASSWORD_REGEX,
+      "La contraseña debe tener al menos 8 caracteres, una letra y un número"
+    ),
 
-  role: z.string().trim().min(1, "Role cannot be empty"),
+  rol: z.enum(["CLIENTE", "TRANSPORTISTA"], {
+    errorMap: () => ({ message: "El rol debe ser CLIENTE o TRANSPORTISTA" }),
+  }),
+
+  direccionPrincipal: z.string().trim().nullable().optional(),
+  zonaOperativa: z.string().trim().nullable().optional(),
 });
 
 export type RegisterUserInput = z.infer<typeof registerUserSchema>;

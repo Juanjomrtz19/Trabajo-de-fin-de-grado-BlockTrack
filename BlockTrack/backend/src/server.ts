@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRoutes from "./routes/user";
+import remesaRoutes from "./routes/remesa";
 import cookieParser from "cookie-parser";
 
 const app: Application = express();
@@ -19,6 +20,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/users", userRoutes);
+app.use("/remesas", remesaRoutes);
 
 // Middlewares
 app.use(cors());

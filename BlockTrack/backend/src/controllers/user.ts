@@ -1,13 +1,23 @@
 import { Request, Response } from "express";
 import * as userService from "../services/user";
 import { registerUserSchema } from "../validators/user";
-import { UserUpdate } from "../models/user";
+import { UsuarioUpdate } from "../models/user";
 
 export const registerUser = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { name, lastName, email, phone, password, role, dni } = req.body;
+  const {
+    nombre,
+    apellidos,
+    email,
+    telefono,
+    contrasenia,
+    rol,
+    dni,
+    direccionPrincipal,
+    zonaOperativa,
+  } = req.body;
 
   try {
     console.log("[USER][REGISTER] Request");
@@ -20,13 +30,17 @@ export const registerUser = async (
     }
 
     const userData = {
-      name: name,
-      lastName,
+      nombre: nombre,
+      apellidos,
       email,
-      phone: String(phone),
-      password,
-      role,
+      telefono: String(telefono),
+      contrasenia,
+      rol,
       dni,
+      direccionPrincipal,
+      zonaOperativa,
+      disponibilidadActual: true,
+      documentacionValidad: true,
     };
 
     const result = await userService.registerUser(userData);
@@ -35,6 +49,7 @@ export const registerUser = async (
     res.status(201).json(result);
   } catch (error) {
     console.error(error);
+    console.log("[USER][REGISTER] Error", error);
     res.status(500).json({ message: "Error registering user" });
   }
 };
@@ -77,25 +92,25 @@ export const updateUser = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { dni, name, lastName, email, phone, role } = req.body;
+  const { dni, nombre, apellidos, email, telefono, rol } = req.body;
 
-  const { id } = req.user!;
+  const { userId } = req.user!;
 
-  const data: UserUpdate = {
+  const data: UsuarioUpdate = {
     dni: dni,
-    name: name,
-    lastName: lastName,
+    nombre: nombre,
+    apellidos: apellidos,
     email: email,
-    phone: phone,
-    role: role,
-    id,
+    telefono: telefono,
+    rol: rol,
+    id: userId,
   };
 
   try {
     console.log("[USER][UPDATEUSER] Request");
     const result = await userService.updateUser(data);
 
-    res.status(200).json({ user: result });
+    res.status(200).json(result);
     console.log("[USER][UPDATEUSER] Succest");
   } catch (error) {
     console.error(error);
@@ -120,3 +135,5 @@ export const getCurrentUser = async (
     res.status(401).json({ message: "Invalid token" });
   }
 };
+
+// export const createTransporter = async

@@ -1,4 +1,4 @@
-import { Role } from "@prisma/client";
+import { Rol } from "@prisma/client";
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import type { JwtPayload } from "jsonwebtoken";
@@ -6,11 +6,10 @@ import type { JwtPayload } from "jsonwebtoken";
 interface JwtUserPayload extends JwtPayload {
   dni: string;
   email: string;
-  role: Role;
-  firstName: string;
-  lastName: string;
-  phone: string;
-  id: number;
+  rol: Rol;
+  nombre: string;
+  apellidos: string;
+  telefono: string;
 }
 
 declare global {
@@ -38,7 +37,8 @@ export const authenticate = (
       token,
       process.env.JWT_SECRET!
     ) as JwtUserPayload;
-    req.user = decoded;
+    const { id, ...rest } = decoded;
+    req.user = { ...rest, userId: id };
     next();
   } catch (error) {
     res.status(401).json({ message: "Invalid token" });
