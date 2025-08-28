@@ -1,0 +1,602 @@
+[
+  {
+    "matricula": "4523NWY",
+    "tipoCarga": "Paquetería",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "14782 kg"
+  },
+  {
+    "matricula": "3159CBV",
+    "tipoCarga": "Líquidos",
+    "marca": "Iveco",
+    "capacidadCarga": "14320 L"
+  },
+  {
+    "matricula": "5568KEP",
+    "tipoCarga": "Contenedor",
+    "marca": "Iveco",
+    "capacidadCarga": "19987 kg"
+  },
+  {
+    "matricula": "6450ONS",
+    "tipoCarga": "Refrigerada",
+    "marca": "Scania",
+    "capacidadCarga": "19286 kg"
+  },
+  {
+    "matricula": "8653UPA",
+    "tipoCarga": "Refrigerada",
+    "marca": "Iveco",
+    "capacidadCarga": "15851 kg"
+  },
+  {
+    "matricula": "5730IYX",
+    "tipoCarga": "Paletizada",
+    "marca": "Iveco",
+    "capacidadCarga": "13331 kg"
+  },
+  {
+    "matricula": "6742IHO",
+    "tipoCarga": "Refrigerada",
+    "marca": "DAF",
+    "capacidadCarga": "10784 kg"
+  },
+  {
+    "matricula": "7834ARU",
+    "tipoCarga": "Paquetería",
+    "marca": "Scania",
+    "capacidadCarga": "15069 kg"
+  },
+  {
+    "matricula": "4225GMW",
+    "tipoCarga": "Granel",
+    "marca": "Scania",
+    "capacidadCarga": "16554 kg"
+  },
+  {
+    "matricula": "5502YLL",
+    "tipoCarga": "Contenedor",
+    "marca": "Scania",
+    "capacidadCarga": "9344 kg"
+  },
+  {
+    "matricula": "7008ABO",
+    "tipoCarga": "Granel",
+    "marca": "Renault",
+    "capacidadCarga": "16444 kg"
+  },
+  {
+    "matricula": "1822WWW",
+    "tipoCarga": "Granel",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "17160 kg"
+  },
+  {
+    "matricula": "9576LET",
+    "tipoCarga": "Líquidos",
+    "marca": "Scania",
+    "capacidadCarga": "14431 L"
+  },
+  {
+    "matricula": "9697BPK",
+    "tipoCarga": "Refrigerada",
+    "marca": "Scania",
+    "capacidadCarga": "10254 kg"
+  },
+  {
+    "matricula": "3512WIJ",
+    "tipoCarga": "Granel",
+    "marca": "Volvo",
+    "capacidadCarga": "17304 kg"
+  },
+  {
+    "matricula": "4766FXL",
+    "tipoCarga": "Paletizada",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "14195 kg"
+  },
+  {
+    "matricula": "1020OIC",
+    "tipoCarga": "Granel",
+    "marca": "Volvo",
+    "capacidadCarga": "16069 kg"
+  },
+  {
+    "matricula": "7944WTP",
+    "tipoCarga": "Refrigerada",
+    "marca": "Scania",
+    "capacidadCarga": "19515 kg"
+  },
+  {
+    "matricula": "4558KTX",
+    "tipoCarga": "Contenedor",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "9864 kg"
+  },
+  {
+    "matricula": "6791CWH",
+    "tipoCarga": "Refrigerada",
+    "marca": "Iveco",
+    "capacidadCarga": "11556 kg"
+  },
+  {
+    "matricula": "5476EUT",
+    "tipoCarga": "Paletizada",
+    "marca": "MAN",
+    "capacidadCarga": "11643 kg"
+  },
+  {
+    "matricula": "3119PBU",
+    "tipoCarga": "Paletizada",
+    "marca": "Renault",
+    "capacidadCarga": "8682 kg"
+  },
+  {
+    "matricula": "6172CAB",
+    "tipoCarga": "Paletizada",
+    "marca": "Volvo",
+    "capacidadCarga": "12926 kg"
+  },
+  {
+    "matricula": "5807PTK",
+    "tipoCarga": "Contenedor",
+    "marca": "DAF",
+    "capacidadCarga": "11613 kg"
+  },
+  {
+    "matricula": "1462BFO",
+    "tipoCarga": "Refrigerada",
+    "marca": "Iveco",
+    "capacidadCarga": "18578 kg"
+  },
+  {
+    "matricula": "5309RPS",
+    "tipoCarga": "Líquidos",
+    "marca": "Scania",
+    "capacidadCarga": "12079 L"
+  },
+  {
+    "matricula": "5338GEH",
+    "tipoCarga": "Refrigerada",
+    "marca": "Iveco",
+    "capacidadCarga": "19583 kg"
+  },
+  {
+    "matricula": "6208GWO",
+    "tipoCarga": "Paquetería",
+    "marca": "MAN",
+    "capacidadCarga": "13387 kg"
+  },
+  {
+    "matricula": "1634POH",
+    "tipoCarga": "Granel",
+    "marca": "DAF",
+    "capacidadCarga": "8638 kg"
+  },
+  {
+    "matricula": "6475UMU",
+    "tipoCarga": "Granel",
+    "marca": "DAF",
+    "capacidadCarga": "15590 kg"
+  },
+  {
+    "matricula": "4695TVV",
+    "tipoCarga": "Refrigerada",
+    "marca": "Volvo",
+    "capacidadCarga": "11956 kg"
+  },
+  {
+    "matricula": "3505GPK",
+    "tipoCarga": "Granel",
+    "marca": "Iveco",
+    "capacidadCarga": "10731 kg"
+  },
+  {
+    "matricula": "9852ATU",
+    "tipoCarga": "Contenedor",
+    "marca": "Iveco",
+    "capacidadCarga": "19314 kg"
+  },
+  {
+    "matricula": "9722YSZ",
+    "tipoCarga": "Paquetería",
+    "marca": "MAN",
+    "capacidadCarga": "17922 kg"
+  },
+  {
+    "matricula": "9765VMN",
+    "tipoCarga": "Refrigerada",
+    "marca": "Scania",
+    "capacidadCarga": "11254 kg"
+  },
+  {
+    "matricula": "8942KNM",
+    "tipoCarga": "Contenedor",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "13601 kg"
+  },
+  {
+    "matricula": "3793ZBB",
+    "tipoCarga": "Líquidos",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "18202 L"
+  },
+  {
+    "matricula": "3867OSP",
+    "tipoCarga": "Granel",
+    "marca": "MAN",
+    "capacidadCarga": "13173 kg"
+  },
+  {
+    "matricula": "3319DRB",
+    "tipoCarga": "Paletizada",
+    "marca": "Renault",
+    "capacidadCarga": "8634 kg"
+  },
+  {
+    "matricula": "6860KPG",
+    "tipoCarga": "Contenedor",
+    "marca": "MAN",
+    "capacidadCarga": "13743 kg"
+  },
+  {
+    "matricula": "8530CSL",
+    "tipoCarga": "Paquetería",
+    "marca": "Scania",
+    "capacidadCarga": "13359 kg"
+  },
+  {
+    "matricula": "1992WNF",
+    "tipoCarga": "Granel",
+    "marca": "DAF",
+    "capacidadCarga": "12160 kg"
+  },
+  {
+    "matricula": "6473ZGP",
+    "tipoCarga": "Refrigerada",
+    "marca": "MAN",
+    "capacidadCarga": "15225 kg"
+  },
+  {
+    "matricula": "7943UXL",
+    "tipoCarga": "Refrigerada",
+    "marca": "Scania",
+    "capacidadCarga": "18720 kg"
+  },
+  {
+    "matricula": "8807OBO",
+    "tipoCarga": "Granel",
+    "marca": "Iveco",
+    "capacidadCarga": "15750 kg"
+  },
+  {
+    "matricula": "7320DWB",
+    "tipoCarga": "Paletizada",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "8072 kg"
+  },
+  {
+    "matricula": "3221MXP",
+    "tipoCarga": "Paletizada",
+    "marca": "Scania",
+    "capacidadCarga": "11589 kg"
+  },
+  {
+    "matricula": "5654QTN",
+    "tipoCarga": "Paquetería",
+    "marca": "Renault",
+    "capacidadCarga": "12429 kg"
+  },
+  {
+    "matricula": "6046MOH",
+    "tipoCarga": "Granel",
+    "marca": "MAN",
+    "capacidadCarga": "16694 kg"
+  },
+  {
+    "matricula": "5072KFE",
+    "tipoCarga": "Paquetería",
+    "marca": "MAN",
+    "capacidadCarga": "8371 kg"
+  },
+  {
+    "matricula": "1864REC",
+    "tipoCarga": "Líquidos",
+    "marca": "DAF",
+    "capacidadCarga": "13999 L"
+  },
+  {
+    "matricula": "3684SUK",
+    "tipoCarga": "Granel",
+    "marca": "Scania",
+    "capacidadCarga": "9204 kg"
+  },
+  {
+    "matricula": "1253CCU",
+    "tipoCarga": "Líquidos",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "10375 L"
+  },
+  {
+    "matricula": "1780PSF",
+    "tipoCarga": "Paletizada",
+    "marca": "Volvo",
+    "capacidadCarga": "9031 kg"
+  },
+  {
+    "matricula": "9603MMW",
+    "tipoCarga": "Granel",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "10723 kg"
+  },
+  {
+    "matricula": "9281GKC",
+    "tipoCarga": "Contenedor",
+    "marca": "DAF",
+    "capacidadCarga": "14335 kg"
+  },
+  {
+    "matricula": "8238PTD",
+    "tipoCarga": "Contenedor",
+    "marca": "Iveco",
+    "capacidadCarga": "13562 kg"
+  },
+  {
+    "matricula": "4290RSS",
+    "tipoCarga": "Paquetería",
+    "marca": "DAF",
+    "capacidadCarga": "17505 kg"
+  },
+  {
+    "matricula": "1648IWD",
+    "tipoCarga": "Líquidos",
+    "marca": "Renault",
+    "capacidadCarga": "16363 L"
+  },
+  {
+    "matricula": "7914JQG",
+    "tipoCarga": "Contenedor",
+    "marca": "Volvo",
+    "capacidadCarga": "11336 kg"
+  },
+  {
+    "matricula": "1188GTL",
+    "tipoCarga": "Contenedor",
+    "marca": "Scania",
+    "capacidadCarga": "15615 kg"
+  },
+  {
+    "matricula": "8053ENP",
+    "tipoCarga": "Granel",
+    "marca": "Iveco",
+    "capacidadCarga": "9538 kg"
+  },
+  {
+    "matricula": "8578JGW",
+    "tipoCarga": "Refrigerada",
+    "marca": "Iveco",
+    "capacidadCarga": "14861 kg"
+  },
+  {
+    "matricula": "3116PVJ",
+    "tipoCarga": "Contenedor",
+    "marca": "MAN",
+    "capacidadCarga": "19475 kg"
+  },
+  {
+    "matricula": "3677YWI",
+    "tipoCarga": "Contenedor",
+    "marca": "Iveco",
+    "capacidadCarga": "15160 kg"
+  },
+  {
+    "matricula": "7417XXV",
+    "tipoCarga": "Paquetería",
+    "marca": "Renault",
+    "capacidadCarga": "13120 kg"
+  },
+  {
+    "matricula": "1962EDQ",
+    "tipoCarga": "Paletizada",
+    "marca": "DAF",
+    "capacidadCarga": "16271 kg"
+  },
+  {
+    "matricula": "2991QCR",
+    "tipoCarga": "Paquetería",
+    "marca": "Volvo",
+    "capacidadCarga": "10877 kg"
+  },
+  {
+    "matricula": "2705ATY",
+    "tipoCarga": "Contenedor",
+    "marca": "MAN",
+    "capacidadCarga": "8169 kg"
+  },
+  {
+    "matricula": "3140SSJ",
+    "tipoCarga": "Contenedor",
+    "marca": "DAF",
+    "capacidadCarga": "8069 kg"
+  },
+  {
+    "matricula": "5353TYZ",
+    "tipoCarga": "Paquetería",
+    "marca": "Scania",
+    "capacidadCarga": "19070 kg"
+  },
+  {
+    "matricula": "6623JQE",
+    "tipoCarga": "Líquidos",
+    "marca": "Iveco",
+    "capacidadCarga": "17223 L"
+  },
+  {
+    "matricula": "6980VJA",
+    "tipoCarga": "Paletizada",
+    "marca": "DAF",
+    "capacidadCarga": "13362 kg"
+  },
+  {
+    "matricula": "1055RBL",
+    "tipoCarga": "Granel",
+    "marca": "MAN",
+    "capacidadCarga": "13182 kg"
+  },
+  {
+    "matricula": "8177VCJ",
+    "tipoCarga": "Paletizada",
+    "marca": "Iveco",
+    "capacidadCarga": "17763 kg"
+  },
+  {
+    "matricula": "4206FXD",
+    "tipoCarga": "Granel",
+    "marca": "Renault",
+    "capacidadCarga": "14481 kg"
+  },
+  {
+    "matricula": "9689RFU",
+    "tipoCarga": "Líquidos",
+    "marca": "Volvo",
+    "capacidadCarga": "10019 L"
+  },
+  {
+    "matricula": "7839NPA",
+    "tipoCarga": "Granel",
+    "marca": "DAF",
+    "capacidadCarga": "12023 kg"
+  },
+  {
+    "matricula": "5665KUY",
+    "tipoCarga": "Refrigerada",
+    "marca": "MAN",
+    "capacidadCarga": "17943 kg"
+  },
+  {
+    "matricula": "2309BXL",
+    "tipoCarga": "Contenedor",
+    "marca": "Iveco",
+    "capacidadCarga": "12332 kg"
+  },
+  {
+    "matricula": "3917DEF",
+    "tipoCarga": "Paletizada",
+    "marca": "Volvo",
+    "capacidadCarga": "12734 kg"
+  },
+  {
+    "matricula": "2261TXY",
+    "tipoCarga": "Líquidos",
+    "marca": "DAF",
+    "capacidadCarga": "10742 L"
+  },
+  {
+    "matricula": "5900BVY",
+    "tipoCarga": "Líquidos",
+    "marca": "Renault",
+    "capacidadCarga": "15654 L"
+  },
+  {
+    "matricula": "1924JUG",
+    "tipoCarga": "Líquidos",
+    "marca": "Volvo",
+    "capacidadCarga": "14073 L"
+  },
+  {
+    "matricula": "1222QPZ",
+    "tipoCarga": "Granel",
+    "marca": "DAF",
+    "capacidadCarga": "19527 kg"
+  },
+  {
+    "matricula": "3888SCE",
+    "tipoCarga": "Granel",
+    "marca": "DAF",
+    "capacidadCarga": "14119 kg"
+  },
+  {
+    "matricula": "5627JAY",
+    "tipoCarga": "Paquetería",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "12538 kg"
+  },
+  {
+    "matricula": "5460GKP",
+    "tipoCarga": "Contenedor",
+    "marca": "Volvo",
+    "capacidadCarga": "17645 kg"
+  },
+  {
+    "matricula": "1383ZYZ",
+    "tipoCarga": "Paquetería",
+    "marca": "MAN",
+    "capacidadCarga": "17602 kg"
+  },
+  {
+    "matricula": "2415XKK",
+    "tipoCarga": "Paletizada",
+    "marca": "Scania",
+    "capacidadCarga": "11469 kg"
+  },
+  {
+    "matricula": "8351JKX",
+    "tipoCarga": "Granel",
+    "marca": "Renault",
+    "capacidadCarga": "9344 kg"
+  },
+  {
+    "matricula": "1136AJF",
+    "tipoCarga": "Paquetería",
+    "marca": "MAN",
+    "capacidadCarga": "14500 kg"
+  },
+  {
+    "matricula": "4649KQP",
+    "tipoCarga": "Refrigerada",
+    "marca": "DAF",
+    "capacidadCarga": "18884 kg"
+  },
+  {
+    "matricula": "5015XXL",
+    "tipoCarga": "Granel",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "16048 kg"
+  },
+  {
+    "matricula": "7191VLH",
+    "tipoCarga": "Contenedor",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "8045 kg"
+  },
+  {
+    "matricula": "2676GNA",
+    "tipoCarga": "Paquetería",
+    "marca": "Renault",
+    "capacidadCarga": "15806 kg"
+  },
+  {
+    "matricula": "7659GUA",
+    "tipoCarga": "Paletizada",
+    "marca": "Iveco",
+    "capacidadCarga": "8259 kg"
+  },
+  {
+    "matricula": "6169IFB",
+    "tipoCarga": "Líquidos",
+    "marca": "Mercedes-Benz",
+    "capacidadCarga": "18327 L"
+  },
+  {
+    "matricula": "4400LMR",
+    "tipoCarga": "Refrigerada",
+    "marca": "Iveco",
+    "capacidadCarga": "14806 kg"
+  },
+  {
+    "matricula": "4598VCJ",
+    "tipoCarga": "Líquidos",
+    "marca": "Scania",
+    "capacidadCarga": "10815 L"
+  }
+]

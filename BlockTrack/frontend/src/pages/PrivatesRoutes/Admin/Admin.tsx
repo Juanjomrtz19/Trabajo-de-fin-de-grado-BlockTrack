@@ -12,6 +12,7 @@ import {
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../services/userSlice";
+import { useDarDeBajaTransportistaMutation } from "../../../services/api/transportistaApi";
 
 const Admin = () => {
   const user = useSelector((state: RootState) => state.user.user);
@@ -25,6 +26,7 @@ const Admin = () => {
   const [cantEdit, setCanEdit] = useState<boolean>(false);
 
   const [updateUser, { isLoading }] = useUpdateUserMutation();
+  const [darDeBajaTransportista] = useDarDeBajaTransportistaMutation();
 
   useEffect(() => {
     if (user) {
@@ -58,106 +60,129 @@ const Admin = () => {
     }
   };
 
+  const handleDarDeBaja = async () => {
+    try {
+      await darDeBajaTransportista({ baja: true }).unwrap();
+      toast.success("Transportista dado de baja con éxito");
+    } catch (error) {
+      toast.error("Error al dar de baja al transportista");
+    }
+  };
+
   return (
     <>
       <Title text="Configure your account" />
-      <div className="w-full flex justify-center">
-        <div className="w-full max-w-4xl px-4">
-          <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20 w-full"
-          >
-            <TextField
-              label="First Name"
-              onChange={(e) => setNombre(e.target.value)}
-              value={nombre}
-              type="text"
-              disabled={!cantEdit}
-            />
-
-            <TextField
-              label="Last Name"
-              onChange={(e) => setApellidos(e.target.value)}
-              value={apellidos}
-              type="text"
-              disabled={!cantEdit}
-            />
-
-            <TextField
-              label="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              type="text"
-              disabled={!cantEdit}
-            />
-
-            <TextField
-              label="Phone"
-              onChange={(e) => {
-                const value = e.target.value;
-                setTelefono(value);
-              }}
-              value={telefono !== null ? telefono : ""}
-              type="number"
-              disabled={!cantEdit}
-            />
-
-            <div className="col-span-1 md:col-span-2">
+      <div>
+        {user?.rol === "TRANSPORTISTA" && (
+          <div className="flex justify-end items-center pr-8">
+            <Button
+              variant="error"
+              mode="light"
+              type="button"
+              onClick={handleDarDeBaja}
+            >
+              Dar de baja
+            </Button>
+          </div>
+        )}
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-4xl px-4">
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20 w-full"
+            >
               <TextField
-                label="DNI"
-                onChange={(e) => {
-                  setDni(e.target.value);
-                }}
-                value={dni}
+                label="First Name"
+                onChange={(e) => setNombre(e.target.value)}
+                value={nombre}
                 type="text"
                 disabled={!cantEdit}
               />
-            </div>
 
-            <AnimatePresence mode="wait">
-              {!cantEdit ? (
-                <motion.div
-                  key="edit-button"
-                  className="col-span-1 md:col-span-2 flex justify-end"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.1 }}
-                >
-                  <Button
-                    variant="primary"
-                    mode="light"
-                    type="button"
-                    onClick={() => setCanEdit(true)}
-                  >
-                    Edit
-                  </Button>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="edit-actions"
-                  className="col-span-1 md:col-span-2 flex justify-between"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.1 }}
-                >
-                  <Button
-                    variant="error"
-                    mode="light"
-                    type="button"
-                    onClick={() => setCanEdit(false)}
-                  >
-                    Cancel
-                  </Button>
+              <TextField
+                label="Last Name"
+                onChange={(e) => setApellidos(e.target.value)}
+                value={apellidos}
+                type="text"
+                disabled={!cantEdit}
+              />
 
-                  <Button variant="success" mode="light" type="submit">
-                    Accept
-                  </Button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </form>
+              <TextField
+                label="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                type="text"
+                disabled={!cantEdit}
+              />
+
+              <TextField
+                label="Phone"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setTelefono(value);
+                }}
+                value={telefono !== null ? telefono : ""}
+                type="number"
+                disabled={!cantEdit}
+              />
+
+              <div className="col-span-1 md:col-span-2">
+                <TextField
+                  label="DNI"
+                  onChange={(e) => {
+                    setDni(e.target.value);
+                  }}
+                  value={dni}
+                  type="text"
+                  disabled={!cantEdit}
+                />
+              </div>
+
+              <AnimatePresence mode="wait">
+                {!cantEdit ? (
+                  <motion.div
+                    key="edit-button"
+                    className="col-span-1 md:col-span-2 flex justify-end"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                    <Button
+                      variant="primary"
+                      mode="light"
+                      type="button"
+                      onClick={() => setCanEdit(true)}
+                    >
+                      Edit
+                    </Button>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="edit-actions"
+                    className="col-span-1 md:col-span-2 flex justify-between"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                    <Button
+                      variant="error"
+                      mode="light"
+                      type="button"
+                      onClick={() => setCanEdit(false)}
+                    >
+                      Cancel
+                    </Button>
+
+                    <Button variant="success" mode="light" type="submit">
+                      Accept
+                    </Button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </form>
+          </div>
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@ Ing. Julio Salas Bacalla}. Avison y Fitzgerald en 1995 presentaron una definici�
 a los desarrolladores de software en sus esfuerzos por implementar nuevos sistemas de información''. Estas metodologías pueden estar compuestas por fases y estas a su vez por subfases que ayudarán a aumentar la granularidad a cada tarea para poder abordarla de la forma más efectiva y fácil posible. 
 
 \subsection{Modelos de proceso}
-UN modelo de proceso según Darniame en 1999, es una representación del mundo real, que ayuda a automatizar o reforzar partes de la producción de los procesos.
+Un modelo de proceso según Darniame en 1999, es una representación del mundo real, que ayuda a automatizar o reforzar partes de la producción de los procesos.
 Aunque hay una variedad de modelos los mas conocidos son los siguientes:
 \begin{itemize}
  \item \textbf{Modelo secuencial}: Representado por metodologías famosas como la conocida metodología \textit{Waterfall}, este modelo se caracteriza por un riguroso análisis de requisitos de los usuarios. En el siguiente paso se realiza el desarrollo del diseño del sistema, y por último se testea la aplicación y se envía una vez asegurada que funciona todo correctamente y esta completa.
@@ -84,67 +84,10 @@ El esquema que se seguirá a lo largo del desarrollo de esta aplicación es el s
     \label{fig:sprint_flow}
 \end{figure}
 
+Como hemos explicado anteriormente con esta metodología planearemos sprint semanales donde podremos ver los objetivos de cada sprint y avances de manera rápida. Además a cada tarea de cada sprint le asignaremos una puntuación conocida como \textit{Story points} que indicará el tiempo estimado para desarrollar esa tarea, permitiendo planear mejor cada sprint.
 \section{Product backlog}
 El product backlog estará compuesto por todas las historias de usuario que se analizaron en el capítulo anterior. Por la idea que caracteriza a la metodología SCRUM este product backlog puede cambiar a lo largo del desarrollo del proyecto.
 
-\begin{table}[H]
-    \renewcommand{\arraystretch}{1.8}
-    \centering
-    \small
-    \begin{tabularx}{\textwidth}{|l|X|c|c|}
-        \hline
-        \rowcolor[HTML]{9AFF99} 
-        \textbf{ID} & \textbf{Nombre} & \textbf{Estimación} & \textbf{Prioridad} \\ \hline
-        HU-1  & Registro de usuario                                   & 3 & Alta  \\ \hline
-        HU-2  & Inicio de sesión                                      & 2 & Alta  \\ \hline
-        HU-3  & Validación de correo electrónico                      & 3 & Media \\ \hline
-        HU-4  & Modificar datos de usuario                            & 2 & Alta  \\ \hline
-        HU-5  & Cerrar sesión                                         & 1 & Alta  \\ \hline
-        HU-6  & Crear remesa                                          & 3 & Alta  \\ \hline
-        HU-7  & Asignar remesa a transportista                        & 3 & Alta  \\ \hline
-        HU-8  & Consulta de historial de remesa                       & 2 & Alta  \\ \hline
-        HU-9  & Modificar remesa                                      & 3 & Alta  \\ \hline
-        HU-10 & Visualización en tiempo real de remesas               & 5 & Alta  \\ \hline
-        HU-11 & Recibir notificaciones por correo electrónico         & 3 & Alta  \\ \hline
-        HU-12 & Asignar remesas a transportistas de manera automática & 3 & Alta  \\ \hline
-        HU-13 & Actualizar el estado de remesas                       & 3 & Alta  \\ \hline
-        HU-14 & Dar de baja a un transportista                        & 1 & Alta  \\ \hline
-        HU-15 & Dar de alta a un transportista                        & 2 & Media \\ \hline
-        HU-16 & Generar reportes de remesas                           & 3 & Alta  \\ \hline
-        HU-17 & Mostrar estadísticas de monitoreo                     & 3 & Alta  \\ \hline
-        HU-18 & Registro de transacciones en la blockchain            & 3 & Alta  \\ \hline
-        HU-19 & Consulta de la trazabilidad completa de una remesa    & 3 & Alta  \\ \hline
-        HU-20 & Verificación de autenticidad de remesa                & 2 & Alta  \\ \hline
-        HU-21 & Automatización de transacciones en la blockchain      & 5 & Media \\ \hline
-    \end{tabularx}
-    \caption{Product backlog}
-\end{table}
-
-Esto hace una suma de puntos de tiempo (columna ``Estimación'') de 58 puntos. Considerando que por cada punto de historia se estima que se tardará en hacer sobre 3 horas. \\ 
-
-Aclarar que esta asignación de tiempo es una estimación y no es real, de hecho como se explicó en el capítulo de análisis;
-que una historia posea una estimación de 4 y otra de 2, no significa que la que posee una estimación de 4 puntos te conlleve el doble de tiempo si no que tiene más complejidad. \\ 
-
-Sin embargo, para esta estimación le asignaremos esta igualdad: \\ \textbf{ 1 punto = 3 horas}.  
-
-\section{Número de sprints necesarios}
-Para estimar el número de sprints requeridos para el desarrollo del proyecto, se han establecido los siguientes parámetros de trabajo:
-\begin{itemize}
-    \item \textbf{Número de días que se trabajará:} 6 días a la semana, de lunes a sábados.
-    \item \textbf{Número de horas por días:} entre semana 2 horas por día y los sabados 5 horas.
-    \item \textbf{Duración de tiempo de cada punto de historia:} 3 horas.
-    \item \textbf{Total de puntos de historia:} 58 puntos. 
-    \item  \textbf{Duración de cada sprint:} 10 días
-\end{itemize} 
-
-Una vez se tienen estos parámetros aclarados, se procede a calcular un tiempo de estimación de duración del proyecto y el número de sprints necesarios:\\
-
-Cada sprint necesitará un total de 
-$10 \text{ días} \times 2 \text{ horas} + 2 \text{ sábados} \times 5 \text{ horas} = 20 + 10 = 30 \text{ horas por sprint}$.
-
-Cada punto de historias = $4 \text{ horas} \text{ , como cada sprint requiere un total de 30 horas.}\\ 30 \text{ horas} / 4 \text{ horas por punto} = 7.5 \text{ puntos por sprint.}$\\
-
-Por lo tanto $58 \text{ puntos} / 7.5 \text{ puntos por sprint} = 7.73 \approx 8 \text{ sprints}$
 
 \newpage
 \section{Software a utilizar para la gestión de SCRUM}
@@ -160,86 +103,31 @@ Este software es ideal para el proyecto y tiene la ventaja de que es \textit{ope
 \end{figure}
 
 
+
 \newpage
-\section{Organización y cronograma de los sprints}
-El flujo a seguir en cada sprint es el que se puede observar en la figura 3.1 , pero este proyecto al solo estar formado el equipo por una persona se podrá prescindir de la parte de comunicación. \\
-
-Esta parte de comunicación esta compuesta por las reuniones de sprint planning y daily scrum. La parte de sprint review no se hará mediante una reunión pero si se sacarán conclusiones después de cada sprint para futuras mejoras de los próximos, basadas en la experiencia del sprint que se acabará de desarrollar.
-
-Estos serán los 8 sprints a desarrollar:
-
+\section{Cronograma}
+Se utilizará un cronograma de gang para visualizar el tiempo que se va a tardar en cada tarea.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint1.png}
-    \caption{Sprint 1}
-    \label{fig:sprint_flow}
+    \includegraphics[width=1.2\textwidth]{imagenes/Planificacion/Cronograma.jpg}
+    \caption{Cronograma de Gantt}
+    \label{fig:cronograma}     
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint2.png}
-    \caption{Sprint 2}
-    \label{fig:sprint_flow}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint3.png}
-    \caption{Sprint 3}
-    \label{fig:sprint_flow}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint4.png}
-    \caption{Sprint 4}
-    \label{fig:sprint_flow}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint5.png}
-    \caption{Sprint 5}
-    \label{fig:sprint_flow}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint6.png}
-    \caption{Sprint 6}
-    \label{fig:sprint_flow}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint7.png}
-    \caption{Sprint 7}
-    \label{fig:sprint_flow}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagenes/Planificacion/sprint8.png}
-    \caption{Sprint 8}
-    \label{fig:sprint_flow}
-\end{figure}
+Cabe recalcar que las columnas denominadas como "S1, S2, S3,..." hacen referencia a un periodo de 10 días.
 
 \newpage
 \section{Presupuesto}
-Para realizar el proyecto por completo serán necesarias un total de 232 horas solo a nivel de implementación, será necesario añadir todas las horas de análisis que han sido necesarias para luego comenzar con la implementación. Han sido un total de 60 horas de análisis e investigación.\\
+El desarrollo completo e integro del proyecto se estima que durará 13 periodos de 10 días, es decir, 130 días. El coste del proyecto se estima en función del salario de un ingeniero de software en España, concretamente en la comunidad autónoma de Andalucía en la provincia de Granada. Este salario medio es de 20750 euros al año según \href{https://www.glassdoor.es/Sueldos/granada-junior-software-engineer-sueldo-SRCH_IL.0,7_IC2614045_KO8,32.htm}{Glassdoor}, como el desarrollo del proyecto se estima 4 meses , el coste por de esos 4 meses será de 6916{,}66 euros por mes.\\
 
-Esto hace un total de 292 horas trabajadas. En España según un post de \href{https://www.ilerna.es/blog/cuanto-cobra-ingeniero-informatico#:~:text=Los%20rangos%20salariales%20para%20los,25.802%2C54%20euros%20al%20año.}{Ilerna} el salario de un ingeniero informático en España junior con menos de 2 años de experiencia oscila entre 19870.78 y 25802.84 euros al año brutos. En este caso como la experiencia que se dispone es inferior a los 5 meses se supondrá que el salario será de 20000 euros al año brutos. \\
+El coste de luz y agua por mes se estima en 80 euros, por lo que este coste por 4 meses será de 320 euros.\\
 
-Para este salario se supone que se trabaja 40 horas por semana; un año esta compuesto por 52 semanas trabajadas por lo que se trabaja un total de 2080 horas que si lo dividimos entre el salario da un total de 9.62 euros por hora (brutos).\\
+Curso de udemy para el aprendizaje de la tecnología blockchain llamado \textit{Ethereum and solidity: The Complete Developer's Guide}. Este curso tiene un coste de 12{,}99 euros.\\
 
-Por lo tanto $292 \text{ horas trabajadas} \times 9.62 \text{ euros por hora} = 2808.08 \text{ euros}$.\\
-
-El precio del internet será de $20 \text{ euros} \times 4 \text{ meses} = 80 \text{ euros}$. \\
-
-Para la luz se supondrá que el coste por mes será de 40 euros que harán un total de 160 euros en 4 meses. \\
+ChatGPT plus para la generación de imágenes y generación de código, este servicio tiene un coste de 20 euros al mes, por lo que el coste total por 4 meses será de 80 euros.\\
 
 El coste final del proyecto es por tanto de \[
-2808{,}80\ \text{€} + 80\ \text{€} + 160\ \text{€} = 3048{,}80\ \text{€}
+6916{,}66\ \text{€} + 320\ \text{€} + 12{,}99\ \text{€} + 80\ \text{€}= 7329{,}65\ \text{€}
 \]
 
 

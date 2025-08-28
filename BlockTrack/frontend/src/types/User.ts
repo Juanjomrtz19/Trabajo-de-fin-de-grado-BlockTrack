@@ -10,6 +10,14 @@ export interface RegisterUserPayload {
   rol: "TRANSPORTISTA" | "CLIENTE" | "";
   direccionPrincipal?: string | null;
   zonaOperativa?: string | null;
+  direccionPrincipalCP?: number | null;
+  direccionPrincipalCiudad?: string | null;
+  direccionPrincipalLat?: number | null;
+  direccionPrincipalLon?: number | null;
+  zonaOperativaCP?: number | null;
+  zonaOperativaCiudad?: string | null;
+  zonaOperativaLat?: number | null;
+  zonaOperativaLon?: number | null;
 }
 
 export interface LoginUserPayload {
@@ -25,4 +33,6 @@ export interface User {
   apellidos: string;
   telefono: string;
   id: number;
+  clienteId?: number | null;
+  transportistaId?: number | null;
 }

@@ -3,17 +3,26 @@ import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import NavBarPrivate from "../components/layout/NavBarPrivate";
 import Button from "../components/common/Button/Button";
+import { useSelector } from "react-redux";
+import { RootState } from "../app/store";
 
 const sidebarWidth = 256;
 
 const PrivateLayout = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const user = useSelector((state) => (state as RootState).user.user);
 
-  const privateRoutes = [
+  const privateRoutesClient = [
     { path: "/admin", name: "Settings" },
     { path: "admin/dashboard", name: "Dashboard" },
     { path: "/admin/remesas", name: "Remesas" },
-    { path: "/admin/transportesEnCurso", name: "Transportes en curso" },
+  ];
+
+  const privateRoutesTransportista = [
+    { path: "/admin", name: "Settings" },
+    { path: "admin/dashboard", name: "Dashboard" },
+    { path: "/admin/vehiculos", name: "Vehículos" },
+    { path: "/admin/asignaciones", name: "Asignaciones" },
   ];
 
   return (
@@ -32,7 +41,11 @@ const PrivateLayout = () => {
       >
         {isOpen && (
           <NavBarPrivate
-            routes={privateRoutes}
+            routes={
+              user?.rol === "CLIENTE"
+                ? privateRoutesClient
+                : privateRoutesTransportista
+            }
             isOpen={isOpen}
             setIsOpen={setIsOpen}
           />

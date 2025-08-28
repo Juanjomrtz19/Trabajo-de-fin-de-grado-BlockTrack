@@ -6,7 +6,6 @@ import {
   type LoginUserPayload,
   type RegisterUserPayload,
 } from "../../types/User";
-import { LogOut } from "lucide-react";
 
 export const userApi = createApi({
   reducerPath: "userApi",

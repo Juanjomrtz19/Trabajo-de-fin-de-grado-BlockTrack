@@ -31,6 +31,14 @@ const CambiarPaso = ({ paso, setPaso }: CambiarPaso) => {
     confirmarContrasenia,
     direccionPrincipal,
     zonaOperativa,
+    direccionPrincipalCP,
+    direccionPrincipalCiudad,
+    direccionPrincipalLat,
+    direccionPrincipalLon,
+    zonaOperativaLat,
+    zonaOperativaLon,
+    zonaOperativaCP,
+    zonaOperativaCiudad,
   } = useSelector((state: RootState) => state.register);
 
   const validatePaso = (pasoActual: number): Record<string, string> => {
@@ -174,6 +182,18 @@ const CambiarPaso = ({ paso, setPaso }: CambiarPaso) => {
       contrasenia,
       direccionPrincipal: rol === "TRANSPORTISTA" ? null : direccionPrincipal,
       zonaOperativa: rol === "TRANSPORTISTA" ? zonaOperativa : null,
+      direccionPrincipalCP:
+        rol === "TRANSPORTISTA" ? null : Number(direccionPrincipalCP),
+      direccionPrincipalCiudad:
+        rol === "TRANSPORTISTA" ? null : direccionPrincipalCiudad,
+      direccionPrincipalLat:
+        rol === "TRANSPORTISTA" ? null : direccionPrincipalLat,
+      direccionPrincipalLon:
+        rol === "TRANSPORTISTA" ? null : direccionPrincipalLon,
+      zonaOperativaCP: rol === "CLIENTE" ? null : Number(zonaOperativaCP),
+      zonaOperativaCiudad: rol === "CLIENTE" ? null : zonaOperativaCiudad,
+      zonaOperativaLat: rol === "CLIENTE" ? null : zonaOperativaLat,
+      zonaOperativaLon: rol === "CLIENTE" ? null : zonaOperativaLon,
     };
 
     try {

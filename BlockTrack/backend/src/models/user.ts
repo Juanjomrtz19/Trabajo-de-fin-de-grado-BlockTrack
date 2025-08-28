@@ -12,6 +12,14 @@ export interface Usuario {
   zonaOperativa?: string | null;
   disponibilidadActual?: boolean | null;
   documentacionValidad?: boolean | null;
+  direccionPrincipalCP?: number | null;
+  direccionPrincipalCiudad?: string | null;
+  direccionPrincipalLat?: number | null;
+  direccionPrincipalLon?: number | null;
+  zonaOperativaCP?: number | null;
+  zonaOperativaCiudad?: string | null;
+  zonaOperativaLat?: number | null;
+  zonaOperativaLon?: number | null;
 }
 
 export interface UsuarioUpdate {

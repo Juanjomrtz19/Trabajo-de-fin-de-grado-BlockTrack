@@ -17,6 +17,14 @@ export const registerUser = async (
     dni,
     direccionPrincipal,
     zonaOperativa,
+    direccionPrincipalCP,
+    direccionPrincipalCiudad,
+    direccionPrincipalLat,
+    direccionPrincipalLon,
+    zonaOperativaCP,
+    zonaOperativaCiudad,
+    zonaOperativaLat,
+    zonaOperativaLon,
   } = req.body;
 
   try {
@@ -41,11 +49,21 @@ export const registerUser = async (
       zonaOperativa,
       disponibilidadActual: true,
       documentacionValidad: true,
+      direccionPrincipalCP: direccionPrincipalCP
+        ? Number(direccionPrincipalCP)
+        : null,
+      direccionPrincipalCiudad: direccionPrincipalCiudad || null,
+      direccionPrincipalLat: direccionPrincipalLat || null,
+      direccionPrincipalLon: direccionPrincipalLon || null,
+      zonaOperativaCP: zonaOperativaCP ? Number(zonaOperativaCP) : null,
+      zonaOperativaCiudad: zonaOperativaCiudad || null,
+      zonaOperativaLat: zonaOperativaLat || null,
+      zonaOperativaLon: zonaOperativaLon || null,
     };
 
     const result = await userService.registerUser(userData);
 
-    console.log("[USER][REGISTER] Succest");
+    console.log("[USER][REGISTER] Success");
     res.status(201).json(result);
   } catch (error) {
     console.error(error);
@@ -122,14 +140,21 @@ export const getCurrentUser = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const token = req.cookies.token;
+  const token = req.cookies?.token;
+  if (!token) {
+    res.status(401).json({ message: "Unauthorized" });
+    return;
+  }
+
   try {
     console.log("[USER][GETCURRENTUSER] Request");
     const user = await userService.verifyToken(token);
-    if (!user) res.status(401).json({ message: "Unauthorized" });
-    console.log("user", user);
+    if (!user) {
+      res.status(401).json({ message: "Unauthorized" });
+      return; // <-- importante
+    }
     res.status(200).json({ user });
-    console.log("[USER][GETCURRENTUSER] Succest");
+    console.log("[USER][GETCURRENTUSER] Success");
   } catch (error) {
     console.error(error);
     res.status(401).json({ message: "Invalid token" });

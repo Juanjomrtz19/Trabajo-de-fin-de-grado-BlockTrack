@@ -1,0 +1,902 @@
+[
+  {
+    "dni": "00000001B",
+    "nombre": "Nombre1",
+    "apellidos": "Apellido1 ApellidoDos1",
+    "email": "usuario1@example.com",
+    "telefono": "600000001",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000002C",
+    "nombre": "Nombre2",
+    "apellidos": "Apellido2 ApellidoDos2",
+    "email": "usuario2@example.com",
+    "telefono": "600000002",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000003D",
+    "nombre": "Nombre3",
+    "apellidos": "Apellido3 ApellidoDos3",
+    "email": "usuario3@example.com",
+    "telefono": "600000003",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000004E",
+    "nombre": "Nombre4",
+    "apellidos": "Apellido4 ApellidoDos4",
+    "email": "usuario4@example.com",
+    "telefono": "600000004",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000005F",
+    "nombre": "Nombre5",
+    "apellidos": "Apellido5 ApellidoDos5",
+    "email": "usuario5@example.com",
+    "telefono": "600000005",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000006G",
+    "nombre": "Nombre6",
+    "apellidos": "Apellido6 ApellidoDos6",
+    "email": "usuario6@example.com",
+    "telefono": "600000006",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000007H",
+    "nombre": "Nombre7",
+    "apellidos": "Apellido7 ApellidoDos7",
+    "email": "usuario7@example.com",
+    "telefono": "600000007",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000008I",
+    "nombre": "Nombre8",
+    "apellidos": "Apellido8 ApellidoDos8",
+    "email": "usuario8@example.com",
+    "telefono": "600000008",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000009J",
+    "nombre": "Nombre9",
+    "apellidos": "Apellido9 ApellidoDos9",
+    "email": "usuario9@example.com",
+    "telefono": "600000009",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000010K",
+    "nombre": "Nombre10",
+    "apellidos": "Apellido10 ApellidoDos10",
+    "email": "usuario10@example.com",
+    "telefono": "600000010",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000011L",
+    "nombre": "Nombre11",
+    "apellidos": "Apellido11 ApellidoDos11",
+    "email": "usuario11@example.com",
+    "telefono": "600000011",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000012M",
+    "nombre": "Nombre12",
+    "apellidos": "Apellido12 ApellidoDos12",
+    "email": "usuario12@example.com",
+    "telefono": "600000012",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000013N",
+    "nombre": "Nombre13",
+    "apellidos": "Apellido13 ApellidoDos13",
+    "email": "usuario13@example.com",
+    "telefono": "600000013",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000014O",
+    "nombre": "Nombre14",
+    "apellidos": "Apellido14 ApellidoDos14",
+    "email": "usuario14@example.com",
+    "telefono": "600000014",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000015P",
+    "nombre": "Nombre15",
+    "apellidos": "Apellido15 ApellidoDos15",
+    "email": "usuario15@example.com",
+    "telefono": "600000015",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000016Q",
+    "nombre": "Nombre16",
+    "apellidos": "Apellido16 ApellidoDos16",
+    "email": "usuario16@example.com",
+    "telefono": "600000016",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000017R",
+    "nombre": "Nombre17",
+    "apellidos": "Apellido17 ApellidoDos17",
+    "email": "usuario17@example.com",
+    "telefono": "600000017",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000018S",
+    "nombre": "Nombre18",
+    "apellidos": "Apellido18 ApellidoDos18",
+    "email": "usuario18@example.com",
+    "telefono": "600000018",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000019T",
+    "nombre": "Nombre19",
+    "apellidos": "Apellido19 ApellidoDos19",
+    "email": "usuario19@example.com",
+    "telefono": "600000019",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000020U",
+    "nombre": "Nombre20",
+    "apellidos": "Apellido20 ApellidoDos20",
+    "email": "usuario20@example.com",
+    "telefono": "600000020",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000021V",
+    "nombre": "Nombre21",
+    "apellidos": "Apellido21 ApellidoDos21",
+    "email": "usuario21@example.com",
+    "telefono": "600000021",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000022W",
+    "nombre": "Nombre22",
+    "apellidos": "Apellido22 ApellidoDos22",
+    "email": "usuario22@example.com",
+    "telefono": "600000022",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000023X",
+    "nombre": "Nombre23",
+    "apellidos": "Apellido23 ApellidoDos23",
+    "email": "usuario23@example.com",
+    "telefono": "600000023",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000024Y",
+    "nombre": "Nombre24",
+    "apellidos": "Apellido24 ApellidoDos24",
+    "email": "usuario24@example.com",
+    "telefono": "600000024",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000025Z",
+    "nombre": "Nombre25",
+    "apellidos": "Apellido25 ApellidoDos25",
+    "email": "usuario25@example.com",
+    "telefono": "600000025",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000026A",
+    "nombre": "Nombre26",
+    "apellidos": "Apellido26 ApellidoDos26",
+    "email": "usuario26@example.com",
+    "telefono": "600000026",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000027B",
+    "nombre": "Nombre27",
+    "apellidos": "Apellido27 ApellidoDos27",
+    "email": "usuario27@example.com",
+    "telefono": "600000027",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000028C",
+    "nombre": "Nombre28",
+    "apellidos": "Apellido28 ApellidoDos28",
+    "email": "usuario28@example.com",
+    "telefono": "600000028",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000029D",
+    "nombre": "Nombre29",
+    "apellidos": "Apellido29 ApellidoDos29",
+    "email": "usuario29@example.com",
+    "telefono": "600000029",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000030E",
+    "nombre": "Nombre30",
+    "apellidos": "Apellido30 ApellidoDos30",
+    "email": "usuario30@example.com",
+    "telefono": "600000030",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000031F",
+    "nombre": "Nombre31",
+    "apellidos": "Apellido31 ApellidoDos31",
+    "email": "usuario31@example.com",
+    "telefono": "600000031",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000032G",
+    "nombre": "Nombre32",
+    "apellidos": "Apellido32 ApellidoDos32",
+    "email": "usuario32@example.com",
+    "telefono": "600000032",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000033H",
+    "nombre": "Nombre33",
+    "apellidos": "Apellido33 ApellidoDos33",
+    "email": "usuario33@example.com",
+    "telefono": "600000033",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000034I",
+    "nombre": "Nombre34",
+    "apellidos": "Apellido34 ApellidoDos34",
+    "email": "usuario34@example.com",
+    "telefono": "600000034",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000035J",
+    "nombre": "Nombre35",
+    "apellidos": "Apellido35 ApellidoDos35",
+    "email": "usuario35@example.com",
+    "telefono": "600000035",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000036K",
+    "nombre": "Nombre36",
+    "apellidos": "Apellido36 ApellidoDos36",
+    "email": "usuario36@example.com",
+    "telefono": "600000036",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000037L",
+    "nombre": "Nombre37",
+    "apellidos": "Apellido37 ApellidoDos37",
+    "email": "usuario37@example.com",
+    "telefono": "600000037",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000038M",
+    "nombre": "Nombre38",
+    "apellidos": "Apellido38 ApellidoDos38",
+    "email": "usuario38@example.com",
+    "telefono": "600000038",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000039N",
+    "nombre": "Nombre39",
+    "apellidos": "Apellido39 ApellidoDos39",
+    "email": "usuario39@example.com",
+    "telefono": "600000039",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000040O",
+    "nombre": "Nombre40",
+    "apellidos": "Apellido40 ApellidoDos40",
+    "email": "usuario40@example.com",
+    "telefono": "600000040",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000041P",
+    "nombre": "Nombre41",
+    "apellidos": "Apellido41 ApellidoDos41",
+    "email": "usuario41@example.com",
+    "telefono": "600000041",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000042Q",
+    "nombre": "Nombre42",
+    "apellidos": "Apellido42 ApellidoDos42",
+    "email": "usuario42@example.com",
+    "telefono": "600000042",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000043R",
+    "nombre": "Nombre43",
+    "apellidos": "Apellido43 ApellidoDos43",
+    "email": "usuario43@example.com",
+    "telefono": "600000043",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000044S",
+    "nombre": "Nombre44",
+    "apellidos": "Apellido44 ApellidoDos44",
+    "email": "usuario44@example.com",
+    "telefono": "600000044",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000045T",
+    "nombre": "Nombre45",
+    "apellidos": "Apellido45 ApellidoDos45",
+    "email": "usuario45@example.com",
+    "telefono": "600000045",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000046U",
+    "nombre": "Nombre46",
+    "apellidos": "Apellido46 ApellidoDos46",
+    "email": "usuario46@example.com",
+    "telefono": "600000046",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000047V",
+    "nombre": "Nombre47",
+    "apellidos": "Apellido47 ApellidoDos47",
+    "email": "usuario47@example.com",
+    "telefono": "600000047",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000048W",
+    "nombre": "Nombre48",
+    "apellidos": "Apellido48 ApellidoDos48",
+    "email": "usuario48@example.com",
+    "telefono": "600000048",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000049X",
+    "nombre": "Nombre49",
+    "apellidos": "Apellido49 ApellidoDos49",
+    "email": "usuario49@example.com",
+    "telefono": "600000049",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000050Y",
+    "nombre": "Nombre50",
+    "apellidos": "Apellido50 ApellidoDos50",
+    "email": "usuario50@example.com",
+    "telefono": "600000050",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000051Z",
+    "nombre": "Nombre51",
+    "apellidos": "Apellido51 ApellidoDos51",
+    "email": "usuario51@example.com",
+    "telefono": "600000051",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000052A",
+    "nombre": "Nombre52",
+    "apellidos": "Apellido52 ApellidoDos52",
+    "email": "usuario52@example.com",
+    "telefono": "600000052",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000053B",
+    "nombre": "Nombre53",
+    "apellidos": "Apellido53 ApellidoDos53",
+    "email": "usuario53@example.com",
+    "telefono": "600000053",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000054C",
+    "nombre": "Nombre54",
+    "apellidos": "Apellido54 ApellidoDos54",
+    "email": "usuario54@example.com",
+    "telefono": "600000054",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000055D",
+    "nombre": "Nombre55",
+    "apellidos": "Apellido55 ApellidoDos55",
+    "email": "usuario55@example.com",
+    "telefono": "600000055",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000056E",
+    "nombre": "Nombre56",
+    "apellidos": "Apellido56 ApellidoDos56",
+    "email": "usuario56@example.com",
+    "telefono": "600000056",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000057F",
+    "nombre": "Nombre57",
+    "apellidos": "Apellido57 ApellidoDos57",
+    "email": "usuario57@example.com",
+    "telefono": "600000057",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000058G",
+    "nombre": "Nombre58",
+    "apellidos": "Apellido58 ApellidoDos58",
+    "email": "usuario58@example.com",
+    "telefono": "600000058",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000059H",
+    "nombre": "Nombre59",
+    "apellidos": "Apellido59 ApellidoDos59",
+    "email": "usuario59@example.com",
+    "telefono": "600000059",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000060I",
+    "nombre": "Nombre60",
+    "apellidos": "Apellido60 ApellidoDos60",
+    "email": "usuario60@example.com",
+    "telefono": "600000060",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000061J",
+    "nombre": "Nombre61",
+    "apellidos": "Apellido61 ApellidoDos61",
+    "email": "usuario61@example.com",
+    "telefono": "600000061",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000062K",
+    "nombre": "Nombre62",
+    "apellidos": "Apellido62 ApellidoDos62",
+    "email": "usuario62@example.com",
+    "telefono": "600000062",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000063L",
+    "nombre": "Nombre63",
+    "apellidos": "Apellido63 ApellidoDos63",
+    "email": "usuario63@example.com",
+    "telefono": "600000063",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000064M",
+    "nombre": "Nombre64",
+    "apellidos": "Apellido64 ApellidoDos64",
+    "email": "usuario64@example.com",
+    "telefono": "600000064",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000065N",
+    "nombre": "Nombre65",
+    "apellidos": "Apellido65 ApellidoDos65",
+    "email": "usuario65@example.com",
+    "telefono": "600000065",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000066O",
+    "nombre": "Nombre66",
+    "apellidos": "Apellido66 ApellidoDos66",
+    "email": "usuario66@example.com",
+    "telefono": "600000066",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000067P",
+    "nombre": "Nombre67",
+    "apellidos": "Apellido67 ApellidoDos67",
+    "email": "usuario67@example.com",
+    "telefono": "600000067",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000068Q",
+    "nombre": "Nombre68",
+    "apellidos": "Apellido68 ApellidoDos68",
+    "email": "usuario68@example.com",
+    "telefono": "600000068",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000069R",
+    "nombre": "Nombre69",
+    "apellidos": "Apellido69 ApellidoDos69",
+    "email": "usuario69@example.com",
+    "telefono": "600000069",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000070S",
+    "nombre": "Nombre70",
+    "apellidos": "Apellido70 ApellidoDos70",
+    "email": "usuario70@example.com",
+    "telefono": "600000070",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000071T",
+    "nombre": "Nombre71",
+    "apellidos": "Apellido71 ApellidoDos71",
+    "email": "usuario71@example.com",
+    "telefono": "600000071",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000072U",
+    "nombre": "Nombre72",
+    "apellidos": "Apellido72 ApellidoDos72",
+    "email": "usuario72@example.com",
+    "telefono": "600000072",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000073V",
+    "nombre": "Nombre73",
+    "apellidos": "Apellido73 ApellidoDos73",
+    "email": "usuario73@example.com",
+    "telefono": "600000073",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000074W",
+    "nombre": "Nombre74",
+    "apellidos": "Apellido74 ApellidoDos74",
+    "email": "usuario74@example.com",
+    "telefono": "600000074",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000075X",
+    "nombre": "Nombre75",
+    "apellidos": "Apellido75 ApellidoDos75",
+    "email": "usuario75@example.com",
+    "telefono": "600000075",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000076Y",
+    "nombre": "Nombre76",
+    "apellidos": "Apellido76 ApellidoDos76",
+    "email": "usuario76@example.com",
+    "telefono": "600000076",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000077Z",
+    "nombre": "Nombre77",
+    "apellidos": "Apellido77 ApellidoDos77",
+    "email": "usuario77@example.com",
+    "telefono": "600000077",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000078A",
+    "nombre": "Nombre78",
+    "apellidos": "Apellido78 ApellidoDos78",
+    "email": "usuario78@example.com",
+    "telefono": "600000078",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000079B",
+    "nombre": "Nombre79",
+    "apellidos": "Apellido79 ApellidoDos79",
+    "email": "usuario79@example.com",
+    "telefono": "600000079",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000080C",
+    "nombre": "Nombre80",
+    "apellidos": "Apellido80 ApellidoDos80",
+    "email": "usuario80@example.com",
+    "telefono": "600000080",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000081D",
+    "nombre": "Nombre81",
+    "apellidos": "Apellido81 ApellidoDos81",
+    "email": "usuario81@example.com",
+    "telefono": "600000081",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000082E",
+    "nombre": "Nombre82",
+    "apellidos": "Apellido82 ApellidoDos82",
+    "email": "usuario82@example.com",
+    "telefono": "600000082",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000083F",
+    "nombre": "Nombre83",
+    "apellidos": "Apellido83 ApellidoDos83",
+    "email": "usuario83@example.com",
+    "telefono": "600000083",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000084G",
+    "nombre": "Nombre84",
+    "apellidos": "Apellido84 ApellidoDos84",
+    "email": "usuario84@example.com",
+    "telefono": "600000084",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000085H",
+    "nombre": "Nombre85",
+    "apellidos": "Apellido85 ApellidoDos85",
+    "email": "usuario85@example.com",
+    "telefono": "600000085",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000086I",
+    "nombre": "Nombre86",
+    "apellidos": "Apellido86 ApellidoDos86",
+    "email": "usuario86@example.com",
+    "telefono": "600000086",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000087J",
+    "nombre": "Nombre87",
+    "apellidos": "Apellido87 ApellidoDos87",
+    "email": "usuario87@example.com",
+    "telefono": "600000087",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000088K",
+    "nombre": "Nombre88",
+    "apellidos": "Apellido88 ApellidoDos88",
+    "email": "usuario88@example.com",
+    "telefono": "600000088",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000089L",
+    "nombre": "Nombre89",
+    "apellidos": "Apellido89 ApellidoDos89",
+    "email": "usuario89@example.com",
+    "telefono": "600000089",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000090M",
+    "nombre": "Nombre90",
+    "apellidos": "Apellido90 ApellidoDos90",
+    "email": "usuario90@example.com",
+    "telefono": "600000090",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000091N",
+    "nombre": "Nombre91",
+    "apellidos": "Apellido91 ApellidoDos91",
+    "email": "usuario91@example.com",
+    "telefono": "600000091",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000092O",
+    "nombre": "Nombre92",
+    "apellidos": "Apellido92 ApellidoDos92",
+    "email": "usuario92@example.com",
+    "telefono": "600000092",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000093P",
+    "nombre": "Nombre93",
+    "apellidos": "Apellido93 ApellidoDos93",
+    "email": "usuario93@example.com",
+    "telefono": "600000093",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000094Q",
+    "nombre": "Nombre94",
+    "apellidos": "Apellido94 ApellidoDos94",
+    "email": "usuario94@example.com",
+    "telefono": "600000094",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000095R",
+    "nombre": "Nombre95",
+    "apellidos": "Apellido95 ApellidoDos95",
+    "email": "usuario95@example.com",
+    "telefono": "600000095",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000096S",
+    "nombre": "Nombre96",
+    "apellidos": "Apellido96 ApellidoDos96",
+    "email": "usuario96@example.com",
+    "telefono": "600000096",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000097T",
+    "nombre": "Nombre97",
+    "apellidos": "Apellido97 ApellidoDos97",
+    "email": "usuario97@example.com",
+    "telefono": "600000097",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000098U",
+    "nombre": "Nombre98",
+    "apellidos": "Apellido98 ApellidoDos98",
+    "email": "usuario98@example.com",
+    "telefono": "600000098",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000099V",
+    "nombre": "Nombre99",
+    "apellidos": "Apellido99 ApellidoDos99",
+    "email": "usuario99@example.com",
+    "telefono": "600000099",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  },
+  {
+    "dni": "00000100W",
+    "nombre": "Nombre100",
+    "apellidos": "Apellido100 ApellidoDos100",
+    "email": "usuario100@example.com",
+    "telefono": "600000100",
+    "contrasenia": "pass1234",
+    "rol": "TRANSPORTISTA"
+  }
+]
