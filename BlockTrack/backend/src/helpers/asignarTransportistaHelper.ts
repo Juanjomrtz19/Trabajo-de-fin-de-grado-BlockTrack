@@ -480,3 +480,36 @@ export const crearEntradasLLeva = async (
 
   return entradasLleva;
 };
+
+/**
+ * Obtiene los transportistas cercanos a un punto específico
+ * @param punto Las coordenadas del punto de interés
+ */
+export const obtenerTransportistaCercanoaUnPunto = async (
+  punto: Coordenadas
+) => {
+  const transportistas: any[] = await transportistasConCoche();
+  let transportistaId: number | null = null;
+  let menorDistancia: number | null = 100000000;
+
+  for (const transportista of transportistas) {
+    let puntoTransportista: Coordenadas = {
+      lat: Number(transportista.transportista.zonaOperativaLat),
+      lng: Number(transportista.transportista.zonaOperativaLng),
+    };
+
+    let distanciaKms: number = haversineKm(punto, puntoTransportista);
+
+    if (distanciaKms < menorDistancia) {
+      menorDistancia = distanciaKms;
+      transportistaId = transportista.transportistaId;
+    }
+
+    if (distanciaKms <= 50) {
+      transportistaId = transportista.transportistaId;
+      break;
+    }
+  }
+
+  return transportistaId;
+};

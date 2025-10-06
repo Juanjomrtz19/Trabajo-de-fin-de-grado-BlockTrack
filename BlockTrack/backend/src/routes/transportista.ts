@@ -5,6 +5,7 @@ import * as llevaController from "../controllers/lleva";
 
 const router = Router();
 
+router.patch("/rechazarLleva", authenticate, llevaController.rechazarLleva);
 router.patch("/aceptarLleva", authenticate, llevaController.aceptarLLeva);
 router.patch("/darDeBaja", authenticate, transportistaController.darDeBaja);
 router.get(

@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { z } from "zod";
 import { TipoMercancia } from "@prisma/client";
-import * as remesaService from "../services/remesa"; // ajusta el import
-import { Remesa } from "../models/remesa"; // tu interface TS nueva
+import * as remesaService from "../services/remesa";
+import { Remesa } from "../models/remesa";
 
 const RemesaCreateSchema = z.object({
   // Datos de la remesa

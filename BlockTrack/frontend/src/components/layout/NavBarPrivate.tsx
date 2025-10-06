@@ -27,14 +27,14 @@ const NavBarPrivate = ({ routes }: NavBarPrivateProps) => {
           <Link
             key={route.path}
             to={route.path}
-            className={`p-2 rounded transition-colors ${
+            className={`p-2 rounded transition-colors flex gap-1 items-center ${
               location.pathname === route.path
                 ? "bg-secondary-light text-text-dark"
                 : "text-white hover:bg-accent-light"
             }`}
           >
-            {route.icon && <span className="mr-2">{route.icon}</span>}
             {route.name}
+            {route.icon && <span className="mr-2">{route.icon}</span>}
           </Link>
         ))}
       </nav>
@@ -43,7 +43,7 @@ const NavBarPrivate = ({ routes }: NavBarPrivateProps) => {
         className="absolute bottom-4"
         onClick={() => {
           logOut("");
-          navigate("/");
+          window.location.reload();
         }}
       >
         Logout

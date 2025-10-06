@@ -12,6 +12,7 @@ import {
 } from "../helpers/asignarTransportistaHelper";
 import { GeneralError } from "../server/serverInterface";
 import { lleva } from "../models/lleva";
+import { getSocket } from "../sockets";
 
 const toDecimal = (v?: number | string | Prisma.Decimal | null) =>
   v == null ? null : new Prisma.Decimal(v);
@@ -227,6 +228,18 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
         data: entradasTablaLleva,
       });
     });
+
+    for (const lleva of entradasTablaLleva) {
+      const transportista = await prisma.conduce.findUnique({
+        where: { id: lleva.conduceId },
+        select: { transportistaId: true },
+      });
+
+      const io = getSocket();
+      io.of("/asignaciones")
+        .to(`transportista:${transportista?.transportistaId}`)
+        .emit("asignaciones:pendientes");
+    }
 
     return transaction;
   } catch (err) {

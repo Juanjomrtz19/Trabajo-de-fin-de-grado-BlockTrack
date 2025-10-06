@@ -61,18 +61,49 @@ export const aceptarLLeva = async (
   try {
     const { transportistaId } = req.user!;
     console.log("[LLEVA][ACEPTARLLEVA] Request");
-    const llevaId: number = parseInt(req.params.llevaId);
+    const llevaId: number = parseInt(req.body.llevaId);
+    console.log("llevaId", llevaId);
     if (isNaN(llevaId)) {
       throw new GeneralError(400, "ID de lleva inválido", "cliente");
     }
     if (!transportistaId) {
       throw new GeneralError(400, "ID de transportista inválido", "cliente");
     }
-    await llevaService.aceptarLLeva(llevaId);
+    await llevaService.aceptarLLeva(llevaId, transportistaId);
     console.log("[LLEVA][ACEPTARLLEVA] Success");
     res.status(200).json({ message: "Lleva aceptada con éxito" });
   } catch (error: any) {
     console.log("[LLEVA][ACEPTARLLEVA] Error:", error);
+    const status = error.status ?? 500;
+    const message = error.message ?? "Error interno del servidor";
+
+    res.status(status).json({
+      ok: false,
+      message,
+    });
+  }
+};
+
+export const rechazarLleva = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { transportistaId } = req.user!;
+    console.log("[LLEVA][RECHAZARLLEVA] Request");
+    const llevaId: number = parseInt(req.body.llevaId);
+    if (isNaN(llevaId)) {
+      throw new GeneralError(400, "ID de lleva inválido", "cliente");
+    }
+    if (!transportistaId) {
+      throw new GeneralError(400, "ID de transportista inválido", "cliente");
+    }
+
+    await llevaService.rechazarLleva(llevaId, transportistaId);
+    console.log("[LLEVA][RECHAZARLLEVA] Success");
+    res.status(200).json({ message: "Lleva rechazada con éxito" });
+  } catch (error: any) {
+    console.log("[LLEVA][RECHAZARLLEVA] Error:", error);
     const status = error.status ?? 500;
     const message = error.message ?? "Error interno del servidor";
 

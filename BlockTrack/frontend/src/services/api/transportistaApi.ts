@@ -5,6 +5,7 @@ import { LLeva } from "../../types/lleva";
 export const transportistaApi = createApi({
   reducerPath: "transportistaApi",
   baseQuery,
+  tagTypes: ["Lleva"],
   endpoints: (builder) => ({
     darDeBajaTransportista: builder.mutation({
       query: ({ baja }) => ({
@@ -18,6 +19,32 @@ export const transportistaApi = createApi({
         url: `/transportistas/llevas`,
         method: "GET",
       }),
+      providesTags: (result: any) =>
+        result
+          ? [
+              ...result.map(({ id }: { id: number }) => ({
+                type: "Lleva",
+                id,
+              })),
+              "Lleva",
+            ]
+          : ["Lleva"],
+    }),
+    rechazarLleva: builder.mutation({
+      query: ({ llevaId }) => ({
+        url: `/transportistas/rechazarLleva`,
+        method: "PATCH",
+        body: { llevaId },
+      }),
+      invalidatesTags: ["Lleva"],
+    }),
+    aceptarLleva: builder.mutation({
+      query: ({ llevaId }) => ({
+        url: `/transportistas/aceptarLleva`,
+        method: "PATCH",
+        body: { llevaId },
+      }),
+      invalidatesTags: ["Lleva"],
     }),
   }),
 });
@@ -25,4 +52,6 @@ export const transportistaApi = createApi({
 export const {
   useDarDeBajaTransportistaMutation,
   useObtenerLlevasPorTransportistaQuery,
+  useAceptarLlevaMutation,
+  useRechazarLlevaMutation,
 } = transportistaApi;

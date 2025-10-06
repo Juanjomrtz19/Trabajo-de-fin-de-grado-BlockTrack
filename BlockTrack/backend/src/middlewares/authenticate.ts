@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import type { JwtPayload } from "jsonwebtoken";
 
 interface JwtUserPayload extends JwtPayload {
+  userId: number;
   dni: string;
   email: string;
   rol: Rol;

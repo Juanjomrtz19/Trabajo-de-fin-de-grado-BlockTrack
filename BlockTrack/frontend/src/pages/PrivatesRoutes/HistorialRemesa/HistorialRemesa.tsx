@@ -14,6 +14,8 @@ import { useParams } from "react-router-dom";
 import RemesaCard from "./components/RemesaCard";
 import TransportCard from "./components/TransportCard";
 import DestinatarioCard from "./components/DestinatarioCard";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 
 const nodeTypes = {
   remesaCard: RemesaCard,

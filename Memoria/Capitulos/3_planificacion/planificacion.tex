@@ -1,22 +1,23 @@
 \raggedbottom
 \chapter{Planificacion}
 \section{Metodologías de desarrollo}
-Según el artículo \textbf{Criterios de selección de metodologías de
-desarrollo de software de Ing. Oscar Tinoco Gómez
-Ing. Pedro Pablo Rosales López2
-Ing. Julio Salas Bacalla}. Avison y Fitzgerald en 1995 presentaron una definición de metodologías de desarrollo. `` Una metodología es una colección de procedimientos, técnicas, herramientas y documentos auxiliares que ayudan
+Según \textcite{criteriosSeleccionMetodologiasDesarrollo}. Avison y Fitzgerald en 1995 presentaron una definición de metodologías de desarrollo. `` Una metodología es una colección de procedimientos, técnicas, herramientas y documentos auxiliares que ayudan
 a los desarrolladores de software en sus esfuerzos por implementar nuevos sistemas de información''. Estas metodologías pueden estar compuestas por fases y estas a su vez por subfases que ayudarán a aumentar la granularidad a cada tarea para poder abordarla de la forma más efectiva y fácil posible. 
 
 \subsection{Modelos de proceso}
-Un modelo de proceso según Darniame en 1999, es una representación del mundo real, que ayuda a automatizar o reforzar partes de la producción de los procesos.
-Aunque hay una variedad de modelos los mas conocidos son los siguientes:
+
+Un modelo de proceso puede entenderse como una abstracción del mundo real que permite describir, estructurar y automatizar las distintas fases implicadas en el desarrollo de un sistema software. Su finalidad es facilitar la planificación, el control y la mejora continua del proceso de producción. A lo largo del tiempo se han propuesto diversos modelos, aunque los más representativos son los siguientes:
+
 \begin{itemize}
- \item \textbf{Modelo secuencial}: Representado por metodologías famosas como la conocida metodología \textit{Waterfall}, este modelo se caracteriza por un riguroso análisis de requisitos de los usuarios. En el siguiente paso se realiza el desarrollo del diseño del sistema, y por último se testea la aplicación y se envía una vez asegurada que funciona todo correctamente y esta completa.
- \item \textbf{Desarrollo incremental}: Tiene como principal objetivo reducir el tiempo de desarrollo, al igual que el modelo secuencial al principio se realiza un análisis de requisitos de los usuarios, a diferencia de que en el desarrollo del sistema de información, los requisitos se dividen en ``incrementos''. Por ejemplo, el primer incremento suele ser un desarrollo esencial de la aplicación, apenas con los requisitos básicos. Por cada incremento que se va desarrollando se va alcanzando la versión final de la aplicación (Esto último sacado del artículo \textbf{Evolución de las Metodologías y Modelos utilizados en el Desarrollo de
- Software.})  
- \item \textbf{Desarrollo iterativo}: A diferencia del modelo incremental, se centra más en capturar mejor los requisitos cambiantes, esto significa que a diferencia del modelo incremental en el cual se realiza una funcionalidad se prueba y luego se realizarían otras funcionalidades del sistema, el modelo iterativo revisa, ajusta y perfecciona el sistema aunque no se añadan nuevas funcionalidades y asume que los requisitos pueden cambiar a lo largo del proceso de desarrollo.
- \item \textbf{Modelo en espiral}: Combina ideas de los modelos clásicos con las ventajas del desarrollo iterativo. Además incluye el análisis de alternativas, identificación y reducción de riesgos. Esto significa que por cada iteración se presentan cuestiones como Qué alternativas habría o que podría fallar y se prueban ideas, se hacen simulaciones que ayudan a tener un software más seguro y completo. 
+ \item \textbf{Modelo secuencial (Waterfall)}: es uno de los enfoques más tradicionales en la ingeniería del software. Se basa en la ejecución ordenada y lineal de las fases del proyecto: análisis de requisitos, diseño, implementación, pruebas y entrega. No se avanza a la siguiente etapa hasta haber completado y validado la anterior. Este modelo destaca por su carácter planificado y su énfasis en la documentación previa al desarrollo.
+
+ \item \textbf{Desarrollo incremental}: su objetivo principal es reducir los tiempos de desarrollo mediante la división del sistema en pequeñas partes o “incrementos”. Cada incremento constituye una versión funcional del producto que se amplía progresivamente hasta alcanzar la versión final. Este enfoque facilita la detección temprana de errores y la incorporación de mejoras continuas \parencite{evolucionModelos}.
+
+ \item \textbf{Desarrollo iterativo}: a diferencia del modelo incremental, este enfoque se centra en la revisión constante del producto existente. Cada iteración implica una evaluación y ajuste del sistema, permitiendo responder a la evolución de los requisitos a lo largo del proyecto. De esta forma, el desarrollo iterativo fomenta la flexibilidad y la adaptación a cambios.
+
+ \item \textbf{Modelo en espiral}: combina elementos de los modelos clásicos con las ventajas del desarrollo iterativo, incorporando además la gestión de riesgos como elemento central. En cada iteración se analizan alternativas, se identifican posibles fallos y se aplican medidas preventivas. Este modelo, propuesto por Boehm (1986), resulta especialmente útil en proyectos complejos o de gran envergadura, donde la evaluación continua y la reducción de riesgos son fundamentales.
 \end{itemize}
+
 
 \subsection{Metodologías de desarrollo ágiles}
 Según este artículo de \href{https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html/index.html}{Santander}, las metodologías ágilas de desarrollo de software son las más utilizadas hoy en día debido a su alta flexibilidad y agilidad. Estas metodologías permiten adaptar el software a las necesidades que van surgiendo durante el desarrollo, lo que facilita construir aplicaciones más funcionales. Las metodologías ágiles se basan en la metodología incremental, que como se ha explicado anteriormente consiste en añadir funcionalidades al sitema de manera iterativa hasta llegar a la solución final. Sin embargo, los ciclos de desarrollo son más cortos y por tanto se van agregando pequeñas funcionalidades en vez de grandes cambios.

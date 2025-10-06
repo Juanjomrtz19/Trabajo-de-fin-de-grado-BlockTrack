@@ -11,6 +11,10 @@
 \usepackage{lscape} 
 \usepackage[most]{tcolorbox}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{Bibliografia/bibliografia.bib}
+
+
 
 % \usepackage[style=list, number=none]{glossary} %
 %\usepackage{titlesec}
@@ -179,6 +183,7 @@ pdfproducer = {pdflatex}
 \makeatother
 
 \usepackage{pdfpages}
+
 \begin{document}
 \input{portada/portada}
 \input{prefacios/prefacio}
@@ -224,6 +229,9 @@ pdfproducer = {pdflatex}
 %bibliography{bibliografia/bibliografia}\addcontentsline{toc}{chapter}{Bibliografía}
 %\bibliographystyle{miunsrturl}
 %
+\nocite{*} 
+\cleardoublepage
+\printbibliography[heading=bibintoc,title={Bibliografía}]
 %\appendix
 %\input{apendices/manual_usuario/manual_usuario}
 %%\input{apendices/paper/paper}

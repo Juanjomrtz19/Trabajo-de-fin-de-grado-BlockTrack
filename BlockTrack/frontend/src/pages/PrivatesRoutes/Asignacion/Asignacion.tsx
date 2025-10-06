@@ -15,7 +15,7 @@ const getColorStatus = (status: string | null) => {
       return "warning";
     case "ACEPTADA":
       return "success";
-    case "RECHAZADA":
+    case "CANCELADA":
       return "error";
     default:
       return "primary";

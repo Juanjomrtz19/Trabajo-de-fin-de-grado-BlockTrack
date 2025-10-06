@@ -6,8 +6,9 @@ import remesaRoutes from "./routes/remesa";
 import transportistaRoutes from "./routes/transportista";
 import transporteRoutes from "./routes/transporte";
 import conduceRoutes from "./routes/conduce";
-
 import cookieParser from "cookie-parser";
+import http from "http";
+import { initSocket } from "./sockets";
 
 const app: Application = express();
 
@@ -30,10 +31,12 @@ app.use("/transportes", transporteRoutes);
 app.use("/conduce", conduceRoutes);
 
 // Middlewares
-
 app.use(express.json());
 
+const server = http.createServer(app);
+initSocket(server);
+
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
+server.listen(PORT, () => {
+  console.log(`Servidor y websocket escuchando en el puerto ${PORT}`);
 });

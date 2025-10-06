@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import NavBarPrivate from "../components/layout/NavBarPrivate";
 import Button from "../components/common/Button/Button";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
+import { getAsignacionesSocket } from "../sockets/asignaciones";
+import NotificationCounter from "../components/common/NotificationCounter/NotificationCounter";
 
 const sidebarWidth = 256;
 
 const PrivateLayout = () => {
   const [isOpen, setIsOpen] = useState(true);
   const user = useSelector((state) => (state as RootState).user.user);
+  const [pendientes, setPendientes] = useState<number | null>(null);
 
   const privateRoutesClient = [
     { path: "/admin", name: "Settings" },
@@ -22,8 +25,24 @@ const PrivateLayout = () => {
     { path: "/admin", name: "Settings" },
     { path: "admin/dashboard", name: "Dashboard" },
     { path: "/admin/vehiculos", name: "Vehículos" },
-    { path: "/admin/asignaciones", name: "Asignaciones" },
+    {
+      path: "/admin/asignaciones",
+      name: "Asignaciones",
+      icon: <NotificationCounter counter={pendientes ?? 0} />,
+    },
   ];
+
+  useEffect(() => {
+    const socket = getAsignacionesSocket();
+
+    const onConnect = () => socket.emit("asignaciones:pendientes");
+    const onPendientes = (n: number) => setPendientes(n);
+    const onErr = (e: any) => console.error("socket error:", e?.message || e);
+
+    socket.on("connect", onConnect);
+    socket.on("asignaciones:pendientes", onPendientes);
+    socket.on("connect_error", onErr);
+  }, []);
 
   return (
     <div className="flex min-h-screen relative">

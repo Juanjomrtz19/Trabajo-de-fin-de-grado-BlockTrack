@@ -32,6 +32,7 @@ const LogIn = () => {
       const me: User = await getMe().unwrap();
       dispatch(setUser(me));
       navigate("/admin");
+      window.location.reload();
       toast.success(result?.message);
     } catch (err: any) {
       console.log("err", err);

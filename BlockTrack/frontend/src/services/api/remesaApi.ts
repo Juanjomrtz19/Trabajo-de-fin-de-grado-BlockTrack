@@ -5,7 +5,7 @@ import { type Remesa } from "../../types/remesa";
 export const remesaApi = createApi({
   reducerPath: "remesaApi",
   baseQuery,
-  tagTypes: ["Remesa"],
+  tagTypes: ["Remesa", "Lleva"],
   endpoints: (builder) => ({
     getRemesas: builder.query<Remesa[], void>({
       query: () => ({
@@ -66,6 +66,16 @@ export const remesaApi = createApi({
         method: "GET",
       }),
       transformResponse: (response: any) => response.result,
+      providesTags: (result: any) =>
+        result
+          ? [
+              ...result.map(({ id }: { id: number }) => ({
+                type: "Lleva",
+                id,
+              })),
+              "Lleva",
+            ]
+          : ["Lleva"],
     }),
   }),
 });
