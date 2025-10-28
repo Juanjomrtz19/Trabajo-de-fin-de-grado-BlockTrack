@@ -25,10 +25,9 @@ Es importante identificar a los interesados en el sistema. En este sistema habr�
 Aclarar que al utilizar la tecnología blockchain todos los implicados podrán consultar el estado de la remesa en el momento que lo deseen de manera segura y transparente, sin embargo esta funcionalidad a pesar de ser muy útil para todos los implicados es la que le proporcionará total confianza al destinatario.
 
 \section{Requisitos Funcionales}
-Estos requisitos según \href{https://clickup.com/es-ES/blog/138879/analisis-de-requisitos}{ClickUp} Son las funcionalidades que debe ofrecer el software desarrollado. Durante el proceso de análisis se han identificado un total de 22 requisitos funcionales, organizados en función de las áreas a las que hacen referencia. 
+Estos requisitos según \href{https://clickup.com/es-ES/blog/138879/analisis-de-requisitos}{ClickUp} Son las funcionalidades que debe ofrecer el software desarrollado. Durante el proceso de análisis se han identificado un total de 27 requisitos funcionales, organizados en función de las áreas a las que hacen referencia. 
 Cada requisito funcional identificado contará con una estimación en puntos de historia, los cuales servirán como referencia para valorar el esfuerzo necesario —en términos de tiempo ideal— para su implementación. Estos puntos están basados en la secuencia de Fibonacci. Es importante destacar que un requisito con el doble de puntuación que otro no implica necesariamente el doble de tiempo de desarrollo, sino que representa el doble de esfuerzo relativo.
 Se seguirá una escala de puntuación común en metodologías ágiles como está:\\
-
 
 % Definimos una nueva columna centrada con padding
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
@@ -68,33 +67,31 @@ A continuación, se presentará un resumen de todos los requisitos funcionales i
     & RF-4 & Cualquier usuario debe poder cerrar su sesión en el sistema. & 1 & Alta \\
     \cline{2-5}
     & RF-5 & Los transportistas deben poder registrarse como profesionales para ofrecer sus servicios. & 3 & Alta \\
+    \cline{2-5}
+    & RF-6 & Los transportistas deben ser notificados cuando tengan una remesa pendiente & 3 & Alta \\
+    \cline{2-5}
+    & RF-7 &Los transportistas deben poder aceptar o rechazar las remesas que se le asignen de manera automática. & 2 & Media \\
+    \cline{2-5}
+    & RF-8 & Los transportistas deben poder consultar las remesas que les han sido asignadas. & 3 & Alta \\
+    \cline{2-5}
+    & RF-9 & Los usuarios deben poder informar sobre el progreso del envío. & 3 & Alta \\
+    \cline{2-5}
+    & RF-10 & Los transportistas deben poder actualizar su información profesional y de contacto. & 2 & Alta \\
+    \cline{2-5}
+    & RF-11 & Los transportistas deben poder dejar de ofrecer sus servicios en el sistema si así lo desean. & 1 & Media \\
     \hline
     \multirow{5}{*}{\rule{0pt}{13pt}\begin{tabular}[c]{@{}c@{}}Gestión\\ de\\ remesas\end{tabular}} 
-    & RF-6 & Los usuarios deben poder crear remesas indicando los detalles del envío y el destinatario. & 3 & Alta \\
+    & RF-12 & Los usuarios deben poder crear remesas indicando los detalles del envío y el destinatario. & 3 & Alta \\
     \cline{2-5}
-    & RF-7 & El sistema debe encargarse de asignar un transportista adecuado a cada remesa. &5 & Alta \\
+    & RF-13 & El sistema debe encargarse de asignar un transportista adecuado a cada remesa. &5 & Alta \\
     \cline{2-5}
-    & RF-8 & Los usuarios deben poder consultar el historial de remesas que han enviado o recibido. & 2 & Alta \\
+    & RF-14 & Los usuarios deben poder consultar el historial de remesas que han enviado o recibido. & 2 & Alta \\
     \cline{2-5}
-    & RF-9 & Los usuarios deben poder cancelar una remesa si aún no ha comenzado el transporte. & 2 & Media \\
+    & RF-15 & Los usuarios deben poder cancelar una remesa si aún no ha comenzado el transporte. & 2 & Media \\
     \cline{2-5}
-    & RF-10 & Los usuarios deben poder modificar los detalles de una remesa antes de que sea gestionada. & 2 & Media \\
-    \hline
-    \multirow{3}{*}{\rule{0pt}{13pt}\begin{tabular}[c]{@{}c@{}}Seguimiento\\ y\\ notificaciones\end{tabular}} 
-    & RF-11 & Los usuarios deben poder seguir el estado y la ubicación de sus remesas. & 5 & Alta \\
+    & RF-16 & Los usuarios deben poder modificar los detalles de una remesa antes de que sea gestionada. & 2 & Media \\
     \cline{2-5}
-    & RF-12 & El sistema debe notificar a los usuarios sobre los cambios importantes en sus envíos. & 3 & Alta \\
-    \cline{2-5}
-    & RF-13 & Los usuarios deben poder aceptar las remesas que se le asignen de manera automática. & 2 & Media \\
-    \hline
-    \multirow{4}{*}{\rule{0pt}{13pt}\begin{tabular}[c]{@{}c@{}}Gestión\\ de\\ transportistas\end{tabular}} 
-    & RF-14 & Los transportistas deben poder consultar las remesas que les han sido asignadas. & 3 & Alta \\
-    \cline{2-5}
-    & RF-15 & Los transportistas deben poder informar sobre el progreso del envío. & 3 & Alta \\
-    \cline{2-5}
-    & RF-16 & Los transportistas deben poder actualizar su información profesional y de contacto. & 2 & Alta \\
-    \cline{2-5}
-    & RF-17 & Los transportistas deben poder dejar de ofrecer sus servicios en el sistema si así lo desean. & 1 & Media \\
+    & RF-17 & Los usuarios deben poder confirmar la recepción de una remesa. & 2 & Media \\
     \hline
     \multirow{2}{*}{\rule{0pt}{13pt}\begin{tabular}[c]{@{}c@{}}Estadísticas\\ y\\ reportes\end{tabular}} 
     & RF-18 & Los usuarios deben poder generar reportes con información sobre sus envíos. & 3 & Alta \\
@@ -102,7 +99,7 @@ A continuación, se presentará un resumen de todos los requisitos funcionales i
     & RF-19 & El sistema debe ofrecer estadísticas relevantes sobre la actividad general de la plataforma. & 3 & Media \\
     \hline
     \end{tabular}
-    \caption{Tabla resumen de requisitos funcionales (versión natural y centrada en el usuario)}
+    \caption{Tabla resumen de requisitos funcionales}
 \end{table}
 
 
@@ -142,7 +139,7 @@ A continuación, se presentará un resumen de todos los requisitos funcionales i
 
 
 \section{Historias de usuario}
-Según \href{https://www.scrummanager.com/files/scrum_manager_historias_usuario.pdf}{Fuente} las historias de usuario se utilizan en metodologías ágiles para describir las funcionalidades que debe cumplir el sistema desde la perspectiva del usuario. Su objetivo es centrarse en las necesidades reales que el software debe cubrir.
+Según \textcite{historiasDeUsuario} las historias de usuario se utilizan en metodologías ágiles para describir las funcionalidades que debe cumplir el sistema desde la perspectiva del usuario. Su objetivo es centrarse en las necesidades reales que el software debe cubrir.
 \subsection{Estructura de una historia de usuario}
 Una historia de usuario debe registrar tres campos fundamentales: 
 \begin{itemize}
@@ -240,36 +237,38 @@ Una historia de usuario debe registrar tres campos fundamentales:
 \end{tabularx}
 \end{table}
 
-
-\subsection{Gestión de remesas}
 \begin{table}[H]
-\renewcommand{\arraystretch}{3}
+\renewcommand{\arraystretch}{3} 
 \centering
 \scriptsize
 \begin{tabularx}{\textwidth}{|l|X|X|X|}
     \hline
     \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-6} & \textbf{Nombre} & Crear remesa \\
+    \textbf{ID} & \textbf{HU-6} & \textbf{Nombre} & Notificación de remesas pendientes \\
     \hline
     \textbf{Estimación} & 3 & \textbf{Prioridad} & Alta \\
     \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder crear una remesa indicando los datos del envío, para comenzar su proceso de transporte.} \\
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{
+    Como transportista, quiero recibir notificaciones cuando tenga una remesa pendiente, para poder gestionar rápidamente las asignaciones y no dejar pedidos sin atender.
+    } \\
     \hline
 \end{tabularx}
 \end{table}
 
 \begin{table}[H]
-\renewcommand{\arraystretch}{3}
+\renewcommand{\arraystretch}{3} 
 \centering
 \scriptsize
 \begin{tabularx}{\textwidth}{|l|X|X|X|}
     \hline
     \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-7} & \textbf{Nombre} & Asignación automática de transportista \\
+    \textbf{ID} & \textbf{HU-7} & \textbf{Nombre} & Aceptación o rechazo de remesas asignadas \\
     \hline
     \textbf{Estimación} & 5 & \textbf{Prioridad} & Alta \\
     \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero que el sistema asigne automáticamente un transportista a mi remesa, para que el envío se gestione de forma eficiente.} \\
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{
+    Como transportista, quiero poder aceptar o rechazar las remesas que se me asignen automáticamente, para mantener el control sobre mi disponibilidad y asegurar que solo gestiono aquellas que puedo realizar.
+    } \\
     \hline
 \end{tabularx}
 \end{table}
@@ -281,109 +280,7 @@ Una historia de usuario debe registrar tres campos fundamentales:
 \begin{tabularx}{\textwidth}{|l|X|X|X|}
     \hline
     \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-8} & \textbf{Nombre} & Consultar historial de remesas \\
-    \hline
-    \textbf{Estimación} & 2 & \textbf{Prioridad} & Alta \\
-    \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero consultar el historial de mis remesas enviadas o recibidas, para conocer su evolución y estado.} \\
-    \hline
-\end{tabularx}
-\end{table}
-
-\begin{table}[H]
-\renewcommand{\arraystretch}{3}
-\centering
-\scriptsize
-\begin{tabularx}{\textwidth}{|l|X|X|X|}
-    \hline
-    \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-9} & \textbf{Nombre} & Cancelar remesa \\
-    \hline
-    \textbf{Estimación} & 2 & \textbf{Prioridad} & Media \\
-    \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder cancelar una remesa antes de que haya sido recogida, para evitar envíos innecesarios o con errores.} \\
-    \hline
-\end{tabularx}
-\end{table}
-
-\begin{table}[H]
-\renewcommand{\arraystretch}{3}
-\centering
-\scriptsize
-\begin{tabularx}{\textwidth}{|l|X|X|X|}
-    \hline
-    \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-10} & \textbf{Nombre} & Editar remesa pendiente \\
-    \hline
-    \textbf{Estimación} & 2 & \textbf{Prioridad} & Media \\
-    \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder editar los datos de una remesa mientras aún no haya sido gestionada, para corregir o actualizar información.} \\
-    \hline
-\end{tabularx}
-\end{table}
-
-
-\subsection{Gestión de seguimiento y notificaciones}
-
-\begin{table}[H]
-\renewcommand{\arraystretch}{3}
-\centering
-\scriptsize
-\begin{tabularx}{\textwidth}{|l|X|X|X|}
-    \hline
-    \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-11} & \textbf{Nombre} & Seguimiento en tiempo real \\
-    \hline
-    \textbf{Estimación} & 5 & \textbf{Prioridad} & Alta \\
-    \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder seguir en tiempo real el estado y ubicación de mi remesa, para saber dónde se encuentra en todo momento.} \\
-    \hline
-\end{tabularx}
-\end{table}
-
-\begin{table}[H]
-\renewcommand{\arraystretch}{3}
-\centering
-\scriptsize
-\begin{tabularx}{\textwidth}{|l|X|X|X|}
-    \hline
-    \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-12} & \textbf{Nombre} & Recibir notificaciones \\
-    \hline
-    \textbf{Estimación} & 3 & \textbf{Prioridad} & Alta \\
-    \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero recibir notificaciones sobre cambios en mis remesas, para estar informado de su evolución.} \\
-    \hline
-\end{tabularx}
-\end{table}
-
-\begin{table}[H]
-\renewcommand{\arraystretch}{3}
-\centering
-\scriptsize
-\begin{tabularx}{\textwidth}{|l|X|X|X|}
-    \hline
-    \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-13} & \textbf{Nombre} & Confirmar recepción de remesa \\
-    \hline
-    \textbf{Estimación} & 2 & \textbf{Prioridad} & Alta \\
-    \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario receptor, quiero poder confirmar la recepción de una remesa cuando la reciba, para cerrar oficialmente el proceso de transporte y dejar constancia en el sistema.} \\
-    \hline
-\end{tabularx}
-\end{table}
-
-
-
-\subsection{Gestión de transportistas}
-\begin{table}[H]
-\renewcommand{\arraystretch}{3}
-\centering
-\scriptsize
-\begin{tabularx}{\textwidth}{|l|X|X|X|}
-    \hline
-    \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-14} & \textbf{Nombre} & Consultar remesas asignadas \\
+    \textbf{ID} & \textbf{HU-8} & \textbf{Nombre} & Consultar remesas asignadas \\
     \hline
     \textbf{Estimación} & 3 & \textbf{Prioridad} & Alta \\
     \hline
@@ -399,7 +296,7 @@ Una historia de usuario debe registrar tres campos fundamentales:
 \begin{tabularx}{\textwidth}{|l|X|X|X|}
     \hline
     \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-15} & \textbf{Nombre} & Actualizar estado de remesa \\
+    \textbf{ID} & \textbf{HU-9} & \textbf{Nombre} & Actualizar estado de remesa \\
     \hline
     \textbf{Estimación} & 3 & \textbf{Prioridad} & Alta \\
     \hline
@@ -415,7 +312,7 @@ Una historia de usuario debe registrar tres campos fundamentales:
 \begin{tabularx}{\textwidth}{|l|X|X|X|}
     \hline
     \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-16} & \textbf{Nombre} & Editar perfil de transportista \\
+    \textbf{ID} & \textbf{HU-10} & \textbf{Nombre} & Editar perfil de transportista \\
     \hline
     \textbf{Estimación} & 2 & \textbf{Prioridad} & Alta \\
     \hline
@@ -431,7 +328,7 @@ Una historia de usuario debe registrar tres campos fundamentales:
 \begin{tabularx}{\textwidth}{|l|X|X|X|}
     \hline
     \rowcolor[HTML]{9AFF99}
-    \textbf{ID} & \textbf{HU-17} & \textbf{Nombre} & Solicitar baja del sistema \\
+    \textbf{ID} & \textbf{HU-11} & \textbf{Nombre} & Solicitar baja del sistema \\
     \hline
     \textbf{Estimación} & 1 & \textbf{Prioridad} & Media \\
     \hline
@@ -440,6 +337,104 @@ Una historia de usuario debe registrar tres campos fundamentales:
 \end{tabularx}
 \end{table}
 
+\subsection{Gestión de remesas}
+\begin{table}[H]
+\renewcommand{\arraystretch}{3}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \rowcolor[HTML]{9AFF99}
+    \textbf{ID} & \textbf{HU-12} & \textbf{Nombre} & Crear remesa \\
+    \hline
+    \textbf{Estimación} & 3 & \textbf{Prioridad} & Alta \\
+    \hline
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder crear una remesa indicando los datos del envío, para comenzar su proceso de transporte.} \\
+    \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{3}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \rowcolor[HTML]{9AFF99}
+    \textbf{ID} & \textbf{HU-13} & \textbf{Nombre} & Asignación automática de transportista \\
+    \hline
+    \textbf{Estimación} & 5 & \textbf{Prioridad} & Alta \\
+    \hline
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero que el sistema asigne automáticamente un transportista a mi remesa, para que el envío se gestione de forma eficiente.} \\
+    \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{3}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \rowcolor[HTML]{9AFF99}
+    \textbf{ID} & \textbf{HU-14} & \textbf{Nombre} & Consultar historial de remesas \\
+    \hline
+    \textbf{Estimación} & 2 & \textbf{Prioridad} & Alta \\
+    \hline
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero consultar el historial de mis remesas enviadas o recibidas, para conocer su evolución y estado.} \\
+    \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{3}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \rowcolor[HTML]{9AFF99}
+    \textbf{ID} & \textbf{HU-15} & \textbf{Nombre} & Cancelar remesa \\
+    \hline
+    \textbf{Estimación} & 2 & \textbf{Prioridad} & Media \\
+    \hline
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder cancelar una remesa antes de que haya sido recogida, para evitar envíos innecesarios o con errores.} \\
+    \hline
+\end{tabularx}
+\end{table}
+
+
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{3}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \rowcolor[HTML]{9AFF99}
+    \textbf{ID} & \textbf{HU-16} & \textbf{Nombre} & Editar remesa pendiente \\
+    \hline
+    \textbf{Estimación} & 2 & \textbf{Prioridad} & Media \\
+    \hline
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder editar los datos de una remesa mientras aún no haya sido gestionada, para corregir o actualizar información.} \\
+    \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{3}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+    \hline
+    \rowcolor[HTML]{9AFF99}
+    \textbf{ID} & \textbf{HU-17} & \textbf{Nombre} & Confirmar recepción de remesa \\
+    \hline
+    \textbf{Estimación} & 2 & \textbf{Prioridad} & Media \\
+    \hline
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero poder confirmar cuando recibo una remesa, para asegurarme de que ha llegado correctamente.} \\
+    \hline
+\end{tabularx}
+\end{table}
 
 \subsection{Gestión de estadísticas y reportes}
 
@@ -522,7 +517,7 @@ Una historia de usuario debe registrar tres campos fundamentales:
     \hline
     \textbf{Estimación} & 2 & \textbf{Prioridad} & Alta \\
     \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero verificar la autenticidad de una remesa mediante sus registros en la blockchain, para asegurarme de que la información no ha sido alterada.} \\
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como usuario, quiero verificar la autenticidad de una remesa mediante la validación de sus registros on-chain, para asegurarme de que no han sido alterados.} \\
     \hline
 \end{tabularx}
 \end{table}
@@ -538,7 +533,7 @@ Una historia de usuario debe registrar tres campos fundamentales:
     \hline
     \textbf{Estimación} & 5 & \textbf{Prioridad} & Media \\
     \hline
-    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como sistema, quiero utilizar contratos inteligentes para gestionar automáticamente las operaciones relacionadas con las remesas, para garantizar procesos seguros y sin intervención manual.} \\
+    \textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{9cm}|}{Como sistema, quiero invocar contratos inteligentes para gestionar automáticamente el registro y reglas básicas de negocio, para asegurar procesos consistentes y sin intervención manual.} \\
     \hline
 \end{tabularx}
 \end{table}
@@ -695,23 +690,6 @@ Una historia de usuario debe registrar tres campos fundamentales:
     \label{fig:gestion_remesas}
 \end{figure}
 
-\subsection{Gestión de seguimiento y localización}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/Analisis/gestiondeseguimientoylocalizacion.png}
-    \caption{Diagrama de casos de uso: Gestión de seguimiento y localización}
-    \label{fig:gestion_seguimiento_localizacion}
-\end{figure}
-
-\newpage
-\subsection{Gestión de transportistas}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/Analisis/gestiondetransportistas.png}
-    \caption{Diagrama de casos de uso: Gestión de transportistas}
-    \label{fig:gestion_transportistas}
-\end{figure}
-
 \subsection{Gestión de estadísticas y reportes}
 \begin{figure}[H]
     \centering
@@ -752,18 +730,19 @@ Una historia de usuario debe registrar tres campos fundamentales:
         HU-3  & Modificar datos personales                         & 2 & Alta  \\ \hline
         HU-4  & Cerrar sesión                                      & 1 & Alta  \\ \hline
         HU-5  & Registro de transportista                          & 3 & Alta  \\ \hline
-        HU-6  & Crear remesa                                       & 3 & Alta  \\ \hline
-        HU-7  & Asignación automática de transportista             & 5 & Alta  \\ \hline
-        HU-8  & Consultar historial de remesas                     & 2 & Alta  \\ \hline
-        HU-9  & Cancelar remesa                                    & 2 & Media \\ \hline
-        HU-10 & Editar remesa pendiente                            & 2 & Media \\ \hline
-        HU-11 & Seguimiento en tiempo real                         & 5 & Alta  \\ \hline
-        HU-12 & Recibir notificaciones                             & 3 & Alta  \\ \hline
-        HU-13 & Confirmar recepción de remesa                      & 2 & Alta  \\ \hline
-        HU-14 & Consultar remesas asignadas                        & 3 & Alta  \\ \hline
-        HU-15 & Actualizar estado de remesa                        & 3 & Alta  \\ \hline
-        HU-16 & Editar perfil de transportista                     & 2 & Alta  \\ \hline
-        HU-17 & Solicitar baja del sistema                         & 1 & Media \\ \hline
+        HU-6 & Notificación de remesas pendientes                         & 3 & Alta  \\ \hline
+        HU-7 & Aceptación o rechazo de remesas asignadas                             & 5 & Alta  \\ \hline
+        HU-8 & Consultar remesas asignadas                        & 3 & Alta  \\ \hline
+        HU-9 & Actualizar estado de remesa                        & 3 & Alta  \\ \hline
+        HU-10 & Editar perfil de transportista                     & 2 & Alta  \\ \hline
+        HU-11 & Solicitar baja del sistema                         & 1 & Media \\ \hline
+        HU-12  & Crear remesa                                       & 3 & Alta  \\ \hline
+        HU-13  & Asignación automática de transportista             & 5 & Alta  \\ \hline
+        HU-14  & Consultar historial de remesas                     & 2 & Alta  \\ \hline
+        HU-15  & Cancelar remesa                                    & 2 & Media \\ \hline
+        HU-16 & Editar remesa pendiente                            & 2 & Media \\ \hline
+        HU-17 & Confirmar recepción de remesa                      & 2 & Media \\ \hline
+
     \end{tabularx}
     \caption{Product backlog 1/2}
 \end{table}
@@ -791,34 +770,8 @@ Una historia de usuario debe registrar tres campos fundamentales:
 \end{table}
 
 
-Esto hace una suma total de \textbf{72 puntos de historia}, según las estimaciones asignadas a cada funcionalidad en el backlog. Dado que para este proyecto se ha estimado una equivalencia de \textbf{1 punto = 3 horas de trabajo}, el total estimado en horas asciende a \textbf{216 horas}.
+Esto hace una suma total de \textbf{72 puntos de historia}, según las estimaciones asignadas a cada funcionalidad en el backlog. Dado que para este proyecto se ha estimado una equivalencia de \textbf{1 punto = 3 horas de trabajo}, el total estimado en horas asciende a \textbf{216 horas}. Es importante aclarar que esta estimación no representa tiempos exactos, sino una medida relativa de complejidad. Es decir, que una historia estimada en 4 puntos no implica necesariamente el doble de tiempo que una de 2 puntos, pero sí una mayor dificultad o esfuerzo relativo. \section{Número de sprints necesarios} Para estimar el número de sprints necesarios, se han definido los siguientes parámetros de trabajo: \begin{itemize} \item \textbf{Días de trabajo por semana:} 6 (de lunes a sábado). \item \textbf{Horas de trabajo por día:} 2 horas de lunes a viernes y 5 horas los sábados. \item \textbf{Duración de un sprint:} 10 días naturales (2 semanas). \item \textbf{Equivalencia:} 1 punto = 3 horas de desarrollo. \end{itemize} Con estos parámetros, la capacidad de trabajo por sprint es: \[ 10 \text{ días} \times 2 \text{ horas/día} + 2 \text{ sábados} \times 5 \text{ horas} = 20 + 10 = \textbf{30 horas por sprint}. \] \[ \textbf{30 horas / 3 horas por punto = 10 puntos por sprint}. \] \[ \textbf{72 puntos / 10 puntos por sprint = 7.2 → se requieren 8 sprints en total}. \]
 
-Es importante aclarar que esta estimación no representa tiempos exactos, sino una medida relativa de complejidad. Es decir, que una historia estimada en 4 puntos no implica necesariamente el doble de tiempo que una de 2 puntos, pero sí una mayor dificultad o esfuerzo relativo.
-
-\section{Número de sprints necesarios}
-
-Para estimar el número de sprints necesarios, se han definido los siguientes parámetros de trabajo:
-
-\begin{itemize}
-    \item \textbf{Días de trabajo por semana:} 6 (de lunes a sábado).
-    \item \textbf{Horas de trabajo por día:} 2 horas de lunes a viernes y 5 horas los sábados.
-    \item \textbf{Duración de un sprint:} 10 días naturales (2 semanas).
-    \item \textbf{Equivalencia:} 1 punto = 3 horas de desarrollo.
-\end{itemize}
-
-Con estos parámetros, la capacidad de trabajo por sprint es:
-
-\[
-10 \text{ días} \times 2 \text{ horas/día} + 2 \text{ sábados} \times 5 \text{ horas} = 20 + 10 = \textbf{30 horas por sprint}.
-\]
-
-\[
-\textbf{30 horas / 3 horas por punto = 10 puntos por sprint}.
-\]
-
-\[
-\textbf{72 puntos / 10 puntos por sprint = 7.2 → se requieren 8 sprints en total}.
-\]
 
  \newpage
 \section{Organización y cronograma de los sprints}
@@ -877,7 +830,46 @@ Estos serán los 7 sprints a desarrollar:
     \label{fig:sprint_flow}
 \end{figure}
 
+\newpage
+\section{Requisitos de datos}
+\subsection{Datos de usuario}
+\begin{itemize}
+  \item \textbf{RD1.1:} Datos personales para el registro:
+  \begin{itemize}
+    \item Nombre y apellidos.
+    \item DNI.
+    \item Correo electrónico.
+    \item Teléfono.
+    \item Contraseña (almacenada como \textit{hash}).
+  \end{itemize}
+  \item \textbf{RD1.2:} Datos adicionales para enviadores/receptores:
+  \begin{itemize}
+    \item Dirección, ciudad, código postal.
+  \end{itemize}
+  \item \textbf{RD1.3:} Datos adicionales para transportistas:
+  \begin{itemize}
+    \item Zona de operación.
+  \end{itemize}
+\end{itemize}
 
+\subsection{Datos de remesa}
+\begin{itemize}
+  \item \textbf{RD2.1:} Datos necesarios de la remesa:
+  \begin{itemize}
+    \item Peso, dimensiones (largo, ancho, alto), número de bultos, tipo de contenido, observaciones.
+    \item Dirección de recogida y dirección de envío.
+    \item Correo electrónico del destinatario.
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Datos de vehículo}
+\begin{itemize}
+    \item \textbf{RD3.1:}La entidad vehículo almacena la siguiente información:
+    \begin{itemize}
+        \item Matrícula, marca, modelo, tipo de vehículo, capacidad de carga.
+    \end{itemize}
+\end{itemize}
 
 
 

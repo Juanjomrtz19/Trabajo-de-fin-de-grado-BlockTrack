@@ -19,7 +19,209 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global}
-    \entry{litke2021blockchain}{article}{}
+    \entry{comparativaSistemasTMS}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=00fd4db55800bde5fbabed3646b2858f}{%
+           family={Álvarez},
+           familyi={Á\bibinitperiod},
+           given={Cristóbal},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{fullhash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{bibnamehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{authorbibnamehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{authornamehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{authorfullhash}{00fd4db55800bde5fbabed3646b2858f}
+      \field{sortinit}{Á}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Comparativa de sistemas TMS: ¿cuál es el adecuado para tu logística?}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://blog.llego.cl/comparativa-de-sistemas-tms-cual-es-el-adecuado-para-tu-logistica
+      \endverb
+      \verb{url}
+      \verb https://blog.llego.cl/comparativa-de-sistemas-tms-cual-es-el-adecuado-para-tu-logistica
+      \endverb
+    \endentry
+    \entry{beginningBlockchain}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=47ab24376515f9ba3376f85eaf6c71f5}{%
+           family={Bikramaditya\bibnamedelima Singhal},
+           familyi={B\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Priyansu\bibnamedelimb Sekhar\bibnamedelima Panda},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0,
+           suffix={Gautam\bibnamedelima Dhameja},
+           suffixi={G\bibinitperiod\bibinitdelim D\bibinitperiod},
+           suffixun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=7f28cf49607389a3e65a608b23ad8239}{%
+           family={APRESS},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APRESS}%
+      }
+      \strng{namehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{fullhash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{bibnamehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{authorbibnamehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{authornamehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{authorfullhash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{editorbibnamehash}{7f28cf49607389a3e65a608b23ad8239}
+      \strng{editornamehash}{7f28cf49607389a3e65a608b23ad8239}
+      \strng{editorfullhash}{7f28cf49607389a3e65a608b23ad8239}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Beginning Blockchain}
+      \field{year}{2018}
+    \endentry
+    \entry{problemaUltimaMilla}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=060ddc4d122e68880d9dfe3525a74664}{%
+           family={Clifton},
+           familyi={C\bibinitperiod},
+           given={Judith},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c3ddd94f3751d8359898d94f55db7bb}{%
+           family={Fuentes},
+           familyi={F\bibinitperiod},
+           given={Daniel\bibnamedelima Díaz},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc88f9acbfadd262a594a097daf77fa0}{%
+           family={Gutiérrez},
+           familyi={G\bibinitperiod},
+           given={Marcos\bibnamedelima Fernández},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=724068b8fb54ed7af11ad18200632f72}{%
+           family={Cagigas},
+           familyi={C\bibinitperiod},
+           given={Diego},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{48ceaaa5d18c6af0a387d57b0fc8d00d}
+      \strng{fullhash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \strng{bibnamehash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \strng{authorbibnamehash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \strng{authornamehash}{48ceaaa5d18c6af0a387d57b0fc8d00d}
+      \strng{authorfullhash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Servicios logísticos urbanos, el desafío de la última milla}
+      \field{year}{2020-2021}
+      \field{pages}{32\bibrangedash 34}
+      \range{pages}{3}
+      \verb{urlraw}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=7802104
+      \endverb
+      \verb{url}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=7802104
+      \endverb
+    \endentry
+    \entry{EvolucionMetodologiasDesarrollo}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f06ca2f404f4a7b2c5059ec6bb72d0a0}{%
+           family={Gamboa},
+           familyi={G\bibinitperiod},
+           given={Johana\bibnamedelima Zumba},
+           giveni={J\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{fullhash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{bibnamehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{authorbibnamehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{authornamehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{authorfullhash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Evolución de las metodologías y modelos utilizados en el desarrollo de software}
+      \field{volume}{3}
+      \field{year}{2018}
+      \field{pages}{20\bibrangedash 33}
+      \range{pages}{14}
+      \verb{urlraw}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=6777227
+      \endverb
+      \verb{url}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=6777227
+      \endverb
+    \endentry
+    \entry{criteriosSeleccionMetodologiasDesarrollo}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=aadf923dde3ee93433e86e1bd8d14c80}{%
+           family={Gómez},
+           familyi={G\bibinitperiod},
+           given={Oscar\bibnamedelima Tinoco},
+           giveni={O\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=52e47824da767bf489155bd277cc74c9}{%
+           family={López},
+           familyi={L\bibinitperiod},
+           given={Pedro\bibnamedelimb Pablo\bibnamedelima Rosales},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8459d48369fd1b73ccba8e25ca38e3cb}{%
+           family={Bacalla},
+           familyi={B\bibinitperiod},
+           given={Julio\bibnamedelima Salas},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{28c67ae5ee074ec808a9248253a1aaa8}
+      \strng{fullhash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \strng{bibnamehash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \strng{authorbibnamehash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \strng{authornamehash}{28c67ae5ee074ec808a9248253a1aaa8}
+      \strng{authorfullhash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{2}
+      \field{title}{Criterios de selección de metodologías de desarrollo de software}
+      \field{volume}{13}
+      \field{year}{2010}
+      \field{pages}{70\bibrangedash 74}
+      \range{pages}{5}
+      \verb{urlraw}
+      \verb https://www.redalyc.org/pdf/816/81619984009.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.redalyc.org/pdf/816/81619984009.pdf
+      \endverb
+    \endentry
+    \entry{litke2019blockchain}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=268c81903cafa161b0a6376cc24194e6}{%
            family={Litke},
@@ -46,20 +248,18 @@
       \strng{authorbibnamehash}{10fdf143fd3d55a91695ed068bbb7f45}
       \strng{authornamehash}{c80f59aec9022caacb7f18198671b3d1}
       \strng{authorfullhash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \field{extraname}{1}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Future Internet}
-      \field{number}{3}
       \field{title}{Blockchains for Supply Chain Management: Architectural Elements and Challenges Towards a Global Scale}
-      \field{volume}{13}
-      \field{year}{2021}
-      \true{nocite}
-      \field{pages}{65}
+      \field{year}{2019}
+      \field{pages}{17}
       \range{pages}{1}
       \verb{doi}
       \verb 10.3390/fi13030065
@@ -71,9 +271,7 @@
       \verb https://www.mdpi.com/1999-5903/13/3/65
       \endverb
     \endentry
-  \enddatalist
-  \datalist[entry]{apa/global//global/global}
-    \entry{litke2021blockchain}{article}{}
+    \entry{blockChainsForSupplChainManagement}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=268c81903cafa161b0a6376cc24194e6}{%
            family={Litke},
@@ -100,8 +298,10 @@
       \strng{authorbibnamehash}{10fdf143fd3d55a91695ed068bbb7f45}
       \strng{authornamehash}{c80f59aec9022caacb7f18198671b3d1}
       \strng{authorfullhash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -110,10 +310,490 @@
       \field{journaltitle}{Future Internet}
       \field{number}{3}
       \field{title}{Blockchains for Supply Chain Management: Architectural Elements and Challenges Towards a Global Scale}
-      \field{volume}{13}
-      \field{year}{2021}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2305-6290/3/1/5
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2305-6290/3/1/5
+      \endverb
+    \endentry
+    \entry{tecnologiaBlockchainComoPotenciador}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=908485474090d46844ea0c94e6caefda}{%
+           family={Márquez},
+           familyi={M\bibinitperiod},
+           given={Jose\bibnamedelima Caballero},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6599dfa4c570310ead1c27acff1edd5}{%
+           family={Lindarte},
+           familyi={L\bibinitperiod},
+           given={Valentina\bibnamedelima Gómez},
+           giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=73c30d4d1fc17eaaee215a2071f55557}{%
+           family={Arias},
+           familyi={A\bibinitperiod},
+           given={Laura\bibnamedelima Ortega},
+           giveni={L\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{449a31385234d2952b66053a373e3fee}
+      \strng{fullhash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \strng{bibnamehash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \strng{authorbibnamehash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \strng{authornamehash}{449a31385234d2952b66053a373e3fee}
+      \strng{authorfullhash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{La tecnología blockchain como potenciador de la cadena de suministro: oportunidades desde el sector agropecuario}
+      \field{year}{2023}
       \true{nocite}
-      \field{pages}{65}
+      \field{pages}{132\bibrangedash 143}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://riunet.upv.es/entities/publication/b94c209b-1db7-43f6-b6ab-237c93bd0455
+      \endverb
+      \verb{url}
+      \verb https://riunet.upv.es/entities/publication/b94c209b-1db7-43f6-b6ab-237c93bd0455
+      \endverb
+    \endentry
+    \entry{whatIsBlockchain}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ce1910f7bfc12f2e93b3c417310a8ef7}{%
+           family={Pierro},
+           familyi={P\bibinitperiod},
+           given={Massimo\bibnamedelima Di},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{fullhash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{bibnamehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{authorbibnamehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{authornamehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{authorfullhash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computing in Science & Engineering}
+      \field{title}{What Is Blockchain?}
+      \field{volume}{9}
+      \field{year}{2017}
+      \field{pages}{92\bibrangedash 95}
+      \range{pages}{4}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/abstract/document/8024092
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/abstract/document/8024092
+      \endverb
+    \endentry
+    \entry{blockchainInAction}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fa81091bc80aaa40687a306be85471b6}{%
+           family={Ramamurthy},
+           familyi={R\bibinitperiod},
+           given={Bina},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Manning Publications}%
+      }
+      \strng{namehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{fullhash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{bibnamehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{authorbibnamehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{authornamehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{authorfullhash}{fa81091bc80aaa40687a306be85471b6}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Blockchain in Action}
+      \field{year}{2020}
+    \endentry
+    \entry{keyAttributesChallengesAndSuccessFactors}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=692f50ba25e9bf9fb42f8e47c486bdab}{%
+           family={Saleem},
+           familyi={S\bibinitperiod},
+           given={Yasir},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79fd56b0d25cc7b31f41523c9e7ed2a9}{%
+           family={Aziegbe},
+           familyi={A\bibinitperiod},
+           given={Shedrach},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{fullhash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{bibnamehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{authorbibnamehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{authornamehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{authorfullhash}{5b4b9cee262f7e61355afb823b658a7d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Logistics and Supply Chain Management}
+      \field{title}{Key Attributes, Challenges, and Success Factors in Digital Transformation Of Supply Chain- a Case Study Of 3PL Companies}
+      \field{year}{2023}
+      \field{pages}{77}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://www.diva-portal.org/smash/get/diva2:1799381/FULLTEXT01.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.diva-portal.org/smash/get/diva2:1799381/FULLTEXT01.pdf
+      \endverb
+    \endentry
+    \entry{metodologiasDesarrolloDeSoftware}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e996d54b0d93ef7a18638b7eb61da91f}{%
+           family={Santander},
+           familyi={S\bibinitperiod},
+           given={Banco},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{fullhash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{bibnamehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{authorbibnamehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{authornamehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{authorfullhash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Santander open academy}
+      \field{title}{Metodologías de desarrollo de software: ¿qué son?}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html/index.html
+      \endverb
+      \verb{url}
+      \verb https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html/index.html
+      \endverb
+    \endentry
+    \entry{theScrumGuide}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ee6f08fcba839e09471a0bc69152b6a5}{%
+           family={Schwaber},
+           familyi={S\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6e3f26f6f816a26c6ab36bc7a899bcde}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{fullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{bibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorbibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authornamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorfullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Scrum Guide}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf
+      \endverb
+      \verb{url}
+      \verb https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf
+      \endverb
+    \endentry
+    \entry{documentacionTaiga}{online}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Taiga}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://taiga.io
+      \endverb
+      \verb{url}
+      \verb https://taiga.io
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global}
+    \entry{comparativaSistemasTMS}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=00fd4db55800bde5fbabed3646b2858f}{%
+           family={Álvarez},
+           familyi={Á\bibinitperiod},
+           given={Cristóbal},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{fullhash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{bibnamehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{authorbibnamehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{authornamehash}{00fd4db55800bde5fbabed3646b2858f}
+      \strng{authorfullhash}{00fd4db55800bde5fbabed3646b2858f}
+      \field{sortinit}{Á}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Comparativa de sistemas TMS: ¿cuál es el adecuado para tu logística?}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://blog.llego.cl/comparativa-de-sistemas-tms-cual-es-el-adecuado-para-tu-logistica
+      \endverb
+      \verb{url}
+      \verb https://blog.llego.cl/comparativa-de-sistemas-tms-cual-es-el-adecuado-para-tu-logistica
+      \endverb
+    \endentry
+    \entry{beginningBlockchain}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=47ab24376515f9ba3376f85eaf6c71f5}{%
+           family={Bikramaditya\bibnamedelima Singhal},
+           familyi={B\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Priyansu\bibnamedelimb Sekhar\bibnamedelima Panda},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0,
+           suffix={Gautam\bibnamedelima Dhameja},
+           suffixi={G\bibinitperiod\bibinitdelim D\bibinitperiod},
+           suffixun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=7f28cf49607389a3e65a608b23ad8239}{%
+           family={APRESS},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APRESS}%
+      }
+      \strng{namehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{fullhash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{bibnamehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{authorbibnamehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{authornamehash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{authorfullhash}{47ab24376515f9ba3376f85eaf6c71f5}
+      \strng{editorbibnamehash}{7f28cf49607389a3e65a608b23ad8239}
+      \strng{editornamehash}{7f28cf49607389a3e65a608b23ad8239}
+      \strng{editorfullhash}{7f28cf49607389a3e65a608b23ad8239}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Beginning Blockchain}
+      \field{year}{2018}
+    \endentry
+    \entry{problemaUltimaMilla}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=060ddc4d122e68880d9dfe3525a74664}{%
+           family={Clifton},
+           familyi={C\bibinitperiod},
+           given={Judith},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c3ddd94f3751d8359898d94f55db7bb}{%
+           family={Fuentes},
+           familyi={F\bibinitperiod},
+           given={Daniel\bibnamedelima Díaz},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc88f9acbfadd262a594a097daf77fa0}{%
+           family={Gutiérrez},
+           familyi={G\bibinitperiod},
+           given={Marcos\bibnamedelima Fernández},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=724068b8fb54ed7af11ad18200632f72}{%
+           family={Cagigas},
+           familyi={C\bibinitperiod},
+           given={Diego},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{48ceaaa5d18c6af0a387d57b0fc8d00d}
+      \strng{fullhash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \strng{bibnamehash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \strng{authorbibnamehash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \strng{authornamehash}{48ceaaa5d18c6af0a387d57b0fc8d00d}
+      \strng{authorfullhash}{2d1d8559e6bcf83e7f1a458c608d4244}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Servicios logísticos urbanos, el desafío de la última milla}
+      \field{year}{2020-2021}
+      \field{pages}{32\bibrangedash 34}
+      \range{pages}{3}
+      \verb{urlraw}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=7802104
+      \endverb
+      \verb{url}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=7802104
+      \endverb
+    \endentry
+    \entry{EvolucionMetodologiasDesarrollo}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f06ca2f404f4a7b2c5059ec6bb72d0a0}{%
+           family={Gamboa},
+           familyi={G\bibinitperiod},
+           given={Johana\bibnamedelima Zumba},
+           giveni={J\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{fullhash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{bibnamehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{authorbibnamehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{authornamehash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \strng{authorfullhash}{f06ca2f404f4a7b2c5059ec6bb72d0a0}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Evolución de las metodologías y modelos utilizados en el desarrollo de software}
+      \field{volume}{3}
+      \field{year}{2018}
+      \field{pages}{20\bibrangedash 33}
+      \range{pages}{14}
+      \verb{urlraw}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=6777227
+      \endverb
+      \verb{url}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=6777227
+      \endverb
+    \endentry
+    \entry{criteriosSeleccionMetodologiasDesarrollo}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=aadf923dde3ee93433e86e1bd8d14c80}{%
+           family={Gómez},
+           familyi={G\bibinitperiod},
+           given={Oscar\bibnamedelima Tinoco},
+           giveni={O\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=52e47824da767bf489155bd277cc74c9}{%
+           family={López},
+           familyi={L\bibinitperiod},
+           given={Pedro\bibnamedelimb Pablo\bibnamedelima Rosales},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8459d48369fd1b73ccba8e25ca38e3cb}{%
+           family={Bacalla},
+           familyi={B\bibinitperiod},
+           given={Julio\bibnamedelima Salas},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{28c67ae5ee074ec808a9248253a1aaa8}
+      \strng{fullhash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \strng{bibnamehash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \strng{authorbibnamehash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \strng{authornamehash}{28c67ae5ee074ec808a9248253a1aaa8}
+      \strng{authorfullhash}{1a070daf83f0bee7b997cf9a40e6c0b8}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{2}
+      \field{title}{Criterios de selección de metodologías de desarrollo de software}
+      \field{volume}{13}
+      \field{year}{2010}
+      \field{pages}{70\bibrangedash 74}
+      \range{pages}{5}
+      \verb{urlraw}
+      \verb https://www.redalyc.org/pdf/816/81619984009.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.redalyc.org/pdf/816/81619984009.pdf
+      \endverb
+    \endentry
+    \entry{litke2019blockchain}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=268c81903cafa161b0a6376cc24194e6}{%
+           family={Litke},
+           familyi={L\bibinitperiod},
+           given={Antonios},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a46c6139b0a3e6b31cf3a7eebc7b69bb}{%
+           family={Anagnostopoulos},
+           familyi={A\bibinitperiod},
+           given={Dimitrios},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=28a207c7b39186edc0783995d87f7d6b}{%
+           family={Varvarigou},
+           familyi={V\bibinitperiod},
+           given={Theodora},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c80f59aec9022caacb7f18198671b3d1}
+      \strng{fullhash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \strng{bibnamehash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \strng{authorbibnamehash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \strng{authornamehash}{c80f59aec9022caacb7f18198671b3d1}
+      \strng{authorfullhash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Blockchains for Supply Chain Management: Architectural Elements and Challenges Towards a Global Scale}
+      \field{year}{2019}
+      \field{pages}{17}
       \range{pages}{1}
       \verb{doi}
       \verb 10.3390/fi13030065
@@ -123,6 +803,286 @@
       \endverb
       \verb{url}
       \verb https://www.mdpi.com/1999-5903/13/3/65
+      \endverb
+    \endentry
+    \entry{blockChainsForSupplChainManagement}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=268c81903cafa161b0a6376cc24194e6}{%
+           family={Litke},
+           familyi={L\bibinitperiod},
+           given={Antonios},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a46c6139b0a3e6b31cf3a7eebc7b69bb}{%
+           family={Anagnostopoulos},
+           familyi={A\bibinitperiod},
+           given={Dimitrios},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=28a207c7b39186edc0783995d87f7d6b}{%
+           family={Varvarigou},
+           familyi={V\bibinitperiod},
+           given={Theodora},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c80f59aec9022caacb7f18198671b3d1}
+      \strng{fullhash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \strng{bibnamehash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \strng{authorbibnamehash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \strng{authornamehash}{c80f59aec9022caacb7f18198671b3d1}
+      \strng{authorfullhash}{10fdf143fd3d55a91695ed068bbb7f45}
+      \field{extraname}{2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Future Internet}
+      \field{number}{3}
+      \field{title}{Blockchains for Supply Chain Management: Architectural Elements and Challenges Towards a Global Scale}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2305-6290/3/1/5
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2305-6290/3/1/5
+      \endverb
+    \endentry
+    \entry{tecnologiaBlockchainComoPotenciador}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=908485474090d46844ea0c94e6caefda}{%
+           family={Márquez},
+           familyi={M\bibinitperiod},
+           given={Jose\bibnamedelima Caballero},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6599dfa4c570310ead1c27acff1edd5}{%
+           family={Lindarte},
+           familyi={L\bibinitperiod},
+           given={Valentina\bibnamedelima Gómez},
+           giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=73c30d4d1fc17eaaee215a2071f55557}{%
+           family={Arias},
+           familyi={A\bibinitperiod},
+           given={Laura\bibnamedelima Ortega},
+           giveni={L\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{449a31385234d2952b66053a373e3fee}
+      \strng{fullhash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \strng{bibnamehash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \strng{authorbibnamehash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \strng{authornamehash}{449a31385234d2952b66053a373e3fee}
+      \strng{authorfullhash}{8b75d3857bcfc53849aebdd96b0195a2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{La tecnología blockchain como potenciador de la cadena de suministro: oportunidades desde el sector agropecuario}
+      \field{year}{2023}
+      \true{nocite}
+      \field{pages}{132\bibrangedash 143}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://riunet.upv.es/entities/publication/b94c209b-1db7-43f6-b6ab-237c93bd0455
+      \endverb
+      \verb{url}
+      \verb https://riunet.upv.es/entities/publication/b94c209b-1db7-43f6-b6ab-237c93bd0455
+      \endverb
+    \endentry
+    \entry{whatIsBlockchain}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ce1910f7bfc12f2e93b3c417310a8ef7}{%
+           family={Pierro},
+           familyi={P\bibinitperiod},
+           given={Massimo\bibnamedelima Di},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{fullhash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{bibnamehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{authorbibnamehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{authornamehash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \strng{authorfullhash}{ce1910f7bfc12f2e93b3c417310a8ef7}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computing in Science & Engineering}
+      \field{title}{What Is Blockchain?}
+      \field{volume}{9}
+      \field{year}{2017}
+      \field{pages}{92\bibrangedash 95}
+      \range{pages}{4}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/abstract/document/8024092
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/abstract/document/8024092
+      \endverb
+    \endentry
+    \entry{blockchainInAction}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fa81091bc80aaa40687a306be85471b6}{%
+           family={Ramamurthy},
+           familyi={R\bibinitperiod},
+           given={Bina},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Manning Publications}%
+      }
+      \strng{namehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{fullhash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{bibnamehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{authorbibnamehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{authornamehash}{fa81091bc80aaa40687a306be85471b6}
+      \strng{authorfullhash}{fa81091bc80aaa40687a306be85471b6}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Blockchain in Action}
+      \field{year}{2020}
+    \endentry
+    \entry{keyAttributesChallengesAndSuccessFactors}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=692f50ba25e9bf9fb42f8e47c486bdab}{%
+           family={Saleem},
+           familyi={S\bibinitperiod},
+           given={Yasir},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79fd56b0d25cc7b31f41523c9e7ed2a9}{%
+           family={Aziegbe},
+           familyi={A\bibinitperiod},
+           given={Shedrach},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{fullhash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{bibnamehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{authorbibnamehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{authornamehash}{5b4b9cee262f7e61355afb823b658a7d}
+      \strng{authorfullhash}{5b4b9cee262f7e61355afb823b658a7d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Logistics and Supply Chain Management}
+      \field{title}{Key Attributes, Challenges, and Success Factors in Digital Transformation Of Supply Chain- a Case Study Of 3PL Companies}
+      \field{year}{2023}
+      \field{pages}{77}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://www.diva-portal.org/smash/get/diva2:1799381/FULLTEXT01.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.diva-portal.org/smash/get/diva2:1799381/FULLTEXT01.pdf
+      \endverb
+    \endentry
+    \entry{metodologiasDesarrolloDeSoftware}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e996d54b0d93ef7a18638b7eb61da91f}{%
+           family={Santander},
+           familyi={S\bibinitperiod},
+           given={Banco},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{fullhash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{bibnamehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{authorbibnamehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{authornamehash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \strng{authorfullhash}{e996d54b0d93ef7a18638b7eb61da91f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Santander open academy}
+      \field{title}{Metodologías de desarrollo de software: ¿qué son?}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html/index.html
+      \endverb
+      \verb{url}
+      \verb https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html/index.html
+      \endverb
+    \endentry
+    \entry{theScrumGuide}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ee6f08fcba839e09471a0bc69152b6a5}{%
+           family={Schwaber},
+           familyi={S\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6e3f26f6f816a26c6ab36bc7a899bcde}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{fullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{bibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorbibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authornamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorfullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Scrum Guide}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf
+      \endverb
+      \verb{url}
+      \verb https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf
+      \endverb
+    \endentry
+    \entry{documentacionTaiga}{online}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Taiga}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://taiga.io
+      \endverb
+      \verb{url}
+      \verb https://taiga.io
       \endverb
     \endentry
   \enddatalist

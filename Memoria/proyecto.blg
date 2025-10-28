@@ -1,17 +1,21 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'proyecto.blg'
-[169] biber-MSWIN64:340> INFO - === 
-[316] Biber.pm:419> INFO - Reading 'proyecto.bcf'
-[568] Biber.pm:976> INFO - Using all citekeys in bib section 0
-[600] Biber.pm:4419> INFO - Processing section 0
-[622] Biber.pm:4610> INFO - Looking for bibtex file 'Bibliografia/bibliografia.bib' for section 0
-[726] bibtex.pm:1713> INFO - LaTeX decoding ...
-[735] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliografia/bibliografia.bib'
-[787] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[787] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[792] Biber.pm:4239> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[810] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[810] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[810] Biber.pm:4239> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[819] bbl.pm:660> INFO - Writing 'proyecto.bbl' with encoding 'UTF-8'
-[823] bbl.pm:763> INFO - Output to proyecto.bbl
+[156] biber-MSWIN64:340> INFO - === 
+[217] Biber.pm:419> INFO - Reading 'proyecto.bcf'
+[422] Biber.pm:976> INFO - Using all citekeys in bib section 0
+[452] Biber.pm:4419> INFO - Processing section 0
+[468] Biber.pm:4610> INFO - Looking for bibtex file 'Bibliografia/bibliografia.bib' for section 0
+[535] bibtex.pm:1713> INFO - LaTeX decoding ...
+[555] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliografia/bibliografia.bib'
+[640] Utils.pm:410> ERROR - Name "Alexander Menzinsky, Gertrudis López, Juan Palacio, Miguel Ángel Sobrino, Rubén Álvarez y Verónica Rivas" has too many commas, skipping entry 'historiasDeUsuario'
+[690] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[690] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[690] Biber.pm:4239> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[728] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[728] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[728] Biber.pm:4239> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[752] bbl.pm:660> INFO - Writing 'proyecto.bbl' with encoding 'UTF-8'
+[771] bbl.pm:763> INFO - Output to proyecto.bbl
+[772] Biber.pm:131> WARN - legacy year field '2020-2021' in entry 'problemaUltimaMilla' is not an integer - this will probably not sort properly.
+[772] Biber.pm:133> INFO - WARNINGS: 1
+[773] Biber.pm:136> INFO - ERRORS: 1

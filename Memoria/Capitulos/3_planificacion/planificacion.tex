@@ -11,7 +11,7 @@ Un modelo de proceso puede entenderse como una abstracción del mundo real que p
 \begin{itemize}
  \item \textbf{Modelo secuencial (Waterfall)}: es uno de los enfoques más tradicionales en la ingeniería del software. Se basa en la ejecución ordenada y lineal de las fases del proyecto: análisis de requisitos, diseño, implementación, pruebas y entrega. No se avanza a la siguiente etapa hasta haber completado y validado la anterior. Este modelo destaca por su carácter planificado y su énfasis en la documentación previa al desarrollo.
 
- \item \textbf{Desarrollo incremental}: su objetivo principal es reducir los tiempos de desarrollo mediante la división del sistema en pequeñas partes o “incrementos”. Cada incremento constituye una versión funcional del producto que se amplía progresivamente hasta alcanzar la versión final. Este enfoque facilita la detección temprana de errores y la incorporación de mejoras continuas \parencite{evolucionModelos}.
+ \item \textbf{Desarrollo incremental}: su objetivo principal es reducir los tiempos de desarrollo mediante la división del sistema en pequeñas partes o “incrementos”. Cada incremento constituye una versión funcional del producto que se amplía progresivamente hasta alcanzar la versión final. Este enfoque facilita la detección temprana de errores y la incorporación de mejoras continuas \parencite{EvolucionMetodologiasDesarrollo}.
 
  \item \textbf{Desarrollo iterativo}: a diferencia del modelo incremental, este enfoque se centra en la revisión constante del producto existente. Cada iteración implica una evaluación y ajuste del sistema, permitiendo responder a la evolución de los requisitos a lo largo del proyecto. De esta forma, el desarrollo iterativo fomenta la flexibilidad y la adaptación a cambios.
 
@@ -20,7 +20,7 @@ Un modelo de proceso puede entenderse como una abstracción del mundo real que p
 
 
 \subsection{Metodologías de desarrollo ágiles}
-Según este artículo de \href{https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html/index.html}{Santander}, las metodologías ágilas de desarrollo de software son las más utilizadas hoy en día debido a su alta flexibilidad y agilidad. Estas metodologías permiten adaptar el software a las necesidades que van surgiendo durante el desarrollo, lo que facilita construir aplicaciones más funcionales. Las metodologías ágiles se basan en la metodología incremental, que como se ha explicado anteriormente consiste en añadir funcionalidades al sitema de manera iterativa hasta llegar a la solución final. Sin embargo, los ciclos de desarrollo son más cortos y por tanto se van agregando pequeñas funcionalidades en vez de grandes cambios.
+Según este artículo de \textcite{metodologiasDesarrolloDeSoftware} las metodologías ágilas de desarrollo de software son las más utilizadas hoy en día debido a su alta flexibilidad y agilidad. Estas metodologías permiten adaptar el software a las necesidades que van surgiendo durante el desarrollo, lo que facilita construir aplicaciones más funcionales. Las metodologías ágiles se basan en la metodología incremental, que como se ha explicado anteriormente consiste en añadir funcionalidades al sitema de manera iterativa hasta llegar a la solución final. Sin embargo, los ciclos de desarrollo son más cortos y por tanto se van agregando pequeñas funcionalidades en vez de grandes cambios.
 
 Este tipo de metodologías fomenta la construcción de equipos de trabajo autosuficientes e independientes pero a su vez conectados porque se reunen cada poco tiempo para comentar las funcionalidades añadidas. Cada vez se va puliendo el producto a la vez que el usuario puede ir provando las nuevas novedades permitiendole sugerir cambios en tiempo real.
 
@@ -34,7 +34,7 @@ Las metodologías ágiles más utilizadas son:
 
 \subsection{Metodología Scrum}
 
-Según Ken Schwaber y Jeff Sutherland, Scrum está basado en el empirismo, ya que este sostiene que el conocimiento proviene de la experiencia y de tomar decisiones basadas en lo observado. Scrum utiliza eventos periódicos conocidos como \textit{Sprint} para asegurar los pilares del empirismo: transparencia, inspección y adaptación.
+Según \textcite{theScrumGuide}, Scrum está basado en el empirismo, ya que este sostiene que el conocimiento proviene de la experiencia y de tomar decisiones basadas en lo observado. Scrum utiliza eventos periódicos conocidos como \textit{Sprint} para asegurar los pilares del empirismo: transparencia, inspección y adaptación.
 
 Cada uno de estos pilares refuerza a los demás. El trabajo realizado en cada \textit{Sprint} debe ser visible para todos los miembros involucrados en el proceso, tanto quienes lo realizan como quienes lo reciben. Esta transparencia es fundamental para tomar decisiones clave durante el proceso, ya que una baja transparencia puede derivar en decisiones erróneas.
 
@@ -86,14 +86,12 @@ El esquema que se seguirá a lo largo del desarrollo de esta aplicación es el s
 \end{figure}
 
 Como hemos explicado anteriormente con esta metodología planearemos sprint semanales donde podremos ver los objetivos de cada sprint y avances de manera rápida. Además a cada tarea de cada sprint le asignaremos una puntuación conocida como \textit{Story points} que indicará el tiempo estimado para desarrollar esa tarea, permitiendo planear mejor cada sprint.
-\section{Product backlog}
-El product backlog estará compuesto por todas las historias de usuario que se analizaron en el capítulo anterior. Por la idea que caracteriza a la metodología SCRUM este product backlog puede cambiar a lo largo del desarrollo del proyecto.
 
 
 \newpage
 \section{Software a utilizar para la gestión de SCRUM}
 Entre las distintas opciones que hay en el mercado siendo la más famosa \textbf{Jira}, se ha decidido utilizar \textbf{Taiga}.
-Taiga es un software de gestión de proyectos \textit{open-source}, especializado en aquellos que siguen la metodología SCRUM. Proporciona herramientas para la planificación, gestión de tareas, seguimiento de errores entre otras más funcionalidades. Para más interés consultar su página oficial \href{https://taiga.io}{Taiga}.\\
+Taiga es un software de gestión de proyectos \textit{open-source}, especializado en aquellos que siguen la metodología SCRUM. Proporciona herramientas para la planificación, gestión de tareas, seguimiento de errores entre otras más funcionalidades. Para más interés consultar su página oficial \textcite{documentacionTaiga}\\
 
 Este software es ideal para el proyecto y tiene la ventaja de que es \textit{open-source}. Se empazará añadiendo el \textit{product backlog} y luego se dividirán todos los requisitos en los distintos sprint que se implementarán. Taiga ayudará a tener una visión del progreso que se va realizando.
 \begin{figure}[H]
@@ -119,16 +117,33 @@ Cabe recalcar que las columnas denominadas como "S1, S2, S3,..." hacen referenci
 
 \newpage
 \section{Presupuesto}
+
+\subsection{Desarrollo y análisis del software}
 El desarrollo completo e integro del proyecto se estima que durará 13 periodos de 10 días, es decir, 130 días. El coste del proyecto se estima en función del salario de un ingeniero de software en España, concretamente en la comunidad autónoma de Andalucía en la provincia de Granada. Este salario medio es de 20750 euros al año según \href{https://www.glassdoor.es/Sueldos/granada-junior-software-engineer-sueldo-SRCH_IL.0,7_IC2614045_KO8,32.htm}{Glassdoor}, como el desarrollo del proyecto se estima 4 meses , el coste por de esos 4 meses será de 6916{,}66 euros por mes.\\
 
+\subsection{Suministros}
 El coste de luz y agua por mes se estima en 80 euros, por lo que este coste por 4 meses será de 320 euros.\\
 
+\subsection{Formación}
 Curso de udemy para el aprendizaje de la tecnología blockchain llamado \textit{Ethereum and solidity: The Complete Developer's Guide}. Este curso tiene un coste de 12{,}99 euros.\\
 
-ChatGPT plus para la generación de imágenes y generación de código, este servicio tiene un coste de 20 euros al mes, por lo que el coste total por 4 meses será de 80 euros.\\
+\subsection{Tecnología}
+ChatGPT plus para la generación de imágenes y generación de código, este servicio tiene un coste de 23 euros al mes, por lo que el coste total por 4 meses será de 92 euros.\\
+IDE para el frontend, el backend y el desarrollo de smart contracts: Visual Studio Code. Este IDE es gratuito.\\
+Postman para depurar API. Esta herramienta es gratuita.\\
+Github para el control de versiones. Esta herramienta es gratuita.\\
+Framework para el desarrollo del frontend: React. Esta herramienta es gratuita.\\
+Framework para el desarrollo del backend: Express. Esta herramienta es gratuita.\\
+Base de datos: mysql. Esta herramienta es gratuita.\\
+Web3.js para la conexión con la blockchain. Esta herramienta es gratuita.\\
 
-El coste final del proyecto es por tanto de \[
-6916{,}66\ \text{€} + 320\ \text{€} + 12{,}99\ \text{€} + 80\ \text{€}= 7329{,}65\ \text{€}
-\]
+
+\subsection{Presupuesto total}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.2\textwidth]{imagenes/Planificacion/costes.png}
+    \caption{Costes del proyecto}
+    \label{fig:costes}     
+\end{figure}
 
 

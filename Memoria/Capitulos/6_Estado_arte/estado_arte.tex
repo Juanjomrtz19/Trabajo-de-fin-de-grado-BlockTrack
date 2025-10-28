@@ -1,14 +1,13 @@
 \chapter{Estado del arte}
 
 \section{TMSs y su importancia en la logística}
-Gracias al artículo \textbf{Comparativa de sistemas TMS: ¿cuál es el adecuado para tu logística?} subido en la página Llego podemos ver las ventajas y desventajas de los principales TMSs del mercado.
+Gracias al artículo \textcite{comparativaSistemasTMS} podemos ver las ventajas y desventajas de los principales TMSs del mercado.
 Un sistema TMS (\textit{Transportation Management System}) es una herramienta que permite a las empresas gestionar de manera eficienta el transporte de mercancias. Las funcionalidades más comunes en estos sistemas son
 la planificación de rutas, seguimiento de envíos en tiempo real, gestión de proveedores y control de costes.
 
-Según el artículo \textbf{Key Attributes, Challenges, and Success Factors in Digital Transformation Of
-Supply Chain- A Case Study Of 3PL Companies}  en empresas 3LP (dedicadas al servicio de logística para terceros) el éxito se radica en la satisfacción del cliente, para ello que estas empresas cuenten con TMSs que satisfagan todas las necesidades del negocio es de vital importancia ya que se traduce en entregas de a tiempo, de manera correcta y con total transparencia. Por lo tanto estos sistemas dotan a la empresa de:
+Según el \textcite{keyAttributesChallengesAndSuccessFactors}  en empresas 3LP (dedicadas al servicio de logística para terceros) el éxito se radica en la satisfacción del cliente, para ello que estas empresas cuenten con TMSs que satisfagan todas las necesidades del negocio es de vital importancia ya que se traduce en entregas de a tiempo, de manera correcta y con total transparencia. Por lo tanto estos sistemas dotan a la empresa de:
 \begin{itemize}
-    \item Mayor satisfacción del liente.
+    \item Mayor satisfacción del cliente.
     \item Mejora en sostenibilidad de la cadena de suministro.
     \item Tomas de decisiones más rápidas y precisas.
     \item Optimización de modelos de negocio y procesos.
@@ -23,16 +22,66 @@ Supply Chain- A Case Study Of 3PL Companies}  en empresas 3LP (dedicadas al serv
 Tiene las desventajas de que para operaciones complejas de logística puede ser limitado.
 \end{enumerate}
 
-\section{Blockchain y su importancia en la logística}
- La tecnología blockchain según el libro \textbf{blockchain in action} se define como una tecnología para permitir la veracidad y confianza en sistemas descentralizados para transacciones de pares con los participantes.
- 
- 
- \textbf{La tecnología Blockchain como potenciador de la cadena de suministro: oportunidades desde el sector agropecuario}.
- Se puede entender a la tecnología blockchain como una base de datos que provee operaciones seguras y consistentes mediante un grupo de nodos en la red, los cuales están compuestos por una cadena de bloques digitales con información encriptada, verificada y utilizada de forma simultánea.
- Esta tecnología fue introducida por primera vez por Haber y Stornetta en 1991 y desarrollada por Satoshi Nakamoto, que es el pseudónimo que utilizó el creador o creadoresde la moneda digital Bitcoin en 2008. En la actualidad, el Blockchain asegura altos niveles de escalabilidad, además gracias a la aparición de los contratos inteligentes se logra fiabilidad y accesibilidad a la información,
- logrando la automatización de los acuerdos, así como la eliminación de intermediarios, reduciendo el papeleo y los costos.
+Los TMS resultan eficaces dentro de cada empresa, pero en entornos multiparte (remitentes, 3PL/4PL, transportistas, destinatarios) emergen incongruencias y necesidad de reconciliar datos al no existir un mecanismo común, inmutable y verificable aceptado por todos. Esta brecha de confianza interorganizacional motiva el uso de tecnologías como blockchain, que proveen un libro mayor compartido y firmas digitales para establecer una versión única de los hechos.
 
- \textbf{Blockchain for supply chain Management de Antonios Litke} La tecnología blockchain encaja a la perfección con la industria de la cadena de suministro, destacando elementos clave como la escalabilidad, el rendimiento, el mecanismo de consenso, la privacidad, la prueba de ubicación y los costos.
+\newpage
+\section{Introducción a la tecnología blockchain}
+Según \textcite{blockchainInAction}
+En 2008 Satoshi Nakamoto publicó un artículo titulado ``Bitcoin: A Peer-to-peer Electronic Cash System'' en el que explicaba el funcionamiento de una moneda digital descentralizada llamada Bitcoin.
+Esta moneda digital la ventaja que tenía sobre las monedas tradicionales es que no necesitaba de una autoridad central para validar las transacciones. En su lugar, la veracidad de las transacciones
+se garantizaba vía software mediante el uso de una tecnología llamada blockchain. Blockchain proveía las bases de software necesarias para la verificación, validación, registro e integridad esenciales para tranferencias monetarias.\\
+
+\subsection{¿Qué es blockchain?}
+
+Para comprender la blockchain es necesario partir del problema que aborda. Según \textcite{whatIsBlockchain}, en los sistemas bancarios tradicionales el usuario deposita su confianza en una entidad central para la gestión de su dinero. No obstante, se han documentado fraudes y errores que han afectado a clientes, de modo que la confianza en una autoridad centralizada no siempre constituye la solución más adecuada.\\
+
+Este es el problema principal que la tecnología blockchain intenta resolver, creando un sistema descentralizado donde no es necesaria la confianza en una autoridad centralizada.\\
+
+Por lo tanto la tecnología blockchain se puede definir como un libro mayor distribuido entre todos los participantes de la cadena e inmutable 
+donde se registran todas las transacciones que se realizan en la red. Cada bloque de la cadena contiene un conjunto de transacciones y un hash del bloque anterior, creando así
+una cadena de bloques que están interconectados. Gracias a este diseño, una vez que un bloque ha sido añadido a la cadena, no puede ser modificado sin alterar los bloques posteriores,
+lo que garantiza la integridad de los datos.\\
+
+Además, la tecnología blockchain utiliza mecanismos de consenso para validar las transacciones entrantes y asegurar que todos los nodos de la red estén de acuerdo sobre el estado actual de toda la cadena.
+Estos mecanismos de consenso pueden variar dependiendo del tipo de la blockchain, pero su objetivo principal es garantizar la legitimidad de las transacciones.\\
+
+En resumen, la tecnología blockchain es un sistema descentralizado y seguro que permite registrar y verificar transacciones sin necesidad de una autoridad centralizada.
+Para lograr esto, utiliza un libro mayor distribuido, bloques interconectados y mecanismos de consenso.
+
+En el libro \textcite{beginningBlockchain} se dicen las siguientes afirmaciones sobre blockchain:
+\begin{itemize}
+  \item \textbf{Modelo \textit{peer-to-peer} sin terceros de confianza.} Blockchain permite transferir valor directamente entre participantes, sin intermediarios “de confianza” en medio.
+  \item \textbf{Libro mayor compartido y descentralizado.} Mantiene un registro abierto de transacciones que se replica en un gran número de nodos de la red.
+  \item \textbf{Registro sólo de anexado (append-only).} La base de datos del libro mayor no se modifica ni sobrescribe: cada inserción es permanente y cualquier nueva entrada se propaga a todas las copias alojadas en los distintos nodos.
+  \item \textbf{Sin necesidad de intermediación.} La verificación, la seguridad y la liquidación de las transacciones no requieren entidades terceras que actúen como árbitros.
+  \item \textbf{Capa tecnológica sobre Internet.} Opera como una capa adicional que coexiste e integra con otras tecnologías de la red.
+  \item \textbf{Diseñada para la descentralización.} Del mismo modo que TCP/IP impulsó un sistema abierto, la tecnología blockchain se concibió para habilitar una descentralización efectiva; en esa línea, el software de Bitcoin se publicó como código abierto, fomentando el desarrollo de aplicaciones descentralizadas.
+\end{itemize}
+    
+Así se vería una representación gráfica de una blockchain:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Estado del arte/estructuraDatosBlockchain.png}
+    \caption{Representación gráfica de una blockchain. Fuente: \textcite{beginningBlockchain}}
+    \label{fig:blockchain}
+\end{figure}
+
+Como se puede ver en la figura cada bloque esta compuesto por dos partes diferencias, el hash del bloque anterior y un conjunto de transacciones.
+Se apunta al bloque anterior para garantizar que nadie pueda modificarlo sin alterar los bloques posteriores.
+
+\subsection{Capas de la blockchain}
+Según el libro \textcite{beginningBlockchain} la tecnología blockchain esta compuesta por varias capas:
+\begin{itemize}
+    \item \textbf{Capa de aplicación:} Es donde se programan las funciones que verá el usuario final. Se fomenta el uso de off-chain para cálculos o almacenamientos grandes y dejar la blockchain para lo esencial.
+    \item \textbf{Capa de ejecución:} Aquí se ejecutan en todos los nodos las instrucciones definidas en la capa de aplicación: desde pasos simples hasta \textit{smart contracts}. Cada nodo (equipo participante en la red) ejecuta el programa de forma independiente.
+    \item \textbf{Capa semántica:} Decide si las transacciones y bloques son válidos y en qué orden se insertan. Se definen reglas del sistema, modelos/estructuras de datos y se gestionan casos complejos vía smart contracts. También se define cómo los bloques se encadenan.
+    \item \textbf{Capa de propagación:} Es la red P2P donde los nodos se comunican y sincronizan sobre el estado actual. Las transacciones y los bloques se difunden por toda la red para que todos conozcan el último bloque y puedan seguir construyendo encima. Por diseño un nodo reenvía lo nuevo a sus pares directos de inmediato. Puede haber latencias (segundos o más).
+    \item \textbf{Capa de consenso:} Suele ser la base: su objetivo es que todos los nodos acuerden un mismo estado del libro mayor. Asegura la seguridad e integridad del sistema. El mecanismo concreto depende del caso de uso. Por ejemplo, en Ethereum se emplea Proof of Stake (PoS) para seleccionar el proponente de bloque y alcanzar finalidad; en Bitcoin se utiliza Proof of Work (PoW). Existen otros mecanismos, como dPoS o PBFT, según el tipo de red.
+\end{itemize}    
+
+\newpage
+\section{Blockchain y su importancia en la logística} 
+ Según \textcite{blockChainsForSupplChainManagement} La tecnología blockchain encaja a la perfección con la industria de la cadena de suministro, destacando elementos clave como la escalabilidad, el rendimiento, el mecanismo de consenso, la privacidad, la prueba de ubicación y los costos.
  Blockchain es una tecnología descentralizada, que permite hacer transacciones sin intermediarios de manera robusta y segura gracias a que una vez que los datos se han registrado en una cadena de blockchain, son inmutables.
  Esta tecnología encaja tan bien con la logística porque en el flujo de vida de un producto, desde que se fabrica hasta que es entregado, cada movimiento o cambio de etapa quedaría registrado mediante una transacción en la blockchain.
 
@@ -46,7 +95,8 @@ Además al ser una tecnología descentralizada contribuye eficientemente en la t
 
 \subsection{BlockTrack}
 Habiendo descrito los problemas que hay en los sitemas actuales de gestión de la logística y la tecnología blockchain, se observa que sería interesante empezar a aplicar esta tecnología en las cadenas de suministro.
-Gracias a blockchain, se incrementaría la confianza entre todas las partes involucradas, ya que tendrían acceso en tiempo real a toda la red, pudiendo consultar cualquier transacción relacionada con un producto de forma transparente y segura.
+Gracias a blockchain, se incrementaría la confianza entre todas las partes involucradas, ya que tendrían acceso en tiempo real a toda la red, pudiendo consultar cualquier transacción relacionada con un producto de forma transparente y segura. Aclarar
+que la tecnología blockchain no se limita solo a transacciones de dinero, sino que puede registrar cualquier tipo de información.
 
 Además, cada nuevo bloque añadido a la red constituye información fiable y verificada, ya que debe ser validado mediante un mecanismo de consenso entre los nodos participantes. Al basarse en sistemas de seguridad como la criptografía de clave pública-privada y los hashes, se garantiza la integridad y la autenticidad de los datos.
 
@@ -58,35 +108,3 @@ Por todas estas razones nace la idea de \textbf{BlockTrack}, esta aplicación se
 se añadirá a la blockchain mediante el uso de contratos inteligentes que ayudarán a automatizar estos procesos, permitiendo tanto a las empresas como a los usuarios siempre saber el estado del producto.
 
 Esta aplicación tiene la idea de solventar por completo o parcialmente todos los problemas descritos de los sistemas tradicionales.
-\section{Objetivos}
-
-La idea principal y por tanto objetivo con mayor importancia es la creación de una aplicación web que gestione la logística del transporte de mercancías de una empresa mediante el uso de blockchain para las transacciones disponiendo de una red donde se pueda ver el seguiemiento de un pedido con total certeza de que no ha sido manipulado y que todo usuario permitido pueda consultar en cualquier momento. \\
-
-
-
-La solución propuesta se llevará acabo mediante la investigación y desarrollo en base a unos objetivos preestablecidos y una planificación previa para asegurar el funcionamiento y finalización de la aplicación. Por lo tanto se diferencian los siguientes objetivos:
-\begin{enumerate}
-    \item \textbf{Objetivos de investigación:} Objetivos que comprenden desde la formación en las distintas herramientas a utilizar como el tiempo empleado en conocer de fondo el problema a solucionar, conocer además las tecnologías que hay en el mercado y las mejores tecnologías a utilizar.
-    \item \textbf{Objetivos de diseño y desarrollo:} Objetivos que contemplan toda la lógica de la aplicación, utilizando las tecnologías previamente analizadas y escogidas y haciendo pruebas de testing para asegurar su correcto funcionamiento.
-\end{enumerate}
-
-\subsection{Objetivos de investigación}
-\begin{enumerate}
-    \item Investigar sobre el funcionamiento de APIs REST, buenas prácticas para su programación y como desarrollarlas para que sea segura.
-    \item Estudiar y analizar los lenguajes y frameworks más utilizados para el desarrollo tanto de la interfaz de usuario como para el desarrollo de la API. 
-   \item Estudio de algoritmos de planificador de rutas, para optimizar la creación de rutas que seguiran los distintos transportistas con objetivo de entregar el pedido al usuario final de la manera más rápida y eficiente posible.
-   \item Estudio teórico y después práctico de la blockchain, como crear una aplicación distribuida y como implementar y utilizar una red blockchain a nuestra aplicación, automatizando la ejecución de transacciones mediante contratos inteligentes.
-   \item Aprender una metodología ágil para poder hacer una planificación del desarrollo de la aplicación, por tanto para llevar a cabo esta metodología aprender herramientas que te faciliten el emplear dicha metodología como Jira.
-   \item Aprender docker para automatizar despliegues en el servidor. 
-   \item Investigar y estudiar los distintos tipos de base de datos para elegir la que más se adecue a la aplicación.
-\end{enumerate}
-
-\subsection{Objetivos de diseño y desarrollo}
-\begin{enumerate}
-    \item Diseñar y desplegar la base de datos elegida para la aplicación.
-    \item Programar todos los endpoints necesarios de la API Rest para conectar con el frontend.
-    \item Desplegar la red blockchain estudiada previamente e implementación de contratos inteligentes.
-    \item Diseñar las interfaces más importantes de la aplicación como pueden ser los distintos dashboard de los tipos de usuarios que se manejaran.
-    \item Implementación de estos diseños con el lenguaje y framework elegidos.
-    \item Crear un contenedor para despliegues de nuestra aplicación, configurando las partes necesarias.
-\end{enumerate}

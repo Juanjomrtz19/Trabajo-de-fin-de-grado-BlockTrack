@@ -3,16 +3,6 @@
 \section{Arquitectura software}
 Elegir bien la arquitectura que se va a utilizar en un proyecto de ingeniería de software como este es de vital importancia, ya que la elección de una arquitectura inadecuada puede llegar a crear insatisfacción en el cliente final.
 
-En este sistema el cliente se comunicará con la base de datos mediante la implementación de una API Rest, un esquema para representar esta idea sería:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/Disenio/esquemaArquitecturaSoft.png}
-    \caption{Arquitectura software}
-    \label{fig:arquitectura-software}
-\end{figure}
-
-Sin embargo este proyecto tiene un objetivo prioritario, el uso de la tecnología blockchain para registrar la información sensible como quien es el encargado de entregar un pedido de un enviador a un receptor. \\
-
 Según el estudio \textbf{A Survey on the Integration of Blockchains and Databases} hay tres arquitecturas que podriamos utilizar para dar una solución al problema de este proyecto:
 \begin{itemize}
     \item \textbf{Blockchain orientada a base de datos:} Añade características de las bases de datos como  modelo relacional o índices y consultas eficientes entre otras a la red blockchain.
@@ -20,10 +10,29 @@ Según el estudio \textbf{A Survey on the Integration of Blockchains and Databas
     \item \textbf{Sistemas híbridos:} Integracion equilibrada entre ambos modelos donde la idea es utilizar una base de datos para operaciones comunes y blockchain para información crítica de la lógica de negocio.
 \end{itemize}
 
-Para este caso se ha escogido el enfoque de \textbf{Sistema híbrido} debido a que es más fácil de implementar ya que no es necesario conocimientos avanzados en desplegar y configurar blockchain desde cero además se ha demostrado que esto se puede conseguir con casos de éxito como \href{https://github.com/ChainSQL/chainsqld}{chainsql}.\\
+Para este caso se ha escogido el enfoque de \textbf{Sistema híbrido} debido a que lo mas eficiente es que en la red de blockchain solo se almacene lo esencial, el resto de datos pesados que se necesitan para el correcto funcionamiento de la aplicación se almacenaran en una base de datos tradicional.\\
 
-Por lo el esquema de la arquitectura final sería este:
+Teniendo lo discutido anteriormente en cuenta la arquitectura software elegida para este proyecto será una arquitectura a 3 niveles o capas tradicional al que se le añade una capa extra para la blockchain. 
+Esta arquitectura es adecuada para este proyecto ya que permite separar las distintas responsabilidades de la aplicación en capas independientes, facilitando el mantenimiento y escalabilidad del sistema.
+Las capas son las siguientes:
+\begin{itemize}
+    \item \textbf{Capa de presentación (Frontend):} Es la capa encargada de la interacción con el usuario. En esta capa se encuentran todas las interfaces gráficas que permiten al usuario interactuar con la aplicación.
+    \item \textbf{Capa de lógica de negocio (Backend):} Es la capa encargada de procesar la lógica de negocio de la aplicación. Esta capa recibe las peticiones del frontend, procesa la información y devuelve los resultados al usuario.
+    \item \textbf{Capa de datos (Base de datos):} Es la capa encargada de almacenar y gestionar los datos de la aplicación. Esta capa se encarga de guardar toda la información necesaria para el correcto funcionamiento de la aplicación.
+    \item \textbf{Capa blockchain:} Es la capa encargada de gestionar la tecnología blockchain utilizada en el proyecto. Esta capa se encarga de registrar las transacciones y datos críticos en la red de blockchain para garantizar la inmutabilidad, trazabilidad y seguridad de la información.
+\end{itemize}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/Disenio/esquemaArquitecturaSoft.png}
+    \caption{Arquitectura software}
+    \label{fig:arquitectura-software}
+\end{figure}
+
+\subsection{Comunicación entre capas}
+La comunicación entre el frontend y el backend se realiza mediante peticiones HTTP a una API RESTFull. El formato de la respuesta que envía el backend será en formato JSON.
+La comunicación entre el frontend y la capa blockchain se realizará a través de un \textit{proveedor de acceso a la red blockchain} (nodo), utilizando llamadas RPC estándar.
+La comunicación entre el backend y la base de datos se realizará mediante un ORM (Object-Relational Mapping) que permitirá mapear las entidades del modelo de datos a tablas en la base de datos relacional.
 
 \section{Tecnologías usadas}
 \subsection{Para el frontend}
@@ -49,7 +58,7 @@ Existen varias herramientas que permiten asegurarnos que el código se comporta 
 \begin{itemize}
     \item \textbf{PlayWrith:} Es una herramienta creada por microsoft y es utilizado para pruebas de extremo a extremo mas conocidas como \textbf{E2E} permitiendo simular un comportamiento real de un usuario en navegadores modernos actuales. Tiene una curva de aprendizaje pronunciada y no es ideal para lógica interna de la aplicación si no para un comportamiento completo de la aplicación en un navegador. \hyperlink{PlayWrith}{https://playwright.dev}
     \item \textbf{Jest:} Es un framework de testing creado por meta. Es el más popular para testear aplicaciones React (mencionandose en la propia documentación oficial) y se usa principalmente para test unitarios. Su filosofía se centra en la velocidad y simplificidad funcionando muy bien con bibliotecas como react testing library. \hyperlink{Jest}{https://jestjs.io}
-    \item \textbf{Cypress:} Es un framework de testing para pruebas de extremo a extremo que permite testear aplicaciones web directamente en el navegador. Es popular por su interfaz visual interactiva y amigable para escribir, ejecutar y depurar pruebas de manera eficiente.
+    \item \textbf{Cypress:} Es un framework de testing para pruebas de extremo a extremo que permite testear aplicaciones web directamente en el navegador. Es popular por su interfaz visual interactiva y amigable para escribir, ejecutar y depurar pruebas de manera eficiente. \hyperlink{Cypress}{www.cypress.io}
 \end{itemize}
 
 Después de evaluar las distintas herramientas de testing disponibles, se ha optado por utilizar Jest para las pruebas unitarias debido a su excelente integración con React, y Cypress para las pruebas de extremo a extremo, gracias a su interfaz gráfica intuitiva. Esta combinación permitirá cubrir tanto la lógica interna de los componentes como el comportamiento completo de la aplicación desde la perspectiva del usuario final, facilitando además el aprendizaje al no requerir experiencia previa en testing.
@@ -113,3 +122,55 @@ Git es un sistema de control de versiones distribuido  para gestionar cualquier 
 \subsubsection{GitHub}
 Github es una plataforma basada en la nube donde se puede almacenar, compartir y trabajar con otros usuarios para desarrollar código. Este software esta basado y sirve como apoyo a GIT. \href{https://docs.github.com/es/get-started/start-your-journey/about-github-and-git}{GitHub}.
 
+
+\newpage
+\section{Selección de la red blockchain}
+Hay distintas tecnologías blockchain que se pueden utilizar para este proyecto. Algunas de las más populares son:
+Ethereum, Hyperledger Fabric, Solana, Binance Smart Chain, entre otras.
+Después de evaluar las distintas opciones, se ha decidido utilizar Ethereum debido a su amplia adopción, robusta infraestructura y soporte para contratos inteligentes.
+\subsection{Ethereum}
+Ethereum es una plataforma de blockchain de código abierto que permite la creación de contratos inteligentes y aplicaciones descentralizadas (dApps). Su criptomoneda nativa es el Ether (ETH). Ethereum ha sido pionera en la implementación de contratos inteligentes, lo que permite a los desarrolladores crear aplicaciones complejas que se ejecutan en su red. Además, cuenta con una gran comunidad de desarrolladores y una amplia gama de herramientas y bibliotecas que facilitan el desarrollo en su ecosistema. \hyperlink{ethereum}{https://ethereum.org}
+
+\subsection{Smart contracts}
+Los contratos inteligentes son programas informáticos que se ejecutan automáticamente en una red de blockchain
+cuando se cumplen ciertas condiciones predefinidas. Estos contratos permiten la automatización de acuerdos y
+transacciones sin necesidad de intermediarios, lo que reduce costos y aumenta la eficiencia. Los contratos
+inteligentes son inmutables y transparentes, lo que significa que una vez desplegados en la blockchain,
+no pueden ser modificados y su código es accesible para todos los participantes de la red. \hyperlink{smartcontracts}{https://ethereum.org/en/developers/docs/smart-contracts/}
+
+Para el desarrollo de los smart contracts se utilizará el lenguaje de programación Solidity, que es el lenguaje
+más popular y ampliamente utilizado para escribir contratos inteligentes en la red Ethereum. Solidity es un
+lenguaje de alto nivel similar a c++, lo que facilita su aprendizaje para desarrolladores con experiencia en
+otros lenguajes de programación. \hyperlink{solidity}{https://docs.soliditylang.org/en/v0.8.20/}
+
+El desarrollo y la idea detrás de la programación de los smart contracts es muy parecida a la programación
+orientada a objetos, donde se definen clases (contratos) con atributos (variables de estado) y métodos.
+
+\subsection{Diseño de smart contract para Blocktrack}
+La idea de este smart contract es registrar los envíos realizados en la plataforma Blocktrack,
+así poder tener un registro inmutable y transparente de cada envío.
+
+\begin{itemize}
+    \item Variables de estado:
+    \begin{itemize}
+        \item Id de la remesa.
+        \item Enviador y receptor (su address de Ethereum no PII).
+        \item Número de transportistas necesarios para cumplir con el envío.
+        \item Contador de transportistas que han aceptado el envío.
+        \item Estado del envío.
+        \item Poseedor, es decir, el participante que actualmente tiene la remesa.
+        \item Transportistas que han aceptado participar en el envío.
+    \end{itemize}
+    \item Eventos:
+    \begin{itemize}
+        \item Evento de creación de envío.
+        \item Evento de aceptación de envío por parte de un transportista.
+        \item Evento de actualización del estado del envío.
+        \item Evento de transferencia de posesión del envío.
+        \item Evento de entrega del envío.
+        \item Evento de cancelación del envío.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Porqué garantiza la confianza y trazabilidad.}
+La plataforma registra en la red blockchain los hitos clave del ciclo de vida del envío (creación, aceptación, cambios de estado, transferencias de custodia y entrega) como eventos y estado on-chain. Cada operación está firmada por la dirección del actor correspondiente, lo que aporta no repudio, y queda ordenada e inmutable en la cadena. Las reglas del contrato inteligente garantizan que únicamente los actores autorizados pueden ejecutar cada transición (p. ej., solo el custodio actual puede transferir custodia y solo el receptor puede marcar la entrega). En caso de discrepancias, la información on-chain —respaldada por firmas y consenso— prevalece sobre declaraciones off-chain, proporcionando una fuente de verdad verificable para auditoría y resolución de conflictos, sin exponer datos personales en la cadena.
