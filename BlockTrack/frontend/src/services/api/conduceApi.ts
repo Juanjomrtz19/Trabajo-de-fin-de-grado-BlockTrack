@@ -1,10 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { baseQuery } from "./base";
+import { api } from "./api";
 
-export const conduceApi = createApi({
-  reducerPath: "conduce",
-  baseQuery,
-  tagTypes: ["Conduce"] as const,
+export const conduceApi = api.injectEndpoints({
   endpoints: (builder) => ({
     obtenerConduce: builder.query<any, void>({
       query: () => "/conduce",

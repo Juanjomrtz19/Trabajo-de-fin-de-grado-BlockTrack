@@ -1,0 +1,230 @@
+\raggedbottom
+
+\chapter{Implementación}
+\section{Implementación del backend}
+El backend de una aplicación web es la parte que se encarga de gestionar la lógica de negocio,
+la comunicación con la base de datos y la API REST que se utiliza para interactuar con el frontend.
+Su desarrollo se ha realizado utilizando el framework \texttt{express.js} de \texttt{Node.js},
+que permite crear aplicaciones web de manera sencilla y rápida.
+
+\subsection{Estructura de carpetas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/estructuraCarpetasBackend.png}
+    \caption{Estructura de carpetas del backend}
+    \label{fig:estructura_backend}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{\texttt{src/services}}: lógica de negocio. Contiene casos de uso (crear remesa, consultar trazabilidad, verificar autenticidad, etc.). No conoce Express: trabaja con tipos de dominio y delega el acceso a datos.
+\item \textbf{\texttt{src/controllers}}: controladores. Reciben las peticiones HTTP, validan los datos y llaman a los servicios correspondientes. Conocen Express y son responsables de la serialización de las respuestas.
+\item \textbf{\texttt{src/routes}}: definición de las rutas de la API. Utilizan los controladores para gestionar las peticiones y respuestas.
+\item \textbf{\texttt{src/middlewares}}: middlewares de Express. Se encargan de tareas como la autenticación.
+\item \textbf{\texttt{src/models}}: modelos de datos. Definen la estructura y tipo de los datos.
+\item \textbf{\texttt{src/sockets}}: lógica de comunicación en tiempo real mediante WebSockets.
+\item \textbf{\texttt{src/helpers}}: funciones de ayuda para tareas comunes.
+\item \textbf{\texttt{src/validators}}: validadores de datos de entrada. 
+\item \textbf{\texttt{src/server}}: configuración de respuesta de errores.
+\item \textbf{\texttt{src/seeders}}: scripts para poblar la base de datos con datos iniciales.
+\item \textbf{\texttt{src/generated y src/config}}: archivos de configuración del ORM y de las tablas de la base de datos.
+\end{itemize}
+
+\subsection{API REST}
+La API REST del backend se ha diseñado siguiendo los principio RESTFull, utilizando los métodos HTTP adecuados para cada operación.
+\begin{itemize}
+\item \textbf{GET}: para obtener datos.
+\item \textbf{POST}: para crear nuevos recursos.
+\item \textbf{PUT}: para actualizar recursos existentes.
+\item \textbf{DELETE}: para eliminar recursos.
+\item \textbf{PATCH}: para actualizaciones parciales de recursos.
+\end{itemize}
+
+\subsubsection{Principales endpoints}
+A continuación, se describen algunos de los principales endpoints de la API REST del backend:
+\begin{itemize}
+    \item \textbf{Usuarios}
+    \begin{itemize}
+        \item \textit{POST /api/users/register}: registrar un nuevo usuario.
+        \item \textit{POST /api/users/login}: iniciar sesión.
+        \item \textit{GET /api/users/me}: obtener el perfil del usuario autenticado.
+    \end{itemize}
+    \item \textbf{Remesas}
+    \begin{itemize}
+        \item \textit{POST /api/remesas}: crear una nueva remesa.
+        \item \textit{GET /api/remesas/:id}: obtener los detalles de una remesa.
+        \item \textit{PUT /api/remesas/:id}: actualizar una remesa existente.
+        \item \textit{POST /api/remesas/asignarTransportista/:id}: asignar transportistas
+         encargados de efectuar el envío de una remesa.
+    \end{itemize}
+    \item \textbf{Transportistas}
+    \begin{itemize}
+        \item \textit{PATCH /api/transportistas/rechazarLleva}: Rechazar participar en el envío de una remesa.
+        \item \textit{PATCH /api/transportistas/darDeBaja}: Dar de baja a un transportista.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Flujo de llamada de un endpoint}
+Cuando se realiza una petición a un endpoint de la API REST, el flujo de llamada es el siguiente:
+\begin{enumerate}
+    \item La petición llega al router correspondiente, que la dirige al controlador adecuado.
+    \item El controlador valida los datos de entrada y llama al servicio correspondiente.
+    \item El servicio realiza la lógica de negocio necesaria, interactuando con la base de datos si es necesario.
+    \item El servicio devuelve el resultado al controlador.
+    \item El controlador serializa la respuesta y la envía al cliente.
+\end{enumerate}
+
+Por ejemplo para la creación de una remesa, el flujo sería:
+\begin{itemize}
+    \item El método HTTP que debe realizar el cliente es \texttt{POST}.
+    \item La petición tiene que hacerse desde la url \texttt{/api/remesas}.
+    \item La petición tiene que incluir un token JWT en la cabecera de autorización válido.
+    \item El cuerpo de la petición debe incluir los datos necesarios para crear la remesa.
+\end{itemize}
+Este sería el cuerpo de una petición para crear una remesa:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/cuerpoPeticion.png}
+    \caption{Cuerpo de la petición para crear una remesa}
+    \label{fig:cuerpo_peticion_crear_remesa}
+\end{figure}
+
+Al recibir la petición el backend y procesarla, devolverá una respuesta con el estado
+\texttt{201 Created} y el cuerpo de la respuesta incluirá los datos de la remesa creada en formato
+JSON.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/respuestaPeticionCorrecta.png}
+    \caption{Cuerpo de la respuesta para crear una remesa}
+    \label{fig:cuerpo_respuesta_crear_remesa}
+\end{figure}
+
+Si ha fallado la validación de los datos de entrada, el backend devolverá una respuesta con el estado
+\texttt{400 Bad Request} y el cuerpo de la respuesta incluirá un mensaje de error.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/respuestaIncorrecta.png}
+    \caption{Cuerpo de la respuesta incorrecta para crear una remesa}
+    \label{fig:cuerpo_respuesta_incorrecta_crear_remesa}
+\end{figure}
+
+\subsection{Medidas de seguridad}
+Para garantizar la seguridad del backend, se han implementado las siguientes medidas:
+\begin{itemize}
+    \item \textbf{Autenticación y autorización}: se utiliza JWT para autenticar a los usuarios y
+    proteger los endpoints de la API REST. El flujo sería el siguiente:
+    \begin{enumerate}
+        \item El usuario envía una petición de inicio de sesión con sus credenciales.
+        \item El backend verifica las credenciales y genera un token JWT si son correctas con la información
+        del usuario que nos convenga (importante no incluir información sensible porque el token se puede decodificar y
+        obtener su contenido ya que esta cifrado en base64) y una fecha de expiración.
+        \item A partir de ese momento, el cliente debe incluir el token JWT en la cabecera de autorización de todas
+        las peticiones a los endpoints protegidos.
+        \item El backend verifica el token JWT en cada petición y permite o deniega el acceso.
+    \end{enumerate}
+    \item \textbf{Validación de datos}: se validan los datos de entrada en los controladores para
+    evitar inyecciones SQL y otros ataques. Esto se consigue con la ayuda de librerías como \textit{YUP} y gracias a la ayuda
+    de typeScript que permite definir tipos de datos estrictos. Si una validación falla automáticamente el backend responde 
+    con un error \texttt{400 Bad Request}.
+    \item \textbf{Cifrado de contraseñas}: Es importante almacenar las contraseñas de los usuarios de forma segura.
+    Se utiliza la librería \textit{bcrypt} para hashear las contraseñas antes de almacenarlas en la base de datos.
+    Es decir, se aplica una función hash que convierte la contraseña en una cadena de caracteres irreconocible.
+    De esta forma, aunque un atacante consiga acceder a la base de datos, no podrá obtener las contraseñas originales.
+    \item \textbf{Protección contra ataques XSS}: se implementan medidas para evitar la inyección y ejecución de scripts maliciosos tanto en el servidor como en el cliente:
+        \begin{itemize}
+        \item \textbf{Cabeceras de seguridad con Helmet}: se añaden cabeceras como 
+        \textit{X-Content-Type-Options: nosniff}, 
+        \textit{X-Frame-Options}, \textit{Referrer-Policy}, etc.
+        \item \textbf{Respuestas como JSON}: todas las respuestas se sirven con \texttt{Content-Type: application/json}, evitando que el navegador las trate como HTML ejecutable.
+        \item \textbf{Saneado de entradas}: se aplica un middleware que recorre \texttt{req.body} y \texttt{req.query} y limpia todas las cadenas con la librería \texttt{xss} antes de llegar a las rutas, mitigando cargas como \texttt{<script>} o atributos \texttt{onerror=} si posteriormente se renderizan en el cliente.
+        \end{itemize}
+\end{itemize}
+
+\newpage
+\section{Implementación del frontend}
+\subsection{Arquitectura en el frontend}
+El frontend de la aplicación web se ha desarrollado utilizando el framework \textit{React.js}, el desarrollo con React
+se basa en la creación de componentes reutilizables que representan diferentes partes de la interfaz de usuario, desde un simple botón hasta
+una página completa.\\
+
+Estos componentes pueden tener su propio estado y propiedades, lo que permite una gran flexibilidad y modularidad en el desarrollo de la aplicación.\\
+
+React facilita también la creación de interfaces de usuario interactivas y dinámicas
+al permitir la actualización eficiente del DOM mediante un sistema de reconciliación
+y un DOM virtual utilizado para comparar los cambios y actualizar las partes necesarias
+de la interfaz de usuario sin necesidad de recargar toda la página.\\
+
+
+\subsection{Estructura de carpetas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/estructuraCarpetasFrontEnd.png}
+    \caption{Estructura de carpetas del frontend}
+    \label{fig:estructura_frontend}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{\texttt{src/services}}: Contiene los archivos referentes al manejo de estado global y las llamadas a las APIs.
+\item \textbf{\texttt{src/components}}: componentes reutilizables de la interfaz de usuario. Se divide en subcarpetas según sea componentes comunes a construir interfaces de usuario mas complejas a partir de ellos
+como por ejemplo botones, tablas, loaders, etc. o layouts que son componentes construidos 
+a partir de estos comunes y que son utilizados en varias páginas como el navbar, footer,...
+\item \textbf{\texttt{src/hooks}}: definición de los hooks personalizados. Se utilizan para encapsular la lógica de negocio y el estado de los componentes.
+\item \textbf{\texttt{src/layout}}: componentes que definen la estructura común o general de una página. Aquí al ser un componente común por ejemplo a las páginas
+de los usuarios que estan autenticados, es una buena práctica introducir esta lógica en un layout.
+\item \textbf{\texttt{src/pages}}: páginas de la aplicación. Cada página representa una vista completa de la aplicación. Por ejemplo la página de login, la página de gestionar remesas, etc.
+\item \textbf{\texttt{src/sockets}}: lógica de comunicación en tiempo real mediante WebSockets. Es decir, la configuración
+y manejo de eventos para la comunicación bidireccional entre el cliente y el servidor.
+\item \textbf{\texttt{src/styles}}: Aquí se encuentran estilos predefinidos que tendrán todos los componentes para que la aplicación construida
+tenga una apariencia coherente y uniforme.
+\item \textbf{\texttt{src/types}}: Tipos de los datos que deben tener de las respuestas del backend para que haya una coherencia de tipos entre estas dos capas. 
+\item \textbf{\texttt{src/utils}}: Funciones de ayuda para tareas comunes.
+\end{itemize}
+
+\subsection{Comunicación con el backend}
+La comunicación entre el frontend y el backend se realiza a través de la API REST utilizando
+la librería \hyperlink{https://redux-toolkit.js.org/rtk-query/overview}{Redux Toolkit Query}. Esta librería
+se puede utilizar tanto para gestionar el estado global de la aplicación como para realizar
+llamadas a APIs de manera sencilla y eficiente. \\
+
+Esta librería permite a la hora de hacer llamadas a la api definir "slices" que son
+conjuntos de endpoints relacionados entre sí. Por ejemplo, se ha definido un slice para
+gestionar las remesas, otro para los usuarios, otro para los transportistas, etc.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/sliceRemesa.png}
+    \caption{Definición de un slice con Redux Toolkit Query}
+    \label{fig:definicion_slice_rtk}
+\end{figure}
+
+Además a la hora de mostrar la información en los componentes, te proporciona hooks
+predefinidos para gestionar el estado de carga, error y datos de manera automática haciendose cargo
+también de la caché de las respuestas y la asincronía de las llamadas facilitando mucho el desarrollo.
+
+
+\subsection{Experiencia de usuario}
+Para mejorar la experiencia de usuario en la aplicación web, se ha seguido el principio
+de mobile-first, diseñando la interfaz de usuario para que sea accesible y funcional
+en dispositivos móviles antes que en dispositivos de escritorio.\\
+
+Se ha utilizado la librería \textit{Tailwind CSS} para facilitar el diseño responsivo
+y la creación de estilos personalizados.\\
+
+Se han elegido colores con contrastes y tipografías que mejoran la legibilidad y la usabilidad de la aplicación.
+Además, se han implementado animaciones y transiciones suaves para mejorar la interacción.
+
+
+\subsection{Rendimiento}
+Para optimizar el rendimiento del frontend, se han implementado las siguientes técnicas:
+\begin{itemize}
+    \item \textbf{Carga diferida (lazy loading)}: se ha implementado la carga diferida de componentes
+    y recursos para reducir el tiempo de carga inicial de la aplicación. Esto significa que
+    los componentes y recursos se cargan solo cuando son necesarios, mejorando la velocidad
+    de la aplicación.
+    \item \textbf{Optimización de imágenes}: se han utilizado formatos de imagen modernos como
+    webP y se han comprimido las imágenes para reducir su tamaño sin perder calidad.
+    \item \textbf{Optimización de re-renders}: En React, cada vez que se detecta que ha habido un cambio
+    en el estado se realizan los llamados re-renders para actualizar la interfaz de usuario. Estos rerenders se producen
+    desde el componente raiz donde se produce el cambio del estado hasta todos los componentes hijos aunque 
+    no tengan la necesidad de actualizarse. Para evitar estos re-renders se han utilizado técnicas y/o patrones de diseño
+    para extraer todos los componentes que tengan un estado propio que no debería afectar a otros y se les ha separado a un componente independiente de los hijos
+    para que solo se rendericen cuando su propio estado cambie mejorando así el rendimiento.
+\end{itemize}

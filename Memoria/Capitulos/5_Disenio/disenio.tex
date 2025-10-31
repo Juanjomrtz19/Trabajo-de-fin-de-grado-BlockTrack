@@ -174,3 +174,27 @@ así poder tener un registro inmutable y transparente de cada envío.
 
 \subsection{Porqué garantiza la confianza y trazabilidad.}
 La plataforma registra en la red blockchain los hitos clave del ciclo de vida del envío (creación, aceptación, cambios de estado, transferencias de custodia y entrega) como eventos y estado on-chain. Cada operación está firmada por la dirección del actor correspondiente, lo que aporta no repudio, y queda ordenada e inmutable en la cadena. Las reglas del contrato inteligente garantizan que únicamente los actores autorizados pueden ejecutar cada transición (p. ej., solo el custodio actual puede transferir custodia y solo el receptor puede marcar la entrega). En caso de discrepancias, la información on-chain —respaldada por firmas y consenso— prevalece sobre declaraciones off-chain, proporcionando una fuente de verdad verificable para auditoría y resolución de conflictos, sin exponer datos personales en la cadena.
+
+\subsection{Algoritmo de consenso utilizado por ethereum}
+
+Según \cite{documentacionEthereum} un mecanismo de consenso en un bloque de ideas, protocolos e incentivos
+diseñados para lograr la concordancia entre los nodos distribuidos sobre el estado de una red blockchain.\\
+
+Por consenso se entiende a que se ha alcanzado un acuerdo general. Esta misma idea se traslada a ethereum,
+donde llegar a un consenso significa que al menos el 66\% de los nodos de la red están de acuerdo en el estado
+de la blockchain.\\ 
+
+Anteriormente ethereum utilizaba como algoritmo de consenso Proof of Work (PoW) pero desde 2022 ha adoptado
+Proof of Stake (PoS) como su mecanismo de consenso principal.
+
+En PoS, los participantes que desean asegurar la red actúan como \textit{validadores} y deben bloquear una cantidad de ETH (\textit{stake}) a modo de fianza. A partir de ahí, el consenso se articula con cuatro piezas sencillas:
+
+\begin{itemize}
+\item \textbf{Selección de proponentes:} en cada “turno”, el protocolo elige de forma aleatoria a un validador para proponer un bloque con transacciones válidas.
+\item \textbf{Votaciones:} el resto de validadores asignados a ese turno verifican y votan tanto el bloque propuesto como la “cabeza” de la cadena que consideran correcta.
+\item \textbf{Incentivos:} los validadores ganan recompensas si proponen y votan a tiempo y correctamente; y reciben penalizaciones si llegan tarde, están inactivos o emiten votos incoherentes. Las conductas deshonestas graves pueden conllevar pérdida de parte del stake.
+\item \textbf{Convergencia y finalidad:} las reglas de elección de bifurcación priorizan la rama con más apoyo ponderado por \textit{stake} (la “más fuerte” por votos recientes). Además, el protocolo marca puntos de control por épocas: cuando una supermayoría consistente los respalda, los bloques quedan justificados y, después, finalizados (económicamente muy costoso revertirlos).
+\end{itemize}
+
+Intuitivamente, PoS traslada la seguridad a un terreno criptoeconómico: quien participa debe poner “algo valioso” en juego (su ETH). El diseño de recompensas y sanciones alinea incentivos para que resulte rentable actuar honestamente y prohibitivo atacar el consenso. En situaciones excepcionales (p.,ej., una falla grave), la coordinación social de clientes, operadores y desarrolladores sirve de última línea de defensa para preservar una única cadena legítima.
+

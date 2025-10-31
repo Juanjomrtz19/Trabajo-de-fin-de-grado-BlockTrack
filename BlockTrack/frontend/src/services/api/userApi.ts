@@ -1,15 +1,13 @@
 // src/services/api/userApi.ts
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { baseQuery } from "./base";
+import { api } from "./api";
 import {
   type User,
   type LoginUserPayload,
   type RegisterUserPayload,
 } from "../../types/User";
 
-export const userApi = createApi({
-  reducerPath: "userApi",
-  baseQuery,
+export const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
     registerUser: builder.mutation<any, RegisterUserPayload>({
       query: (userData) => ({

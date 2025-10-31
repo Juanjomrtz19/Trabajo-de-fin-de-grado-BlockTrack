@@ -1,0 +1,20 @@
+{
+  "name": "ethereum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha \"test/**/*.js\" --timeout 15000",
+    "compile": "node compile.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "ganache": "^7.9.2",
+    "mocha": "^11.7.4",
+    "solc": "0.8.20",
+    "web3": "^1.10.4"
+  }
+}

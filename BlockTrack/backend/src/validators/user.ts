@@ -4,7 +4,7 @@ import {
   PHONE_REGEX,
   DNI_REGEX,
   PASSWORD_REGEX,
-} from "../utils/regex";
+} from "../helpers/regex";
 
 export const registerUserSchema = z.object({
   nombre: z.string().trim().min(1, "El nombre no puede estar vacío"),

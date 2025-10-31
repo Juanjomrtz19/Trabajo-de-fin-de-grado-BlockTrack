@@ -140,6 +140,21 @@
       \verb https://dialnet.unirioja.es/servlet/articulo?codigo=7802104
       \endverb
     \endentry
+    \entry{documentacionEthereum}{online}{}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Ethereum Documentation}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://ethereum.org/en/developers/docs/
+      \endverb
+      \verb{url}
+      \verb https://ethereum.org/en/developers/docs/
+      \endverb
+    \endentry
     \entry{EvolucionMetodologiasDesarrollo}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f06ca2f404f4a7b2c5059ec6bb72d0a0}{%
@@ -672,6 +687,21 @@
       \endverb
       \verb{url}
       \verb https://dialnet.unirioja.es/servlet/articulo?codigo=7802104
+      \endverb
+    \endentry
+    \entry{documentacionEthereum}{online}{}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Ethereum Documentation}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://ethereum.org/en/developers/docs/
+      \endverb
+      \verb{url}
+      \verb https://ethereum.org/en/developers/docs/
       \endverb
     \endentry
     \entry{EvolucionMetodologiasDesarrollo}{article}{}

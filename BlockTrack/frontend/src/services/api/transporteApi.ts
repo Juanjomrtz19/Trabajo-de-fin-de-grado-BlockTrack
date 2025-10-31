@@ -1,11 +1,8 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { baseQuery } from "./base";
+import { api } from "./api";
 import { Transporte } from "../../types/transporte";
 
-export const transporteApi = createApi({
-  reducerPath: "transporteApi",
-  baseQuery,
-  tagTypes: ["Transporte"] as const,
+export const transporteApi = api.injectEndpoints({
   endpoints: (builder) => ({
     createTransporte: builder.mutation<Transporte, Partial<Transporte>>({
       query: (transporte) => ({
