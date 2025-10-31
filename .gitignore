@@ -12,6 +12,11 @@ BlockTrack/backend/dist/
 BlockTrack/backend/build/
 BlockTrack/backend/prisma
 
+#Ignorar dependencias de ethereum
+BlockTrack/ethereum/node_modules/
+BlockTrack/ethereum/dist/
+BlockTrack/ethereum/build/
+
 # Ignorar ficheros de entorno
 BlockTrack/frontend/.env
 BlockTrack/backend/.env
