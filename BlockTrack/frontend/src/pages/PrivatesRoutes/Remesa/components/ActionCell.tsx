@@ -12,12 +12,16 @@ import {
 import toast from "react-hot-toast";
 import {
   ButtonAsignar,
+  ButtonCambiarPoseedor,
   ButtonCancelar,
   ButtonEditar,
   ButtonVisualizacion,
 } from "./Buttons";
 import TopLoadingBar from "../../../../components/common/LoadingBar/LoadingBar";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../../../app/store";
+import { useCambiarProveedorRemesaMutation } from "../../../../services/api/remesaApi";
 
 const ActionCell = ({
   remesa,
@@ -26,11 +30,16 @@ const ActionCell = ({
   remesa: Remesa;
   setOpen: (open: boolean) => void;
 }) => {
+  console.log("ActionCell remesa prop:", remesa);
+  const user = useSelector((state: RootState) => state.user.user);
+  console.log("user", user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [cancelarRemesa] = useCancelarRemesaMutation();
   const [asignarRemesaTransportistas, { isLoading: isLoadingAsignar }] =
     useAsignarRemesaTransportistasMutation();
+  const [cambiarProveedorRemesa] = useCambiarProveedorRemesaMutation();
+
   const handleCancelarRemesa: () => Promise<void> = async () => {
     try {
       const result = await cancelarRemesa({
@@ -56,6 +65,20 @@ const ActionCell = ({
     }
   };
 
+  const handleCambiarProveedor = async (email: string) => {
+    try {
+      const result = await cambiarProveedorRemesa({
+        id: Number(remesa.id),
+        email,
+      }).unwrap();
+      toast.success(result.message);
+    } catch (err) {
+      toast.error("Error cambiando proveedor");
+    }
+  };
+
+  console.log("Rendering ActionCell for remesa:", remesa);
+
   const getBotones = () => {
     switch (remesa.estado) {
       case "PENDIENTE":
@@ -74,11 +97,20 @@ const ActionCell = ({
 
       default:
         return (
-          <ButtonVisualizacion
-            action={() =>
-              navigate(`/admin/remesas/${remesa.id}/historial-remesas`)
-            }
-          />
+          <div className="flex gap-2 flex-wrap">
+            <ButtonVisualizacion
+              action={() =>
+                navigate(`/admin/remesas/${remesa.id}/historial-remesas`)
+              }
+            />
+            {remesa.onchain.poseedorActual === user?.email && (
+              <ButtonCambiarPoseedor
+                action={async () => {
+                  handleCambiarProveedor(user?.email || "");
+                }}
+              />
+            )}
+          </div>
         );
     }
   };

@@ -1,0 +1,3 @@
+clear
+typeof hre.ethers
+const hre = await import('hardhat');

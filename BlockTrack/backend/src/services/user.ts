@@ -4,10 +4,12 @@ import { Transportista, Usuario, UsuarioUpdate } from "../models/user";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { isClient } from "../helpers/functionHelper";
+import { addressFromIndex } from "../blockchain/carteraUsuario";
+import { ensureFunds } from "../blockchain/faucet";
 
 const JWT_SECRET = process.env.JWT_SECRET || "supersecreto";
 
-export const registerUser = async (data: Usuario) => {
+export const registerUser = async (data: any) => {
   const {
     dni,
     nombre,
@@ -16,78 +18,118 @@ export const registerUser = async (data: Usuario) => {
     telefono,
     rol,
     contrasenia,
+    // CLIENTE
     direccionPrincipal,
-    zonaOperativa,
-    disponibilidadActual,
-    documentacionValidad,
     direccionPrincipalCP,
     direccionPrincipalCiudad,
     direccionPrincipalLat,
     direccionPrincipalLon,
+    // TRANSPORTISTA
+    zonaOperativa,
     zonaOperativaCP,
     zonaOperativaCiudad,
     zonaOperativaLat,
     zonaOperativaLon,
+    disponibilidadActual,
+    documentacionValidad,
   } = data;
 
   try {
     const hashedPassword = await bcrypt.hash(contrasenia, 10);
 
-    await prisma.usuario.create({
-      data: {
-        dni,
-        nombre,
-        apellidos,
-        email,
-        telefono,
-        rol: rol.toUpperCase() as Rol,
-        contrasenia: hashedPassword,
-      },
-    });
+    const result = await prisma.$transaction(async (tx) => {
+      // 1) Crear usuario base
+      const created = await tx.usuario.create({
+        data: {
+          dni,
+          nombre,
+          apellidos,
+          email,
+          telefono,
+          rol: (rol as string).toUpperCase() as Rol,
+          contrasenia: hashedPassword,
+        },
+        select: { id: true, rol: true },
+      });
 
-    const usuario = await prisma.usuario.findUnique({
-      where: { dni },
-      select: { id: true },
-    });
-
-    if (!usuario?.id) {
-      throw new Error("User ID is missing");
-    }
-
-    if (rol.toUpperCase() === "CLIENTE") {
-      if (!direccionPrincipal) {
-        throw new Error("direccionPrincipal is required for CLIENTE");
+      // 2) Crear entidad dependiente
+      if (created.rol === "CLIENTE") {
+        if (!direccionPrincipal) {
+          throw new Error("direccionPrincipal is required for CLIENTE");
+        }
+        await tx.cliente.create({
+          data: {
+            usuarioId: created.id,
+            direccionPrincipal: direccionPrincipal ?? "",
+            codigoPostalPrincipal: direccionPrincipalCP
+              ? String(direccionPrincipalCP)
+              : null,
+            latPrincipal: direccionPrincipalLat ?? null,
+            lngPrincipal: direccionPrincipalLon ?? null,
+            ciudadPrincipal: direccionPrincipalCiudad ?? null,
+          },
+        });
+      } else if (created.rol === "TRANSPORTISTA") {
+        await tx.transportista.create({
+          data: {
+            usuarioId: created.id,
+            zonaOperativa: zonaOperativa ?? "",
+            disponibilidaActual: disponibilidadActual ?? true,
+            documentacionValidad: documentacionValidad ?? true,
+            zonaOperativaCP: zonaOperativaCP ? String(zonaOperativaCP) : null,
+            zonaOperativaCiudad: zonaOperativaCiudad ?? null,
+            zonaOperativaLat: zonaOperativaLat ?? null,
+            zonaOperativaLng: zonaOperativaLon ?? null,
+          },
+        });
       }
-      await prisma.cliente.create({
+
+      // 3) Derivar índice/addr del wallet
+      //    Usamos id-1 para empezar en m/44'/60'/0'/0/0 con el primer usuario
+      const walletIndex = created.id - 1;
+      const walletAddress = (await addressFromIndex(walletIndex)).toLowerCase();
+
+      // 4) Actualizar el usuario con el wallet
+      const updated = await tx.usuario.update({
+        where: { id: created.id },
         data: {
-          usuarioId: usuario.id,
-          direccionPrincipal: direccionPrincipal ?? "",
-          codigoPostalPrincipal: direccionPrincipalCP
-            ? String(direccionPrincipalCP)
-            : null,
-          latPrincipal: direccionPrincipalLat || null,
-          lngPrincipal: direccionPrincipalLon || null,
-          ciudadPrincipal: direccionPrincipalCiudad || null,
+          walletIndex,
+          walletAddress,
+        },
+        select: {
+          id: true,
+          walletIndex: true,
+          walletAddress: true,
         },
       });
-    } else if (rol.toUpperCase() === "TRANSPORTISTA") {
-      await prisma.transportista.create({
-        data: {
-          usuarioId: usuario.id,
-          zonaOperativa: zonaOperativa ?? "",
-          disponibilidaActual: disponibilidadActual ?? true,
-          documentacionValidad: documentacionValidad ?? true,
-          zonaOperativaCP: zonaOperativaCP ? String(zonaOperativaCP) : null,
-          zonaOperativaCiudad: zonaOperativaCiudad || null,
-          zonaOperativaLat: zonaOperativaLat || null,
-          zonaOperativaLng: zonaOperativaLon || null,
-        },
-      });
+
+      return updated;
+    });
+
+    try {
+      if (result.walletAddress) {
+        await ensureFunds(result.walletAddress, "0.01", "0.05");
+      }
+    } catch (e) {
+      // no rompas el registro si el faucet falla; log y sigue
+      console.warn("[FAUCET] No se pudo fondear", result.walletAddress, e);
     }
 
-    return { message: "User registered successfully" };
-  } catch (err) {
+    return {
+      message: "User registered successfully",
+      wallet: {
+        index: result.walletIndex,
+        address: result.walletAddress,
+      },
+    };
+  } catch (err: any) {
     console.error("Error", err);
+    // Si hay colisión por UNIQUE (muy raro con id-1), Prisma lanza P2002
+    if (err.code === "P2002") {
+      throw new Error(
+        "Conflicto de unicidad al asignar wallet. Intenta de nuevo."
+      );
+    }
     throw new Error("Error al registrar usuario");
   }
 };

@@ -11,10 +11,17 @@ let accounts;
 let envio;
 
 beforeEach(async () => {
-    accounts = await web3.eth.getAccounts();
-    envio = await new web3.eth.Contract(compiledEnvio.abi)
-        .deploy({ data: compiledEnvio.bytecode, arguments: [123] })
-        .send({ from: accounts[0], gas: GAS });
+  accounts = await web3.eth.getAccounts();
+
+  envio = await new web3.eth.Contract(compiledEnvio.abi)
+    .deploy({
+      data: compiledEnvio.bytecode,
+      arguments: [123, accounts[0]], 
+    })
+    .send({
+      from: accounts[0], 
+      gas: GAS,
+    });
 });
 
 describe("Envio Contract (simple)", () => {

@@ -1,17 +1,38 @@
 import Button from "../../../../components/common/Button/Button";
 import { LLeva } from "../../../../types/lleva";
-import { ButtonVisualizacion } from "../../Remesa/components/Buttons";
+import {
+  ButtonCambiarPoseedor,
+  ButtonVisualizacion,
+} from "../../Remesa/components/Buttons";
 import { useNavigate } from "react-router-dom";
 import {
   useAceptarLlevaMutation,
   useRechazarLlevaMutation,
 } from "../../../../services/api/transportistaApi";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../app/store";
+import { useCambiarProveedorRemesaMutation } from "../../../../services/api/remesaApi";
 
 const ActionButtons = ({ lleva }: { lleva: LLeva }) => {
+  const user = useSelector((state: RootState) => state.user.user);
+  console.log("lleva", lleva);
+  console.log("user", user);
   const navigate = useNavigate();
   const [aceptarLleva] = useAceptarLlevaMutation();
   const [rechazarLleva] = useRechazarLlevaMutation();
+  const [cambiarProveedorRemesa] = useCambiarProveedorRemesaMutation();
+  const handleCambiarProveedor = async (email: string) => {
+    try {
+      const result = await cambiarProveedorRemesa({
+        id: Number(lleva.remesaId),
+        email,
+      }).unwrap();
+      toast.success(result.message);
+    } catch (err) {
+      toast.error("Error cambiando proveedor");
+    }
+  };
 
   const handleAceptarLleva = () => {
     try {
@@ -55,9 +76,13 @@ const ActionButtons = ({ lleva }: { lleva: LLeva }) => {
                 navigate(`/admin/remesas/${lleva.remesaId}/historial-remesas`)
               }
             />
-            <Button size="small" variant="primary">
-              Entregada
-            </Button>
+            {lleva?.onchain.poseedorActual === user?.email && (
+              <ButtonCambiarPoseedor
+                action={async () => {
+                  handleCambiarProveedor(user?.email || "");
+                }}
+              />
+            )}
           </div>
         );
     }

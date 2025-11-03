@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../services/userSlice";
 import { useDarDeBajaTransportistaMutation } from "../../../services/api/transportistaApi";
+import envioFactory from "../../../../../ethereum/deployments/localhost/EnvioFactory.json";
 
 const Admin = () => {
   const user = useSelector((state: RootState) => state.user.user);
@@ -27,6 +28,7 @@ const Admin = () => {
 
   const [updateUser, { isLoading }] = useUpdateUserMutation();
   const [darDeBajaTransportista] = useDarDeBajaTransportistaMutation();
+  console.log("EnvioFactory address:", envioFactory.address);
 
   useEffect(() => {
     if (user) {

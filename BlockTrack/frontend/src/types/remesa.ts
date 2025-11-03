@@ -41,6 +41,7 @@ export interface Remesa {
 
   // Contacto
   emailDestinatario: string;
+  onchain?: any;
 
   observaciones?: string;
 }

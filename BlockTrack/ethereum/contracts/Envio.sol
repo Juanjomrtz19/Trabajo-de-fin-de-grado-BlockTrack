@@ -77,7 +77,6 @@ contract Envio {
 
     function _configCompletada() internal view returns (bool) {
         return
-            receptor != address(0) &&
             totalTransportistas > 0 &&
             totalTransportistasAceptados == totalTransportistas;
     }
@@ -95,11 +94,12 @@ contract Envio {
         _;
     }
 
-    constructor(uint256 _remesaId) {
+    constructor(uint256 _remesaId, address _enviador) {
         require(_remesaId != 0, "remesaId requerido");
+        require(_enviador != address(0), "enviador invalido");
         remesaId = _remesaId;
-        enviador = msg.sender;
-        poseedorActualRemesa = msg.sender;
+        enviador = _enviador;
+        poseedorActualRemesa = _enviador;
         receptor = address(0);
         estado = Estado.Creada;
 
@@ -160,9 +160,9 @@ contract Envio {
         _tryFinalizeSetup();
     }
 
-    function setReceptor(
-        address _receptor
-    ) public onlyEnviador notCancelled duringSetup {
+    function setReceptor(address _receptor) public onlyEnviador notCancelled {
+        // Permite fijarlo en Creada o Pendiente, pero solo si aún no hay receptor
+        require(receptor == address(0), "Receptor ya fijado");
         require(_receptor != address(0), "Receptor invalido");
         require(_receptor != enviador, "Receptor no puede ser enviador");
         require(
@@ -173,7 +173,8 @@ contract Envio {
         receptor = _receptor;
         emit ReceptorActualizado(remesaId, _receptor, block.timestamp);
 
-        _tryFinalizeSetup();
+        // Nota: ya no llamamos a _tryFinalizeSetup() porque
+        // _configCompletada() ya NO depende del receptor.
     }
 
     // ---------- Operativa (tras configuracion) ----------

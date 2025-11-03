@@ -260,6 +260,21 @@ export const cancelarRemesa = async (
   }
 };
 
+export const cambiarPoseedorRemesa = async (req: Request, res: Response) => {
+  const { email } = req.body;
+  const { idRemesa } = req.params;
+  try {
+    const result = await remesaService.cambiarPoseedorSiguiente(
+      Number(idRemesa),
+      email
+    );
+    res.status(200).json({ message: "Proveedor de remesa cambiado", result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error al cambiar proveedor de remesa" });
+  }
+};
+
 export const asignarTransportistas = async (req: Request, res: Response) => {
   const { idRemesa } = req.params;
 

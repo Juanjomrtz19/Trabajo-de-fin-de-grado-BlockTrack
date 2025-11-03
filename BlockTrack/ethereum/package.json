@@ -2,17 +2,26 @@
   "name": "ethereum",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "mocha \"test/**/*.js\" --timeout 15000",
-    "compile": "node compile.js"
+    "compile": "node compile.js",
+    "deploy:hardhat": "hardhat run --network hardhat deploy.js",
+    "node": "hardhat node",
+    "deploy:localhost": "hardhat run --network localhost deploy.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.2",
+    "@nomicfoundation/hardhat-viem": "^3.0.0",
+    "dotenv": "^17.2.3",
+    "ethers": "^6.15.0",
     "ganache": "^7.9.2",
+    "hardhat": "^3.0.10",
     "mocha": "^11.7.4",
     "solc": "0.8.20",
     "web3": "^1.10.4"

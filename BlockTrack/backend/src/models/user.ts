@@ -20,6 +20,8 @@ export interface Usuario {
   zonaOperativaCiudad?: string | null;
   zonaOperativaLat?: number | null;
   zonaOperativaLon?: number | null;
+  walletIndex?: number | null;
+  walletAddress?: string | null;
 }
 
 export interface UsuarioUpdate {

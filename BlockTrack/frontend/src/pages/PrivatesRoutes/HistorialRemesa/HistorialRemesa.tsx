@@ -28,7 +28,6 @@ const buildSequentialEdges = (ns: { id: string }[]) =>
     id: `e-${n.id}-${ns[i + 1].id}`,
     source: n.id,
     target: ns[i + 1].id,
-    // si tus nodos usan handles personalizados:
     sourceHandle: "out",
     targetHandle: "in",
   }));
@@ -38,6 +37,8 @@ export default function HistorialRemesa() {
   const { data: remesaData } = useGetRemesaQuery(Number(idRemesa), {
     skip: !idRemesa,
   });
+
+  console.log("remesaData", remesaData);
 
   const { data: llevasData } = useObtenerRemesaLlevasQuery(Number(idRemesa), {
     skip: !idRemesa,
@@ -95,16 +96,22 @@ export default function HistorialRemesa() {
   );
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
-      <ReactFlow
-        nodes={nodes}
-        nodeTypes={nodeTypes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        fitView
-      />
-    </div>
+    <>
+      <div>
+        <p>Actual poseedor: {remesaData?.onchain?.poseedorActual}</p>
+        <p>Estado: {remesaData?.onchain?.estadoLabel}</p>
+      </div>
+      <div className="relative w-full h-full overflow-hidden">
+        <ReactFlow
+          nodes={nodes}
+          nodeTypes={nodeTypes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          fitView
+        />
+      </div>
+    </>
   );
 }

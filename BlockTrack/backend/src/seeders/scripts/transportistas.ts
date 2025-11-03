@@ -6,26 +6,15 @@ import { Prisma, Rol } from "@prisma/client";
 type TransportistaRow = Omit<
   Prisma.TransportistaCreateManyInput,
   "usuarioId" | "zonaOperativa"
-> & {
-  zonaOperativa?: string | null;
-};
+> & { zonaOperativa?: string | null };
 
 export async function crearTransportistas() {
   const filePath = path.join(__dirname, "../data/transportistas.json");
   const file = await fs.readFile(filePath, "utf-8");
 
-  let transportistas: TransportistaRow[];
-  try {
-    transportistas = JSON.parse(file);
-  } catch (e) {
-    console.error(
-      "❌ No se pudo parsear transportistas.json:",
-      (e as Error).message
-    );
-    return;
-  }
+  let transportistas: TransportistaRow[] = JSON.parse(file);
 
-  // Normalizamos datos
+  // Normaliza valores por defecto
   const normalizados = transportistas.map((t) => ({
     zonaOperativa: t.zonaOperativa ?? "ESP",
     disponibilidaActual: t.disponibilidaActual ?? false,
@@ -38,39 +27,35 @@ export async function crearTransportistas() {
     zonaRadioKm: t.zonaRadioKm ?? null,
   }));
 
-  // Usuarios con rol TRANSPORTISTA y sin relación aún
-  const usuariosDisponibles = await prisma.usuario.findMany({
-    where: { rol: Rol.TRANSPORTISTA, transportista: null },
+  // Todos los usuarios TRANSPORTISTA ya existen (creados por registerUser)
+  const usuarios = await prisma.usuario.findMany({
+    where: { rol: Rol.TRANSPORTISTA },
     select: { id: true },
+    orderBy: { id: "asc" }, // para emparejar en el mismo orden que el JSON
   });
 
-  if (usuariosDisponibles.length === 0) {
-    console.warn("⚠️  No hay usuarios TRANSPORTISTA disponibles para asignar.");
-    return;
+  const n = Math.min(normalizados.length, usuarios.length);
+  let upserts = 0;
+
+  for (let i = 0; i < n; i++) {
+    const usuarioId = usuarios[i].id;
+    const data = normalizados[i];
+
+    await prisma.transportista.upsert({
+      where: { usuarioId }, // ← requiere @unique en usuarioId
+      create: { ...data, usuarioId }, // si faltara (por si ejecutas seed con BD limpia)
+      update: data, // si existe, RELLENA columnas NULL
+    });
+
+    upserts++;
   }
 
-  const n = Math.min(normalizados.length, usuariosDisponibles.length);
-  const data: Prisma.TransportistaCreateManyInput[] = Array.from(
-    { length: n },
-    (_, i) => ({
-      ...normalizados[i],
-      usuarioId: usuariosDisponibles[i].id,
-    })
-  );
-
-  const skipped = normalizados.length - n;
-
-  const result = await prisma.transportista.createMany({
-    data,
-    skipDuplicates: true,
-  });
-
-  console.log("✅ Seeder transportistas ejecutado");
-  console.log(`   → Transportistas leídos del JSON: ${transportistas.length}`);
-  console.log(
-    `   → Usuarios TRANSPORTISTA disponibles: ${usuariosDisponibles.length}`
-  );
-  console.log(`   → Emparejados: ${n}`);
-  console.log(`   → Insertados en BD: ${result.count}`);
-  console.log(`   → Skipped (sin usuario): ${skipped}`);
+  console.log("✅ Transportistas enriquecidos:", upserts);
+  if (normalizados.length > usuarios.length) {
+    console.log(
+      `⚠️ Quedaron ${
+        normalizados.length - usuarios.length
+      } filas del JSON sin emparejar (faltan usuarios).`
+    );
+  }
 }

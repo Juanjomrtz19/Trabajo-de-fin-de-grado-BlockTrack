@@ -74,6 +74,14 @@ export const remesaApi = api.injectEndpoints({
             ]
           : ["Lleva"],
     }),
+    cambiarProveedorRemesa: builder.mutation<any, any>({
+      query: ({ id, email }) => ({
+        url: `/remesas/actualizarProveedor/${id}`,
+        method: "POST",
+        body: { email },
+      }),
+      invalidatesTags: [{ type: "Remesa" as const, id: "LIST" }],
+    }),
   }),
 });
 
@@ -85,4 +93,5 @@ export const {
   useAsignarRemesaTransportistasMutation,
   useObtenerRemesaLlevasQuery,
   useGetRemesaQuery,
+  useCambiarProveedorRemesaMutation,
 } = remesaApi;

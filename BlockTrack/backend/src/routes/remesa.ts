@@ -20,5 +20,10 @@ router.post(
   authenticate,
   remesaController.asignarTransportistas
 );
+router.post(
+  "/actualizarProveedor/:idRemesa",
+  authenticate,
+  remesaController.cambiarPoseedorRemesa
+);
 
 export default router;

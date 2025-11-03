@@ -1,8 +1,7 @@
-import prisma from "../../config/prisma";
+// src/seeders/crearUsuarios.ts
 import fs from "node:fs/promises";
-import { Prisma, Rol } from "@prisma/client";
 import path from "node:path";
-import bcrypt from "bcrypt";
+import { registerUser } from "../../services/user"; // <-- importa tu registerUser
 
 export async function crearUsuarios() {
   const file = await fs.readFile(
@@ -10,19 +9,25 @@ export async function crearUsuarios() {
     "utf-8"
   );
 
-  const rawUsuarios: Prisma.UsuarioCreateManyInput[] = JSON.parse(file);
+  const rawUsuarios: any[] = JSON.parse(file);
 
-  const usuarios = await Promise.all(
-    rawUsuarios.map(async (u) => ({
-      ...u,
-      contrasenia: await bcrypt.hash(u.contrasenia, 10),
-    }))
-  );
+  let ok = 0,
+    fail = 0;
 
-  const result = await prisma.usuario.createMany({
-    data: usuarios,
-    skipDuplicates: true,
-  });
+  // ⚠️ Secuencial para evitar colisiones/ruido en logs (puedes paralelizar si quieres)
+  for (const u of rawUsuarios) {
+    try {
+      await registerUser(u); // 👈 ya hace todo (hash + dependientes + wallet)
+      ok++;
+    } catch (e: any) {
+      fail++;
+      // si hay duplicados en el JSON o en la BD, seguirá al siguiente
+      console.error(
+        `[SEED][FAIL] dni=${u.dni} email=${u.email}`,
+        e?.message ?? e
+      );
+    }
+  }
 
-  console.log(`${result.count} usuarios insertados`);
+  console.log(`[SEED] Usuarios insertados: ${ok}. Fallidos: ${fail}.`);
 }

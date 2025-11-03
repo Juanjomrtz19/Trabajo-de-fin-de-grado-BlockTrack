@@ -31,3 +31,11 @@ export const ButtonVisualizacion = ({ action }: any) => {
     </Button>
   );
 };
+
+export const ButtonCambiarPoseedor = ({ action }: any) => {
+  return (
+    <Button variant="primary" onClick={action} size="small">
+      Entregar
+    </Button>
+  );
+};

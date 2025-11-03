@@ -11,4 +11,5 @@ export interface LLeva {
   fecha: Date;
   hora: string;
   status: "PENDIENTE" | "ACEPTADA" | "CANCELADA";
+  onchain?: any;
 }
