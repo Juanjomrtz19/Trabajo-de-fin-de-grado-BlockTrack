@@ -11,6 +11,7 @@ import RequireRole from "./layouts/RequireRole";
 import Vehicles from "./pages/PrivatesRoutes/Vehicles/Vehicles";
 import HistorialRemesa from "./pages/PrivatesRoutes/HistorialRemesa/HistorialRemesa";
 import Asignacion from "./pages/PrivatesRoutes/Asignacion/Asignacion";
+import Services from "./pages/Services/Services";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
           { index: true, element: <Home /> },
           { path: "login", element: <LogIn /> },
           { path: "register", element: <Register /> },
+          { path: "services", element: <Services /> },
         ],
       },
       {
