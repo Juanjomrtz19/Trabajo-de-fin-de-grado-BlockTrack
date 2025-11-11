@@ -12,7 +12,6 @@ export default function RequireRole({
   fallback?: string;
 }) {
   const location = useLocation();
-  // ajusta el selector a tu store real
   const user = useSelector(
     (s: RootState) => (s as any).user?.user ?? (s as any).user
   );

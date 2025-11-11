@@ -5,6 +5,13 @@ import * as llevaController from "../controllers/lleva";
 
 const router = Router();
 
+// Rutas públicas para consultar pedido (sin autenticación)
+router.get("/consultar-pedido/:idRemesa", remesaController.consultarPedido);
+router.get(
+  "/consultar-pedido/:remesaId/llevas",
+  llevaController.consultarLlevasPedido
+);
+
 router.get("/:remesaId/llevas", authenticate, llevaController.obtenerLlevas);
 router.get("/:idRemesa", authenticate, remesaController.obtenerRemesa);
 router.get("/", authenticate, remesaController.obtenerRemesas);

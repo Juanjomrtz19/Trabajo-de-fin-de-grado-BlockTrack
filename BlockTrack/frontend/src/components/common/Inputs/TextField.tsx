@@ -25,7 +25,7 @@ const TextField: React.FC<TextFieldProps> = ({
       <div className="relative">
         <input
           {...props}
-          value={props.value ?? ""} // ✅ Protección contra undefined
+          value={props.value ?? ""}
           className={`
             w-full p-2 border rounded 
             ${hasError ? "border-error-light" : ""}

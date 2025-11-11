@@ -23,7 +23,6 @@ const ch = createColumnHelper<Remesa>();
 
 const estadoPretty = (v: Remesa["estado"]) => {
   if (!v) return "PENDIENTE";
-  // Si llega en mayúsculas desde el backend, lo humanizamos
   const map: Record<string, string> = {
     PENDIENTE: "Pendiente",
     ASIGNADA: "Asignada",

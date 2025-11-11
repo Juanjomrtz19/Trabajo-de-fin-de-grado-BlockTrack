@@ -8,7 +8,6 @@ const provider = new JsonRpcProvider(
 
 export function signerFromIndex(index: number) {
   const path = `m/44'/60'/0'/0/${index}`;
-  // fromPhrase te deriva directamente a ese path (sin problemas de depth)
   const wallet = HDNodeWallet.fromPhrase(
     process.env.MNEMONIC!,
     undefined,

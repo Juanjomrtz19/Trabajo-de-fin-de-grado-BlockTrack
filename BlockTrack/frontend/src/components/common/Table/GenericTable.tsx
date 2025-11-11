@@ -144,10 +144,8 @@ export default function GenericTable<TData extends object>({
                       className="px-4 py-3 text-gray-800 align-top"
                     >
                       {userCell
-                        ? // ✅ si la columna define cell, respétalo (aquí verás "YYYY-MM-DD")
-                          flexRender(userCell, cell.getContext())
-                        : // 🔁 fallback genérico con truncado para strings
-                          (() => {
+                        ? flexRender(userCell, cell.getContext())
+                        : (() => {
                             const raw = cell.getValue?.();
                             const s = toStr(raw);
                             const truncated =

@@ -14,6 +14,7 @@ import Asignacion from "./pages/PrivatesRoutes/Asignacion/Asignacion";
 import Services from "./pages/Services/Services";
 import Contact from "./pages/Contact/Contact";
 import Dashboard from "./pages/PrivatesRoutes/Dashboard/Dashboard";
+import ConsultarPedido from "./pages/ConsultarPedido/ConsultarPedido";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
           { path: "register", element: <Register /> },
           { path: "services", element: <Services /> },
           { path: "contact", element: <Contact /> },
+          { path: "consultar-pedido", element: <ConsultarPedido /> },
         ],
       },
       {
@@ -37,11 +39,11 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Admin /> },
           {
-            // element: <RequireRole allowed={["CLIENTE"]} />,
+            element: <RequireRole allowed={["CLIENTE"]} />,
             children: [{ path: "remesas", element: <Remesa /> }],
           },
           {
-            // element: <RequireRole allowed={["CLIENTE"]} />,
+            element: <RequireRole allowed={["CLIENTE"]} />,
             children: [
               {
                 path: "remesas/:idRemesa/historial-remesas",
@@ -50,11 +52,11 @@ const router = createBrowserRouter([
             ],
           },
           {
-            // element: <RequireRole allowed={["TRANSPORTISTA"]} />,
+            element: <RequireRole allowed={["TRANSPORTISTA"]} />,
             children: [{ path: "vehiculos", element: <Vehicles /> }],
           },
           {
-            //element: <RequireRole allowed={["TRANSPORTISTA"]} />,
+            element: <RequireRole allowed={["TRANSPORTISTA"]} />,
             children: [{ path: "asignaciones", element: <Asignacion /> }],
           },
           {

@@ -37,7 +37,7 @@ export default function AddressAutocomplete({
         setItems([]);
         return;
       }
-      // cancelar petición previa
+
       abortRef.current?.abort();
       const ac = new AbortController();
       abortRef.current = ac;
@@ -75,7 +75,6 @@ export default function AddressAutocomplete({
     [key, region]
   );
 
-  // debounce 400ms
   useEffect(() => {
     const t = setTimeout(() => {
       if (value && value.length >= 3) doSearch(value);

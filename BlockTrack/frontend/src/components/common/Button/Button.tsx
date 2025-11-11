@@ -4,7 +4,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: "primary" | "secondary" | "accent" | "success" | "error";
   mode?: "light" | "dark";
-  size?: "medium" | "small"; // 👈 nuevo prop
+  size?: "medium" | "small";
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -12,15 +12,15 @@ const Button: React.FC<ButtonProps> = ({
   children,
   variant = "primary",
   mode = "light",
-  size = "medium", // 👈 por defecto medium
+  size = "medium",
   disabled = false,
   ...props
 }) => {
   const baseClasses = "rounded font-medium transition-colors duration-200";
 
   const sizeMap: Record<"medium" | "small", string> = {
-    medium: "px-4 py-2 text-sm", // 👈 tamaño normal
-    small: "px-2 py-1 text-xs", // 👈 tamaño reducido
+    medium: "px-4 py-2 text-sm",
+    small: "px-2 py-1 text-xs",
   };
 
   const variantMap: Record<string, Record<string, string>> = {

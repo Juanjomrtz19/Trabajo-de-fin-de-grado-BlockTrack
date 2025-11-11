@@ -16,15 +16,12 @@ const rawPk = (process.env.FAUCET_PK ?? DEFAULT_PK).trim();
 
 const provider = new JsonRpcProvider(RPC);
 
-// ⚠️ NO usar en producción
 const _faucetWallet = new Wallet(rawPk, provider);
-// Wrap con NonceManager para manejar nonces correctamente
+
 const faucet = new NonceManager(_faucetWallet);
 
-// --- Cola global (mutex simple) para serializar envíos ---
 let faucetQueue = Promise.resolve();
 
-// Cache para no re-fondear si ya se hizo recientemente (opcional)
 const fundedRecently = new Set<string>();
 
 export async function ensureFunds(
@@ -37,7 +34,7 @@ export async function ensureFunds(
   if (!isAddress(address) || address === ZeroAddress) {
     throw new Error(`Dirección inválida: ${address}`);
   }
-  // evita reentradas duplicadas al mismo address
+
   if (fundedRecently.has(address.toLowerCase())) {
     if (log) console.log(`[FAUCET] ${address} ya marcado como fondeado.`);
     return;
@@ -50,10 +47,8 @@ export async function ensureFunds(
     return;
   }
 
-  // Meter en cola para garantizar 1 tx a la vez
   faucetQueue = faucetQueue
     .then(async () => {
-      // Re-check dentro del mutex por si otro hilo ya fondeó
       const bal2 = await provider.getBalance(address);
       if (bal2 >= parseEther(minEth)) {
         if (log)
@@ -75,18 +70,15 @@ export async function ensureFunds(
       fundedRecently.add(address.toLowerCase());
     })
     .catch((e) => {
-      // Importante: no romper la cola por una excepción
       console.warn(
         `[FAUCET] Falló el envío a ${address}:`,
         e?.shortMessage ?? e?.message ?? e
       );
     });
 
-  // Espera a que termine tu envío (no necesario si quieres que sea fire-and-forget)
   await faucetQueue;
 }
 
-// Comodín por índice HD
 export async function ensureFundsForIndex(
   index: number,
   minEth = "0.01",

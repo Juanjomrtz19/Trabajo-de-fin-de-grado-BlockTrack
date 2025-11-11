@@ -45,22 +45,18 @@ const toUint256 = (x: number | string | bigint) => BigInt(x);
 
 export const obtenerRemesas = async (clienteId: number) => {
   try {
-    // 1) Cargar remesas del cliente
     const remesas = await prisma.remesa.findMany({
       where: { clienteId },
     });
     if (remesas.length === 0) return [];
 
-    // 2) Asegurar factory desplegada (una sola vez)
     await assertFactoryDeployed();
 
-    // Cache para no repetir la misma búsqueda de usuario por wallet
     const userByWallet = new Map<
       string,
       { id: number; email: string; rol: string } | null
     >();
 
-    // 3) Construir respuesta en paralelo
     const enriched = await Promise.all(
       remesas.map(async (r) => {
         try {
@@ -102,7 +98,6 @@ export const obtenerRemesas = async (clienteId: number) => {
             },
           };
         } catch {
-          // Si algo falla para una remesa concreta, devolvemos onchain:null (no rompemos todo)
           return { ...r, onchain: null };
         }
       })
@@ -127,7 +122,6 @@ export const obtenerRemesa = async (idRemesa: number) => {
       return { ...result, onchain: null };
     }
 
-    // Contrato Envio en SOLO LECTURA
     const envio = new Contract(addr, envioAbi, provider);
     const estado = Number(await envio.estado());
     const estadoLabel = ESTADO_LABELS[estado] || "Desconocido";
@@ -155,7 +149,6 @@ export const obtenerRemesa = async (idRemesa: number) => {
 };
 
 export const crearRemesa = async (data: Remesa) => {
-  // 1) Crea la fila off-chain (tu código original)
   const remesa = await prisma.remesa.create({
     data: {
       clienteId: data.clienteId,
@@ -186,19 +179,16 @@ export const crearRemesa = async (data: Remesa) => {
     },
   });
 
-  // ⚠️ remesa.id debe ser number/bigint (no string UUID)
   const idOnChain = BigInt(remesa.id);
 
   try {
     await assertFactoryDeployed();
 
-    // Instancia de factory FIRMADA por el usuario (enviador)
     const walletIndex = await getWalletIndexByClienteId(remesa.clienteId);
     const factory = getEnvioFactoryForUserIndex(walletIndex);
 
     console.log("Firmando como:", await (factory.runner as any)?.getAddress());
 
-    // 1) Idempotencia (lectura con provider)
     const existing = await envioFactoryRead.getEnvioByRemesaId(idOnChain);
     if (existing && existing !== ZERO_ADDRESS) {
       return {
@@ -207,11 +197,9 @@ export const crearRemesa = async (data: Remesa) => {
       };
     }
 
-    // 2) Crear on-chain firmando como el usuario
     const tx = await factory.crearEnvio(idOnChain);
     const receipt = await tx.wait();
 
-    // 3) Parsear evento de la FACTORY usada para enviar
     let contractAddress: string | null = null;
     const iface = factory.interface;
     for (const log of receipt.logs) {
@@ -224,12 +212,10 @@ export const crearRemesa = async (data: Remesa) => {
       } catch {}
     }
 
-    // 4) Fallback de lectura
     if (!contractAddress) {
       contractAddress = await envioFactoryRead.getEnvioByRemesaId(idOnChain);
     }
 
-    // (opcional) log de verificación
     const addr = await envioFactoryRead.getEnvioByRemesaId(idOnChain);
     console.log("EnvioByRemesaId:", addr);
 
@@ -292,7 +278,6 @@ export const cambiarPoseedorSiguiente = async (
   emailPoseedorActual: string
 ) => {
   try {
-    // 1) Resolver contrato
     await assertFactoryDeployed();
     const envioAddr: string = await envioFactoryRead.getEnvioByRemesaId(
       BigInt(remesaId)
@@ -305,7 +290,6 @@ export const cambiarPoseedorSiguiente = async (
       );
     }
 
-    // 2) Lecturas on-chain base
     const envioRead = new Contract(envioAddr, envioAbi, provider);
     const poseedorOnchain: string = (
       await envioRead.poseedorActualRemesa()
@@ -313,7 +297,6 @@ export const cambiarPoseedorSiguiente = async (
     const receptorOnchain: string =
       (await envioRead.receptor())?.toLowerCase?.() ?? ZERO_ADDRESS;
 
-    // 3) Resolver actor (quien firma) a partir del poseedor on-chain
     const actorUser = await prisma.usuario.findUnique({
       where: { walletAddress: poseedorOnchain },
       select: { id: true, email: true, walletIndex: true, walletAddress: true },
@@ -326,11 +309,8 @@ export const cambiarPoseedorSiguiente = async (
       );
     }
 
-    // 3.b (seguridad): comprobar que el email indicado corresponde al poseedor actual
     const emailActorDb = actorUser.email?.toLowerCase();
     if (!emailActorDb || emailActorDb !== emailPoseedorActual.toLowerCase()) {
-      // Si quieres permitir desajustes, comenta este bloque;
-      // mantenerlo evita abusos vía endpoint.
       throw new GeneralError(
         403,
         "El email no corresponde al poseedor actual",
@@ -338,12 +318,11 @@ export const cambiarPoseedorSiguiente = async (
       );
     }
 
-    // 4) Datos off-chain: cliente (creador) y llevas ordenadas
     const remesa = await prisma.remesa.findUnique({
       where: { id: remesaId },
       select: {
         cliente: { select: { usuario: { select: { email: true } } } },
-        emailDestinatario: true, // por si lo quieres para UI/logs
+        emailDestinatario: true,
       },
     });
 
@@ -360,7 +339,6 @@ export const cambiarPoseedorSiguiente = async (
       orderBy: { orden: "asc" },
     });
 
-    // Utilidades para obtener email y wallet de una lleva
     const emailDe = (idx: number) =>
       llevas[idx]?.conduce?.transportista?.usuario?.email?.toLowerCase() ??
       null;
@@ -369,7 +347,6 @@ export const cambiarPoseedorSiguiente = async (
         idx
       ]?.conduce?.transportista?.usuario?.walletAddress?.toLowerCase() ?? null;
 
-    // 5) Determinar siguiente destino según reglas
     let destinoAddr: string | null = null;
     let destinoLabel: string | null = null;
 
@@ -397,7 +374,6 @@ export const cambiarPoseedorSiguiente = async (
       destinoAddr = walletPrimera;
       destinoLabel = emailDe(0) ?? walletPrimera;
     } else {
-      // Buscar índice de la lleva cuyo transportista tiene ese email
       const emailLower = emailPoseedorActual.toLowerCase();
       const idx = llevas.findIndex(
         (l) =>
@@ -405,8 +381,6 @@ export const cambiarPoseedorSiguiente = async (
       );
 
       if (idx === -1) {
-        // Si no está en la lista de llevas, el "siguiente" no es claro
-        // (podría ser un hand-off no mapeado). Lanza error explícito.
         throw new GeneralError(
           404,
           "El email no corresponde a ningún transportista de los tramos (llevas)",
@@ -415,7 +389,6 @@ export const cambiarPoseedorSiguiente = async (
       }
 
       if (idx < llevas.length - 1) {
-        // Siguiente tramo -> siguiente transportista
         const walletSiguiente = walletDe(idx + 1);
         if (!walletSiguiente) {
           throw new GeneralError(
@@ -427,7 +400,6 @@ export const cambiarPoseedorSiguiente = async (
         destinoAddr = walletSiguiente;
         destinoLabel = emailDe(idx + 1) ?? walletSiguiente;
       } else {
-        // Última lleva -> receptor
         if (!receptorOnchain || receptorOnchain === ZERO_ADDRESS) {
           throw new GeneralError(
             400,
@@ -440,7 +412,6 @@ export const cambiarPoseedorSiguiente = async (
       }
     }
 
-    // 6) Validación amable: receptor o transportista aceptado (contrato lo exige)
     const esDestinoValido =
       (receptorOnchain &&
         receptorOnchain !== ZERO_ADDRESS &&
@@ -455,7 +426,6 @@ export const cambiarPoseedorSiguiente = async (
       );
     }
 
-    // 7) Firmar como P/O actual y cambiar poseedor
     const signer = signerFromIndex(actorUser.walletIndex);
     const envio = new Contract(envioAddr, envioAbi, signer);
     const tx = await envio.cambiarPoseedor(destinoAddr);
@@ -477,7 +447,6 @@ export const cambiarPoseedorSiguiente = async (
   }
 };
 
-//UTILIZACIÓN DE UN ALGORITMO VORAZ (GREEDY)
 export const asignarRemesaATransportistas = async (idRemesa: number) => {
   try {
     const remesa = await prisma.remesa.findUnique({ where: { id: idRemesa } });
@@ -496,7 +465,6 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
       lng: remesa.lngRecogida ? Number(remesa.lngRecogida) : 0,
     };
 
-    // 1) Selección off-chain
     let transportistas: any[] = await transportistasConCoche();
     transportistas = transportistas.map((t) => ({
       id: t.transportista.id,
@@ -527,8 +495,6 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
       );
     }
 
-    // 2) On-chain: setTotalTransportistas firmado por el ENVIADOR (cliente de la remesa)
-    // 2.1) Obtén wallet del enviador (usuario del cliente)
     const cliente = await prisma.cliente.findUnique({
       where: { id: remesa.clienteId },
       select: {
@@ -545,7 +511,6 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
       );
     }
 
-    // 2.2) Dirección del contrato Envio para esta remesa
     const envioAddr: string = await envioFactoryRead.getEnvioByRemesaId(
       BigInt(remesa.id)
     );
@@ -557,7 +522,6 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
       );
     }
 
-    // 2.3) Firmar como enviador y fondear si hace falta
     const signer = signerFromIndex(walletIndex);
     const from = (await signer.getAddress()).toLowerCase();
     if (from !== walletAddress) {
@@ -571,15 +535,12 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
 
     const envio = new Contract(envioAddr, envioAbi, signer);
 
-    // 2.4) Idempotencia: sólo llama si hace falta cambiarlo
     const currentTotal: bigint = await envio.totalTransportistas();
     if (Number(currentTotal) !== totalNecesarios) {
-      // ojo: duringSetup -> sólo válido si el Envio sigue en Creada
       const tx = await envio.setTotalTransportistas(totalNecesarios);
       await tx.wait();
     }
 
-    // 3) BD: ahora sí, bloqueamos disponibilidad y creamos llevas
     const transaction = await prisma.$transaction(async (prisma) => {
       const cambioDisponibilidad = await prisma.transportista.updateMany({
         where: {
@@ -605,7 +566,6 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
       return await prisma.lleva.createMany({ data: entradasTablaLleva });
     });
 
-    // 4) Notificaciones
     for (const l of entradasTablaLleva) {
       const transportista = await prisma.conduce.findUnique({
         where: { id: l.conduceId },
@@ -620,8 +580,6 @@ export const asignarRemesaATransportistas = async (idRemesa: number) => {
     return transaction;
   } catch (err: any) {
     console.error("Error", err);
-    // Si el require del contrato salta (p. ej., "Configuracion cerrada" o "Total menor que aceptados"),
-    // propaga un mensaje claro:
     const msg =
       err?.shortMessage ??
       err?.reason ??

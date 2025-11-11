@@ -96,12 +96,28 @@ export default function HistorialRemesa() {
   );
 
   return (
-    <>
-      <div>
-        <p>Actual poseedor: {remesaData?.onchain?.poseedorActual}</p>
-        <p>Estado: {remesaData?.onchain?.estadoLabel}</p>
+    <div className="p-4 md:p-8 space-y-4">
+      {/* Header con información de la remesa */}
+      <div className="bg-white border border-primary-light rounded-lg shadow-lg p-4">
+        <h2 className="text-xl md:text-2xl font-bold text-primary-dark mb-3">
+          Historial de Remesa #{idRemesa}
+        </h2>
+        <div className="space-y-1">
+          <p className="text-sm md:text-base">
+            <span className="font-semibold">Actual poseedor:</span>{" "}
+            <span className="block md:inline mt-1 md:mt-0">
+              {remesaData?.onchain?.poseedorActual || "N/A"}
+            </span>
+          </p>
+          <p className="text-sm md:text-base">
+            <span className="font-semibold">Estado:</span>{" "}
+            {remesaData?.onchain?.estadoLabel || "N/A"}
+          </p>
+        </div>
       </div>
-      <div className="relative w-full h-full overflow-hidden">
+
+      {/* Diagrama de flujo responsive */}
+      <div className="relative w-full h-[400px] md:h-[600px] lg:h-[700px] bg-white border border-primary-light rounded-lg shadow-lg overflow-hidden">
         <ReactFlow
           nodes={nodes}
           nodeTypes={nodeTypes}
@@ -110,8 +126,29 @@ export default function HistorialRemesa() {
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
           fitView
+          minZoom={0.1}
+          maxZoom={1.5}
+          defaultViewport={{ x: 0, y: 0, zoom: 0.5 }}
+          panOnScroll
+          panOnDrag
+          zoomOnScroll
+          zoomOnPinch
+          zoomOnDoubleClick={false}
         />
       </div>
-    </>
+
+      {/* Instrucciones */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <p className="text-sm text-blue-800">
+          💡 <span className="font-semibold">Tip:</span>{" "}
+          <span className="hidden md:inline">
+            Arrastra con el ratón para moverte, usa la rueda para hacer zoom.
+          </span>
+          <span className="md:hidden">
+            Usa dos dedos para hacer zoom y arrastrar el diagrama.
+          </span>
+        </p>
+      </div>
+    </div>
   );
 }

@@ -1,8 +1,8 @@
-// test/envio.simple.test.cjs
+
 const assert = require("assert");
 const ganache = require("ganache");
 const Web3 = require("web3");
-const compiledEnvio = require("../build/Envio.json"); // { abi, bytecode }
+const compiledEnvio = require("../build/Envio.json");
 
 const web3 = new Web3(ganache.provider());
 const GAS = "5000000";
@@ -85,7 +85,6 @@ describe("Envio Contract (simple)", () => {
     it("setReceptor no permite enviador ni transportista aceptado", async () => {
         await envio.methods.setTotalTransportistas(2).send({ from: accounts[0] });
 
-        // no puede ser enviador
         let f1 = false;
         try {
             await envio.methods.setReceptor(accounts[0]).send({ from: accounts[0] });
@@ -94,7 +93,6 @@ describe("Envio Contract (simple)", () => {
         }
         assert.ok(f1);
 
-        // acepta transportista y luego intenta ponerlo como receptor
         await envio.methods.addTransportistaAceptado().send({ from: accounts[2] });
 
         let f2 = false;
@@ -105,7 +103,6 @@ describe("Envio Contract (simple)", () => {
         }
         assert.ok(f2);
 
-        // receptor válido
         await envio.methods.setReceptor(accounts[3]).send({ from: accounts[0] });
         const receptor = await envio.methods.receptor().call();
         assert.strictEqual(receptor, accounts[3]);
@@ -115,7 +112,6 @@ describe("Envio Contract (simple)", () => {
         await envio.methods.setTotalTransportistas(2).send({ from: accounts[0] });
         await envio.methods.setReceptor(accounts[5]).send({ from: accounts[0] });
 
-        // aún Creada
         let estado = await envio.methods.estado().call();
         assert.strictEqual(estado, "0");
 
@@ -157,7 +153,6 @@ describe("Envio Contract (simple)", () => {
     });
 
     it("solo el poseedor actual puede cambiar la custodia; sólo receptor o transportista aceptado", async () => {
-        // cerrar setup: total=2, receptor=acc5, aceptan acc2 y acc4
         await envio.methods.setTotalTransportistas(2).send({ from: accounts[0] });
         await envio.methods.setReceptor(accounts[5]).send({ from: accounts[0] });
         await envio.methods.addTransportistaAceptado().send({ from: accounts[2] });
@@ -174,7 +169,6 @@ describe("Envio Contract (simple)", () => {
         }
         assert.ok(f1);
 
-        // objetivo no autorizado (ni receptor ni aceptado)
         let f2 = false;
         try {
             await envio.methods
@@ -185,7 +179,6 @@ describe("Envio Contract (simple)", () => {
         }
         assert.ok(f2);
 
-        // mover a transportista aceptado -> EnTransito
         await envio.methods
             .cambiarPoseedor(accounts[2])
             .send({ from: accounts[0] });
@@ -206,7 +199,7 @@ describe("Envio Contract (simple)", () => {
             .send({ from: accounts[0] });
         const estado = await envio.methods.estado().call();
         const poseedor = await envio.methods.poseedorActualRemesa().call();
-        assert.strictEqual(estado, "3"); // Entregada
+        assert.strictEqual(estado, "3"); 
         assert.strictEqual(poseedor, accounts[5]);
     });
 
@@ -215,7 +208,6 @@ describe("Envio Contract (simple)", () => {
         await envio.methods.setReceptor(accounts[5]).send({ from: accounts[0] });
         await envio.methods.addTransportistaAceptado().send({ from: accounts[2] });
 
-        // acc0 -> acc2 (EnTransito)
         await envio.methods
             .cambiarPoseedor(accounts[2])
             .send({ from: accounts[0] });
@@ -231,15 +223,14 @@ describe("Envio Contract (simple)", () => {
         await envio.methods.entregarPedido().send({ from: accounts[2] });
         const estado = await envio.methods.estado().call();
         const poseedor = await envio.methods.poseedorActualRemesa().call();
-        assert.strictEqual(estado, "3"); // Entregada
+        assert.strictEqual(estado, "3"); 
         assert.strictEqual(poseedor, accounts[5]);
     });
 
     it("cancelar en Creada y no dos veces", async () => {
-        // estado inicial: Creada
         await envio.methods.cancelarPedido().send({ from: accounts[0] });
         const estado = await envio.methods.estado().call();
-        assert.strictEqual(estado, "4"); // Cancelada
+        assert.strictEqual(estado, "4");
 
         let f = false;
         try {
@@ -307,23 +298,21 @@ describe("Envio Contract (simple)", () => {
         assert.ok(f1 && f2);
     });
     it("no se puede cancelar si ya está entregado (e2e completo)", async () => {
-        // setup total=1, receptor=acc5, acepta acc2
         await envio.methods.setTotalTransportistas(1).send({ from: accounts[0] });
         await envio.methods.setReceptor(accounts[5]).send({ from: accounts[0] });
         await envio.methods.addTransportistaAceptado().send({ from: accounts[2] });
 
-        // acc0 -> acc2 (EnTransito)
+
         await envio.methods
             .cambiarPoseedor(accounts[2])
             .send({ from: accounts[0] });
 
-        // acc2 -> receptor (Entregada)
         await envio.methods
             .cambiarPoseedor(accounts[5])
             .send({ from: accounts[2] });
 
         const estado = await envio.methods.estado().call();
-        assert.strictEqual(estado, "3"); // Entregada
+        assert.strictEqual(estado, "3");
 
         let f = false;
         try {

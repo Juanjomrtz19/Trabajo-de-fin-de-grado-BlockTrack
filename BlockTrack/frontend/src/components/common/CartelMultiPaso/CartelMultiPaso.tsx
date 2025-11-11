@@ -14,7 +14,6 @@ const CartelMultiPaso = ({ paso, nPasos }: CartelMultiPaso) => {
 
         return (
           <div key={index} className="flex items-center">
-            {/* Círculo animado */}
             <motion.div
               initial={false}
               animate={{
@@ -33,7 +32,6 @@ const CartelMultiPaso = ({ paso, nPasos }: CartelMultiPaso) => {
               {index + 1}
             </motion.div>
 
-            {/* Línea de conexión animada */}
             {index < nPasos - 1 && (
               <div className="w-10 h-1 mx-2 bg-gray-300 relative overflow-hidden rounded">
                 <motion.div

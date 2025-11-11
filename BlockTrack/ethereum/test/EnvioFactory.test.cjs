@@ -1,9 +1,8 @@
-// test/EnvioFactory.simple.test.cjs
+
 const assert = require("assert");
 const ganache = require("ganache");
 const Web3 = require("web3");
 
-// Artefactos compilados por tu compile.js
 const compiledFactory = require("../build/EnvioFactory.json");
 const compiledEnvio = require("../build/Envio.json");
 
@@ -16,7 +15,7 @@ let factory;
 beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
 
-  // Despliega la FACTORY (ojo: no desplegamos Envio aquí)
+
   factory = await new web3.eth.Contract(compiledFactory.abi)
     .deploy({ data: compiledFactory.bytecode })
     .send({ from: accounts[0], gas: GAS });
@@ -36,7 +35,7 @@ describe("EnvioFactory (simple)", () => {
     const envioAddr = list[0];
     assert.ok(envioAddr && envioAddr !== "0x0000000000000000000000000000000000000000");
 
-    // Verificamos el Envio recién creado (leyendo su ABI)
+
     const envio = new web3.eth.Contract(compiledEnvio.abi, envioAddr);
     const id = await envio.methods.remesaId().call();
     const enviador = await envio.methods.enviador().call();
@@ -52,7 +51,6 @@ describe("EnvioFactory (simple)", () => {
     const list = await factory.methods.getContratosDesplegados().call();
     assert.strictEqual(list.length, 2);
 
-    // Verificamos el segundo
     const envio2 = new web3.eth.Contract(compiledEnvio.abi, list[1]);
     const id2 = await envio2.methods.remesaId().call();
     const enviador2 = await envio2.methods.enviador().call();

@@ -160,5 +160,3 @@ export const getCurrentUser = async (
     res.status(401).json({ message: "Invalid token" });
   }
 };
-
-// export const createTransporter = async

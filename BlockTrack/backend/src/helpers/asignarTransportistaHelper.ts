@@ -9,7 +9,6 @@ let lastStart = 0;
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function rateLimit<T>(task: () => Promise<T>): Promise<T> {
-  // encadena tareas y respeta separación mínima
   chain = chain.then(async () => {
     const now = Date.now();
     const wait = Math.max(0, lastStart + RATE_MS - now);
@@ -241,8 +240,8 @@ export function getCheckpointsCada5h(polyline: string, durations: number[]) {
 
 type Transportista = {
   id: number;
-  zonaOperativaLat?: number | string; // o Prisma.Decimal
-  zonaOperativaLng?: number | string; // o Prisma.Decimal
+  zonaOperativaLat?: number | string;
+  zonaOperativaLng?: number | string;
 };
 
 /**
@@ -397,7 +396,6 @@ function addMinutes(d: Date, minutes: number): Date {
  * @returns La hora formateada
  */
 function formatHourEuropeMadrid(d: Date): string {
-  // "HH:mm" en Europe/Madrid, sin dependencias
   return new Intl.DateTimeFormat("es-ES", {
     hour: "2-digit",
     minute: "2-digit",
@@ -420,7 +418,6 @@ export const crearEntradasLLeva = async (
   puntoFinal: Coordenadas,
   remesa: any
 ): Promise<lleva[]> => {
-  //DECLARACION DE VARIABLES
   let entradasLleva: lleva[] = [];
   let contador = 0;
   let inicioLocal: Coordenadas;
@@ -430,7 +427,6 @@ export const crearEntradasLLeva = async (
   const SLOT_MINUTES = 300;
   const base = getTomorrowAtNoon();
 
-  //BUCLE CON LA LOGICA PARA ASIGNAR REMESAS
   for (const ts of transportistasSeleccionados) {
     if (contador === 0) {
       inicioLocal = puntoInicio;

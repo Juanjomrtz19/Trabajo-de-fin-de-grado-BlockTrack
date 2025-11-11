@@ -5,13 +5,11 @@ import * as remesaService from "../services/remesa";
 import { Remesa } from "../models/remesa";
 
 const RemesaCreateSchema = z.object({
-  // Datos de la remesa
   peso: z.number().int().positive(),
   medida: z.string().min(1),
   nPaquetes: z.number().int().positive(),
   tipoMercancia: z.nativeEnum(TipoMercancia),
 
-  // ENTREGA (envío)
   dirEnvio: z.string().min(1),
 
   ciudadEnvio: z.string().min(1),
@@ -19,14 +17,12 @@ const RemesaCreateSchema = z.object({
   latEnvio: z.number().min(-90).max(90).optional(),
   lngEnvio: z.number().min(-180).max(180).optional(),
 
-  // RECOGIDA
   dirRecogida: z.string().min(1),
   ciudadRecogida: z.string().min(1),
   codigoPostalRecogida: z.string().min(3).max(10),
   latRecogida: z.number().min(-90).max(90).optional(),
   lngRecogida: z.number().min(-180).max(180).optional(),
 
-  // Contacto del destinatario
   emailDestinatario: z.string().email(),
 
   observaciones: z.string().optional(),
@@ -43,7 +39,6 @@ export const crearRemesa = async (
       return;
     }
 
-    // Normaliza números por si vienen como string
     const body = {
       ...req.body,
       peso: Number(req.body.peso),
@@ -71,33 +66,27 @@ export const crearRemesa = async (
     console.log("[REMESA][CREARREMESA] Request");
 
     const data: Remesa = {
-      // Relaciones
       clienteId,
 
-      // Datos de la remesa
       peso: parsed.data.peso,
       medida: parsed.data.medida,
       nPaquetes: parsed.data.nPaquetes,
       tipoMercancia: parsed.data.tipoMercancia,
 
-      // ENTREGA
       dirEnvio: parsed.data.dirEnvio,
       ciudadEnvio: parsed.data.ciudadEnvio,
       codigoPostalEnvio: parsed.data.codigoPostalEnvio,
       latEnvio: parsed.data.latEnvio,
       lngEnvio: parsed.data.lngEnvio,
 
-      // RECOGIDA
       dirRecogida: parsed.data.dirRecogida,
       ciudadRecogida: parsed.data.ciudadRecogida,
       codigoPostalRecogida: parsed.data.codigoPostalRecogida,
       latRecogida: parsed.data.latRecogida,
       lngRecogida: parsed.data.lngRecogida,
 
-      // Destinatario
       emailDestinatario: parsed.data.emailDestinatario,
 
-      // Otros
       observaciones: parsed.data.observaciones,
     };
 
@@ -188,33 +177,27 @@ export const editarRemesa = async (
   try {
     console.log("[REMESA][EDITARREMESA] Request");
     const data: Remesa = {
-      // Relaciones
       clienteId,
 
-      // Datos de la remesa
       peso: parsed.data.peso,
       medida: parsed.data.medida,
       nPaquetes: parsed.data.nPaquetes,
       tipoMercancia: parsed.data.tipoMercancia,
 
-      // ENTREGA
       dirEnvio: parsed.data.dirEnvio,
       ciudadEnvio: parsed.data.ciudadEnvio,
       codigoPostalEnvio: parsed.data.codigoPostalEnvio,
       latEnvio: parsed.data.latEnvio,
       lngEnvio: parsed.data.lngEnvio,
 
-      // RECOGIDA
       dirRecogida: parsed.data.dirRecogida,
       ciudadRecogida: parsed.data.ciudadRecogida,
       codigoPostalRecogida: parsed.data.codigoPostalRecogida,
       latRecogida: parsed.data.latRecogida,
       lngRecogida: parsed.data.lngRecogida,
 
-      // Destinatario
       emailDestinatario: parsed.data.emailDestinatario,
 
-      // Otros
       observaciones: parsed.data.observaciones,
     };
 
@@ -288,5 +271,30 @@ export const asignarTransportistas = async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error al asignar transportistas" });
+  }
+};
+
+export const consultarPedido = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { idRemesa } = req.params;
+  if (!idRemesa || isNaN(Number(idRemesa))) {
+    res.status(400).json({ message: "ID de remesa inválido" });
+    return;
+  }
+
+  try {
+    const remesa = await remesaService.obtenerRemesa(Number(idRemesa));
+
+    if (!remesa) {
+      res.status(404).json({ message: "Remesa no encontrada" });
+      return;
+    }
+
+    res.status(200).json(remesa);
+  } catch (error) {
+    console.error("[REMESA][CONSULTARPEDIDO] Error", error);
+    res.status(500).json({ message: "Error al consultar pedido" });
   }
 };

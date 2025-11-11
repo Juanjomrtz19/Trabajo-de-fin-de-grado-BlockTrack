@@ -1,4 +1,4 @@
-// ethereum/compile.js (ESM)
+
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -10,18 +10,15 @@ const __dirname = path.dirname(__filename);
 const contractsDir = path.join(__dirname, "contracts");
 const buildDir = path.join(__dirname, "build");
 
-// 1) Recolecta .sol de la carpeta contracts
 const solFiles = fs.readdirSync(contractsDir).filter(f => f.endsWith(".sol"));
-// ej: ["Envio.sol", "EnvioFactory.sol"]
 
-// 2) Crea el objeto sources para solc (Standard JSON)
 const sources = {};
 for (const f of solFiles) {
   const full = path.join(contractsDir, f);
   sources[f] = { content: fs.readFileSync(full, "utf8") };
 }
 
-// 3) Input para solc
+
 const input = {
   language: "Solidity",
   sources,
@@ -35,14 +32,13 @@ const input = {
   }
 };
 
-// 4) Resolver imports locales y de node_modules (OpenZeppelin, etc.)
+
 function findImports(importPath) {
-  // Soporta import "./X.sol", "X.sol", "@openzeppelin/..."
   const tryPaths = [
-    path.join(contractsDir, importPath),                      // ./contracts/...
-    path.join(__dirname, importPath),                         // relativo al root ethereum/
-    path.join(process.cwd(), importPath),                     // relativo al proyecto
-    path.join(process.cwd(), "node_modules", importPath)      // node_modules
+    path.join(contractsDir, importPath),                      
+    path.join(__dirname, importPath),                         
+    path.join(process.cwd(), importPath),                     
+    path.join(process.cwd(), "node_modules", importPath)      
   ];
 
   for (const p of tryPaths) {
@@ -55,10 +51,10 @@ function findImports(importPath) {
   return { error: `File not found: ${importPath}` };
 }
 
-// 5) Compila
+
 const output = JSON.parse(solc.compile(JSON.stringify(input), { import: findImports }));
 
-// 6) Manejo de errores/avisos
+
 if (output.errors?.length) {
   for (const e of output.errors) {
     const tag = e.severity === "error" ? "ERROR" : "WARN";
@@ -67,7 +63,6 @@ if (output.errors?.length) {
   if (output.errors.some(e => e.severity === "error")) process.exit(1);
 }
 
-// 7) Escribir artefactos por cada contrato
 fs.mkdirSync(buildDir, { recursive: true });
 
 for (const fileName of Object.keys(output.contracts)) {
@@ -83,4 +78,4 @@ for (const fileName of Object.keys(output.contracts)) {
     console.log(`✔ ${contractName} -> ${path.relative(process.cwd(), outPath)}`);
   }
 }
-console.log("✅ Compilación completada.");
+console.log("Compilación completada.");

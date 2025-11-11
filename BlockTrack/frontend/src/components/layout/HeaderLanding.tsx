@@ -52,6 +52,14 @@ const HeaderLanding = () => {
               REGISTER
             </Link>
           </li>
+          <li>
+            <Link
+              to="/consultar-pedido"
+              className="text-text-light hover:text-primary-light"
+            >
+              CONSULTAR PEDIDO
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -115,6 +123,14 @@ const HeaderLanding = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   REGISTER
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/consultar-pedido"
+                  className="text-text-light hover:text-primary-light"
+                >
+                  CONSULTAR PEDIDO
                 </Link>
               </li>
             </ul>

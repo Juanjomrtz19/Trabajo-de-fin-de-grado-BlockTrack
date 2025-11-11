@@ -82,6 +82,19 @@ export const remesaApi = api.injectEndpoints({
       }),
       invalidatesTags: [{ type: "Remesa" as const, id: "LIST" }],
     }),
+    consultarPedido: builder.query<Remesa, number>({
+      query: (id: number) => ({
+        url: `/remesas/consultar-pedido/${id}`,
+        method: "GET",
+      }),
+    }),
+    consultarLlevasPedido: builder.query<any, number>({
+      query: (remesaId: number) => ({
+        url: `/remesas/consultar-pedido/${remesaId}/llevas`,
+        method: "GET",
+      }),
+      transformResponse: (response: any) => response.result,
+    }),
   }),
 });
 
@@ -94,4 +107,6 @@ export const {
   useObtenerRemesaLlevasQuery,
   useGetRemesaQuery,
   useCambiarProveedorRemesaMutation,
+  useConsultarPedidoQuery,
+  useConsultarLlevasPedidoQuery,
 } = remesaApi;

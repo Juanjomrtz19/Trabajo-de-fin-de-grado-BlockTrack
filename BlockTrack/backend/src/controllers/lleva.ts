@@ -113,3 +113,29 @@ export const rechazarLleva = async (
     });
   }
 };
+
+export const consultarLlevasPedido = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    console.log("[LLEVA][CONSULTARLLEVASPEDIDO] Request");
+    const remesaId: number = parseInt(req.params.remesaId);
+    if (isNaN(remesaId)) {
+      res.status(400).json({ message: "ID de remesa inválido" });
+      return;
+    }
+    const result = await llevaService.obtenerLLevas(remesaId);
+    console.log("[LLEVA][CONSULTARLLEVASPEDIDO] Success");
+    res.status(200).json({ message: "Llevas obtenidas con éxito", result });
+  } catch (error: any) {
+    console.log("[LLEVA][CONSULTARLLEVASPEDIDO] Error:", error);
+    const status = error.status ?? 500;
+    const message = error.message ?? "Error interno del servidor";
+
+    res.status(status).json({
+      ok: false,
+      message,
+    });
+  }
+};

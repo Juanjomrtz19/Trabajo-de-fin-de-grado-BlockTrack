@@ -19,7 +19,6 @@ const envioAbi = (envioJson as any).abi;
 
 export const obtenerLLevas = async (remesaId: number) => {
   try {
-    // 1) Leemos TODAS las llevas (incluidas canceladas para decidir si actualizar o no)
     const llevas = await prisma.lleva.findMany({
       where: { remesaId },
       include: {
@@ -37,22 +36,18 @@ export const obtenerLLevas = async (remesaId: number) => {
       return [];
     }
 
-    // 2) Resolver contrato Envio desde la Factory (mismo patrón que en obtenerRemesa)
     await assertFactoryDeployed();
     const addr: string = await envioFactoryRead.getEnvioByRemesaId(
       BigInt(remesaId)
     );
     if (!addr || addr === ZERO_ADDRESS) {
-      // Si aún no hay contrato on-chain, devolvemos las no canceladas tal cual
       return llevas
         .filter((l) => l.status !== EstadoLleva.CANCELADA)
         .sort((a, b) => a.orden - b.orden);
     }
 
-    // 3) Instanciar contrato Envio (solo lectura)
     const envio = new Contract(addr, envioAbi, provider);
 
-    // 4) Deduplicar wallets para minimizar RPC
     const walletByLlevaId = new Map<number, string>();
     const uniqueWallets = new Set<string>();
 
@@ -64,7 +59,6 @@ export const obtenerLLevas = async (remesaId: number) => {
       if (norm) uniqueWallets.add(norm);
     }
 
-    // 5) Consultar mapping transportistasAceptados por cada wallet única
     const acceptedByWallet = new Map<string, boolean>();
     await Promise.all(
       Array.from(uniqueWallets).map(async (w) => {
@@ -72,16 +66,15 @@ export const obtenerLLevas = async (remesaId: number) => {
           const ok: boolean = await envio.transportistasAceptados(w);
           acceptedByWallet.set(w, ok);
         } catch {
-          acceptedByWallet.set(w, false); // si falla, lo tratamos como no aceptado
+          acceptedByWallet.set(w, false);
         }
       })
     );
 
-    // 6) Construir updates SOLO para las que NO están canceladas y cambian de estado
     const updates: ReturnType<typeof prisma.lleva.update>[] = [];
 
     for (const l of llevas) {
-      if (l.status === EstadoLleva.CANCELADA) continue; // respetar canceladas
+      if (l.status === EstadoLleva.CANCELADA) continue;
 
       const wallet = walletByLlevaId.get(l.id) ?? "";
       const isAccepted = wallet ? acceptedByWallet.get(wallet) ?? false : false;
@@ -101,7 +94,6 @@ export const obtenerLLevas = async (remesaId: number) => {
       await prisma.$transaction(updates);
     }
 
-    // 7) Devolver SOLO las no canceladas (como tu versión original), ya sincronizadas
     const resultado = await prisma.lleva.findMany({
       where: { remesaId, status: { not: "CANCELADA" } },
       include: {
@@ -133,7 +125,6 @@ export const obtenerLLevasPorTransportista = async (
 
     if (!conduce) return [];
 
-    // 1) Llevas del transportista
     const llevas = await prisma.lleva.findMany({
       where: { conduceId: conduce.id },
       select: {
@@ -154,10 +145,8 @@ export const obtenerLLevasPorTransportista = async (
     });
     if (llevas.length === 0) return [];
 
-    // 2) Asegurar factory desplegada
     await assertFactoryDeployed();
 
-    // 3) Cachés
     const uniqueRemesas = Array.from(new Set(llevas.map((l) => l.remesaId)));
     const envioAddrByRemesa = new Map<number, string>();
     const onchainByRemesa = new Map<
@@ -174,7 +163,6 @@ export const obtenerLLevasPorTransportista = async (
       { id: number; email: string; rol: string } | null
     >();
 
-    // 4) Resolver address de Envio por remesa
     await Promise.all(
       uniqueRemesas.map(async (rid) => {
         const addr = await envioFactoryRead.getEnvioByRemesaId(BigInt(rid));
@@ -182,7 +170,6 @@ export const obtenerLLevasPorTransportista = async (
       })
     );
 
-    // 5) Leer on-chain por remesa (solo las que tienen contrato)
     await Promise.all(
       uniqueRemesas.map(async (rid) => {
         const addr = envioAddrByRemesa.get(rid) as string;
@@ -223,7 +210,6 @@ export const obtenerLLevasPorTransportista = async (
       })
     );
 
-    // 6) Construir respuesta enriquecida por lleva
     const enriched = llevas.map((l) => ({
       ...l,
       onchain: onchainByRemesa.get(l.remesaId) ?? null,
@@ -240,7 +226,6 @@ export const aceptarLLeva = async (
   transportistaId: number
 ) => {
   try {
-    // 1) Cargar lleva + remesa + usuario (para walletIndex)
     const lleva = await prisma.lleva.findUnique({
       where: { id: llevaId },
       include: {
@@ -264,7 +249,6 @@ export const aceptarLLeva = async (
     if (!lleva.remesa?.id)
       throw new GeneralError(400, "Lleva sin remesa asociada", "servidor");
 
-    // (recomendado) valida que la lleva pertenece al transportista
     if (lleva.conduce?.transportistaId !== transportistaId) {
       throw new GeneralError(
         403,
@@ -282,7 +266,6 @@ export const aceptarLLeva = async (
       );
     }
 
-    // 2) Resolver contrato Envio desde la Factory (solo lectura)
     await assertFactoryDeployed();
     const addr: string = await envioFactoryRead.getEnvioByRemesaId(
       BigInt(lleva.remesa.id)
@@ -295,15 +278,12 @@ export const aceptarLLeva = async (
       );
     }
 
-    // 3) Instanciar contrato Envio con SIGNER del transportista
     const signer = signerFromIndex(walletIndex);
     const envio = new Contract(addr, envioAbi, signer);
 
-    // 4) Tx on-chain: el transportista se auto-acepta
     const tx = await envio.addTransportistaAceptado();
     const receipt = await tx.wait();
 
-    // 5) Notificación socket (igual que antes)
     const io = getSocket();
     io.of("/asignaciones")
       .to(`transportista:${transportistaId}`)
@@ -355,7 +335,6 @@ export const rechazarLleva = async (
         data: { status: "CANCELADA" },
       });
 
-      //CREO NUEVO LLEVA PARA TRANSPORTISTA NUEVO
       const result = await prisma.lleva.create({
         data: {
           dirFin: actualLleva.dirFin,
@@ -374,7 +353,6 @@ export const rechazarLleva = async (
         },
       });
 
-      //VOLVER A PONER DISPONIBLE AL TRANSPORTISTA QUE HA CANCELADO
       await prisma.transportista.update({
         where: { id: transportistaId },
         data: { disponibilidaActual: true },
