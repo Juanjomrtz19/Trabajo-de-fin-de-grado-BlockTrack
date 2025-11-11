@@ -1,19 +1,19 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'proyecto.blg'
-[238] biber-MSWIN64:340> INFO - === 
-[295] Biber.pm:419> INFO - Reading 'proyecto.bcf'
-[555] Biber.pm:976> INFO - Using all citekeys in bib section 0
-[601] Biber.pm:4419> INFO - Processing section 0
-[619] Biber.pm:4610> INFO - Looking for bibtex file 'Bibliografia/bibliografia.bib' for section 0
-[693] bibtex.pm:1713> INFO - LaTeX decoding ...
-[717] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliografia/bibliografia.bib'
-[872] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[873] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[873] Biber.pm:4239> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[955] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[956] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[956] Biber.pm:4239> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[1000] bbl.pm:660> INFO - Writing 'proyecto.bbl' with encoding 'UTF-8'
-[1028] bbl.pm:763> INFO - Output to proyecto.bbl
-[1029] Biber.pm:131> WARN - legacy year field '2020-2021' in entry 'problemaUltimaMilla' is not an integer - this will probably not sort properly.
-[1029] Biber.pm:133> INFO - WARNINGS: 1
+[172] biber-MSWIN64:340> INFO - === 
+[227] Biber.pm:419> INFO - Reading 'proyecto.bcf'
+[405] Biber.pm:976> INFO - Using all citekeys in bib section 0
+[491] Biber.pm:4419> INFO - Processing section 0
+[521] Biber.pm:4610> INFO - Looking for bibtex file 'Bibliografia/bibliografia.bib' for section 0
+[587] bibtex.pm:1713> INFO - LaTeX decoding ...
+[617] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliografia/bibliografia.bib'
+[770] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[771] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[771] Biber.pm:4239> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[822] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[822] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[823] Biber.pm:4239> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[854] bbl.pm:660> INFO - Writing 'proyecto.bbl' with encoding 'UTF-8'
+[879] bbl.pm:763> INFO - Output to proyecto.bbl
+[880] Biber.pm:131> WARN - legacy year field '2020-2021' in entry 'problemaUltimaMilla' is not an integer - this will probably not sort properly.
+[880] Biber.pm:133> INFO - WARNINGS: 1

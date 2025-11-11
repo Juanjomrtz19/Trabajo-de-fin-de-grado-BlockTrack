@@ -2,6 +2,62 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Representación gráfica de una blockchain. Fuente: \blx@tocontentsinit {0}\textcite {beginningBlockchain}}}{12}{figure.3.1}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquema del flujo de SCRUM}}{22}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Backlog en taiga}}{23}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Cronograma de Gantt}}{23}{figure.4.3}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama de casos de uso: Gestión de usuarios}}{40}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagrama de casos de uso: Gestión de transportistas}}{41}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Diagrama de casos de uso: Gestión de remesas}}{42}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Diagrama de casos de uso: Gestión de estadísticas y reportes}}{43}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Diagrama de casos de uso: Gestión de la blockchain}}{44}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Diagrama de casos de uso: Gestión de vehículos}}{45}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Sprint 1}}{49}{figure.5.7}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Sprint 2}}{49}{figure.5.8}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Sprint 3}}{50}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Sprint 4}}{50}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Sprint 5}}{50}{figure.5.11}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Sprint 6}}{51}{figure.5.12}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Sprint 7}}{51}{figure.5.13}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Arquitectura software}}{54}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Diagrama de entidad-relación}}{59}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama de paso a tablas}}{60}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Esquema de contratos inteligentes}}{63}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Logo de la aplicación BlockTrack}}{66}{figure.6.5}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Iconos de los roles (Usuario)}}{66}{figure.6.6}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Iconos de los roles (Transportista)}}{66}{figure.6.7}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Mockup de la pantalla de inicio}}{67}{figure.6.8}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Mockup de la pantalla de login}}{68}{figure.6.9}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Mockup de la pantalla de registro}}{68}{figure.6.10}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Mockup de la pantalla de remesas}}{69}{figure.6.11}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Mockup de la pantalla de seguimiento de envío}}{69}{figure.6.12}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Paleta de colores de la aplicación}}{70}{figure.6.13}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Tipografía Inter, foto sacada de \url {https://fonts.google.com/specimen/Inter}}}{71}{figure.6.14}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Estructura de carpetas del backend}}{74}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Cuerpo de la petición para crear una remesa}}{77}{figure.7.2}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Cuerpo de la respuesta para crear una remesa}}{77}{figure.7.3}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Cuerpo de la respuesta incorrecta para crear una remesa}}{78}{figure.7.4}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Código algoritmo}}{80}{figure.7.5}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Estructura de carpetas del frontend}}{81}{figure.7.6}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Definición de un slice con Redux Toolkit Query}}{83}{figure.7.7}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Interfaz de usuario del frontend (1/7)}}{84}{figure.7.8}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Interfaz de usuario del frontend (2/7)}}{84}{figure.7.9}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Interfaz de usuario del frontend (3/7)}}{85}{figure.7.10}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Interfaz de usuario del frontend (4/7)}}{85}{figure.7.11}%
+\contentsline {figure}{\numberline {7.12}{\ignorespaces Interfaz de usuario del frontend (5/7)}}{85}{figure.7.12}%
+\contentsline {figure}{\numberline {7.13}{\ignorespaces Interfaz de usuario del frontend (6/7)}}{86}{figure.7.13}%
+\contentsline {figure}{\numberline {7.14}{\ignorespaces Interfaz de usuario del frontend (7/7)}}{86}{figure.7.14}%
+\contentsline {figure}{\numberline {7.15}{\ignorespaces Interfaz de Remix IDE para desarrollar contratos inteligentes}}{88}{figure.7.15}%
+\contentsline {figure}{\numberline {7.16}{\ignorespaces Código contrato inteligente en archivo .sol}}{88}{figure.7.16}%
+\contentsline {figure}{\numberline {7.17}{\ignorespaces Esquema compilación contrato inteligente}}{89}{figure.7.17}%
+\contentsline {figure}{\numberline {7.18}{\ignorespaces Estadísticas de la implementación}}{93}{figure.7.18}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Resultados de las pruebas unitarias para la gestión de usuarios}}{98}{figure.8.1}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Resultados de las pruebas unitarias para la gestión de remesas}}{100}{figure.8.2}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Resultados de las pruebas unitarias para la gestión de transportes}}{101}{figure.8.3}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Resultados de las pruebas unitarias para los contratos inteligentes}}{103}{figure.8.4}%
 \addvspace {10\p@ }
