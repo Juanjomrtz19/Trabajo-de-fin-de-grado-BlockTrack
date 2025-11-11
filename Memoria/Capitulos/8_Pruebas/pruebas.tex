@@ -1,0 +1,62 @@
+\raggedbottom
+\chapter{Pruebas}
+
+La fase de pruebas es crucial para garantizar que la aplicación \textit{BlockTrack} funcione correctamente y cumpla
+con los requisitos establecidos. En este capítulo, se describen las pruebas realizadas para verificar la funcionalidad,
+seguridad y rendimiento de la aplicación. En este proyecto la validación se ha centrado en pruebas unitarias y E2E para
+validar flujos completos en el lado del backend y blockchain.\\
+
+\section{Pruebas unitarias}
+Las pruebas unitarias se han implementado para verificar el correcto funcionamiento de los componentes individuales
+de la aplicación. El conjunto de pruebas asegura el correcto comportamiento de las funciones críticas del sistema,
+en casos de error y aciertos.\\
+
+Las pruebas cubren las siguientes entidades principales:
+\begin{itemize}
+    \item \textbf{Remesas}: creación, actualización de estado y recuperación de información.
+    \item \textbf{Usuarios}: registro y autenticación, comprobando la encriptación de contraseñas.
+    \item \textbf{Transportistas}: asignación de remesas, aceptar o rechazar remesas.
+    \item \textbf{Vehículo}: registro y asociación con transportistas.
+\end{itemize}
+
+\subsubsection{Cumplimiento de requisitos funcionales}
+Las pruebas unitarias han sido diseñadas para cubrir cada requisito funcional identificado en el capítulo de análisis.
+Por ejemplo, hay un test unitario para validar que se seleccionan los mejores transportistas según ubicación y disponibilidad
+al asignar una remesa.\\
+
+\subsubsection{Pruebas de seguridad}
+Se verifican comportamientos esperados en casos de errores, como asignar una remesa que no es tuya o aceptar una remesa ya aceptada por parte del transportista.\\
+
+\section{Pruebas de contratos inteligentes}
+Las pruebas de los contratos inteligentes son fundamentales para garantizar la seguridad y funcionalidad de la lógica
+implementada en la blockchain. Se han desarrollado pruebas específicas para cada función del contrato inteligente
+\texttt{EnvioFactory} y \texttt{Envio}.\\
+
+En el caso del contrato Envio se han realizado pruebas para:
+\begin{itemize}
+    \item \textbf{Creación de envíos}: Verificar que un nuevo envío se crea correctamente con los parámetros adecuados.
+    \item \textbf{Actualización de estado}: Asegurar que los estados del envío se actualizan correctamente en función de las acciones realizadas por los usuarios.
+    \item \textbf{Añadir transportistas aceptados}: Comprobar que los transportistas pueden ser añadidos correctamente a un envío.
+    \item \textbf{Cambio del poseedor}: Validar que el poseedor del envío se actualiza correctamente.
+    \item \textbf{Casos de error}: Probar que las funciones manejan adecuadamente los casos de error, como intentos no autorizados de actualizar el estado del envío o
+    añadir transportistas aceptados cuando la cantidad de transportistas aceptados ya es igual al número máximo permitido.
+\end{itemize}
+
+En el caso del contrato EnvioFactory se han realizado pruebas para:
+\begin{itemize}
+    \item \textbf{Creación de envíos}: Verificar que un nuevo envío se crea correctamente y se almacena en el mapeo de envíos.
+    \item \textbf{Recuperación de envíos}: Asegurar que los envíos pueden ser recuperados correctamente utilizando su ID.
+    \item \textbf{Casos de error}: Probar que las funciones manejan adecuadamente los casos de error, como intentos de recuperar un envío inexistente.
+\end{itemize}
+
+\subsection{Resultado de las pruebas}
+En el estado actual del sistema, todas las pruebas implementadas han sido exitosas, lo que proporciona
+una alta confianza en la funcionalidad y seguridad de la aplicación \textit{BlockTrack} y debido al ciclo iterativo de
+la metodología ágil, según se encontraron nuevos errores o fallos, se iban añadiendo mejoras y nuevas pruebas para
+garantizar la calidad del software.
+
+\section{Conclusión de la fase de pruebas}.
+La fase de pruebas ha sido esencial para validar la funcionalidad, seguridad y rendimiento de la aplicación
+\textit{BlockTrack}. El backend y contratos inteligentes han sido rigurosamente probados mediante pruebas, asegurando
+que cumplen con los requisitos establecidos y funcionan correctamente en diversos escenarios. Los resultados positivos
+de las pruebas proporcionan una base sólida para la implementación y despliegue de la aplicación en un entorno real.

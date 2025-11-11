@@ -414,6 +414,32 @@
       \verb https://ieeexplore.ieee.org/abstract/document/8024092
       \endverb
     \endentry
+    \entry{preukschat2017blockchain}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8a6e1fc42cebdbac7d68db6a2e137ed5}{%
+           family={Preukschat},
+           familyi={P\bibinitperiod},
+           given={ALEX},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{fullhash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{bibnamehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{authorbibnamehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{authornamehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{authorfullhash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{La Revolución Industrial de Internet}
+      \field{title}{Blockchain}
+      \field{year}{2017}
+    \endentry
     \entry{blockchainInAction}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=fa81091bc80aaa40687a306be85471b6}{%
@@ -564,6 +590,19 @@
       \endverb
       \verb{url}
       \verb https://taiga.io
+      \endverb
+    \endentry
+    \entry{Top10RedesBlockchain}{online}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{Top 10 Redes Blockchain por Capitalización de Mercado}
+      \verb{urlraw}
+      \verb https://nftizate.es/10-redes-blockchain-mas-importantes
+      \endverb
+      \verb{url}
+      \verb https://nftizate.es/10-redes-blockchain-mas-importantes
       \endverb
     \endentry
   \enddatalist
@@ -963,6 +1002,32 @@
       \verb https://ieeexplore.ieee.org/abstract/document/8024092
       \endverb
     \endentry
+    \entry{preukschat2017blockchain}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8a6e1fc42cebdbac7d68db6a2e137ed5}{%
+           family={Preukschat},
+           familyi={P\bibinitperiod},
+           given={ALEX},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{fullhash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{bibnamehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{authorbibnamehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{authornamehash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \strng{authorfullhash}{8a6e1fc42cebdbac7d68db6a2e137ed5}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{La Revolución Industrial de Internet}
+      \field{title}{Blockchain}
+      \field{year}{2017}
+    \endentry
     \entry{blockchainInAction}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=fa81091bc80aaa40687a306be85471b6}{%
@@ -1113,6 +1178,19 @@
       \endverb
       \verb{url}
       \verb https://taiga.io
+      \endverb
+    \endentry
+    \entry{Top10RedesBlockchain}{online}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{Top 10 Redes Blockchain por Capitalización de Mercado}
+      \verb{urlraw}
+      \verb https://nftizate.es/10-redes-blockchain-mas-importantes
+      \endverb
+      \verb{url}
+      \verb https://nftizate.es/10-redes-blockchain-mas-importantes
       \endverb
     \endentry
   \enddatalist

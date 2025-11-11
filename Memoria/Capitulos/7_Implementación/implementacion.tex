@@ -139,7 +139,6 @@ Para garantizar la seguridad del backend, se han implementado las siguientes med
         \end{itemize}
 \end{itemize}
 
-\newpage
 \section{Implementación del frontend}
 \subsection{Arquitectura en el frontend}
 El frontend de la aplicación web se ha desarrollado utilizando el framework \textit{React.js}, el desarrollo con React
@@ -227,4 +226,136 @@ Para optimizar el rendimiento del frontend, se han implementado las siguientes t
     no tengan la necesidad de actualizarse. Para evitar estos re-renders se han utilizado técnicas y/o patrones de diseño
     para extraer todos los componentes que tengan un estado propio que no debería afectar a otros y se les ha separado a un componente independiente de los hijos
     para que solo se rendericen cuando su propio estado cambie mejorando así el rendimiento.
+\end{itemize}
+
+\section{Red ethereum}
+La red Ethereum se encarga de almacenar la información de trazabilidad y autenticidad
+de las remesas de manera segura y descentralizada.\\
+Para interactuar con la red Ethereum, se ha utilizado la librería \textit{ethers.js}, que
+permite crear y gestionar contratos inteligentes de manera sencilla.\\
+
+Se ha decidido utilizar la red de pruebas \textit{Hardhat} en lugar de la red principal de Ethereum, 
+con el fin de evitar los costes asociados a las transacciones reales y facilitar el proceso de desarrollo, depuración y validación de la aplicación. 
+Ya que para el desarrollo hay que tener en cuenta que cada vez que se realiza una transacción en
+la red Ethereum, se incurre en un coste llamado \textit{gas}, que se paga en \textit{Ether} (ETH).\\
+
+Una red como \textit{Hardhat} permite simular localmente el funcionamiento de una red blockchain,
+ reproduciendo el comportamiento de una red descentralizada pero sin requerir la participación de nodos externos. 
+ De este modo, se pueden realizar pruebas y despliegues de contratos inteligentes de forma rápida y controlada,
+ manteniendo la lógica de ejecución de Ethereum sin incurrir en los costes ni la latencia de una red pública.\\
+
+Una alternativa sería haber utilizado otra red de pruebas como \textit{Sepolia} que a diferencia
+de \textit{Hardhat} es una red pública y descentralizada y no una red local. Pero para poder utilizarla
+necesitas que te den ETH de prueba a través de faucets, lo cual puede ser un proceso lento y tedioso.\\
+
+Un faucet es un servicio que proporciona pequeñas cantidades de criptomonedas de prueba de forma
+gratuita a los desarrolladores y usuarios que desean probar aplicaciones en una red de pruebas.\\
+
+\subsubsection{Flujo de desarrollo de un contrato inteligente}
+A la hora de desarrollar un contrato inteligente, primero se ha realizado desde un entorno en la nube
+llamado \textit{Remix IDE}, que permite escribir, compilar y desplegar contratos inteligentes.\\
+Se ha desarrollado el contrato inteligente en \textit{Remix IDE} para probar su funcionalidad
+y corregir errores antes de integrarlo en el backend de una manera sencilla ya que Remix IDE te proporciona
+una interfaz gráfica para interactuar con el contrato inteligente desplegado y una red local para
+probarlo sin necesidad de desplegarlo en una red pública.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/entornoRemix.png}
+    \caption{Interfaz de Remix IDE para desarrollar contratos inteligentes}
+    \label{fig:remix_ide}
+\end{figure}
+
+Una vez el contrato inteligente ha sido probado y corregido, es hora de pasarlo al código del
+proyecto. Para ello necesitamos pasar el código del contrato inteligente a un archivo \textit{.sol}.
+Luego, se crearan los test para testear el contrato inteligente utilizando librerias javascript como MOCHA.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/contratoInteligente.png}
+    \caption{Código contrato inteligente en archivo .sol}
+    \label{fig:test_contrato_inteligente}
+\end{figure}
+
+Finalmente, habrá que programar dos scripts para compilar y desplegar el contrato inteligente. 
+
+\begin{itemize}
+    \item \textbf{Compilación}: Cuando un contrato inteligente es compilado, se genera un archivo JSON que contiene el \textit{ABI} (Application Binary Interface) y el bytecode del contrato
+inteligente. El \textit{ABI} es una descripción del contrato inteligente que permite a las aplicaciones interactuar
+con él, mientras que el bytecode es el código binario que se ejecuta en la máquina virtual de Ethereum.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/esquemaCompilacion.png}
+    \caption{Esquema compilación contrato inteligente}
+    \label{fig:script_despliegue_contrato_inteligente}
+\end{figure}
+El script de compilación funcionaría de la siguiente manera:
+\begin{enumerate}
+\item \textbf{Listar los contratos inteligentes}: listar los ficheros \texttt{.sol} de la carpeta donde están alojados los contratos inteligentes.
+\item \textbf{Construir el objeto de entrada}: construir un objeto de entrada para el compilador Solidity con los archivos listados.
+\item \textbf{Configurar opciones de compilación}: configurar las opciones de compilación.
+\item \textbf{Resolver dependencias}: resolver \textit{imports} locales y de \textit{node modules}, ya que al compilar con \texttt{solc} no tiene acceso al disco y necesita que los \textit{imports} se resuelvan previamente.
+\item \textbf{Compilar los contratos}: compilar los contratos inteligentes utilizando el compilador \texttt{Solc}.
+\item \textbf{Guardar resultados}: guardar el \textit{output} de la compilación en archivos \texttt{JSON} en la carpeta de \texttt{build}.
+\end{enumerate}
+
+Los outputs de la compilación es lo que se utilizará a nivel de la lógica de la aplicación para interactuar con el
+contrato inteligente y a su vez con la red Ethereum.
+
+\item \textbf{Despliegue}: Se denomina a despliegue al proceso de subir el contrato inteligente a la red Ethereum. Este
+proceso implica enviar una transacción a la red que contiene el bytecode del contrato inteligente.\\
+El script de despliegue funcionaría de la siguiente manera:
+\begin{enumerate}
+\item \textbf{Configurar el proveedor RPC local}: inicializar un \textit{JsonRpcProvider} apuntando al nodo de Hardhat en \texttt{http://127.0.0.1:8545}
+.
+\item \textbf{Importar el artefacto del contrato}: cargar el JSON compilado de \textit{EnvioFactory} (contiene \texttt{abi} y \texttt{bytecode}).
+\item \textbf{Validar artefacto}: comprobar que el JSON importado incluye \texttt{abi} y \texttt{bytecode}; en caso contrario, abortar con un error descriptivo.
+\item \textbf{Inicializar la cuenta de despliegue}: crear un \textit{Wallet} de \texttt{ethers} usando una clave privada de las cuentas del nodo de Hardhat y asociarlo al proveedor.
+\item \textbf{Construir la fábrica de contratos}: crear un \textit{ContractFactory} con la \texttt{abi}, el \texttt{bytecode} y el \textit{wallet} para firmar y enviar transacciones.
+\item \textbf{Desplegar el contrato}: invocar \texttt{factory.deploy()} (sin argumentos al no tener constructor con parámetros) para enviar la transacción de despliegue.
+\item \textbf{Esperar la inclusión en bloque}: llamar a \texttt{waitForDeployment()} para bloquear la ejecución hasta que el contrato quede minado y disponible en la red local.
+\item \textbf{Obtener la dirección del contrato}: recuperar la dirección on-chain mediante \texttt{contract.getAddress()}.
+\item \textbf{Preparar la salida para clientes}: construir la ruta \texttt{deployments/localhost} en el proyecto y crear la carpeta si no existe.
+\item \textbf{Persistir metadatos de despliegue}: guardar un archivo \texttt{EnvioFactory.json} con la \texttt{address}, la \texttt{abi} y el identificador de \texttt{network} para que frontend/backend puedan conectarse al contrato.
+\end{enumerate}
+
+\end{itemize}
+
+\subsection{Interacción del backend con la red blockchain desde las APIs}
+\subsubsection{Flujo general de un endpoint}
+\begin{enumerate}
+\item \textbf{Inicialización del proveedor y cuenta de servicio}: el backend crea un \textit{provider} JSON-RPC (p.,ej., \texttt{http://127.0.0.1:8545}
+ en Hardhat) y asocia un \textit{wallet} de servicio para firmar transacciones cuando sea necesario.
+\item \textbf{Carga del contrato}: se importa el artefacto del contrato (\texttt{ABI}) y se instancia el contrato con \texttt{ethers} usando la dirección desplegada.
+\item \textbf{Operaciones de lectura (\textit{call})}: los endpoints que consultan trazabilidad, estados o direcciones utilizan llamadas \textit{view/pure} sin coste de gas y sin firma.
+\item \textbf{Operaciones de escritura (\textit{send})}: los endpoints que modifican estado (crear envío, actualizar estado, transferir posesión, etc.) preparan y firman una transacción con una cuenta autorizada (o con la cuenta del propio usuario, según el modelo elegido) y esperan el \textit{receipt}.
+\item \textbf{Gestión de eventos}: tras minado, se leen eventos emitidos por el contrato (p.,ej., \texttt{EnvioCreado}, \texttt{EnvioEstadoActualizado}) para registrar metadatos y facilitar auditoría/observabilidad en la base de datos off-chain.
+\item \textbf{Persistencia y respuesta}: el backend persiste lo necesario y responde al cliente con la información relevante.
+\end{enumerate}
+
+\subsection{Asignación de dirección blockchain por usuario}
+\subsubsection{Motivación}
+Para identificar de forma inequívoca a cada participante en la capa on-chain, la plataforma asocia a cada usuario una \textbf{dirección (address) blockchain}. Esta dirección se utiliza como identificador en los contratos inteligentes y como emisor/actor en las transacciones que afecten a la trazabilidad.
+
+\subsubsection{Modelo aplicado en el entorno de desarrollo}
+En el entorno de pruebas (Hardhat), se emplean \textbf{wallets ficticias} para simplificar la experiencia:
+\begin{enumerate}
+\item \textbf{Registro de usuario}: al crear el usuario en base de datos, se deriva/asigna un índice de wallet y se calcula su \textbf{address} correspondiente (p.,ej., mediante derivación determinista o a partir de cuentas del nodo local).
+\item \textbf{Persistencia}: se guarda en la tabla de usuarios el \texttt{walletIndex} y la \texttt{walletAddress} en minúsculas.
+\item \textbf{Fondeo opcional}: se intenta fondear la dirección con ETH de prueba para permitir transacciones firmadas en la red local (\textit{faucet} interno). Si falla, no se bloquea el registro.
+\end{enumerate}
+
+\subsubsection{Descripción del flujo (código mostrado)}
+\begin{enumerate}
+\item \textbf{Creación del usuario y entidad dependiente}: se crea la fila en \texttt{usuario} y, según el rol, se crea \texttt{cliente} o \texttt{transportista} dentro de una transacción de base de datos.
+\item \textbf{Derivación de dirección}: se calcula un \texttt{walletIndex} (p.,ej., \texttt{id-1}) y, con una función utilitaria (\texttt{addressFromIndex}), se obtiene la \texttt{walletAddress}.
+\item \textbf{Vinculación en BD}: se actualiza el usuario con \texttt{walletIndex} y \texttt{walletAddress}.
+\item \textbf{Fondeo de pruebas}: se invoca \texttt{ensureFunds(address, min, target)} para garantizar saldo mínimo en la red local; los errores no interrumpen el registro.
+\end{enumerate}
+
+\subsubsection{Consideraciones de seguridad y despliegue real}
+\begin{itemize}
+\item \textbf{Entorno de desarrollo}: es válido asignar \textbf{wallets ficticias} y, si procede, custodiar claves en local para automatizar pruebas.
+\item \textbf{Producción (recomendado)}: evitar la custodia de claves privadas por el servidor. Preferir un modelo \textbf{no custodial} (el usuario firma con su propia wallet) o emplear \textbf{meta-transacciones/relayers} para mejorar la UX sin custodiar claves.
+\item \textbf{Trazabilidad}: la address se usa como identificador on-chain; cualquier acción relevante (crear envío, cambio de estado, transferencia de posesión) debe asociarse a la address del actor.
 \end{itemize}

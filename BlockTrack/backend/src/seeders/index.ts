@@ -21,3 +21,5 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+
+//ts-node ./src/seeders/index.ts

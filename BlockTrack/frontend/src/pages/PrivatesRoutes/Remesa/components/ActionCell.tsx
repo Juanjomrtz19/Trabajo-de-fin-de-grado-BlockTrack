@@ -103,7 +103,7 @@ const ActionCell = ({
                 navigate(`/admin/remesas/${remesa.id}/historial-remesas`)
               }
             />
-            {remesa.onchain.poseedorActual === user?.email && (
+            {remesa?.onchain?.poseedorActual === user?.email && (
               <ButtonCambiarPoseedor
                 action={async () => {
                   handleCambiarProveedor(user?.email || "");

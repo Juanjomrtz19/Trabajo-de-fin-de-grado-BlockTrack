@@ -287,11 +287,6 @@ export const cancelarRemesa = async (
   }
 };
 
-/**
- * Avanza el poseedor al "siguiente" según tu regla de secuencia.
- * @param remesaId id de remesa
- * @param emailPoseedorActual email del poseedor actual (viene del front)
- */
 export const cambiarPoseedorSiguiente = async (
   remesaId: number,
   emailPoseedorActual: string

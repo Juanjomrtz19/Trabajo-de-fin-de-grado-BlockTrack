@@ -1,5 +1,5 @@
 \raggedbottom
-\chapter{Diseño}
+\chapter{Diseño y selección de tecnologías}
 \section{Arquitectura software}
 Elegir bien la arquitectura que se va a utilizar en un proyecto de ingeniería de software como este es de vital importancia, ya que la elección de una arquitectura inadecuada puede llegar a crear insatisfacción en el cliente final.
 
@@ -30,9 +30,9 @@ Las capas son las siguientes:
 \end{figure}
 
 \subsection{Comunicación entre capas}
-La comunicación entre el frontend y el backend se realiza mediante peticiones HTTP a una API RESTFull. El formato de la respuesta que envía el backend será en formato JSON.
-La comunicación entre el frontend y la capa blockchain se realizará a través de un \textit{proveedor de acceso a la red blockchain} (nodo), utilizando llamadas RPC estándar.
-La comunicación entre el backend y la base de datos se realizará mediante un ORM (Object-Relational Mapping) que permitirá mapear las entidades del modelo de datos a tablas en la base de datos relacional.
+La comunicación entre el frontend y el backend se realiza mediante peticiones HTTP a una API RESTFull. El formato de la respuesta que envía el backend será en formato JSON.\\
+La comunicación entre el backend y la capa blockchain se realizará a través de un \textit{proveedor de acceso a la red blockchain} (nodo), utilizando llamadas RPC estándar.\\
+La comunicación entre el backend y la base de datos se realizará mediante un ORM (Object-Relational Mapping) que permitirá mapear las entidades del modelo de datos a tablas en la base de datos relacional.\\
 
 \section{Tecnologías usadas}
 \subsection{Para el frontend}
@@ -63,7 +63,6 @@ Existen varias herramientas que permiten asegurarnos que el código se comporta 
 
 Después de evaluar las distintas herramientas de testing disponibles, se ha optado por utilizar Jest para las pruebas unitarias debido a su excelente integración con React, y Cypress para las pruebas de extremo a extremo, gracias a su interfaz gráfica intuitiva. Esta combinación permitirá cubrir tanto la lógica interna de los componentes como el comportamiento completo de la aplicación desde la perspectiva del usuario final, facilitando además el aprendizaje al no requerir experiencia previa en testing.
 
-\newpage
 \subsection{Para el backend}
 En el ámbito de servidor existen varios lenguajes como Java, JavaScript, PHP, Python, entre otros, que permitirán programar la lógica de negocio de la aplicación. Para el backend del proyecto se ha decidido utilizar el lenguaje typeScirpt \hyperlink{TypeScript}{https://www.typescriptlang.org}, que es una alternativa a javaScript la cual le añade tipado estático que ayuda a prevenir errores antes de ejecutar el código.Se ha elegido este lenguaje para así unificar el lenguaje de programación tanto en el frontend como en el backend, lo que facilita un desarrollo más fluido, coherente y mantenible.
 
@@ -80,7 +79,7 @@ Se ha decido utilizar expressjs por experiencia previa en proyectos utilizando e
 \subsubsection{Testing}
 Para hacer las pruebas de testing se hará uso del framework jest que se explicó en el apartado anterior.
 
-\newpage
+
 \subsection{Base de datos}
 Para saber que opción coger hay que diferenciar los dos principales tipos de base de datos que hay:
 \begin{itemize}
@@ -100,6 +99,13 @@ Los principales gestores de bases de datos relacionales son:
 Debido a las características del proyecto, una curva de aprendizaje más sencilla y a la buena integración que tiene con nodeJS y express se ha decidido utilizar mySQL.
 
 \subsubsection{Diagrama Entidad - Relación}
+El diagrama de entidad-relación (E - R) es una herramienta visual que permite representas las entidades del sistema y
+las relaciones entre ellas.\\
+En el diseño entidad-relación, si el proyecto no usará la tecnología blockchain, habría que definir una relación más que fuera envío para poder
+gestionar los envíos realizados en la plataforma, lo cual podría complicar el diseño ya que ese punto de información sería uno
+de los más críticos del sistema. Sin embargo, al utilizar la tecnología blockchain, para gestionar los envíos, se puede
+simplificar el modelo de datos eliminando esa relación y dejando la gestión de los envíos a los contratos inteligentes 
+desplegados en la red de blockchain.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/Disenio/diagrama E-R.png}
@@ -108,6 +114,22 @@ Debido a las características del proyecto, una curva de aprendizaje más sencil
 \end{figure}
 
 \subsubsection{Paso a tablas}
+El paso a tablas es el proceso de convertir un diagrama E-R en un conjunto de tablas relacionales que pueden
+ser implementadas en un sistema de gestión de bases de datos relacionales (SGBD).\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|p{9cm}|}
+\hline
+\textbf{Forma Normal} & \textbf{Cumple} & \textbf{Justificación} \\ \hline
+1FN & \checkmark & Todos los campos son atómicos, no existen grupos repetidos y cada registro representa una sola entidad. \\ \hline
+2FN & \checkmark & Todas las tablas utilizan claves primarias simples (ID autoincremental), por lo que no hay dependencias parciales de atributos no clave respecto a una parte de una clave compuesta. \\ \hline
+\end{tabular}
+\caption{Cumplimiento de las formas normales hasta la Segunda Forma Normal (2FN).}
+\end{table}
+
+
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/Disenio/pasoATablasDiagrama.png}
@@ -123,7 +145,7 @@ Git es un sistema de control de versiones distribuido  para gestionar cualquier 
 Github es una plataforma basada en la nube donde se puede almacenar, compartir y trabajar con otros usuarios para desarrollar código. Este software esta basado y sirve como apoyo a GIT. \href{https://docs.github.com/es/get-started/start-your-journey/about-github-and-git}{GitHub}.
 
 
-\newpage
+
 \section{Selección de la red blockchain}
 Hay distintas tecnologías blockchain que se pueden utilizar para este proyecto. Algunas de las más populares son:
 Ethereum, Hyperledger Fabric, Solana, Binance Smart Chain, entre otras.
@@ -131,25 +153,42 @@ Después de evaluar las distintas opciones, se ha decidido utilizar Ethereum deb
 \subsection{Ethereum}
 Ethereum es una plataforma de blockchain de código abierto que permite la creación de contratos inteligentes y aplicaciones descentralizadas (dApps). Su criptomoneda nativa es el Ether (ETH). Ethereum ha sido pionera en la implementación de contratos inteligentes, lo que permite a los desarrolladores crear aplicaciones complejas que se ejecutan en su red. Además, cuenta con una gran comunidad de desarrolladores y una amplia gama de herramientas y bibliotecas que facilitan el desarrollo en su ecosistema. \hyperlink{ethereum}{https://ethereum.org}
 
-\subsection{Smart contracts}
+\subsection{Contratos inteligentes}
 Los contratos inteligentes son programas informáticos que se ejecutan automáticamente en una red de blockchain
 cuando se cumplen ciertas condiciones predefinidas. Estos contratos permiten la automatización de acuerdos y
 transacciones sin necesidad de intermediarios, lo que reduce costos y aumenta la eficiencia. Los contratos
 inteligentes son inmutables y transparentes, lo que significa que una vez desplegados en la blockchain,
 no pueden ser modificados y su código es accesible para todos los participantes de la red. \hyperlink{smartcontracts}{https://ethereum.org/en/developers/docs/smart-contracts/}
 
-Para el desarrollo de los smart contracts se utilizará el lenguaje de programación Solidity, que es el lenguaje
+Para el desarrollo de los contratos inteligentes se utilizará el lenguaje de programación Solidity, que es el lenguaje
 más popular y ampliamente utilizado para escribir contratos inteligentes en la red Ethereum. Solidity es un
 lenguaje de alto nivel similar a c++, lo que facilita su aprendizaje para desarrolladores con experiencia en
 otros lenguajes de programación. \hyperlink{solidity}{https://docs.soliditylang.org/en/v0.8.20/}
 
-El desarrollo y la idea detrás de la programación de los smart contracts es muy parecida a la programación
+El desarrollo y la idea detrás de la programación de los contratos inteligentes es muy parecida a la programación
 orientada a objetos, donde se definen clases (contratos) con atributos (variables de estado) y métodos.
 
-\subsection{Diseño de smart contract para Blocktrack}
-La idea de este smart contract es registrar los envíos realizados en la plataforma Blocktrack,
-así poder tener un registro inmutable y transparente de cada envío.
+\subsection{Diseño de contratos inteligentes para Blocktrack}
+La idea principal de estos contratos inteligentes es registrar los envíos realizados en la plataforma BlockTrack, 
+con el objetivo de disponer de un registro inmutable y transparente de cada transacción logística. Para ello,
+se desarrolla un contrato inteligente denominado Envio, encargado de gestionar la información y el 
+estado de cada envío a lo largo de su ciclo de vida dentro del sistema.\\
 
+No obstante, para garantizar un mayor control y trazabilidad sobre los distintos contratos de envío desplegados, 
+se define un segundo contrato inteligente denominado EnvioFactory. Este contrato actúa como fábrica y gestor central, 
+responsable de crear nuevas instancias del contrato Envio y de mantener un registro de todas ellas en la red. 
+De este modo, se facilita la supervisión global de los envíos registrados y se asegura la coherencia e 
+integridad del sistema dentro de la plataforma BlockTrack.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/Disenio/esquemaSmartConttracts.png}
+    \caption{Esquema de contratos inteligentes}
+    \label{fig:esquema-contratos}
+\end{figure}
+
+
+\subsubsection{Contrato Envio}
 \begin{itemize}
     \item Variables de estado:
     \begin{itemize}
@@ -172,7 +211,25 @@ así poder tener un registro inmutable y transparente de cada envío.
     \end{itemize}
 \end{itemize}
 
-\subsection{Porqué garantiza la confianza y trazabilidad.}
+\subsubsection{Contrato EnvioFactory}
+\begin{itemize}
+\item Variables de estado:
+\begin{itemize}
+\item Lista de direcciones de los contratos \texttt{Envio} creados.
+\item Mapeo entre el identificador de la remesa y la dirección del contrato \texttt{Envio} correspondiente.
+\end{itemize}
+\item Eventos:
+\begin{itemize}
+\item Evento de creación de un nuevo contrato \texttt{Envio}.
+\item Evento de consulta de un contrato \texttt{Envio} a partir del identificador de remesa.
+\item Evento de verificación de existencia de un contrato \texttt{Envio}.
+\item Evento de recuento total de contratos desplegados.
+\item Evento de obtención de un rango de contratos \texttt{Envio} desplegados.
+\item Evento de obtención del listado completo de contratos \texttt{Envio} creados.
+\end{itemize}
+\end{itemize}
+
+\subsection{Por qué garantiza la confianza y trazabilidad.}
 La plataforma registra en la red blockchain los hitos clave del ciclo de vida del envío (creación, aceptación, cambios de estado, transferencias de custodia y entrega) como eventos y estado on-chain. Cada operación está firmada por la dirección del actor correspondiente, lo que aporta no repudio, y queda ordenada e inmutable en la cadena. Las reglas del contrato inteligente garantizan que únicamente los actores autorizados pueden ejecutar cada transición (p. ej., solo el custodio actual puede transferir custodia y solo el receptor puede marcar la entrega). En caso de discrepancias, la información on-chain —respaldada por firmas y consenso— prevalece sobre declaraciones off-chain, proporcionando una fuente de verdad verificable para auditoría y resolución de conflictos, sin exponer datos personales en la cadena.
 
 \subsection{Algoritmo de consenso utilizado por ethereum}
@@ -198,3 +255,113 @@ En PoS, los participantes que desean asegurar la red actúan como \textit{valida
 
 Intuitivamente, PoS traslada la seguridad a un terreno criptoeconómico: quien participa debe poner “algo valioso” en juego (su ETH). El diseño de recompensas y sanciones alinea incentivos para que resulte rentable actuar honestamente y prohibitivo atacar el consenso. En situaciones excepcionales (p.,ej., una falla grave), la coordinación social de clientes, operadores y desarrolladores sirve de última línea de defensa para preservar una única cadena legítima.
 
+\section{Diseño de interfaces de usuario}
+El diseño de las interfaces de usuario (UI) es un aspecto fundamental para garantizar una experiencia de usuario
+óptima en la plataforma BlockTrack. El objetivo es crear interfaces intuitivas, atractivas y funcionales que faciliten
+la interacción de los usuarios con la aplicación.\\
+
+\subsubsection{Logos de la aplicacion}
+El logo de la aplicación BlockTrack ha sido creado por chatgpt plus
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{imagenes/Disenio/logoBlockTrack.png}
+    \caption{Logo de la aplicación BlockTrack}
+    \label{fig:logo-blocktrack}
+\end{figure}
+
+Para la creación de iconos a la hora de registrarse en la aplicación y elegir si se va a registrar como transportista o usuario
+también se ha contado con la colaboración de chatgpt plus, que ha generado una serie de iconos representativos para cada rol. Estos iconos se han diseñado para ser fácilmente reconocibles y para transmitir la función de cada rol de manera clara y efectiva.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/Disenio/opcionUsuario.png}
+    \caption{Iconos de los roles (Usuario)}
+    \label{fig:iconos-roles-usuario}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/Disenio/opcionTransportista.png}
+    \caption{Iconos de los roles (Transportista)}
+    \label{fig:iconos-roles-transportista}
+  \end{minipage}
+\end{figure}
+
+\subsubsection{Mockups de la aplicación}
+Para estructurar el diseño de las interfaces, se ha optado por la creación de mockups o prototipos visuales que representan
+la disposición y apariencia de las distintas pantallas de la aplicación. Estos mockups permiten visualizar cómo se 
+organizan los elementos en la interfaz, cómo se navega entre los diferentes apartados y como se presenta la información
+al usuario.\\
+
+A continuación, se presentan algunos de los mockups diseñados para la aplicación BlockTrack:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Disenio/mockups/home.png}
+    \caption{Mockup de la pantalla de inicio}
+    \label{fig:mockup-home}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Disenio/mockups/login.png}
+    \caption{Mockup de la pantalla de login}
+    \label{fig:mockup-login}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Disenio/mockups/register.png}
+    \caption{Mockup de la pantalla de registro}
+    \label{fig:mockup-register}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Disenio/mockups/remesas.png}
+    \caption{Mockup de la pantalla de remesas}
+    \label{fig:mockup-remesas}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Disenio/mockups/seguimientoEnvio.png}
+    \caption{Mockup de la pantalla de seguimiento de envío}
+    \label{fig:mockup-seguimiento-envio}
+\end{figure}
+
+\subsection{Patrones de diseño visual}
+\begin{itemize}
+    \item \textbf{Responsive Web Design:} El diseño de la apliación se adapta a diferentes tamaños de pantalla y dispositivos,
+    asegurando una experiencia de usuario óptima tanto en ordenadores de escritorio como en dispositivos móviles. Es importante ya que los transportistas
+    necesitarán acceder a la aplicación desde sus teléfono móviles.\\
+
+    \item \textbf{Arquitectura basada en componentes:} Las pantallas de la aplicación más complejas se dividen o se construyen 
+    a partir de componentes reutilizables, lo que facilita el mantenimiento y la escalabilidad del código. Al reutilizar estos componentes más atómicos
+    se consigue una mayor coherencia visual en toda la aplicación.\\
+\end{itemize}
+
+\subsection{Colores y tipografía escogidos}
+Para la paleta de colores de la aplicación se han cogido colores azules y anaranjados. El azul transmite confianza, seguridad
+y profesionalismo, valores que son fundamentales en una plataforma de seguimiento de envíos. El naranja aporta un toque
+de energía, dinamismo y accesibilidad, haciendo que la interfaz sea más atractiva y amigable para los usuarios.\\
+
+Además se han establecido un color de advertencia (amarillo), un color de error(rojo) y un color de éxito (verde) para
+diferenciar los distintos estados de las acciones realizadas por los usuarios en la aplicación.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{imagenes/Disenio/paletaColores.jpg}
+    \caption{Paleta de colores de la aplicación}
+    \label{fig:paleta-colores}
+\end{figure}
+
+La tipografía elegida para la aplicación es \textbf{Inter} \hyperlink{Inter}{https://rsms.me/inter/}, una fuente sans-serif moderna y legible que
+se adapta bien a diferentes tamaños de pantalla y dispositivos. Esta tipografía se caracteriza por su claridad y simplicidad, lo que facilita la lectura y comprensión del contenido en 
+la aplicación. Además, Inter ofrece una amplia variedad de pesos y estilos, lo que permite crear jerarquías visuales efectivas en la interfaz de usuario.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{imagenes/Disenio/tipografia.jpg}
+    \caption{Tipografía Inter, foto sacada de \url{https://fonts.google.com/specimen/Inter}}
+    \label{fig:tipografia-inter}
+\end{figure}

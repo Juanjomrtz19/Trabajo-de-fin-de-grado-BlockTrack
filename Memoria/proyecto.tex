@@ -12,6 +12,8 @@
 \usepackage[most]{tcolorbox}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[backend=biber,style=apa]{biblatex}
+\usepackage{amssymb}
+
 \addbibresource{Bibliografia/bibliografia.bib}
 
 
@@ -43,7 +45,7 @@
 % ********************************************************************
 % Re-usable information
 % ********************************************************************
-\newcommand{\myTitle}{Título del proyecto\xspace}
+\newcommand{\myTitle}{\xspace}
 \newcommand{\myDegree}{Grado en Ingeniería informática\xspace}
 \newcommand{\myName}{Juan José Martínez Águila\xspace}
 \newcommand{\myProf}{José Manuel Benítez Sánchez\xspace}
@@ -61,8 +63,8 @@ Telecomunicación\xspace}
 
 \hypersetup{
 pdfauthor = {\myName (email (en) ugr (punto) es)},
-pdftitle = {\myTitle},
-pdfsubject = {},
+pdftitle = {Sistema de gestión de logística de mercancias},
+pdfsubject = {Aplicación BlockTrack},
 pdfkeywords = {palabra_clave1, palabra_clave2, palabra_clave3, ...},
 pdfcreator = {LaTeX con el paquete ....},
 pdfproducer = {pdflatex}
@@ -202,9 +204,9 @@ pdfproducer = {pdflatex}
 
 \input{Capitulos/2_Descripcion_del_problema/descripcion_problema.tex}
 
-\input{capitulos/3_planificacion/planificacion.tex}
-
 \input{Capitulos/6_Estado_arte/estado_arte.tex}
+
+\input{capitulos/3_planificacion/planificacion.tex}
 
 \input{capitulos/4_Analisis/analisis.tex}
 
@@ -218,7 +220,7 @@ pdfproducer = {pdflatex}
 %
 \input{Capitulos/7_Implementación/implementacion.tex}
 %
-%\input{capitulos/07_Pruebas}
+\input{capitulos/8_Pruebas/pruebas.tex}
 %
 %\input{capitulos/08_Conclusiones}
 %

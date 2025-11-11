@@ -1,18 +1,69 @@
  \raggedbottom
 \chapter{Introducción}
-\section{Objetivos}
+\section{Contexto y motivación}
+En el contexto actual de la logística y el transporte de mercancías, la trazabilidad se ha convertido en un aspecto clave
+para garantizar la transparencia, la eficiencia y la confianza entre los diferentes actores de la cadena de suministro. Sin embargo, los sistemas tradicionales a menudo
+presentan limitaciones: los datos suelen estar almacenados de manera centralizada, lo que dificulta la verificación de su autenticidad,
+incrementa el riesgo de manipulaciones y complica la interoperabilidad entre empresas y plataformas.\\
 
+La creciente digitalización en operaciones logísticas no siempre ha ido acompañado de soluciones que aseguren la integridad y
+verificabilidad de la información compartida. En un entorno donde participan distintos agentes como enviadores, transportistas y destinatarios, resulta 
+crucial contar con mecanismos y tecnologías que perrmitan rastrear y auditar cada etapa del transporte de forma segura y automática.\\
+
+El presente trabajo se motiva por la necesidad de mejorar la trazabilidad de los envíos, buscando un equilibro entre eficiencia operativa
+y verificabilidad de los datos. Ante este escenario, surge \textit{BlockTrack}, una aplicación web orientada a ofrecer una
+solución innovadora para la trazabilidad del transporte de mercancias. Su propósito es combinar la facilidad de uso de una plataforma
+centralizada con las propiedades de transparencia, inmutabilidad y descentralización que aporta la tecnología blockchain.\\
+
+\textit{BlockTrack} busca garantizar que cada evento o transacción generada durante el proceso logístico como la creación,
+asignación o entrega de una remesa quede registrado de manera segura, verificable y accesible para todos los participantes,
+eliminando la necesidad de intermediarios y validaciones externas.\\
+
+De este modo, la aplicación pretende reforzar la confianza entre enviadores, transportistas y destinatarios, asegurando
+que la información sea íntegra y trazable en todo momento. Al integrar blockchain en un entorno web moderno,
+\textit{BlockTrack} aspira a demostrar cómo esta tecnología puede mejorar la transparencia y eficiencia de la gestión logística,
+al mismo tiempo que facilita la adopción progresiva de soluciones descentralizadas en un sector tradicionalmente dependiente de 
+bases de datos centralizados.
+
+\section{Objetivos}
 \subsection{Objetivo general}
-La idea principal y por tanto objetivo con mayor importancia es el desarrollo de una aplicación web que gestione la logística del transporte de mercancías mediante el uso de blockchain para las transacciones disponiendo de una red donde se pueda ver el seguiemiento de un pedido con total certeza de que no ha sido manipulado y que todo usuario permitido pueda consultar en cualquier momento. \\
+Desarrollar BlockTrack, una aplicación web que utilice tecnología blockchain para mejorar la trazabilidad y transparencia en 
+el transporte de mercancías, permitiendo a los usuarios registrar, verificar y auditar cada etapa del proceso logístico de
+manera segura y descentralizada.
 
 \subsection{Objetivos específicos}
 \begin{enumerate}
-    \item Revisión de soluciones a problemas similares en el ámbito del transporte de mercancías para entender las necesidades y limitaciones del sector.
-    \item Estudio de las tecnologías blockchain disponibles para la implementación de la solución propuesta, evaluando sus características, ventajas y desventajas.
-    \item Estudio de caracter teórico y práctico de contratos inteligentes, su desarrollo y despliegue en la red blockchain seleccionada, así como su integración con aplicaciones web.
-    \item Estudio de frameworks y lenguajes de programación adecuados para el desarrollo de la aplicación web, considerando aspectos como escalabilidad, seguridad y facilidad de uso.
-    \item Gestión de datos en tiempo real con un UI/UX adaptable a cualquier dispositivo.
-    \item Diseño de la arquitectura de la aplicación, definiendo los componentes principales, su interacción y comunicación.
-    \item  Incorporar medidas básicas de seguridad (control de acceso, cifrado en tránsito y gestión de secretos) y registrar accesos para auditoría.
-    \item Verificar la solución mediante pruebas funcionales y de integración sobre los flujos principales, recogiendo evidencias de resultados.
+    \item Analizar las soluciones tecnológicas existentes en el ámbito del transporte de mercancías con el fin de identificar las principales necesidades, limitaciones y oportunidades de mejora del sector.
+    \item Evaluar las distintas tecnologías blockchain disponibles, determinando cuál se adapta mejor a la propuesta de trazabilidad del sistema según sus características, ventajas y limitaciones.
+    \item Diseñar e implementar contratos inteligentes que permitan registrar y garantizar la trazabilidad de las remesas, asegurando su correcta integración con la red blockchain y con la aplicación web.
+    \item Seleccionar y aplicar los frameworks y lenguajes de programación más adecuados para el desarrollo del sistema, atendiendo a criterios de seguridad, escalabilidad y facilidad de mantenimiento.
+    \item Desarrollar una interfaz de usuario adaptable y dinámica (UI/UX), que permita gestionar en tiempo real la información relativa al transporte y facilite la interacción entre los distintos roles del sistema.
+    \item Diseñar la arquitectura completa de la aplicación, definiendo sus componentes principales y los mecanismos de comunicación entre ellos para garantizar una integración eficiente y coherente.
 \end{enumerate}
+
+\subsection{Objetivos personales}
+\begin{enumerate}
+    \item Profundizar en el desarrollo de aplicaciones web completas (full stack) utilizando tecnologías modernas, con el objetivo de afianzar mis competencias profesionales en entornos de desarrollo actuales.
+    \item Aprender a integrar tecnología blockchain en un proyecto real, comprendiendo su funcionamiento, ventajas y desafíos, y aplicándola como herramienta para garantizar la trazabilidad y transparencia en los procesos logísticos.
+    \item Mejorar mis habilidades en el diseño y documentación de arquitecturas software, bases de datos y APIs, aplicando buenas prácticas de Ingeniería del Software y manteniendo una estructura clara, escalable y mantenible.
+    \item Adquirir experiencia en la planificación y gestión de proyectos bajo metodologías ágiles (Scrum), desarrollando la capacidad de organizar tareas, establecer prioridades y cumplir con los plazos establecidos.
+    \item Desarrollar la autonomía y capacidad de resolución de problemas técnicos complejos, enfrentando los retos de integración, seguridad y despliegue propios de un entorno profesional real.
+    \item Consolidar mi crecimiento profesional como ingeniero de software, aplicando los conocimientos adquiridos durante el grado en un proyecto que combine innovación tecnológica y utilidad práctica para el sector del transporte.
+\end{enumerate}
+
+\section{Estructura del documento}
+Este Trabajo de Fin de Grado se organiza en nueve capítulos. A continuación se indica de manera resumida el contenido de cada uno de ellos:
+
+\begin{itemize}
+    \item \textbf{Capítulo 1. Introducción:} Contexto, motivación, justificación y definición de los objetivos generales, específicos y personales del proyecto.
+    \item \textbf{Capítulo 2. Descripción del problema:} Exposición de las limitaciones actuales en la trazabilidad del transporte de mercancías y planteamiento de la necesidad de una solución tecnológica.
+    \item \textbf{Capítulo 3. Estado del Arte:} Análisis de soluciones existentes aplicadas al ámbito logístico.
+    \item \textbf{Capítulo 4. Planificación:} Metodología de trabajo empleada, planificación temporal del desarrollo y recursos utilizados.
+    \item \textbf{Capítulo 5. Análisis:} Definición de requisitos funcionales, no funcionales y de datos. Así como la descripción de los casos de uso y actores implicados.
+    \item \textbf{Capítulo 6. Diseño:} Diseño de la arquitectura de la aplicación, los componentes principales, la base de datos y las interfaces de usuario.
+    \item \textbf{Capítulo 7. Implementación:} Detalles de la construcción del backend, frontend, base de datos y red de blockchain.
+    \item \textbf{Capítulo 8. Pruebas:} Proceso de verificación y validación del sistema mediante pruebas unitarias y funcionales, asegurando el cumplimiento de los requisitos.
+    \item \textbf{Capítulo 9. Conclusiones:} Resultados obtenidos, dificultades encontradas, aprendizajes adquiridos y posibles líneas de mejora y continuidad del proyecto.
+\end{itemize}
+
+Para finalizar el documento, habrá una sección de bibliografía donde estarán recogidas todas las fuentes consultadas.
