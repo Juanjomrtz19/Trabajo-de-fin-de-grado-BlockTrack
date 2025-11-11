@@ -165,7 +165,7 @@ export const editarRemesa = async (
   const body = {
     ...req.body,
     peso: Number(req.body.peso),
-    medida: Number(req.body.medida),
+    medida: req.body.medida,
     nPaquetes: Number(req.body.nPaquetes),
     latEnvio: req.body.latEnvio != null ? Number(req.body.latEnvio) : undefined,
     lngEnvio: req.body.lngEnvio != null ? Number(req.body.lngEnvio) : undefined,

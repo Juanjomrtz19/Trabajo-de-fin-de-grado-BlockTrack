@@ -12,6 +12,8 @@ import Vehicles from "./pages/PrivatesRoutes/Vehicles/Vehicles";
 import HistorialRemesa from "./pages/PrivatesRoutes/HistorialRemesa/HistorialRemesa";
 import Asignacion from "./pages/PrivatesRoutes/Asignacion/Asignacion";
 import Services from "./pages/Services/Services";
+import Contact from "./pages/Contact/Contact";
+import Dashboard from "./pages/PrivatesRoutes/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,7 @@ const router = createBrowserRouter([
           { path: "login", element: <LogIn /> },
           { path: "register", element: <Register /> },
           { path: "services", element: <Services /> },
+          { path: "contact", element: <Contact /> },
         ],
       },
       {
@@ -53,6 +56,9 @@ const router = createBrowserRouter([
           {
             //element: <RequireRole allowed={["TRANSPORTISTA"]} />,
             children: [{ path: "asignaciones", element: <Asignacion /> }],
+          },
+          {
+            children: [{ path: "dashboard", element: <Dashboard /> }],
           },
         ],
       },

@@ -3,14 +3,14 @@
 \section{Arquitectura software}
 Elegir bien la arquitectura que se va a utilizar en un proyecto de ingeniería de software como este es de vital importancia, ya que la elección de una arquitectura inadecuada puede llegar a crear insatisfacción en el cliente final.
 
-Según el estudio \textbf{A Survey on the Integration of Blockchains and Databases} hay tres arquitecturas que podriamos utilizar para dar una solución al problema de este proyecto:
+Según el estudio \textbf{A Survey on the Integration of Blockchains and Databases} hay tres arquitecturas que podríamos utilizar para dar una solución al problema de este proyecto:
 \begin{itemize}
     \item \textbf{Blockchain orientada a base de datos:} Añade características de las bases de datos como  modelo relacional o índices y consultas eficientes entre otras a la red blockchain.
     \item \textbf{Base de datos orientada a blockchain:} Añade características de blockchain a una base de datos tales como inmutabilidad o consenso distribuido entre otras a la base de datos.
-    \item \textbf{Sistemas híbridos:} Integracion equilibrada entre ambos modelos donde la idea es utilizar una base de datos para operaciones comunes y blockchain para información crítica de la lógica de negocio.
+    \item \textbf{Sistemas híbridos:} Integración equilibrada entre ambos modelos donde la idea es utilizar una base de datos para operaciones comunes y blockchain para información crítica de la lógica de negocio.
 \end{itemize}
 
-Para este caso se ha escogido el enfoque de \textbf{Sistema híbrido} debido a que lo mas eficiente es que en la red de blockchain solo se almacene lo esencial, el resto de datos pesados que se necesitan para el correcto funcionamiento de la aplicación se almacenaran en una base de datos tradicional.\\
+Para este caso se ha escogido el enfoque de \textbf{Sistema híbrido} debido a que lo más eficiente es que en la red de blockchain solo se almacene lo esencial, el resto de datos pesados que se necesitan para el correcto funcionamiento de la aplicación se almacenarán en una base de datos tradicional.\\
 
 Teniendo lo discutido anteriormente en cuenta la arquitectura software elegida para este proyecto será una arquitectura a 3 niveles o capas tradicional al que se le añade una capa extra para la blockchain. 
 Esta arquitectura es adecuada para este proyecto ya que permite separar las distintas responsabilidades de la aplicación en capas independientes, facilitando el mantenimiento y escalabilidad del sistema.
@@ -30,20 +30,20 @@ Las capas son las siguientes:
 \end{figure}
 
 \subsection{Comunicación entre capas}
-La comunicación entre el frontend y el backend se realiza mediante peticiones HTTP a una API RESTFull. El formato de la respuesta que envía el backend será en formato JSON.\\
+La comunicación entre el frontend y el backend se realiza mediante peticiones HTTP a una API RESTFul. El formato de la respuesta que envía el backend será en formato JSON.\\
 La comunicación entre el backend y la capa blockchain se realizará a través de un \textit{proveedor de acceso a la red blockchain} (nodo), utilizando llamadas RPC estándar.\\
 La comunicación entre el backend y la base de datos se realizará mediante un ORM (Object-Relational Mapping) que permitirá mapear las entidades del modelo de datos a tablas en la base de datos relacional.\\
 
 \section{Tecnologías usadas}
 \subsection{Para el frontend}
-Las tecnologías más famosas en el mercado para desarrollar intefaces de usuario atractivas y dinámicas son:
+Las tecnologías más famosas en el mercado para desarrollar interfaces de usuario atractivas y dinámicas son:
 \begin{itemize}
     \item \textbf{JavaScript, HTML Y CSS vanilla:} Te permite tener un control total y libertad sobre el código y un rendimiento óptimo sin embargo requiere de un mayor esfuerzo y conocimiento en tareas complejas, código repetitivo y una difícil mantenibilidad del código en el futuro.
     \item \textbf{Vue.js:} Vue es un framework de JavaScript utilizado para construir interfaces de usuario siguiendo los estándares de HTML, CSS y JavaScript. Destaca por su buen rendimiento, ya que su código es compilado, y por su escalabilidad. Además, es compatible con multitud de bibliotecas que permiten extender sus funcionalidades. \href{https://vuejs.org}{Vue.js} Otra
 gran ventaja de vue es su facilidad de aprender y utilizar.
-    \item \textbf{Angular:} Angular es un framework que ayuda al desarrollo de aplicaciones escalables y con una gran comunidad lo que facilita la consulta de información sobre funcionalidades de esta tecnología. Es un framework completo que ofrece una estructura rovusta para aplicaciones más complejas. \hyperlink{Angular}{https://angular.dev}, este posee una curva de aprendizaje más difícil para personas que se esten iniciando en este ecosistema.
+    \item \textbf{Angular:} Angular es un framework que ayuda al desarrollo de aplicaciones escalables y con una gran comunidad lo que facilita la consulta de información sobre funcionalidades de esta tecnología. Es un framework completo que ofrece una estructura robusta para aplicaciones más complejas. \hyperlink{Angular}{https://angular.dev}, este posee una curva de aprendizaje más difícil para personas que se estén iniciando en este ecosistema.
     \item \textbf{React:} React a diferencia de las tecnologías mencionadas anteriormente no es un framework si no una biblioteca para construir interfaces de usuario dinámicas. Te permite la creación de componentes reutilizables a lo largo de todo el frontend, posee de una gran comunidad y componentes ya creados por otros programadores que pueden ser utilizados en otros proyectos y un rendimiento optimizado. \hyperlink{React}{https://react.dev}
-    \item \textbf{Astro:} Astro es un framework de javaScript optimizado para construir webs rápidas. Astro mejora el rendimiento de los sitios webs renderizando el contenido en el servidor y enviando html liviano sin cargar javaScript innecesario, es orientado al contenido del que lo utiliza ya sea cargando los datos desde una API externa, CMS o sistema de archivos y es personalizable a la hora de extenderse con herramientas como componentes, temas,... \hyperlink{Astro}{https://astro.build}.
+    \item \textbf{Astro:} Astro es un framework de JavaScript optimizado para construir webs rápidas. Astro mejora el rendimiento de los sitios webs renderizando el contenido en el servidor y enviando html liviano sin cargar JavaScript innecesario, es orientado al contenido del que lo utiliza ya sea cargando los datos desde una API externa, CMS o sistema de archivos y es personalizable a la hora de extenderse con herramientas como componentes, temas,... \hyperlink{Astro}{https://astro.build}.
 \end{itemize}
 
 La tecnología seleccionada para el desarrollo del frontend es React, ya que se adapta perfectamente a las necesidades del proyecto. Esta librería permite construir interfaces de usuario altamente dinámicas e interactivas, lo cual es fundamental en esta aplicación, dado que la mayoría de las páginas gestionarán contenido en tiempo real y requerirán una actualización constante del estado de la información. También ha ayudado a esta elección el conocimiento ya sabido de esta biblioteca y como utilizarla.
@@ -56,39 +56,37 @@ En este proyecto se ha optado por utilizar TailwindCSS, ya que permite aplicar e
 \subsubsection{Testing}
 Existen varias herramientas que permiten asegurarnos que el código se comporta correctamente en distintas situaciones en react. Las más famosas son:
 \begin{itemize}
-    \item \textbf{PlayWrith:} Es una herramienta creada por microsoft y es utilizado para pruebas de extremo a extremo mas conocidas como \textbf{E2E} permitiendo simular un comportamiento real de un usuario en navegadores modernos actuales. Tiene una curva de aprendizaje pronunciada y no es ideal para lógica interna de la aplicación si no para un comportamiento completo de la aplicación en un navegador. \hyperlink{PlayWrith}{https://playwright.dev}
-    \item \textbf{Jest:} Es un framework de testing creado por meta. Es el más popular para testear aplicaciones React (mencionandose en la propia documentación oficial) y se usa principalmente para test unitarios. Su filosofía se centra en la velocidad y simplificidad funcionando muy bien con bibliotecas como react testing library. \hyperlink{Jest}{https://jestjs.io}
+    \item \textbf{Playwright:} Es una herramienta creada por Microsoft y es utilizado para pruebas de extremo a extremo más conocidas como \textbf{E2E} permitiendo simular un comportamiento real de un usuario en navegadores modernos actuales. Tiene una curva de aprendizaje pronunciada y no es ideal para lógica interna de la aplicación si no para un comportamiento completo de la aplicación en un navegador. \hyperlink{PlayWrith}{https://playwright.dev}
+    \item \textbf{Jest:} Es un framework de testing creado por meta. Es el más popular para testear aplicaciones React (mencionándose en la propia documentación oficial) y se usa principalmente para test unitarios. Su filosofía se centra en la velocidad y simplificidad funcionando muy bien con bibliotecas como react testing library. \hyperlink{Jest}{https://jestjs.io}
     \item \textbf{Cypress:} Es un framework de testing para pruebas de extremo a extremo que permite testear aplicaciones web directamente en el navegador. Es popular por su interfaz visual interactiva y amigable para escribir, ejecutar y depurar pruebas de manera eficiente. \hyperlink{Cypress}{www.cypress.io}
 \end{itemize}
 
-Después de evaluar las distintas herramientas de testing disponibles, se ha optado por utilizar Jest para las pruebas unitarias debido a su excelente integración con React, y Cypress para las pruebas de extremo a extremo, gracias a su interfaz gráfica intuitiva. Esta combinación permitirá cubrir tanto la lógica interna de los componentes como el comportamiento completo de la aplicación desde la perspectiva del usuario final, facilitando además el aprendizaje al no requerir experiencia previa en testing.
+Después de evaluar las distintas herramientas de testing disponibles, se ha optado por utilizar Jest para las pruebas unitarias debido a su excelente integración con React. Esto permitirá cubrir la lógica interna de las distintas entidades y relaciones.
 
 \subsection{Para el backend}
-En el ámbito de servidor existen varios lenguajes como Java, JavaScript, PHP, Python, entre otros, que permitirán programar la lógica de negocio de la aplicación. Para el backend del proyecto se ha decidido utilizar el lenguaje typeScirpt \hyperlink{TypeScript}{https://www.typescriptlang.org}, que es una alternativa a javaScript la cual le añade tipado estático que ayuda a prevenir errores antes de ejecutar el código.Se ha elegido este lenguaje para así unificar el lenguaje de programación tanto en el frontend como en el backend, lo que facilita un desarrollo más fluido, coherente y mantenible.
+En el ámbito de servidor existen varios lenguajes como Java, JavaScript, PHP, Python, entre otros, que permitirán programar la lógica de negocio de la aplicación. Para el backend del proyecto se ha decidido utilizar el lenguaje TypeScript \hyperlink{TypeScript}{https://www.typescriptlang.org}, que es una alternativa a JavaScript la cual le añade tipado estático que ayuda a prevenir errores antes de ejecutar el código.Se ha elegido este lenguaje para así unificar el lenguaje de programación tanto en el frontend como en el backend, lo que facilita un desarrollo más fluido, coherente y mantenible.
 
-Antes de continuar explicando las distintas opciones de frameworks que hay disponibles con typeScript para el backend, cabe recalcar que estos se ejecutaran sobre nodeJS \hyperlink{NodeJs}{https://nodejs.org/en} que es un entorno para ejecutar código javaScript o typeScript fuera del navegador lo que nos permite crear APIs para el backend.
+Antes de continuar explicando las distintas opciones de frameworks que hay disponibles con typeScript para el backend, cabe recalcar que estos se ejecutarán sobre Node.js \hyperlink{Node.js}{https://nodejs.org/en} que es un entorno para ejecutar código JavaScript o typeScript fuera del navegador lo que nos permite crear APIs para el backend.
 
 Los frameworks más populares son:
 \begin{itemize}
-    \item \textbf{NestJS}: Es un framework backend para NodeJs que permite crear aplicacion escalables y bien estructuradas con typeScript. Es ideal para proyectos grandes ya que sigue principios como modularidad, inyección de dependencias y decoradores. \hyperlink{NestJS}{https://nestjs.com}
-    \item \textbf{ExpressJS}: Es un framework para NodeJs que permite crear aplicaciones web y APIs de forma sencilla y rápida. Debido a su facilidad de uso, rendimiento y la cantidad de middleware disponible lo hacen uno de los frameworks más populares. \hyperlink{ExpressJs}{https://expressjs.com}
+    \item \textbf{NestJS}: Es un framework backend para Node.js que permite crear aplicación escalables y bien estructuradas con typeScript. Es ideal para proyectos grandes ya que sigue principios como modularidad, inyección de dependencias y decoradores. \hyperlink{NestJS}{https://nestjs.com}
+    \item \textbf{Express.js}: Es un framework para Node.js que permite crear 
+    es web y APIs de forma sencilla y rápida. Debido a su facilidad de uso, rendimiento y la cantidad de middleware disponible lo hacen uno de los frameworks más populares. \hyperlink{Express.js}{https://expressjs.com}
 \end{itemize}
 
-Se ha decido utilizar expressjs por experiencia previa en proyectos utilizando esta tecnología agilizando la implementación ya que no sería necesario aprender una tecnología.
-
-\subsubsection{Testing}
-Para hacer las pruebas de testing se hará uso del framework jest que se explicó en el apartado anterior.
+Se ha decidido utilizar Express.js por experiencia previa en proyectos utilizando esta tecnología agilizando la implementación ya que no sería necesario aprender una tecnología.
 
 
 \subsection{Base de datos}
 Para saber que opción coger hay que diferenciar los dos principales tipos de base de datos que hay:
 \begin{itemize}
-    \item \textbf{Bases de datos relacionales}: Son un tipo de base de datos que almacenan los datos en formato de tabla, es decir organizan los datos en filas y columnas. Donde cada fila hace referencia a un registro con un ID único y cada columna hace referencia a un atributo de cada registro. Las bases de datos relaciones facilitan la creación de relación entre las distintas entidades de datos. \url{https://www.oracle.com/es/database/what-is-a-relational-database/}
-    \item \textbf{Bases de datos no relacionales}: Este tipo de base de datos almacenan datos de forma diferente al formato de tablas mencionado. Utilizan su propio esquema para almacenar los datos y escalan fácilmente con grandes cantidades de datos y cargas de usuario. En este tipo de base de datos es mas complicado gestionar las relaciones entre entidades aumentando la complejidad en consultas complejas en las que esten implicadas relaciones. 
+    \item \textbf{Bases de datos relacionales}: Son un tipo de base de datos que almacenan los datos en formato de tabla, es decir organizan los datos en filas y columnas. Donde cada fila hace referencia a un registro con un ID único y cada columna hace referencia a un atributo de cada registro. Las bases de datos relacionales facilitan la creación de relación entre las distintas entidades de datos. \url{https://www.oracle.com/es/database/what-is-a-relational-database/}
+    \item \textbf{Bases de datos no relacionales}: Este tipo de base de datos almacenan datos de forma diferente al formato de tablas mencionado. Utilizan su propio esquema para almacenar los datos y escalan fácilmente con grandes cantidades de datos y cargas de usuario. En este tipo de base de datos es más complicado gestionar las relaciones entre entidades aumentando la complejidad en consultas complejas en las que estén implicadas relaciones. 
     \url{https://www.mongodb.com/es/resources/basics/databases/nosql-explained}
 \end{itemize}
 
-\subsubsection{Tipo y GDBD elegido}
+\subsubsection{Tipo y SGBD elegido}
 Se ha decidido utilizar una base de datos relacional por la experiencia en el diseño relacional y utilización del lenguaje SQL. Además encaja a la perfección en este proyecto ya que están definidos claramente una serie de entidades las cuales tienen relaciones entre sí. Gestionar esto en una base de datos noSQL puede acaparar más complejidad.
 
 Los principales gestores de bases de datos relacionales son:
@@ -96,12 +94,12 @@ Los principales gestores de bases de datos relacionales son:
     \item \textbf{MySQL}: Es el sistema gestor de bases de datos de código abierto más popular en el mundo debido a su rendimiento, fiabilidad y facilidad de uso. \href{Mysql}{https://www.mysql.com} \href{https://www.oracle.com/es/mysql/what-is-mysql/}{Mysql en oracle}
     \item \textbf{PostgreSQL}: Es también de código abierto y es conocido por su potencia, estabilidad y cumplimiento del estándar SQL. En consultas complejas puede tener menos rendimiento que en MySQL pero ofrece características como tipos de datos complejos.\href{https://www.postgresql.org/about/}{PostgreSQL}
 \end{itemize}
-Debido a las características del proyecto, una curva de aprendizaje más sencilla y a la buena integración que tiene con nodeJS y express se ha decidido utilizar mySQL.
+Debido a las características del proyecto, una curva de aprendizaje más sencilla y a la buena integración que tiene con Node.js y Express.js se ha decidido utilizar MySQL.
 
 \subsubsection{Diagrama Entidad - Relación}
 El diagrama de entidad-relación (E - R) es una herramienta visual que permite representas las entidades del sistema y
 las relaciones entre ellas.\\
-En el diseño entidad-relación, si el proyecto no usará la tecnología blockchain, habría que definir una relación más que fuera envío para poder
+En el diseño entidad-relación, si el proyecto no usará la tecnología blockchain, habría que definir una relación más que sería ''envío´´ para poder
 gestionar los envíos realizados en la plataforma, lo cual podría complicar el diseño ya que ese punto de información sería uno
 de los más críticos del sistema. Sin embargo, al utilizar la tecnología blockchain, para gestionar los envíos, se puede
 simplificar el modelo de datos eliminando esa relación y dejando la gestión de los envíos a los contratos inteligentes 
@@ -142,7 +140,7 @@ El control de versiones permitirá preservar la integridad del código fuente y 
 \subsubsection{Git}
 Git es un sistema de control de versiones distribuido  para gestionar cualquier tipo de proyecto ya sea grande o pequeño con eficiencia y velocidad. \href{https://git-scm.com}{GIT}
 \subsubsection{GitHub}
-Github es una plataforma basada en la nube donde se puede almacenar, compartir y trabajar con otros usuarios para desarrollar código. Este software esta basado y sirve como apoyo a GIT. \href{https://docs.github.com/es/get-started/start-your-journey/about-github-and-git}{GitHub}.
+GitHub es una plataforma basada en la nube donde se puede almacenar, compartir y trabajar con otros usuarios para desarrollar código. Este software está basado y sirve como apoyo a GIT. \href{https://docs.github.com/es/get-started/start-your-journey/about-github-and-git}{GitHub}.
 
 
 
@@ -151,7 +149,7 @@ Hay distintas tecnologías blockchain que se pueden utilizar para este proyecto.
 Ethereum, Hyperledger Fabric, Solana, Binance Smart Chain, entre otras.
 Después de evaluar las distintas opciones, se ha decidido utilizar Ethereum debido a su amplia adopción, robusta infraestructura y soporte para contratos inteligentes.
 \subsection{Ethereum}
-Ethereum es una plataforma de blockchain de código abierto que permite la creación de contratos inteligentes y aplicaciones descentralizadas (dApps). Su criptomoneda nativa es el Ether (ETH). Ethereum ha sido pionera en la implementación de contratos inteligentes, lo que permite a los desarrolladores crear aplicaciones complejas que se ejecutan en su red. Además, cuenta con una gran comunidad de desarrolladores y una amplia gama de herramientas y bibliotecas que facilitan el desarrollo en su ecosistema. \hyperlink{ethereum}{https://ethereum.org}
+Ethereum es una plataforma de blockchain de código abierto que permite la creación de contratos inteligentes y aplicaciones descentralizadas (dApps). Su criptomoneda nativa es el Ether (ETH). Ethereum ha sido pionera en la implementación de contratos inteligentes, lo que permite a los desarrolladores crear aplicaciones complejas que se ejecutan en su red. Además, cuenta con una gran comunidad de desarrolladores y una amplia gama de herramientas y bibliotecas que facilitan el desarrollo en su ecosistema. \hyperlink{Ethereum}{https://ethereum.org}
 
 \subsection{Contratos inteligentes}
 Los contratos inteligentes son programas informáticos que se ejecutan automáticamente en una red de blockchain
@@ -162,7 +160,7 @@ no pueden ser modificados y su código es accesible para todos los participantes
 
 Para el desarrollo de los contratos inteligentes se utilizará el lenguaje de programación Solidity, que es el lenguaje
 más popular y ampliamente utilizado para escribir contratos inteligentes en la red Ethereum. Solidity es un
-lenguaje de alto nivel similar a c++, lo que facilita su aprendizaje para desarrolladores con experiencia en
+lenguaje de alto nivel similar a C++, lo que facilita su aprendizaje para desarrolladores con experiencia en
 otros lenguajes de programación. \hyperlink{solidity}{https://docs.soliditylang.org/en/v0.8.20/}
 
 El desarrollo y la idea detrás de la programación de los contratos inteligentes es muy parecida a la programación
@@ -232,12 +230,12 @@ integridad del sistema dentro de la plataforma BlockTrack.\\
 \subsection{Por qué garantiza la confianza y trazabilidad.}
 La plataforma registra en la red blockchain los hitos clave del ciclo de vida del envío (creación, aceptación, cambios de estado, transferencias de custodia y entrega) como eventos y estado on-chain. Cada operación está firmada por la dirección del actor correspondiente, lo que aporta no repudio, y queda ordenada e inmutable en la cadena. Las reglas del contrato inteligente garantizan que únicamente los actores autorizados pueden ejecutar cada transición (p. ej., solo el custodio actual puede transferir custodia y solo el receptor puede marcar la entrega). En caso de discrepancias, la información on-chain —respaldada por firmas y consenso— prevalece sobre declaraciones off-chain, proporcionando una fuente de verdad verificable para auditoría y resolución de conflictos, sin exponer datos personales en la cadena.
 
-\subsection{Algoritmo de consenso utilizado por ethereum}
+\subsection{Algoritmo de consenso utilizado por Ethereum}
 
 Según \cite{documentacionEthereum} un mecanismo de consenso en un bloque de ideas, protocolos e incentivos
 diseñados para lograr la concordancia entre los nodos distribuidos sobre el estado de una red blockchain.\\
 
-Por consenso se entiende a que se ha alcanzado un acuerdo general. Esta misma idea se traslada a ethereum,
+Por consenso se entiende a que se ha alcanzado un acuerdo general. Esta misma idea se traslada a Ethereum,
 donde llegar a un consenso significa que al menos el 66\% de los nodos de la red están de acuerdo en el estado
 de la blockchain.\\ 
 
@@ -260,8 +258,8 @@ El diseño de las interfaces de usuario (UI) es un aspecto fundamental para gara
 óptima en la plataforma BlockTrack. El objetivo es crear interfaces intuitivas, atractivas y funcionales que faciliten
 la interacción de los usuarios con la aplicación.\\
 
-\subsubsection{Logos de la aplicacion}
-El logo de la aplicación BlockTrack ha sido creado por chatgpt plus
+\subsubsection{Logos de la aplicación}
+El logo de la aplicación BlockTrack ha sido creado por ChatGPT Plus
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{imagenes/Disenio/logoBlockTrack.png}
@@ -270,7 +268,7 @@ El logo de la aplicación BlockTrack ha sido creado por chatgpt plus
 \end{figure}
 
 Para la creación de iconos a la hora de registrarse en la aplicación y elegir si se va a registrar como transportista o usuario
-también se ha contado con la colaboración de chatgpt plus, que ha generado una serie de iconos representativos para cada rol. Estos iconos se han diseñado para ser fácilmente reconocibles y para transmitir la función de cada rol de manera clara y efectiva.
+también se ha contado con la colaboración de ChatGPT Plus, que ha generado una serie de iconos representativos para cada rol. Estos iconos se han diseñado para ser fácilmente reconocibles y para transmitir la función de cada rol de manera clara y efectiva.
 
 \begin{figure}[htbp]
   \centering
@@ -334,7 +332,7 @@ A continuación, se presentan algunos de los mockups diseñados para la aplicaci
 \begin{itemize}
     \item \textbf{Responsive Web Design:} El diseño de la apliación se adapta a diferentes tamaños de pantalla y dispositivos,
     asegurando una experiencia de usuario óptima tanto en ordenadores de escritorio como en dispositivos móviles. Es importante ya que los transportistas
-    necesitarán acceder a la aplicación desde sus teléfono móviles.\\
+    necesitarán acceder a la aplicación desde sus teléfonos móviles.\\
 
     \item \textbf{Arquitectura basada en componentes:} Las pantallas de la aplicación más complejas se dividen o se construyen 
     a partir de componentes reutilizables, lo que facilita el mantenimiento y la escalabilidad del código. Al reutilizar estos componentes más atómicos
@@ -346,7 +344,7 @@ Para la paleta de colores de la aplicación se han cogido colores azules y anara
 y profesionalismo, valores que son fundamentales en una plataforma de seguimiento de envíos. El naranja aporta un toque
 de energía, dinamismo y accesibilidad, haciendo que la interfaz sea más atractiva y amigable para los usuarios.\\
 
-Además se han establecido un color de advertencia (amarillo), un color de error(rojo) y un color de éxito (verde) para
+Además se han establecido un color de advertencia (amarillo), un color de error (rojo) y un color de éxito (verde) para
 diferenciar los distintos estados de las acciones realizadas por los usuarios en la aplicación.\\
 
 \begin{figure}[H]

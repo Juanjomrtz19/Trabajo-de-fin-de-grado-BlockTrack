@@ -309,7 +309,6 @@ export async function asignarTransportistas(
   candidatos: Transportista[],
   radioKm = 50
 ) {
-  // trabajamos sobre una copia para no mutar el array original
   const pool = [...candidatos];
   const asignaciones: {
     checkpoint: Coordenadas;
@@ -320,22 +319,20 @@ export async function asignarTransportistas(
   }[] = [];
 
   for (const cp of checkpoints) {
-    // Mapea candidatos con coordenadas válidas + distancia
     const conDist = pool
       .map((t) => {
         const lat = toNum(t.zonaOperativaLat);
         const lng = toNum(t.zonaOperativaLng);
-        if (lat == null || lng == null) return null; // sin coordenadas -> ignora
+        if (lat == null || lng == null) return null;
         const d = haversineKm(cp, { lat, lng });
         return { t, d };
       })
       .filter((x): x is { t: Transportista; d: number } => !!x)
       .sort((a, b) => a.d - b.d);
 
-    // 1) intenta dentro del radio
     const dentro = conDist.find((x) => x.d <= radioKm);
 
-    // 2) si no hay, coge el más cercano de todos (fallback)
+    //si no hay, coge el más cercano de todos (fallback)
     const elegido = dentro?.t ?? conDist[0]?.t;
     const distancia = dentro?.d ?? conDist[0]?.d;
 
@@ -349,11 +346,9 @@ export async function asignarTransportistas(
         distanciaKm: distancia,
         dentroDeRadio: distancia! <= radioKm,
       });
-      // exclusividad: elimina del pool
       const idx = pool.findIndex((c) => c.id === elegido.id);
       if (idx >= 0) pool.splice(idx, 1);
     } else {
-      // no hay ningún candidato con coordenadas válidas
       asignaciones.push({
         checkpoint: cp,
         direccion: dir,

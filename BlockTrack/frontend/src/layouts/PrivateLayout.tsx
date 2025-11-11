@@ -17,13 +17,13 @@ const PrivateLayout = () => {
 
   const privateRoutesClient = [
     { path: "/admin", name: "Settings" },
-    { path: "admin/dashboard", name: "Dashboard" },
+    { path: "/admin/dashboard", name: "Dashboard" },
     { path: "/admin/remesas", name: "Remesas" },
   ];
 
   const privateRoutesTransportista = [
     { path: "/admin", name: "Settings" },
-    { path: "admin/dashboard", name: "Dashboard" },
+    { path: "/admin/dashboard", name: "Dashboard" },
     { path: "/admin/vehiculos", name: "Vehículos" },
     {
       path: "/admin/asignaciones",

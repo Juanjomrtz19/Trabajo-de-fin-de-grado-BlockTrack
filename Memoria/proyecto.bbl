@@ -379,6 +379,61 @@
       \verb https://riunet.upv.es/entities/publication/b94c209b-1db7-43f6-b6ab-237c93bd0455
       \endverb
     \endentry
+    \entry{historiasDeUsuario}{book}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=47a02562416962f4257b9415533aad1c}{%
+           family={Menzinsky},
+           familyi={M\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=54cb8f6e81aefa8174a86f7a7b2eb4d7}{%
+           family={López},
+           familyi={L\bibinitperiod},
+           given={Gertrudis},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38d6ff8e936016742c7c478d770844eb}{%
+           family={Palacio},
+           familyi={P\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23d7fc0ea71111f10e100fc642efefca}{%
+           family={Sobrino},
+           familyi={S\bibinitperiod},
+           given={Miguel\bibnamedelima Ángel},
+           giveni={M\bibinitperiod\bibinitdelim Á\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41e4659cdd560cfaa74d096ce3578ba2}{%
+           family={Álvarez},
+           familyi={Á\bibinitperiod},
+           given={Rubén},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=276d7b9b8d8707da5c0e60beda1221d1}{%
+           family={Rivas},
+           familyi={R\bibinitperiod},
+           given={Verónica},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8a96247b4cead75c9c42ae3c000971f2}
+      \strng{fullhash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \strng{bibnamehash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \strng{authorbibnamehash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \strng{authornamehash}{8a96247b4cead75c9c42ae3c000971f2}
+      \strng{authorfullhash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Historias de usuario}
+      \field{year}{2022}
+    \endentry
     \entry{whatIsBlockchain}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=ce1910f7bfc12f2e93b3c417310a8ef7}{%
@@ -966,6 +1021,61 @@
       \verb{url}
       \verb https://riunet.upv.es/entities/publication/b94c209b-1db7-43f6-b6ab-237c93bd0455
       \endverb
+    \endentry
+    \entry{historiasDeUsuario}{book}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=47a02562416962f4257b9415533aad1c}{%
+           family={Menzinsky},
+           familyi={M\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=54cb8f6e81aefa8174a86f7a7b2eb4d7}{%
+           family={López},
+           familyi={L\bibinitperiod},
+           given={Gertrudis},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38d6ff8e936016742c7c478d770844eb}{%
+           family={Palacio},
+           familyi={P\bibinitperiod},
+           given={Juan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23d7fc0ea71111f10e100fc642efefca}{%
+           family={Sobrino},
+           familyi={S\bibinitperiod},
+           given={Miguel\bibnamedelima Ángel},
+           giveni={M\bibinitperiod\bibinitdelim Á\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41e4659cdd560cfaa74d096ce3578ba2}{%
+           family={Álvarez},
+           familyi={Á\bibinitperiod},
+           given={Rubén},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=276d7b9b8d8707da5c0e60beda1221d1}{%
+           family={Rivas},
+           familyi={R\bibinitperiod},
+           given={Verónica},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8a96247b4cead75c9c42ae3c000971f2}
+      \strng{fullhash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \strng{bibnamehash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \strng{authorbibnamehash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \strng{authornamehash}{8a96247b4cead75c9c42ae3c000971f2}
+      \strng{authorfullhash}{e3e3cbdfb8df62cea690b9d52dd77952}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Historias de usuario}
+      \field{year}{2022}
     \endentry
     \entry{whatIsBlockchain}{article}{}
       \name{author}{1}{}{%

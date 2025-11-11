@@ -1,0 +1,124 @@
+\raggedbottom
+\chapter{Conclusión}
+
+El desarrollo de BlockTrack ha permitido explorar y aplicar diversas tecnologías emergentes en el ámbito de la 
+trazabilidad de logística de mercancías. A lo largo de este proyecto, se ha demostrado cómo la integración de blockchain,
+puede ofrecer una solución robusta y segura para el seguimiento de productos a lo largo de la cadena de suministro.
+
+Es cierto que, se ha aplicado en un caso de uso específico como es el transporte por carretera, pero los principios y 
+tecnologías implementadas son fácilmente adaptables a otros modos de transporte y sectores industriales. La capacidad
+de personalización y escalabilidad del sistema desarrollado abre la puerta a futuras expansiones y mejoras.
+
+\section{Análisis del cumplimiento de los objetivos}
+El objetivo general del proyecto es desarrollar una solución de trazabilidad logística utilizando tecnologías blockchain.
+Como hemos visto, a lo largo del desarrollo de BlockTrack, en capítulos anteriores; como análisis de requisitos, diseño
+de la arquitectura, implementación y pruebas, se ha cumplido con éxito este objetivo. La combinación de tecnologías usadas
+para desarrollo de aplicaciones centralizadas y descentralizadas ha permitido crear una plataforma funcional y eficiente donde
+el seguimiento de mercancías es transparente y seguro.
+
+\section{Cumplimiento objetivos específicos}
+\begin{itemize}
+    \item \textbf{La aplicación deberá permitir la gestión completa de remesas: Cumplido.} La aplicación permite
+gestionar remesas desde su creación hasta su entrega, incluyendo la actualización de estados y la visualización, además de operaciones básicas,
+como edición de la misma.
+    \item \textbf{ Uso de una red blockchain para registrar eventos clave en el ciclo de
+vida de una remesa, garantizando la inmutabilidad y verificabilidad de
+los datos: Cumplido.} A lo largo de este documento, se ha detallado y explicado cómo se ha implementado, estudiado y probado el uso de
+blockchain para registrar eventos clave en el ciclo de vida de una remesa.
+    \item \textbf{Diseñar e implementar contratos inteligentes que permitan registrar
+y garantizar la trazabilidad de las remesas, asegurando su correcta
+integración con la red blockchain y con la aplicación web: Cumplido.} Se han diseñado, implementado y probado contratos inteligentes para automatizar 
+la gestión y trazabilidad de las remesas, asegurando su correcta integración con la red blockchain y la aplicación web.
+    \item \textbf{Seguimiento de remesas en tiempo real, proporcionando a los usuarios
+información actualizada sobre el estado de sus envíos: Cumplido.} Debido a las propiedades de descentralización de la red blockchain, cada vez que el usuario ejecuta una acción
+sobre una remesa, esta desemboca en una acción automatizada por el smart contract que añade una nueva transacción a la cadena de blockchain. Debido a que cada usuario tiene una copia
+actualizada de la cadena, el seguimiento en tiempo real está garantizado.
+    \item \textbf{Implementar mecanismos de autenticación y autorización robustos para
+     garantizar la seguridad y privacidad de los datos de los usuarios: Cumplido.} Se han implementado mecanismos de autentificación y autorización robustos utilizando
+        tecnologías modernas como JWT y bcrypt, garantizando la seguridad y privacidad de los datos de los usuarios.
+    \item \textbf{Desarrollar una interfaz de usuario intuitiva y accesible que facilite
+la interacción con la aplicación y la visualización de la información
+relevante: Cumplido.} La UI ha sido diseñada con un enfoque en la experiencia del usuario, utilizando frameworks 
+modernos como React y TailwindCSS para crear una interfaz intuitiva y accesible. Siguiendo patrones como diseño móvil responsivo y
+diseño basado en componentes, facilitándose así la coherencia y reutilización de elementos en toda la aplicación.
+\end{itemize}
+
+\section{Profundización en objetivos personales}
+A nivel personal, este proyecto ha supuesto un reto significativo para mí, ya que me ha permitido
+profundizar en áreas tecnológicas que eran nuevas para mí, como blockchain y contratos inteligentes. Ha sido
+muy satisfactorio ver todo lo que he profundizado y aprendido a lo largo del desarrollo de BlockTrack sobre estas
+tecnologías, y cómo he podido aplicarlas de manera práctica en un proyecto real. \\
+
+Además, el proyecto me ha brindado la oportunidad de mejorar mis habilidades en desarrollo web, tanto en el lado
+del frontend como del backend. He aprendido a trabajar con diversas herramientas y frameworks, lo que ha enriquecido
+mi conjunto de habilidades y me ha preparado mejor para futuros desafíos en el campo del desarrollo de software. \\
+
+En resumen, BlockTrack no solo ha cumplido con los objetivos planteados al inicio del proyecto, sino que también
+ha sido una experiencia muy gratificante a nivel personal y profesional aunque en determinados momentos haya
+supuesto un desafío.
+
+\section{Trabajos futuros}
+Aunque BlockTrack ha logrado cumplir con sus objetivos iniciales, ha conseguido probar que la tecnología blockchain
+puede ser una solución efectiva para la gestión de remesas. Sin embargo, existen varias áreas en las que se podría
+mejorar y expandir el proyecto en el futuro:
+
+\begin{itemize}
+    \item \textbf{Integración con IoT:} La incorporación de dispositivos IoT para el seguimiento en tiempo real de las
+    condiciones de las mercancías (temperatura, humedad, ubicación GPS) podría mejorar significativamente la trazabilidad y
+    seguridad de las remesas.
+    \item \textbf{Escalabilidad:} Investigar y aplicar soluciones de escalabilidad para blockchain, como redes de segunda capa,
+    podría mejorar el rendimiento y reducir los costos de transacción a medida que la plataforma crece.
+    \item \textbf{Gestión de aduanas:} Implementar funcionalidades específicas para la gestión de aduanas y regulaciones internacionales
+   podría ampliar el alcance a nivel global. La blockchain podría utilizarse para almacenar y verificar documentos aduaneros de manera segura.
+    \item \textbf{Análisis de datos:} Desarrollar herramientas de análisis de datos para proporcionar a los usuarios información
+    valiosa sobre sus remesas, como patrones de envío, tiempos de entrega y posibles áreas de mejora en la cadena de suministro.
+    \item \textbf{Mejora de la interfaz de usuario:} Continuar mejorando la experiencia del usuario mediante la incorporación
+    de nuevas funcionalidades y optimizaciones basadas en el feedback de los usuarios.
+    \item \textbf{Soporte para distintos tipos de transporte:} Ampliar la plataforma para soportar otros modos de transporte,
+    como marítimo, aéreo y ferroviario, para ofrecer una solución más completa de trazabilidad logística.
+\end{itemize}
+
+\section{Planificación final ajustada}
+A lo largo del desarrollo de BlockTrack, la planificación inicial ha sufrido varios ajustes debido a diversos factores,
+como la complejidad técnica de ciertas implementaciones y la necesidad de dedicar más tiempo a la investigación de blockchain, Ethereum y smart contracts.\\
+
+También influyó que en medio del desarrollo del proyecto, comencé a trabajar en una empresa del sector tecnológico, lo que
+afectó a mi disponibilidad de tiempo para dedicar al proyecto. \\
+
+Ajustes en los requisitos iniciales también llevaron a cambios en la planificación, ya que algunas funcionalidades se añadieron o modificaron
+durante el desarrollo como por ejemplo por falta de conocimiento previo, no tuve en cuenta que toda la información referente al envío quedaría registrada en la blockchain por lo que
+no sería necesario almacenar ciertos datos en la base de datos centralizada. Llevando a cambios en el diagrama E-R, paso a tablas,...\\
+
+La planificación definitiva es la siguiente:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{|p{8cm}|c|}
+\hline
+\textbf{Fase} & \textbf{Duración (días)} \\ \hline
+Investigación sobre el problema & 14 \\ \hline
+Análisis de requisitos & 20 \\ \hline
+Investigación sobre las tecnologías más eficaces para el desarrollo & 10 \\ \hline
+Escritura de la memoria técnica & 60 \\ \hline
+Desarrollo MVP & 88 \\ \hline
+Investigación soluciones planificación de rutas & 10 \\ \hline
+Investigación tecnología blockchain & 30 \\ \hline
+Investigación Ethereum, smart contracts y como conectarlo con backend y frontend & 20 \\ \hline
+Implementación de smart contract y ethereum & 20 \\ \hline
+Corrección de bug & 17 \\ \hline
+\textbf{TOTAL} & \textbf{289 DÍAS} \\ \hline
+\end{tabular}
+\caption{Planificación temporal del proyecto}
+\label{tab:planificacion}
+\end{table}
+
+\section{Reflexión final}
+Para terminar, me gustaría destacar que este proyecto ha sido una experiencia de aprendizaje invaluable. Me ha permitido
+adentrarme en el mundo de las tecnologías blockchain y su aplicación práctica en la logística, 
+lo cual considero que es un campo con un gran potencial de crecimiento en el futuro y con todavía frentes abiertos para resolver.\\
+
+Considero que este TFG da como resultado una demostración sólida de cómo las tecnologías emergentes pueden integrarse en
+soluciones prácticas para problemas del mundo real, fascinándome cómo de fácil permite blockchain mejorar la trazabilidad y seguridad en
+la gestión de remesas. Estoy entusiasmado por las posibilidades futuras que estas tecnologías ofrecen y espero seguir explorándolas en mi carrera profesional. 
+

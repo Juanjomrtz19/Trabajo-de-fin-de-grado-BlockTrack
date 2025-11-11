@@ -4,7 +4,7 @@
 \section{Implementación del backend}
 El backend de una aplicación web es la parte que se encarga de gestionar la lógica de negocio,
 la comunicación con la base de datos y la API REST que se utiliza para interactuar con el frontend.
-Su desarrollo se ha realizado utilizando el framework \texttt{express.js} de \texttt{Node.js},
+Su desarrollo se ha realizado utilizando el framework \texttt{Express.js} de \texttt{Node.js},
 que permite crear aplicaciones web de manera sencilla y rápida.
 
 \subsection{Estructura de carpetas}
@@ -30,7 +30,7 @@ que permite crear aplicaciones web de manera sencilla y rápida.
 \end{itemize}
 
 \subsection{API REST}
-La API REST del backend se ha diseñado siguiendo los principio RESTFull, utilizando los métodos HTTP adecuados para cada operación.
+La API REST del backend se ha diseñado siguiendo los principio RESTFul, utilizando los métodos HTTP adecuados para cada operación.
 \begin{itemize}
 \item \textbf{GET}: para obtener datos.
 \item \textbf{POST}: para crear nuevos recursos.
@@ -76,7 +76,7 @@ Cuando se realiza una petición a un endpoint de la API REST, el flujo de llamad
 Por ejemplo para la creación de una remesa, el flujo sería:
 \begin{itemize}
     \item El método HTTP que debe realizar el cliente es \texttt{POST}.
-    \item La petición tiene que hacerse desde la url \texttt{/api/remesas}.
+    \item La petición tiene que hacerse desde la URL \texttt{/api/remesas}.
     \item La petición tiene que incluir un token JWT en la cabecera de autorización válido.
     \item El cuerpo de la petición debe incluir los datos necesarios para crear la remesa.
 \end{itemize}
@@ -122,7 +122,7 @@ Para garantizar la seguridad del backend, se han implementado las siguientes med
         \item El backend verifica el token JWT en cada petición y permite o deniega el acceso.
     \end{enumerate}
     \item \textbf{Validación de datos}: se validan los datos de entrada en los controladores para
-    evitar inyecciones SQL y otros ataques. Esto se consigue con la ayuda de librerías como \textit{YUP} y gracias a la ayuda
+    evitar inyecciones SQL y otros ataques. Esto se consigue con la ayuda de librerías como \textit{Yup} y gracias a la ayuda
     de typeScript que permite definir tipos de datos estrictos. Si una validación falla automáticamente el backend responde 
     con un error \texttt{400 Bad Request}.
     \item \textbf{Cifrado de contraseñas}: Es importante almacenar las contraseñas de los usuarios de forma segura.
@@ -138,6 +138,30 @@ Para garantizar la seguridad del backend, se han implementado las siguientes med
         \item \textbf{Saneado de entradas}: se aplica un middleware que recorre \texttt{req.body} y \texttt{req.query} y limpia todas las cadenas con la librería \texttt{xss} antes de llegar a las rutas, mitigando cargas como \texttt{<script>} o atributos \texttt{onerror=} si posteriormente se renderizan en el cliente.
         \end{itemize}
 \end{itemize}
+
+\subsection{Algoritmo de planificación de rutas}
+Para optimizar la asignación de transportistas a las remesas, se ha implementado un algoritmo Voraz que tiene en cuenta
+la proximidad geográfica y la disponibilidad de los transportistas.\\
+
+Primero tener en cuenta que para obtener las coordenadas geográficas cuando un usuario ingresa una dirección se ha utilizado la API de
+\textit{LocationIQ}. \href{https://es.locationiq.com}{LocationIQ} es un servicio de geocodificación que permite convertir
+direcciones en coordenadas geográficas (latitud y longitud) y viceversa entre otros servicios.\\
+
+El algoritmo voraz funciona de la siguiente manera:
+\begin{enumerate}
+    \item Se hace una búsqueda en la base de datos de los transportistas disponibles con vehículo que puedan realizar el envío.
+    \item Se calcula cuántos transportistas serán necesarios en función de la distancia que hay entre el punto donde se recoge la remesa y el punto donde se entrega.
+    Se ha tenido en cuenta que un transportista solo puede conducir un máximo de 5 horas por día.
+    \item Se selecciona en función de la distancia geográfica respecto a la remesa a enviar el transportista más cercano.
+    \item Cada vez que se asigna un transportista se calcula el punto donde deberá entregar la remesa ya sea al cliente final o al siguiente transportista.
+    \item Se repite el proceso hasta que se hayan asignado todos los transportistas necesarios.
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/codigoImplementacionAsignarTransportistasARemesas.jpg}
+    \caption{Código algoritmo}
+    \label{fig:algoritmo_voraz_asignacion_transportistas}
+\end{figure}
 
 \section{Implementación del frontend}
 \subsection{Arquitectura en el frontend}
@@ -168,7 +192,7 @@ como por ejemplo botones, tablas, loaders, etc. o layouts que son componentes co
 a partir de estos comunes y que son utilizados en varias páginas como el navbar, footer,...
 \item \textbf{\texttt{src/hooks}}: definición de los hooks personalizados. Se utilizan para encapsular la lógica de negocio y el estado de los componentes.
 \item \textbf{\texttt{src/layout}}: componentes que definen la estructura común o general de una página. Aquí al ser un componente común por ejemplo a las páginas
-de los usuarios que estan autenticados, es una buena práctica introducir esta lógica en un layout.
+de los usuarios que están autenticados, es una buena práctica introducir esta lógica en un layout.
 \item \textbf{\texttt{src/pages}}: páginas de la aplicación. Cada página representa una vista completa de la aplicación. Por ejemplo la página de login, la página de gestionar remesas, etc.
 \item \textbf{\texttt{src/sockets}}: lógica de comunicación en tiempo real mediante WebSockets. Es decir, la configuración
 y manejo de eventos para la comunicación bidireccional entre el cliente y el servidor.
@@ -210,6 +234,56 @@ y la creación de estilos personalizados.\\
 Se han elegido colores con contrastes y tipografías que mejoran la legibilidad y la usabilidad de la aplicación.
 Además, se han implementado animaciones y transiciones suaves para mejorar la interacción.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/capturasPantalla/home.jpg}
+    \caption{Interfaz de usuario del frontend (1/7)}
+    \label{fig:interfaz_usuario_frontend_1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/capturasPantalla/login.jpg}
+    \caption{Interfaz de usuario del frontend (2/7)}
+    \label{fig:interfaz_usuario_frontend_2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/capturasPantalla/register.jpg}
+    \caption{Interfaz de usuario del frontend (3/7)}
+    \label{fig:interfaz_usuario_frontend_3}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/capturasPantalla/remesas.jpg}
+    \caption{Interfaz de usuario del frontend (4/7)}
+    \label{fig:interfaz_usuario_frontend_4}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/capturasPantalla/remesas.jpg}
+    \caption{Interfaz de usuario del frontend (5/7)}
+    \label{fig:interfaz_usuario_frontend_5}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/capturasPantalla/seguimientoEnvio.jpg}
+    \caption{Interfaz de usuario del frontend (6/7)}
+    \label{fig:interfaz_usuario_frontend_6}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/Implementacion/capturasPantalla/transportistaMenu.jpg}
+    \caption{Interfaz de usuario del frontend (7/7)}
+    \label{fig:interfaz_usuario_frontend_6}
+\end{figure}
+
+
+
 
 \subsection{Rendimiento}
 Para optimizar el rendimiento del frontend, se han implementado las siguientes técnicas:
@@ -219,16 +293,16 @@ Para optimizar el rendimiento del frontend, se han implementado las siguientes t
     los componentes y recursos se cargan solo cuando son necesarios, mejorando la velocidad
     de la aplicación.
     \item \textbf{Optimización de imágenes}: se han utilizado formatos de imagen modernos como
-    webP y se han comprimido las imágenes para reducir su tamaño sin perder calidad.
+    WebP y se han comprimido las imágenes para reducir su tamaño sin perder calidad.
     \item \textbf{Optimización de re-renders}: En React, cada vez que se detecta que ha habido un cambio
     en el estado se realizan los llamados re-renders para actualizar la interfaz de usuario. Estos rerenders se producen
-    desde el componente raiz donde se produce el cambio del estado hasta todos los componentes hijos aunque 
+    desde el componente raíz donde se produce el cambio del estado hasta todos los componentes hijos aunque 
     no tengan la necesidad de actualizarse. Para evitar estos re-renders se han utilizado técnicas y/o patrones de diseño
     para extraer todos los componentes que tengan un estado propio que no debería afectar a otros y se les ha separado a un componente independiente de los hijos
     para que solo se rendericen cuando su propio estado cambie mejorando así el rendimiento.
 \end{itemize}
 
-\section{Red ethereum}
+\section{Red Ethereum}
 La red Ethereum se encarga de almacenar la información de trazabilidad y autenticidad
 de las remesas de manera segura y descentralizada.\\
 Para interactuar con la red Ethereum, se ha utilizado la librería \textit{ethers.js}, que
@@ -268,7 +342,7 @@ probarlo sin necesidad de desplegarlo en una red pública.\\
 
 Una vez el contrato inteligente ha sido probado y corregido, es hora de pasarlo al código del
 proyecto. Para ello necesitamos pasar el código del contrato inteligente a un archivo \textit{.sol}.
-Luego, se crearan los test para testear el contrato inteligente utilizando librerias javascript como MOCHA.\\
+Luego, se crearán los test para testear el contrato inteligente utilizando librerías javascript como Mocha.\\
 
 \begin{figure}[H]
     \centering
@@ -345,7 +419,7 @@ En el entorno de pruebas (Hardhat), se emplean \textbf{wallets ficticias} para s
 \item \textbf{Fondeo opcional}: se intenta fondear la dirección con ETH de prueba para permitir transacciones firmadas en la red local (\textit{faucet} interno). Si falla, no se bloquea el registro.
 \end{enumerate}
 
-\subsubsection{Descripción del flujo (código mostrado)}
+\subsubsection{Descripción del flujo }
 \begin{enumerate}
 \item \textbf{Creación del usuario y entidad dependiente}: se crea la fila en \texttt{usuario} y, según el rol, se crea \texttt{cliente} o \texttt{transportista} dentro de una transacción de base de datos.
 \item \textbf{Derivación de dirección}: se calcula un \texttt{walletIndex} (p.,ej., \texttt{id-1}) y, con una función utilitaria (\texttt{addressFromIndex}), se obtiene la \texttt{walletAddress}.

@@ -6,6 +6,7 @@ import remesaRoutes from "./routes/remesa";
 import transportistaRoutes from "./routes/transportista";
 import transporteRoutes from "./routes/transporte";
 import conduceRoutes from "./routes/conduce";
+import estadisticasRoutes from "./routes/estadisticas";
 import cookieParser from "cookie-parser";
 import http from "http";
 import { initSocket } from "./sockets";
@@ -63,6 +64,7 @@ app.use("/remesas", remesaRoutes);
 app.use("/transportistas", transportistaRoutes);
 app.use("/transportes", transporteRoutes);
 app.use("/conduce", conduceRoutes);
+app.use("/estadisticas", estadisticasRoutes);
 
 const server = http.createServer(app);
 initSocket(server);
